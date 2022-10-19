@@ -9,13 +9,11 @@ OUTPUT_DIR = path.join(ROOT_DIR, 'output')
 if not path.exists(DATA_DIR):
     makedirs(DATA_DIR)
 
-install_requires=[
-    'spacy',
-    'it_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-3.0.0/it_core_news_sm-3.0.0.tar.gz',
-],
+if not path.exists(OUTPUT_DIR):
+    makedirs(OUTPUT_DIR)
+
 
 nlp = spacy.load("it_core_news_sm")
-
 
 if __name__ == '__main__':
     print(DATA_DIR)
