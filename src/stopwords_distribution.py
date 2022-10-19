@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import csv
 import plotly.express as px
+from settings import *
 
 def is_number(n):
     '''
@@ -50,7 +51,6 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = F
     :param save: if True it allows to save the new sentences, without stopwords into a txt file
     :return: a Tuple containing as first argument the list of stopwords that were found and the average amount of stopwords for sentences
     '''
-    nlp = spacy.load("it_core_news_sm")
 
     if filter:
         #nlp.Defaults.stop_words |= {"i","I", 'molte', 'molti'}
@@ -91,7 +91,7 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = F
         t = 'Simple'
 
     if save:
-        with open(f'/Users/francesca/PycharmProjects/pythonProject/ADV_no_stop_sentences_{type_sent}.txt', 'w') as fp:
+        with open(OUTPUT_DIR + '/ADV_no_stop_sentences_{type_sent}.txt', 'w') as fp:
             for item in sentences_final:
                 # write each item on a new line
                 fp.write("%s\n" % item)
