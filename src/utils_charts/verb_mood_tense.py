@@ -1,15 +1,10 @@
 from collections import OrderedDict
-import plotly.graph_objects as go
-from stopwords_distribution import is_number
-from subject_verb_object_extract import findSVOs
-from settings import *
-from collections import OrderedDict
 
 import plotly.graph_objects as go
 
 from settings import *
-from stopwords_distribution import is_number
-from subject_verb_object_extract import findSVOs
+from utils_charts.stopwords_distribution import is_number
+from utils_charts.subject_verb_object_extract import findSVOs
 
 
 def verbal_features(typev, filename):
