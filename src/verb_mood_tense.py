@@ -1,9 +1,16 @@
-import spacy
 from collections import OrderedDict
 import plotly.graph_objects as go
 from stopwords_distribution import is_number
 from subject_verb_object_extract import findSVOs
 from settings import *
+from collections import OrderedDict
+
+import plotly.graph_objects as go
+
+from settings import *
+from stopwords_distribution import is_number
+from subject_verb_object_extract import findSVOs
+
 
 def verbal_features(typev, filename):
     '''
@@ -36,8 +43,6 @@ def verbal_features(typev, filename):
     return collection
 
 
-
-
 def double_barplot(complex, simple, color1, color2):
     '''
     This function allows to produce a double barplot which compares the distribution of verbal features in complex and simple sentences
@@ -48,16 +53,14 @@ def double_barplot(complex, simple, color1, color2):
     ordered_dict1 = OrderedDict(sorted(simple.items(), key=lambda t: t[0]))
     ordered_dict2 = OrderedDict(sorted(complex.items(), key=lambda t: t[0]))
 
-    key1,value1 = list(ordered_dict1.keys()), list(ordered_dict1.values())
+    key1, value1 = list(ordered_dict1.keys()), list(ordered_dict1.values())
     key2, value2 = list(ordered_dict2.keys()), list(ordered_dict2.values())
 
-
     tot_simple_1 = sum(value1)
-    y_simple_final = [round(ele/tot_simple_1, 2) for ele in value1]
+    y_simple_final = [round(ele / tot_simple_1, 2) for ele in value1]
 
     tot_complex_1 = sum(value2)
-    y_complex_final = [round(ele/tot_complex_1, 2) for ele in value2]
-
+    y_complex_final = [round(ele / tot_complex_1, 2) for ele in value2]
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -74,7 +77,8 @@ def double_barplot(complex, simple, color1, color2):
     ))
 
     # Here we modify the tickangle of the xaxis, resulting in rotated labels.
-    fig.update_layout(barmode='group', xaxis_tickangle=-45, title_text='Mood distribution in Complex and Simple Sentences', font = dict(size = 29))
+    fig.update_layout(barmode='group', xaxis_tickangle=-45,
+                      title_text='Mood distribution in Complex and Simple Sentences', font=dict(size=29))
     fig.update_traces(width=0.4)
     fig.update_xaxes(title_text="Type of verbal feature")
     fig.update_yaxes(title_text="Average percentage of moods in the corpus")
@@ -105,7 +109,7 @@ def coord_subord(corpus, sentence_type, which_POS):
     return sum(list(coll.values())), coll
 
 
-def amount_SVO(corpus,sentence_type):
+def amount_SVO(corpus, sentence_type):
     '''
     This function allows to calculate the amount of Subject Verb Object phrases present in the corpus sentences
     :param corpus: corpus we are referring to
@@ -117,6 +121,6 @@ def amount_SVO(corpus,sentence_type):
         doc = nlp(sentence)
         svos = findSVOs(doc)
         if len(svos) > 0:
-            count +=1
+            count += 1
 
     return count

@@ -1,4 +1,5 @@
-from os import path, environ, makedirs
+from os import path, makedirs
+
 import spacy
 
 SRC_ROOT_DIR = path.dirname(path.realpath(__file__))  # path to this script

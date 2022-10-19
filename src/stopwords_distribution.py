@@ -1,10 +1,11 @@
-import spacy
-from spacy.lang.it.examples import sentences
-import numpy as np
 import pandas as pd
-import csv
 import plotly.express as px
 from settings import *
+import pandas as pd
+import plotly.express as px
+
+from settings import *
+
 
 def is_number(n):
     '''
