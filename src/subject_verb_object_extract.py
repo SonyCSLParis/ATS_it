@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from collections.abc import Iterable
-
+from settings import *
 # use spacy small model
 
 # dependency markers for subjects

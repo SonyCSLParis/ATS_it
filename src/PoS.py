@@ -2,7 +2,7 @@ import spacy
 import plotly.graph_objects as go
 from collections import OrderedDict
 from stopwords_distribution import is_number
-
+from settings import *
 
 def PoS_analysis(filename):
     '''
@@ -11,7 +11,6 @@ def PoS_analysis(filename):
     :return: a Tuple with the keys and the values of the frequency dictionary, sorted for key (n alphabetical order)
     '''
 
-    nlp = spacy.load("it_core_news_sm")
     stopwords = nlp.Defaults.stop_words
 
     sentences_final = []

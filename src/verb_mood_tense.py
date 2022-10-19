@@ -3,7 +3,7 @@ from collections import OrderedDict
 import plotly.graph_objects as go
 from stopwords_distribution import is_number
 from subject_verb_object_extract import findSVOs
-
+from settings import *
 
 def verbal_features(typev, filename):
     '''
@@ -13,7 +13,6 @@ def verbal_features(typev, filename):
     :return: the dictionary containing verbal features frequency
     '''
 
-    nlp = spacy.load("it_core_news_sm")
     stopwords = nlp.Defaults.stop_words
 
     sentences_final = []
@@ -91,7 +90,6 @@ def coord_subord(corpus, sentence_type, which_POS):
     :param which_POS: could be either 'CCONJ' or 'SCONJ'
     :return: tuple with the total amount of the particel and the dictionary of their frequency
     '''
-    nlp = spacy.load("it_core_news_sm")
     coll = {}
     for sentence in corpus[f'Sentence_{sentence_type}']:
         doc = nlp(sentence)
@@ -115,7 +113,6 @@ def amount_SVO(corpus,sentence_type):
     :return: amount of SVO
     '''
     count = 0
-    nlp = spacy.load("it_core_news_sm")
     for sentence in corpus[f'Sentence_{sentence_type}']:
         doc = nlp(sentence)
         svos = findSVOs(doc)

@@ -46,7 +46,7 @@ def main():
                         corpus.append(new1)
 
                     else:
-                        #after manually inspecting the lists I saw that there were very showrt and small strings such as ('..', 'L', 'Pag', 'Art', 'poi ...', '...'
+                        #after manually inspecting the lists I saw that there were very short and small strings such as ('..', 'L', 'Pag', 'Art', 'poi ...', '...'
                         #therefore I filtered for the length of the string in order to keep only longer strings
                         new2 = []
                         for ele in new1:
@@ -102,4 +102,7 @@ def main():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    print(DATA_DIR)
+    print(SRC_ROOT_DIR)
+    print(OUTPUT_DIR)
     main()
