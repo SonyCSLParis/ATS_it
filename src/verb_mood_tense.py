@@ -39,9 +39,9 @@ def verbal_features(typev, filename):
 
 
 
-def double_barplot(complex, simple):
+def double_barplot(complex, simple, color1, color2):
     '''
-    This function allows to produce a double barplot which compares the distribution of verbal features in compex and simple sentences
+    This function allows to produce a double barplot which compares the distribution of verbal features in complex and simple sentences
     :param complex: dictionary of verbal features frequency obtained by analyzing complex sentences
     :param simple: dictionary of verbal features frequency obtained by analyzing simple sentences
     :return: plot
@@ -65,13 +65,13 @@ def double_barplot(complex, simple):
         x=key1,
         y=y_simple_final,  # aggiungo +200 agli ultimi due
         name='Simple Sentences',
-        marker_color='indianred'
+        marker_color=color1
     ))
     fig.add_trace(go.Bar(
         x=key1,
         y=y_complex_final,  # aggiungo +200 agli ultimi due
         name='Complex Sentences',
-        marker_color='lightsalmon'
+        marker_color=color2
     ))
 
     # Here we modify the tickangle of the xaxis, resulting in rotated labels.
