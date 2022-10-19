@@ -1,7 +1,8 @@
-from utils_charts.PoS import PoS_analysis, barplot_PoS
 from settings import *
+from utils_charts.PoS import PoS_analysis, barplot_PoS
 from utils_charts.stopwords_distribution import amount_words, stopwords, plot_stop
 from utils_charts.verb_mood_tense import verbal_features, double_barplot, coord_subord
+
 
 def create_visualisation(final_corpus):
     which_stop, average_amount = stopwords(2, final_corpu=final_corpus, filter=False, save=False)
