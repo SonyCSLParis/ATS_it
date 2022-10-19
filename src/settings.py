@@ -3,19 +3,17 @@ from os import path, makedirs
 import spacy
 
 SRC_ROOT_DIR = path.dirname(path.realpath(__file__))  # path to this script
-ROOT_DIR = path.dirname(SRC_ROOT_DIR) # same as .. to move up one directory
-DATA_DIR = path.join(ROOT_DIR, 'data')
-INTERMEDIATE_DIR = path.join(ROOT_DIR, 'intermediate')
-OUTPUT_DIR = path.join(ROOT_DIR, 'output')
+ROOT_DIR = path.dirname(SRC_ROOT_DIR)
+DATA_DIR = path.join(ROOT_DIR, 'data')  # data in input
+INTERMEDIATE_DIR = path.join(ROOT_DIR, 'intermediate')  # txt and others intermediate output
+OUTPUT_DIR = path.join(ROOT_DIR, 'output')  # final output
+MODEL_DIR = path.join(ROOT_DIR, 'model')  # directory for the model
+HTML_DIR = path.join(ROOT_DIR, 'html_output')  # plotly html save directory for final visualisations
 
-if not path.exists(DATA_DIR):
-    makedirs(DATA_DIR)
+list_dirs = [DATA_DIR, INTERMEDIATE_DIR, OUTPUT_DIR, MODEL_DIR, HTML_DIR]
 
-if not path.exists(INTERMEDIATE_DIR):
-    makedirs(INTERMEDIATE_DIR)
-
-if not path.exists(OUTPUT_DIR):
-    makedirs(OUTPUT_DIR)
-
+for x in list_dirs:
+    if not path.exists(x):
+        makedirs(x)
 
 nlp = spacy.load("it_core_news_sm")

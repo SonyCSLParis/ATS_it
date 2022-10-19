@@ -8,7 +8,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(DATA_DIR)
-    print(SRC_ROOT_DIR)
-    print(OUTPUT_DIR)
     main()

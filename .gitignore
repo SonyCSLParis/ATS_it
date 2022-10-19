@@ -93,3 +93,7 @@ venv.bak/
 *.DS_Store
 
 /intermediate/
+/model/
+/data/
+/output/
+/html_output/
