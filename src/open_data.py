@@ -69,5 +69,4 @@ def open_txt():
              5: 'Readability_2',
              6: '(Readability_1-Readability_2)'}, axis=1)
 
-        print(len(corpus))
         return final_corpus

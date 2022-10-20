@@ -22,7 +22,7 @@ def is_number(n):
     return is_number
 
 
-def amount_words(type_sent, final_corpu, corpus_length=47388):
+def amount_words(type_sent, final_corpu, corpus_length=61861):
     '''
     This function count the average word length of the sentences of PaCCS-IT corpus.
     :param type_sent: which type of sentences we want to analyze, could be either 1 (complex) or 2 (simplified)
@@ -42,7 +42,7 @@ def amount_words(type_sent, final_corpu, corpus_length=47388):
     return amount_of_words, f'The average amount of words for {t} Sentences is {round(amount_of_words / corpus_length, 2)}'
 
 
-def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = False):
+def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = False):
     '''
     This function calculate the amount of stopwords present in the stopwords.
     :param type_sent: which type of sentences we want to analyze, could be either 1 (complex) or 2 (simplified)
@@ -55,21 +55,22 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = F
 
     if filter:
         #nlp.Defaults.stop_words |= {"i","I", 'molte', 'molti'}
-        stopword = nlp.Defaults.stop_words
-        list_stop = list(stopword)
+        nlp.Defaults.stop_words
+        list_stop = list(nlp.Defaults.stop_words)
+        print(list_stop)
         set_stop = ' '.join(list_stop)
         doc = nlp(set_stop)
+        print(doc)
         for token in doc:
             word, pos = (token.text, token.pos_)
             #we want to keep in the sentences all the verbs, auxiliar and adverbs that were considered to be stopwords
             #we need to understand if it's a good idea to keep or exclude the ADV
             if pos == 'VERB' or pos == 'AUX' or pos == 'ADV':
-                if pos != '"' and pos != 's':
 
-                    stopword.remove(word)
+                    nlp.Defaults.stop_words -= {word}
 
     else:
-        stopword = nlp.Defaults.stop_words
+        nlp.Defaults.stop_words
 
     count = 0
     which_stopwords = []
@@ -77,7 +78,7 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = F
     for sentence in final_corpu[f'Sentence_{type_sent}']:
         lst = []
         for token in sentence.split():
-            if token.lower() not in stopword and not token.isdigit() and not is_number(token):
+            if token.lower() not in nlp.Defaults.stop_words and not token.isdigit() and not is_number(token):
                 lst.append(token)
 
             else:
@@ -92,13 +93,19 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=47388, save = F
         t = 'Simple'
 
     if save:
-        with open(OUTPUT_DIR + '/ADV_no_stop_sentences_{type_sent}.txt', 'w') as fp:
+        if filter:
+            with open(INTERMEDIATE_DIR + f'/ADV_no_stop_sentences_{type_sent}.txt', 'w') as fp:
+                for item in sentences_final:
+                    # write each item on a new line
+                    fp.write("%s\n" % item)
+
+        with open(INTERMEDIATE_DIR + f'/no_stop_sentences_{type_sent}.txt', 'w') as fp:
             for item in sentences_final:
                 # write each item on a new line
                 fp.write("%s\n" % item)
 
 
-    return which_stopwords, f'Average amount of stopwords for {t} Sentences is {round(count / corpus_length, 2)}'
+    return which_stopwords, f'Average amount of stopwords for {t} Sentences, if filter = {filter } is {round(count / corpus_length, 2)}.'
 
 
 
