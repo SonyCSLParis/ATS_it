@@ -67,7 +67,7 @@ def barplot_PoS(keys, v1, v2):
 
     # Set the correct bar mode
     fig.update_layout(barmode='group', title_text='Comparison of distribution of PoS in Complex and Simple sentences',
-                      title_x=0.5, font=dict(size=15))
+                      title_x=0.5, font=dict(size=27))
     fig.update_xaxes(title_text="Part of Speech")
     fig.update_yaxes(title_text="Average percentage of PoS in the corpus")
     fig.show()

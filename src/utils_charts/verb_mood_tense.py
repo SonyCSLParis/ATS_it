@@ -38,12 +38,16 @@ def verbal_features(typev, filename):
     return collection
 
 
-def double_barplot(complex, simple, color1, color2):
+def double_barplot(complex, simple, color1, color2, title = 'Mood'):
+
     '''
-    This function allows to produce a double barplot which compares the distribution of verbal features in complex and simple sentences
+
     :param complex: dictionary of verbal features frequency obtained by analyzing complex sentences
     :param simple: dictionary of verbal features frequency obtained by analyzing simple sentences
-    :return: plot
+    :param color1: Color of one bar
+    :param color2: Color of the second bar
+    :param title: could be Mood or Tense according to what feature we are analyzing
+    :return: double barplot
     '''
     ordered_dict1 = OrderedDict(sorted(simple.items(), key=lambda t: t[0]))
     ordered_dict2 = OrderedDict(sorted(complex.items(), key=lambda t: t[0]))
@@ -56,6 +60,27 @@ def double_barplot(complex, simple, color1, color2):
 
     tot_complex_1 = sum(value2)
     y_complex_final = [round(ele / tot_complex_1, 2) for ele in value2]
+
+    if title == 'Mood':
+        for i in range(len(key1)):
+            if key1[i] == 'Ind':
+                key1[i] = 'Indicative'
+            elif key1[i] == 'Imp':
+                key1[i] = 'Imperative'
+            elif key1[i] == 'Cnd':
+                key1[i] = 'Conditional'
+            else:
+                key1[i] = 'Subjunctive'
+
+    if title == 'Tense':
+        for i in range(len(key1)):
+            if key1[i] == 'Fut':
+                key1[i] = 'Future'
+            elif key1[i] == 'Imp':
+                key1[i] = 'Imperfect'
+            elif key1[i] == 'Pres':
+                key1[i] = 'Present'
+
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -73,8 +98,8 @@ def double_barplot(complex, simple, color1, color2):
 
     # Here we modify the tickangle of the xaxis, resulting in rotated labels.
     fig.update_layout(barmode='group', xaxis_tickangle=-45,
-                      title_text='Mood distribution in Complex and Simple Sentences', font=dict(size=29))
-    fig.update_traces(width=0.4)
+                      title_text=f'{title} distribution in Complex and Simple Sentences', font=dict(size=25))
+    fig.update_traces(width=0.37)
     fig.update_xaxes(title_text="Type of verbal feature")
     fig.update_yaxes(title_text="Average percentage of moods in the corpus")
     fig.show()

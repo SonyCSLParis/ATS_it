@@ -57,10 +57,8 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = F
         #nlp.Defaults.stop_words |= {"i","I", 'molte', 'molti'}
         nlp.Defaults.stop_words
         list_stop = list(nlp.Defaults.stop_words)
-        print(list_stop)
         set_stop = ' '.join(list_stop)
         doc = nlp(set_stop)
-        print(doc)
         for token in doc:
             word, pos = (token.text, token.pos_)
             #we want to keep in the sentences all the verbs, auxiliar and adverbs that were considered to be stopwords
@@ -149,7 +147,7 @@ def plot_stop(stopwords, filter, original, color):
 
     fig2 = px.bar(df, x='Stopwords', y='Frequency', orientation='v', title= f'Frequency of {filter} stopwords in {original} sentences')
     fig2.update_traces(marker_color=color)
-    fig2.update_layout(font = dict(size = 18))
+    fig2.update_layout(font = dict(size = 27))
     fig2.show()
 
 
