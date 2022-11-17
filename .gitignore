@@ -93,7 +93,21 @@ venv.bak/
 *.DS_Store
 
 /intermediate/
-/src/model/
 /data/
 /output/
 /html_output/
+
+
+/src/model/deep_mart_final/bert_score
+*.ini
+*.json
+/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-10/pytorch_model.bin
+*.pt
+!/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-10/
+!/src/model/deep_mart_final/model_deep/trained_model/checkpoints/
+*.bin
+*.pth
+*.txt
+*.wandb
+*.yaml
+src/model/deep_mart_final/source/wandb

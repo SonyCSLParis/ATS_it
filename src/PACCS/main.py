@@ -4,9 +4,8 @@ from visualisations import *
 
 def main():
     final_corpus = open_txt()
-    print(final_corpus)
     create_visualisation(final_corpus)
 
-#idi
+
 if __name__ == '__main__':
     main()

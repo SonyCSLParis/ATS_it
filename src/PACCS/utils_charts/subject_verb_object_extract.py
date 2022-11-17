@@ -16,7 +16,7 @@ from collections.abc import Iterable
 
 from settings import *
 
-# use spacy small model
+# use spacy small model_deep
 
 # dependency markers for subjects
 SUBJECTS = {"nsubj", "nsubjpass", "csubj", "csubjpass", "agent", "expl"}
