@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data_merging/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/wandb/run-20221110_180934-3orviv36/files/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/wandb/run-20221110_181031-10ksncr6/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/wandb/run-20221110_181031-10ksncr6/files/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/join_dataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/workflows/add-model-like.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/.github/workflows/add-model-like.yml" afterDir="false" />
@@ -1259,13 +1250,6 @@
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/release.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/release.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/tests_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/tests_fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/update_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/transformers/utils/update_metadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/open_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils_charts/PoS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils_charts/stopwords_distribution.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils_charts/subject_verb_object_extract.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils_charts/verb_mood_tense.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualisations.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
