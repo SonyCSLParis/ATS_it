@@ -4,14 +4,13 @@ import logging
 import os
 import sys
 from typing import Dict, Optional, Tuple
-from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
+from preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 import pandas as pd
 from transformers import logging as hf_logging
-
 from datasets import Dataset, load_metric
-from src.model.deep_mart_final.settings2 import *
+from os import path, makedirs
 from transformers import (
     AutoModel,
     AutoTokenizer,
@@ -22,6 +21,9 @@ from transformers import (
     DataCollatorForSeq2Seq,
 )
 
+training_dir = path.dirname(path.realpath(__file__))  # path to this script
+source_dir = path.dirname(training_dir)
+BERT2BERT_DIR = source_dir + '/bert2bert'
 
 #this is our pre-trained model_deep for italian
 bertit2bertit = EncoderDecoderModel.from_encoder_decoder_pretrained("dbmdz/bert-base-italian-xxl-cased", "dbmdz/bert-base-italian-xxl-cased")

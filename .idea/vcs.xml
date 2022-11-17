@@ -2,10 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/deep_mart_final/bert_score" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/deep_mart_final/transformers" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/deep_mart_model/bert_score" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/deep_mart_model/transformers" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/model/deep_mart_final/transformers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/deep_mart_final/bert_score" vcs="" />
+    <mapping directory="$PROJECT_DIR$/deep_mart_final/transformers" vcs="" />
+    <mapping directory="$PROJECT_DIR$/deep_mart_model/bert_score" vcs="" />
+    <mapping directory="$PROJECT_DIR$/deep_mart_model/transformers" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/model/deep_mart_final/transformers" vcs="" />
   </component>
 </project>

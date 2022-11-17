@@ -11,7 +11,7 @@ from transformers import AutoTokenizer
 
 
 class DatasetHelper:
-    @staticmethod
+    @classmethod
     def concat_and_split(
         csv_paths: List[str],
         train_csv_path: str,
