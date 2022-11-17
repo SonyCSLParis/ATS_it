@@ -1,5 +1,3 @@
-import pandas as pd
-import plotly.express as px
 from settings import *
 import pandas as pd
 import plotly.express as px
