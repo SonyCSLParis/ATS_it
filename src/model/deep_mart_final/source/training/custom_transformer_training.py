@@ -2,7 +2,7 @@ import logging
 import sys
 import time
 import os
-from src.model.deep_mart_final.settings2 import *
+from settings import *
 import pandas as pd
 import torch
 import torch.nn.functional as F

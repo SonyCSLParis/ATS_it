@@ -85,10 +85,11 @@ from transformers import (
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq,
 )
-from src.PACCS.settings import *
-from src.model.deep_mart_final.settings2 import *
-dummy_bert2bert = EncoderDecoderModel.from_pretrained( TRAINED_MODELS_DIR+ "/checkpoints/checkpoint-20")
-tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-cased")
+
+from settings import *
+
+dummy_bert2bert = EncoderDecoderModel.from_pretrained( TRAINED_MODEL + '/checkpoints/checkpoint-20')
+tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
 data_path = OUTPUT_DIR + '/df_test_ultimated.csv'
 
 df2 = pd.read_csv(data_path)
