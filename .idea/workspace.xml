@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PACCS/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PACCS/utils_charts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data_merging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/images/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/settings2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/settings2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" afterDir="false" />
-    </list>
+    <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,11 +21,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/subject_verb_object_extract.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/verb_mood_tense.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PACCS/main.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PACCS/settings.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/subject_verb_object_extract.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/verb_mood_tense.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -463,19 +441,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.PoS" />
-      <item itemvalue="Python.evaluator" />
       <item itemvalue="Python.custom_transformer_trainer" />
-      <item itemvalue="Python.hf_training" />
       <item itemvalue="Python.custom_transformer_training" />
-      <item itemvalue="Python.hf_transformer_trainer" />
-      <item itemvalue="Python.settings" />
+      <item itemvalue="Python.evaluator" />
       <item itemvalue="Python.examples" />
       <item itemvalue="Python.exp" />
+      <item itemvalue="Python.hf_training" />
+      <item itemvalue="Python.hf_transformer_trainer" />
       <item itemvalue="Python.join_dataset" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.orig_all_stop" />
       <item itemvalue="Python.orig_stop_filtered" />
       <item itemvalue="Python.settings2" />
+      <item itemvalue="Python.settings" />
       <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.tab_freq" />
       <item itemvalue="Python.verb_mood_tense" />
@@ -520,8 +498,5 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ATS_it$settings2.coverage" NAME="settings2 Coverage Results" MODIFIED="1668702289062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/model/deep_mart_final" />
   </component>
 </project>
