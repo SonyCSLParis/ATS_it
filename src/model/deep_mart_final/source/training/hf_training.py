@@ -3,8 +3,10 @@ import gc
 import logging
 import os
 import sys
+from settings import *
 from typing import Dict, Optional, Tuple
 from preprocessing.dataset import HuggingFaceDataset
+from preprocessing.dataset import DatasetHelper
 import torch
 import wandb
 import pandas as pd
@@ -26,7 +28,7 @@ source_dir = path.dirname(training_dir)
 BERT2BERT_DIR = source_dir + '/bert2bert'
 
 #this is our pre-trained model_deep for italian
-bertit2bertit = EncoderDecoderModel.from_encoder_decoder_pretrained("dbmdz/bert-base-italian-xxl-cased", "dbmdz/bert-base-italian-xxl-cased")
+bertit2bertit = EncoderDecoderModel.from_encoder_decoder_pretrained(TOKENIZER_PATH, TOKENIZER_PATH)
 bertit2bertit.save_pretrained(BERT2BERT_DIR)
 
 class HuggingFaceTrainer:
@@ -51,7 +53,6 @@ class HuggingFaceTrainer:
 
         dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 
-
         dataset = HuggingFaceDataset.hf_dataset(dataframe,
                                                 remove_columns_list=[],
                                                 identifier="dbmdz/bert-base-italian-xxl-cased",
@@ -60,7 +61,6 @@ class HuggingFaceTrainer:
         dataset1 = dataset.train_test_split(shuffle=True, test_size=0.10)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-
 
         HuggingFaceTrainer.__logger.info(
             f" Loaded train_dataset length is: {len(dataset1['train'])}."
@@ -71,8 +71,8 @@ class HuggingFaceTrainer:
 
         return train_ds, test_ds
 
-
-   ''' @staticmethod
+    '''
+    @staticmethod
     def __load_dataset(path) -> Tuple[Dataset, Dataset]:
         df = pd.read_csv(path)
         colonna_complessa = [str(riga) for riga in list(df['Sentence_1'])]
@@ -100,7 +100,9 @@ class HuggingFaceTrainer:
             f" Loaded test_dataset length is: {len(test_ds['features'])}."
         )
 
-        return train_ds, test_ds'''
+        return train_ds, test_ds
+    '''
+
 
     @staticmethod
     def __compute_metrics(auto_tokenizer, prediction: EvalPrediction):
