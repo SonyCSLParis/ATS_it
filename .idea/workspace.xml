@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="" />
+    <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PACCS/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/visualisations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/exp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/exp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/split_PACCSIT.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/split_PACCSIT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/custom_transformer_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/custom_transformer_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,8 +33,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/settings.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PACCS/main.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/PACCS/settings.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/subject_verb_object_extract.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/PACCS/utils_charts/verb_mood_tense.py" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -41,13 +52,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PACCS/utils_charts" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/PACCS/utils_charts" />
@@ -57,14 +66,14 @@
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source" />
       <recent name="$PROJECT_DIR$/deep_mart_final" />
       <recent name="$PROJECT_DIR$/src/model/deep_martin_model/source" />
       <recent name="$PROJECT_DIR$/src/model/deep_martin_model/source/analysis" />
-      <recent name="$PROJECT_DIR$/src/model/deep_martin_model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.settings2">
+  <component name="RunManager" selected="Python.evaluator">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,9 +147,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/14_11_22/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -342,7 +351,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/PACCS/settings.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/settings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -417,6 +426,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tutorial_checkpoints_hf" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="verb_mood_tense" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -456,6 +486,7 @@
       <item itemvalue="Python.settings" />
       <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.tab_freq" />
+      <item itemvalue="Python.tutorial_checkpoints_hf" />
       <item itemvalue="Python.verb_mood_tense" />
     </list>
     <recent_temporary>
