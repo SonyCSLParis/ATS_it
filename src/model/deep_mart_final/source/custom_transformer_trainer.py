@@ -1,9 +1,7 @@
 import argparse
 
 from transformers import AutoTokenizer
-from src.PACCS.settings import *
 from src.model.deep_mart_final.source.training.custom_transformer_training import TransformerTrainer
-from src.model.deep_mart_final.source.analysis.evaluator import CTransformerEvaluator
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

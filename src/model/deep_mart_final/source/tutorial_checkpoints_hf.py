@@ -2,15 +2,15 @@ from transformers import AutoTokenizer, EncoderDecoderModel, Seq2SeqTrainer, Seq
 import pandas as pd
 import datasets
 import wandb
-from src.deep_martin_final.source.training.hf_training import HuggingFaceTrainer
 from datasets import Dataset
+from settings import *
 wandb.login(key='REDACTED')
 wandb.init(project="ATS", entity="francapado")
 
 #path to the joined dataset
-data_path = '/Users/francesca/Desktop/14_11_22/src/deep_martin_final/source/join_dataset/ultimated.csv'
+data_path = OUTPUT_DIR + '/ultimated.csv'
 #tokenizer identifier
-tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-cased")
+tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
 
 #open the dataset as a csv
 df = pd.read_csv(data_path)

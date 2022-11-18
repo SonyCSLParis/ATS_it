@@ -1,17 +1,14 @@
-import itertools
 import logging
 import sys
 import json
 from typing import Dict, List, Optional, Tuple
-from src.model.deep_mart_final.source.custom_transformer.model_implementation.transformer import get_model, Transformer
+from src.model.deep_mart_final.source.custom_transformer.model_implementation.transformer import get_model
 import pandas as pd
 import torch
 from datasets import load_metric
 from tqdm import tqdm
-from src.model.deep_mart_final.settings2 import *
-from src.PACCS.settings import *
 from transformers import BertTokenizerFast, EncoderDecoderModel, RobertaTokenizerFast, AutoTokenizer
-
+from settings import *
 
 # this class allows to create the Evaluator for the Customized Transformer that has been implemented by Christophen Lemke
 class CTransformerEvaluator:
@@ -155,8 +152,8 @@ class HFEvaluator:
         self.__config_model(model_config)
         model = self.model.to(self.device)
         model_output = model.generate(input_ids, attention_mask=attention_mask)
-
-        return self.tokenizer.batch_decode(model_output, skip_special_tokens=False)
+        print(model_output)
+        return self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
 
 
@@ -236,8 +233,12 @@ class HFEvaluator:
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
 
+            print(source)
             inputs = self.__tokenize(source)
+            print(inputs)
             reference_tokens = self.__tokenize(references)
+            print(references)
+            print(reference_tokens)
             output = self.generate(*inputs, model_config=model_config)
 
             print('output ', output)
@@ -277,16 +278,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = OUTPUT_DIR + '/df_test_ultimated.csv',
-                     model_path= TRAINED_MODELS_DIR + '/hf_6_epochs/checkpoint-27000',
-                     tokenizer_path='dbmdz/bert-base-italian-xxl-cased',
+classe = HFEvaluator(eval_dataset_path =  OUTPUT_DIR + '/df_test_ultimated.csv',
+                     model_path= TRAINED_MODEL + '/hf_6_epochs/checkpoint-27000',
+                     tokenizer_path= TOKENIZER_PATH,
                      log_level="WARNING" )
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(TRAINED_MODELS_DIR + '/hf_6_epochs/checkpoint-27000/config.json') as json_file:
+with open(TRAINED_MODEL+ '/hf_6_epochs/checkpoint-27000/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= MODEL_DIR + '/csv_output/evaluation2.csv',
+                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation2.csv',
                              extend_dataframe=False)

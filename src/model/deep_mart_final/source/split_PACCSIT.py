@@ -1,6 +1,6 @@
 import pandas as pd
 import csv
-from src.PACCS.settings import *
+from settings import *
 
 # with the following code I splitted the original csv into two sets (training set containing 45000
 # aligned sentences and the test set containing 16785 aligned sentences)
