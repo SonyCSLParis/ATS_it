@@ -71,6 +71,37 @@ class HuggingFaceTrainer:
 
         return train_ds, test_ds
 
+
+   ''' @staticmethod
+    def __load_dataset(path) -> Tuple[Dataset, Dataset]:
+        df = pd.read_csv(path)
+        colonna_complessa = [str(riga) for riga in list(df['Sentence_1'])]
+        colonna_semplice = [str(riga) for riga in list(df['Sentence_2'])]
+
+        dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+        train_df, test_df = DatasetHelper.train_test_split(0.80, dataframe)
+        train_ds = HuggingFaceDataset.hf_dataset(train_df,
+                                                 remove_columns_list=['Normal', 'Simple'],
+                                                 identifier="dbmdz/bert-base-italian-xxl-cased",
+                                                 batch_size=8)
+
+        test_ds = HuggingFaceDataset.hf_dataset(test_df,
+                                                remove_columns_list=['Normal', 'Simple'],
+                                                identifier="dbmdz/bert-base-italian-xxl-cased",
+                                                batch_size=8)
+
+        # train_ds = dataset1["train"].shuffle(seed=42)
+        # test_ds = dataset1["test"]
+
+        HuggingFaceTrainer.__logger.info(
+            f" Loaded train_dataset length is: {len(train_ds['features'])}."
+        )
+        HuggingFaceTrainer.__logger.info(
+            f" Loaded test_dataset length is: {len(test_ds['features'])}."
+        )
+
+        return train_ds, test_ds'''
+
     @staticmethod
     def __compute_metrics(auto_tokenizer, prediction: EvalPrediction):
         tokenizer = auto_tokenizer
