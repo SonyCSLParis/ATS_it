@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/visualisations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/exp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/exp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/split_PACCSIT.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/split_PACCSIT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/custom_transformer_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/custom_transformer_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +46,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/francesca/Desktop/Github/Final&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>

@@ -48,6 +48,18 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# idea
+.idea/*
+/.idea
+/.idea/workspace.xml
+/.idea/pythonProject.iml
+
+
+# repo specific
+/data/
+/output/
+/intermediate/
+
 # Translations
 *.mo
 *.pot
