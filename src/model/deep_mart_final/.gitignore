@@ -131,22 +131,4 @@ data/
 output/
 intermediate/
 
-src/model/deep_mart_final/.idea
-src/model/deep_mart_final/bert_score
-src/model/deep_mart_final/images
-src/model/deep_mart_final/model_deep/trained_model/checkpoints
-src/model/deep_mart_final/model_deep/trained_model/custom_6_epochs
-src/model/deep_mart_final/source/wandb
-src/model/deep_mart_final/transformers
-src/model/deep_mart_final/venv
 
-
-
-
-
-/.idea/
-src/model/deep_mart_final/model_deep/trained_model
-
-!/model_deep/trained_model/checkpoints/
-!/model_deep/trained_model/
-src/model/deep_mart_final/source/wandb

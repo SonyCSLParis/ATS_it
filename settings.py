@@ -23,10 +23,3 @@ HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory
 
 
 
-list_dirs = [DATA_DIR, INTERMEDIATE_DIR, OUTPUT_DIR, HTML_DIR]
-
-for x in list_dirs:
-    if not path.exists(x):
-        makedirs(x)
-
-
