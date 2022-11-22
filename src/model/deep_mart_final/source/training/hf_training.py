@@ -22,13 +22,7 @@ from transformers import (
     DataCollatorForSeq2Seq,
 )
 
-'''training_dir = path.dirname(path.realpath(__file__))  # path to this script
-source_dir = path.dirname(training_dir)
-BERT2BERT_DIR = source_dir + '/bert2bert'
 
-#this is our pre-trained model_deep for italian
-bertit2bertit = EncoderDecoderModel.from_encoder_decoder_pretrained(TOKENIZER_PATH, TOKENIZER_PATH)
-bertit2bertit.save_pretrained(BERT2BERT_DIR)'''
 
 class HuggingFaceTrainer:
     __rouge = load_metric("rouge")
@@ -53,7 +47,7 @@ class HuggingFaceTrainer:
         dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 
         dataset = HuggingFaceDataset.hf_dataset(dataframe,
-                                                remove_columns_list=[],
+                                                remove_columns_list=['Normal', 'Simple'],
                                                 identifier="dbmdz/bert-base-italian-xxl-cased",
                                                 batch_size=8)
 
@@ -250,7 +244,7 @@ class HuggingFaceTrainer:
 
         training_arguments = Seq2SeqTrainingArguments(
             predict_with_generate=True,
-            evaluation_strategy="steps",
+            evaluation_strategy="epoch",
             num_train_epochs=training_config["num_train_epochs"],
             per_device_train_batch_size=training_config["per_device_train_batch_size"],
             per_device_eval_batch_size=training_config["per_device_eval_batch_size"],
