@@ -65,50 +65,25 @@ ipython_config.py
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# tutti xml non in idea 
+*.xml
 
-# idea
-.idea/*
-/.idea
-/.idea/workspace.xml
-/.idea/pythonProject.iml
-
-
-# repo specific
-/data/PACCSS-IT.txt
-/output/ADV_no_stop_sentences_1.txt
-/output/ADV_no_stop_sentences_2.txt
-/output/final.csv
-/output/no_stop_sentences1.txt
-/output/no_stop_sentences2.txt
-/venv/
-/.DS_Store
+# tutti ds store
 *.DS_Store
-
-/intermediate/
-/data/
-/output/
-/html_output/
-
-
-/src/model/deep_mart_final/bert_score
 *.ini
-*.json
-/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-10/pytorch_model.bin
-*.pt
-!/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-10/
-!/src/model/deep_mart_final/model_deep/trained_model/checkpoints/
-*.bin
-*.pth
-*.txt
-*.wandb
-*.yaml
-src/model/deep_mart_final/source/wandb
+/.DS_Store
+
+# legati al modello ma troppo grandi 
+src/model/deep_mart_final/bert_score
 src/model/deep_mart_final/transformers
+src/model/deep_mart_final/transformers/
+/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/transformers
+src/model/deep_mart_final/transformers/*
+
+# checkpoint 
+src/model/deep_mart_final/model_deep/trained_model/*
+src/model/deep_mart_final/source/bert2bert/*
+src/model/deep_mart_final/source/wandb/*
+src/model/sourcebert2bert/*
+
+
