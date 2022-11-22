@@ -49,10 +49,7 @@ coverage.xml
 .pytest_cache/
 
 # idea
-.idea/*
-/.idea
-/.idea/workspace.xml
-/.idea/pythonProject.iml
+.idea/
 
 
 # repo specific
