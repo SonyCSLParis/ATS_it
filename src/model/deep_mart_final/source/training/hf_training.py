@@ -3,7 +3,6 @@ import gc
 import logging
 import os
 import sys
-from settings import *
 from typing import Dict, Optional, Tuple
 from preprocessing.dataset import HuggingFaceDataset
 from preprocessing.dataset import DatasetHelper
@@ -23,13 +22,13 @@ from transformers import (
     DataCollatorForSeq2Seq,
 )
 
-training_dir = path.dirname(path.realpath(__file__))  # path to this script
+'''training_dir = path.dirname(path.realpath(__file__))  # path to this script
 source_dir = path.dirname(training_dir)
 BERT2BERT_DIR = source_dir + '/bert2bert'
 
 #this is our pre-trained model_deep for italian
 bertit2bertit = EncoderDecoderModel.from_encoder_decoder_pretrained(TOKENIZER_PATH, TOKENIZER_PATH)
-bertit2bertit.save_pretrained(BERT2BERT_DIR)
+bertit2bertit.save_pretrained(BERT2BERT_DIR)'''
 
 class HuggingFaceTrainer:
     __rouge = load_metric("rouge")
