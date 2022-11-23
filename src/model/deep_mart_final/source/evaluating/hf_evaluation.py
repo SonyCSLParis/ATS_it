@@ -5,7 +5,7 @@ import evaluate
 import torch
 from datasets import load_metric
 import wandb
-from src.model.deep_mart_final.source.analysis.evaluator import CTransformerEvaluator
+
 from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
 from transformers import (
     AutoModel,
@@ -36,7 +36,7 @@ def load_dataset(path, tokenizer_id):
     dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 
     dataset = HuggingFaceDataset.hf_dataset(dataframe,
-                                            remove_columns_list= [],
+                                            remove_columns_list= ['Normal', 'Simple'],
                                             identifier = tokenizer_id,
                                             batch_size=8)
 
@@ -73,6 +73,7 @@ def setup_model(
     if tokenizer.name_or_path != "facebook/bart-base":
         model.config.vocab_size = model.config.encoder.vocab_size
 
+
     model.config.decoder_start_token_id = tokenizer.cls_token_id
     model.config.eos_token_id = tokenizer.sep_token_id
     model.config.pad_token_id = tokenizer.pad_token_id
@@ -88,32 +89,38 @@ def setup_model(
 model_config_dict = {
     "max_length": 20,
     "min_length": 0,
-    "no_repeat_ngram_size": 0,
-    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": -0.5,
     "num_beams": 1,
 }
 
 
-model = setup_model(model_config=model_config_dict,
+modello_1= setup_model(model_config=model_config_dict,
                     model_path=None,
-                    pretrained_model_path='/Users/francesca/Desktop/deep_mart_final/model_deep/trained_model/hf_6_epochs/checkpoint-27000',
+                    pretrained_model_path='/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/checkpoint-4000',
                     resume=True,
                     tie_encoder_decoder=False,
                     tokenizer=tokenizer)
 
+
+
+
+
 #load dataset (full)
-dataset = load_dataset('/Users/francesca/Desktop/deep_mart_final/data/df_test_ultimated.csv', tokenizer_id=tokenizer_id)
+dataset = load_dataset('/Users/francesca/Desktop/Github/Final/output/ultimated.csv', tokenizer_id=tokenizer_id)
 #split the dataset
 dataset1 = dataset.train_test_split(shuffle=False, test_size=0.10)
 #obtain train and test split
 train_ds = dataset1["train"].shuffle(seed=42)
 test_ds = dataset1["test"]
 
+
+
 #dataset1["validation"] = dataset1.pop("test")
 
 #create the data collator (it will be useful to create the batches of reference sentences for later testing)
-data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
-batch = data_collator([train_ds[i] for i in range(1, 3)])
+data_collator = DataCollatorForSeq2Seq(tokenizer, model=modello_1)
+batch = data_collator([train_ds[i] for i in range(1, 5)])
 
 #download the metric of interest
 metric = evaluate.load("sacrebleu")
@@ -128,27 +135,41 @@ references = [
 print(metric.compute(predictions=predictions, references=references))
 
 
+frase = 'Marta ha sporcato i calzini di salsa'
+inputs = tokenizer([frase], padding='max_length', max_length=20, truncation=True, return_tensors='pt')
+predictions = modello_1.generate(inputs['input_ids'], max_length=20, min_length=0,
+                                 num_beams=1,
+                                 length_penalty=1.0,
+                                 # emperature=1.0,
+                                 early_stopping=True,
+                                 top_k=50,
+                                 do_sample=False)
+
 #funzione che permette di generare il bleu score a partire da un sampling casuale di frasi tratte dal nostro test_set
 #che viene fornito in input
-def compute_metrics(dataset):
+def compute_metrics(dataset, modello):
     all_preds = []
     all_labels = []
     sampled_dataset = dataset["test"].shuffle().select(range(200))
-    #questa funzione to_tf_dataset di tensorflow non eè riconosciuta ed è quella che ci genera errore
-    tf_generate_dataset = sampled_dataset.to_tf_dataset(
-        columns=["input_ids", "attention_mask", "labels"],
-        collate_fn=data_collator,
-        shuffle=False,
-        batch_size=4,
-    )
 
-    for batch in tf_generate_dataset:
-        #generare predizioni
-        predictions = model.generate(
-            input_ids=batch["input_ids"], attention_mask=batch["attention_mask"]
-        )
+    #questa funzione to_tf_dataset di tensorflow non eè riconosciuta ed è quella che ci genera errore
+
+    for batch in sampled_dataset:
+        frase = 'Marta ha sporcato i calzini di salsa'
+
+        inputs = tokenizer([frase], padding='max_length',max_length=20, truncation=True, return_tensors='pt')
+        predictions = modello_1.generate(inputs['input_ids'], max_length=20, min_length=0,
+                        num_beams=1,
+                        length_penalty=1.0,
+                        #emperature=1.0,
+                        early_stopping=True,
+                        top_k=50,
+                        do_sample=False)
+
+        print(predictions)
         #decodificare le predizioni
         decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
+        print(decoded_preds)
         #ricavare le labels
         labels = batch["labels"].numpy()
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
@@ -162,7 +183,7 @@ def compute_metrics(dataset):
     return {"bleu": result["score"]}
 
 #first attempt of generating evaluation metrics of a test batch
-print(compute_metrics(dataset1))
+print(compute_metrics(dataset1, modello_1))
 
 '''
 #questa funzione è praticamente identica a quella di prima, solo che riceve in input le predizioni già compiute
