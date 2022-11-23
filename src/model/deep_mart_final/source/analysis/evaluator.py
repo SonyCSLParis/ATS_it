@@ -118,9 +118,9 @@ class HFEvaluator:
         self.model.config.eos_token_id = self.tokenizer.sep_token_id
         self.model.config.pad_token_id = self.tokenizer.pad_token_id
         self.model.config.vocab_size = self.model.config.encoder.vocab_size
-        self.model.config.max_length = model_config["max_length"]
-        self.model.config.min_length = model_config["min_length"]
-        self.model.config.no_repeat_ngram_size = model_config['decoder']["no_repeat_ngram_size"]
+        self.model.config.max_length = model_config['decoder']["max_length"]
+        self.model.config.min_length = model_config['decoder']["min_length"]
+        self.model.config.no_repeat_ngram_size = 3
         self.model.config.early_stopping = model_config['decoder']["early_stopping"]
         self.model.config.length_penalty = model_config['decoder']["length_penalty"]
         self.model.config.num_beams = model_config['decoder']["num_beams"]
@@ -141,19 +141,20 @@ class HFEvaluator:
 
         return dictionary
 
+
     # this function is the one we found to be used before on the model_deep
     def generate(
             self,
-            input_ids: torch.LongTensor,
-            attention_mask: torch.LongTensor,
+            input_ids: torch.Tensor,
+            attention_mask: torch.Tensor,
             model_config: Dict,
     ) -> List[str]:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        model_output = model.generate(input_ids, attention_mask=attention_mask)
-        print(model_output)
-        return self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
+        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 20)
+
+        return model_output, self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
 
 
@@ -233,29 +234,33 @@ class HFEvaluator:
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
 
-            print(source)
+            #print(source)
             inputs = self.__tokenize(source)
-            print(inputs)
+            #print(inputs)
             reference_tokens = self.__tokenize(references)
-            print(references)
-            print(reference_tokens)
-            output = self.generate(*inputs, model_config=model_config)
+            #print(references)
+            #print(reference_tokens)
+            undecoded_out, output = self.generate(*inputs, model_config=model_config)
 
-            print('output ', output)
+
 
             glue_result = self.eval_glue_score(
-                predictions=inputs[0][0].tolist(),
-                references=reference_tokens[0][0].tolist(),
+                predictions=undecoded_out[0].tolist(), # 0:21 va cambiato quando capiamo come far generare inputs e reference da massimo 20
+                references=reference_tokens[0][0][0:21].tolist(),
             )
 
+
+
             rouge_result = self.eval_rouge_scores(
-                predictions=output, references=[references[0]]
+                predictions=output, references=[references]
             )
+
+
             sari_result = self.eval_sari_score(
-                sources=[source.split(' ')], predictions=[output[0]], references=[references.split(' ')]
+                sources=[source], predictions=output, references=[[references]]
             )
             meteor_result = self.eval_meteor_score(
-                predictions=output, references=[references[0]]
+                predictions=output, references=[references]
             )
 
             result_df = result_df.append(
@@ -279,12 +284,12 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path =  OUTPUT_DIR + '/df_test_ultimated.csv',
-                     model_path= TRAINED_MODEL + '/hf_6_epochs/checkpoint-27000',
+                     model_path= '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-20',
                      tokenizer_path= TOKENIZER_PATH,
-                     log_level="WARNING" )
+                     log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(TRAINED_MODEL+ '/hf_6_epochs/checkpoint-27000/config.json') as json_file:
+with open('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/checkpoints/checkpoint-20/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data

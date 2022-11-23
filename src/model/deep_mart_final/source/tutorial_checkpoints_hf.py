@@ -2,10 +2,17 @@ from transformers import AutoTokenizer, EncoderDecoderModel, Seq2SeqTrainer, Seq
 import pandas as pd
 import datasets
 import wandb
+import numpy as np
 from datasets import Dataset
 from settings import *
 wandb.login(key='REDACTED')
 wandb.init(project="ATS", entity="francapado")
+import matplotlib.pyplot as plt
+
+def print_custom(text):
+    print('\n')
+    print(text)
+    print('-' * 100)
 
 #path to the joined dataset
 data_path = OUTPUT_DIR + '/ultimated.csv'
@@ -31,24 +38,56 @@ test_ds2 = dataset2['train'].shuffle(seed=42)
 eval_ds = dataset2['test']
 
 
+'''print_custom(train_ds)
+print_custom(test_ds2)
+print_custom(eval_ds)'''
+
 # map article and summary len to dict as well as if sample is longer than 50 tokens
 def map_to_length(x):
-  x["normal_len"] = len(tokenizer(x['Normal']))
-  x["normal_longer_50"] = (len(tokenizer(x["Normal"])) > 50)
-  x["simple_len"] = len(tokenizer(x["Simple"]).input_ids)
-  x["simple_longer_15"] = int(x["simple_len"] > 15)
-  x["simple_longer_30"] = int(x["simple_len"] > 30)
-  return x
 
-sample_size = 20000
-data_stats = train_data.select(range(sample_size)).map(map_to_length, num_proc=4)
+    x["normal_len"] = len(tokenizer(x['Normal']).input_ids)
+    x["normal_longer_20"] = (len(tokenizer(x["Normal"])) > 20)
+    x["simple_len"] = len(tokenizer(x["Simple"]).input_ids)
+    x["simple_longer_15"] = int(x["simple_len"] > 15)
+    x["simple_longer_30"] = int(x["simple_len"] > 30)
+    return x
+
+lista_normali = [len(ele) for ele in tokenizer(train_ds['Normal']).input_ids]
+lista_semplici = [len(ele) for ele in tokenizer(train_ds['Simple']).input_ids]
+dictio1 = {}
+dictio2 = {}
+
+for lunghezza in lista_normali:
+    if lunghezza in dictio1:
+        dictio1[lunghezza] += 1
+
+    else:
+        dictio1[lunghezza] = 1
+
+for lunghezza in lista_semplici:
+    if lunghezza in dictio2:
+        dictio2[lunghezza] += 1
+
+    else:
+        dictio2[lunghezza] = 1
+
+
+plt.bar(dictio1.keys(), dictio1.values(), 2, color='g')
+plt.show()
+
+plt.bar(dictio2.keys(), dictio2.values(), 2, color='r')
+plt.show()
+
+sample_size = 56704
+data_stats = train_ds.map(map_to_length, num_proc=4)
+print(data_stats)
 
 def compute_and_print_stats(x):
   if len(x["normal_len"]) == sample_size:
     print(
-        "Article Mean: {}, %-Articles > 50:{}, Simple Mean:{}, %-Simple > 64:{}, %-Simple > 128:{}".format(
+        "Sentence Mean: {}, %Sentence > 20:{}, Simple Mean:{}, %-Simple > 15:{}, %-Simple > 30:{}".format(
             sum(x["normal_len"]) / sample_size,
-            sum(x["normal_longer_50"]) / sample_size,
+            sum(x["normal_longer_20"]) / sample_size,
             sum(x["simple_len"]) / sample_size,
             sum(x["simple_longer_15"]) / sample_size,
             sum(x["simple_longer_30"]) / sample_size,
@@ -61,14 +100,14 @@ output = data_stats.map(
   batch_size=-1,
 )
 
+
 #Here finishes the initial inspection of the data and starts the setting of the training phase
 ##################################################################################
 
-train_data = train_data.select(range(50000))
 
 
 def process_data_to_model_inputs(batch):
-    encoder_max_length = 80
+    encoder_max_length = 20
     decoder_max_length = 20
     # tokenize the inputs and labels
     inputs = tokenizer(batch["Normal"], padding="max_length", truncation=True, max_length=encoder_max_length)

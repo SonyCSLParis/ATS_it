@@ -114,8 +114,6 @@ class DatasetHelper:
 
 
 class HuggingFaceDataset:
-    encoder_max_length = 80
-    decoder_max_length = 100
 
     @staticmethod
     def hf_dataset(
@@ -161,18 +159,20 @@ class HuggingFaceDataset:
     @staticmethod
     def __process(auto_tokenizer, batch: Dict):
         tokenizer = auto_tokenizer
+        encoder_max_length = 20
+        decoder_max_length = 20
 
         inputs = tokenizer(
             batch["Normal"],
             padding="max_length",
             truncation=True,
-            max_length=HuggingFaceDataset.encoder_max_length,
+            max_length=encoder_max_length,
         )
         outputs = tokenizer(
             batch["Simple"],
             padding="max_length",
             truncation=True,
-            max_length=HuggingFaceDataset.decoder_max_length,
+            max_length=decoder_max_length,
         )
 
         batch["input_ids"] = inputs.input_ids

@@ -191,6 +191,7 @@ class HuggingFaceTrainer:
         if tokenizer.name_or_path != "facebook/bart-base":
             model.config.vocab_size = model.config.encoder.vocab_size
 
+
         #qui nella parte destra dell'uguale c'era tokenizer.config, ora però ho messo model_deep
         model.config.decoder_start_token_id = tokenizer.cls_token_id
         model.config.eos_token_id = tokenizer.sep_token_id
