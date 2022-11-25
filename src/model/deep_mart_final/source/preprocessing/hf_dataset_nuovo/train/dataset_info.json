@@ -1,0 +1,41 @@
+{
+  "builder_name": "csv",
+  "citation": "",
+  "config_name": "default",
+  "dataset_size": 5686943,
+  "description": "",
+  "download_checksums": {
+    "/Users/francesca/Desktop/Github/Final/output/ultimated.csv": {
+      "num_bytes": 5369255,
+      "checksum": "a775affdcee73a35d9927c484902e39142e7ece39e70140c3804dbb147599aa0"
+    }
+  },
+  "download_size": 5369255,
+  "features": {
+    "Normal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "Simple": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 11056198,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 5686943,
+      "num_examples": 63005,
+      "dataset_name": "csv"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
