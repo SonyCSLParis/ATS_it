@@ -23,7 +23,7 @@ if __name__ == "__main__":
     parser.add_argument("--tokenizer_id", type=str)
 
     parser.add_argument("--seq_max_length", type=int, default=20)
-    parser.add_argument("--seq_min_length", type=int, default=2)
+    parser.add_argument("--seq_min_length", type=int, default=3)
     parser.add_argument("--no_repeat_ngram_size", type=int, default=3)
     #length penalty only used with beam generation type
     parser.add_argument("--length_penalty", type=float, default=-0.5)
