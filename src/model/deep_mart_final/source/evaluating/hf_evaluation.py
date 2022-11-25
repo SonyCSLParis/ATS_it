@@ -1,4 +1,5 @@
 #from src.preprocessing.dataset import HuggingFaceDataset
+import tensorflow as tf
 import pandas as pd
 import numpy as np
 import evaluate
@@ -11,6 +12,7 @@ from transformers import (
     AutoModel,
     BertTokenizer,
     AutoTokenizer,
+    AutoConfig,
     EncoderDecoderModel,
     EvalPrediction,
     Seq2SeqTrainer,
@@ -151,150 +153,49 @@ def compute_metrics(dataset, modello):
     all_preds = []
     all_labels = []
     sampled_dataset = dataset["test"].shuffle().select(range(200))
-
+    tf_generate_dataset = sampled_dataset.to_tf_dataset(
+        columns=["input_ids", "attention_mask", "labels"],
+        collate_fn=data_collator,
+        shuffle=False,
+        batch_size=4,
+    )
     #questa funzione to_tf_dataset di tensorflow non eè riconosciuta ed è quella che ci genera errore
 
-    for batch in sampled_dataset:
-        frase = 'Marta ha sporcato i calzini di salsa'
+    for batch in tf_generate_dataset:
 
-        inputs = tokenizer([frase], padding='max_length',max_length=20, truncation=True, return_tensors='pt')
-        predictions = modello_1.generate(inputs['input_ids'], max_length=20, min_length=0,
-                        num_beams=1,
-                        length_penalty=1.0,
-                        #emperature=1.0,
-                        early_stopping=True,
-                        top_k=50,
-                        do_sample=False)
-
+        predictions = modello.generate(
+            input_ids=batch["input_ids"], attention_mask=batch["attention_mask"]
+        )
         print(predictions)
-        #decodificare le predizioni
-        decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-        print(decoded_preds)
-        #ricavare le labels
-        labels = batch["labels"].numpy()
-        labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-        decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
-        decoded_preds = [pred.strip() for pred in decoded_preds]
-        decoded_labels = [[label.strip()] for label in decoded_labels]
+        labels_ids = predictions.label_ids
+        pred_ids = predictions.predictions
+
+
+        pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
+        labels_ids[labels_ids == -100] = tokenizer.pad_token_id
+        label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
+        decoded_preds = [pred.strip() for pred in pred_str]
+        decoded_labels = [[label.strip()] for label in label_str]
         all_preds.extend(decoded_preds)
         all_labels.extend(decoded_labels)
 
+    #first attempt of generating evaluation metrics of a test batch
+
+    metric = evaluate.load("sacrebleu")
     result = metric.compute(predictions=all_preds, references=all_labels)
     return {"bleu": result["score"]}
 
-#first attempt of generating evaluation metrics of a test batch
+
+
 print(compute_metrics(dataset1, modello_1))
 
-'''
-#questa funzione è praticamente identica a quella di prima, solo che riceve in input le predizioni già compiute
-def compute_metrics2(eval_preds):
-    preds, labels = eval_preds
-    # In case the model_deep returns more than the prediction logits
-    if isinstance(preds, tuple):
-        preds = preds[0]
 
-    decoded_preds = tokenizer.batch_decode(preds, skip_special_tokens=True)
-
-    # Replace -100s in the labels as we can't decode them
-    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-    decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
-
-    # Some simple post-processing
-    decoded_preds = [pred.strip() for pred in decoded_preds]
-    decoded_labels = [[label.strip()] for label in decoded_labels]
-
-    result = metric.compute(predictions=decoded_preds, references=decoded_labels)
-    return {"bleu": result["score"]}
-
-
-#TOWARDS DATA SCIENCE Chris Lemke
-#our model_deep is using pre-trained BERT weights
-
-#ho commentato questa parte perchè avevamo già fatto il setting sopra, ma è sempre possibile utilizzarla in seguito
-
-model_deep = EncoderDecoderModel.from_encoder_decoder_pretrained('bert-base-uncased', 'bert-base-uncased')
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-tokenizer.save_pretrained('/Users/francesca/Desktop/deep-martin-final/model_deep/pretrained_english')
-model_deep.save_pretrained('/Users/francesca/Desktop/deep-martin-final/model_deep/pretrained_english')
-
-model_deep.config.decoder_start_token_id = tokenizer.cls_token_id
-model_deep.config.eos_token_id = tokenizer.sep_token_id
-model_deep.config.pad_token_id = tokenizer.pad_token_id
-model_deep.config.vocab_size = model_deep.config.encoder.vocab_size
-
-model_deep.config.max_length = 120
-model_deep.config.min_length = 40
-model_deep.config.early_stopping = True
-model_deep.config.length_penalty = 0.8
-model_deep.config.num_beams = 3
-
-
-dataset = load_dataset('/Users/francesca/Desktop/deep-martin-final/data/final_hf.csv', tokenizer_id='dbmdz/bert-base-italian-xxl-cased')
-dataset1 = dataset.train_test_split(shuffle=False, test_size=0.10)
-train_ds = dataset1["train"].shuffle(seed=42)
-test_ds = dataset1["test"]
-
-
-
-meteor = load_metric('meteor')
-rouge = load_metric('rouge')
-
-def compute_metrics(prediction):
-    labels_ids = prediction.label_ids
-    pred_ids = prediction.predictions
-
-    pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
-    labels_ids[labels_ids == -100] = tokenizer.pad_token_id
-    label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
-
-    meteor_output = meteor.compute(predictions=pred_str, references=label_str)
-    rouge_output = rouge.compute(
-        predictions=pred_str, references=label_str, rouge_types=['rouge2'])['rouge2'].mid
-
-    return {
-        'meteor_score': round(meteor_output['meteor'], 4),
-        'rouge2_precision': round(rouge_output.precision, 4),
-        'rouge2_recall': round(rouge_output.recall, 4),
-        'rouge2_f_measure': round(rouge_output.fmeasure, 4)
-    }
-
-training_arguments = Seq2SeqTrainingArguments(
-    predict_with_generate=True,
-    evaluation_strategy='steps',
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
-    fp16=torch.cuda.is_available(),
-    output_dir='/Users/francesca/Desktop/deep-martin-final/model_deep/trained_model/model_tutorial',
-    logging_steps=100,
-    save_steps=2000,
-    eval_steps=10000,
-    warmup_steps=2000,
-    gradient_accumulation_steps=1,
-    save_total_limit=3
-)
-
-trainer = Seq2SeqTrainer(
-    model_deep=model_deep,
-    tokenizer=tokenizer,
-    args=training_arguments,
-    #compute_metrics=compute_metrics,
-    train_dataset=train_ds,
-    eval_dataset=test_ds,
-)
-
-#qui inizia il test
-wandb.init(mode="disabled")
-trainer.train()
-trainer.save_model('/Users/francesca/Desktop/deep-martin-master/model_deep/trained_model/model_tutorial')
-
-
-
-#input_text = '''
-#Questa ragazza è estremamente simpatica
+input_text = '''
+Questa ragazza è estremamente simpatica
 '''
 
-trained_model = EncoderDecoderModel.from_pretrained('/Users/francesca/Desktop/deep-martin-master/model_deep/trained_model/checkpoint-3000')
-tokenizer = AutoTokenizer.from_pretrained('/Users/francesca/Desktop/deep-martin-master/model_deep/trained_model/checkpoint-3000')
+trained_model = EncoderDecoderModel.from_pretrained('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/checkpoint-4000')
+tokenizer = AutoTokenizer.from_pretrained('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/checkpoint-4000')
 
 inputs = tokenizer([input_text], padding='max_length',
                        max_length=20, truncation=True, return_tensors='pt')
@@ -302,7 +203,7 @@ inputs = tokenizer([input_text], padding='max_length',
 trained_model.config.decoder_start_token_id = tokenizer.cls_token_id
 trained_model.config.eos_token_id = tokenizer.sep_token_id
 trained_model.config.pad_token_id = tokenizer.pad_token_id
-trained_model.config.vocab_size = model_deep.config.encoder.vocab_size
+trained_model.config.vocab_size = trained_model.config.encoder.vocab_size
 
 output = trained_model.generate(inputs['input_ids'],
                         max_length=20,
@@ -324,4 +225,4 @@ output = trained_model.generate(inputs['input_ids'],
 print(output)
 text = tokenizer.batch_decode(output, skip_special_tokens=True)
 print(text)
-'''
+

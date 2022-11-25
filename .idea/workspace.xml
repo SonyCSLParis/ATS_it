@@ -5,10 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/analysis_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/checkpoints_tutorial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/doc2vec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/evaluator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/plotting.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/text_similarity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/visualize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/analysis/word2vec2tensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/decoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/decoder_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/embedding_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/encoder_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/feed_forward_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/multi_head_attention_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/normalisation_layer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/layers/positional_encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/transformer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/model_implementation/transformer_model_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer/utils/model_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/custom_transformer_trainer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/exp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hyperparameter_search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/full/dataset_dict.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/full/train/dataset.arrow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/full/train/dataset_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/full/train/state.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/dataset_dict.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/test/dataset.arrow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/test/dataset_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/test/state.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/train/dataset.arrow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/train/dataset_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_nuovo/train/state.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_test_nuovo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/hf_dataset_train_nuovo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/load_correct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/split_PACCSIT.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/custom_transformer_training.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +107,14 @@
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/output/output_modello" />
+      <recent name="$PROJECT_DIR$/output/output_bartoli" />
+      <recent name="$PROJECT_DIR$/output/output_analysis" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source" />
-      <recent name="$PROJECT_DIR$/deep_mart_final" />
-      <recent name="$PROJECT_DIR$/src/model/deep_martin_model/source" />
-      <recent name="$PROJECT_DIR$/src/model/deep_martin_model/source/analysis" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.hf_transformer_trainer">
+  <component name="RunManager" selected="Python.load_correct">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,6 +247,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="hf_evaluation" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="hf_training" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -261,6 +326,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/join_dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="load_correct" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/load_correct.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -430,9 +516,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" />
@@ -471,9 +557,11 @@
       <item itemvalue="Python.custom_transformer_trainer" />
       <item itemvalue="Python.custom_transformer_training" />
       <item itemvalue="Python.evaluator" />
+      <item itemvalue="Python.hf_evaluation" />
       <item itemvalue="Python.examples" />
       <item itemvalue="Python.exp" />
       <item itemvalue="Python.hf_training" />
+      <item itemvalue="Python.load_correct" />
       <item itemvalue="Python.hf_transformer_trainer" />
       <item itemvalue="Python.join_dataset" />
       <item itemvalue="Python.main" />
