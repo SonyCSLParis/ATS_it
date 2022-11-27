@@ -2,59 +2,12 @@ import logging
 import sys
 import json
 from typing import Dict, List, Optional, Tuple
-from src.model.deep_mart_final.source.custom_transformer.model_implementation.transformer import get_model
 import pandas as pd
 import torch
 from datasets import load_metric
 from tqdm import tqdm
-from transformers import BertTokenizerFast, EncoderDecoderModel, RobertaTokenizerFast, AutoTokenizer
+from transformers import EncoderDecoderModel, AutoTokenizer
 from settings import *
-
-# this class allows to create the Evaluator for the Customized Transformer that has been implemented by Christophen Lemke
-class CTransformerEvaluator:
-
-    def __init__(
-            # here all the necessary components are initialized
-            self,
-            arguments,
-            vocab_size,
-            eval_dataset_path: str,  # path of the evaluation dataset
-            model_path: str,  # path of the model_deep which has been trained and will perform the prediction
-            #doc2vec_model_path: str,  # path for a DocToVec model_deep already trained (but how and on which documents?
-            tokenizer_path: str,  # path of the tokenizer
-            log_level="WARNING"):
-
-        # reading the dataset
-        self.df = pd.read_csv(eval_dataset_path, index_col=0)
-        self.logger = logging.getLogger(__name__)
-
-        # here we apply this function to the model_deep (go to the analysis.py file to understand better
-        #self.analysis_helper = AnalysisHelper(doc2vec_model_path)
-
-        # just load the tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
-
-        # set up the machine you will use
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-        # set up and load the model_deep you have already trained
-
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model = get_model(arguments, vocab_size, vocab_size, device)
-        self.model.load_state_dict(torch.load(model_path))
-
-
-        logging.basicConfig(
-            level=log_level,
-            handlers=[logging.StreamHandler(sys.stdout)],
-            format="%(levelname)s - %(message)s",
-        )
-
-
-
-    def evaluate(self):
-        self.model.eval()
-
 
 
 class HFEvaluator:
@@ -88,13 +41,6 @@ class HFEvaluator:
             )
         if tokenizer_path is not None:
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
-
-
-        if "roberta" in tokenizer_path:
-            self.tokenizer = RobertaTokenizerFast.from_pretrained(tokenizer_path)
-
-        elif "bert" in tokenizer_path:
-            self.tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
 
         else:
             raise ValueError(
@@ -284,7 +230,7 @@ class HFEvaluator:
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path =  OUTPUT_DIR + '/df_test_ultimated.csv',
                      model_path= '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/LAST_HF_1/checkpoint-6000',
-                     tokenizer_path= '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert',
+                     tokenizer_path= "dbmdz/bert-base-italian-xxl-cased",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
