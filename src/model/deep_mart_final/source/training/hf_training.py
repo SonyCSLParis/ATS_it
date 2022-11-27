@@ -37,12 +37,12 @@ class HuggingFaceTrainer:
     @staticmethod
     def __load_dataset(path) -> Tuple[Dataset, Dataset]:
         df = pd.read_csv(path)
-        #colonna_complessa = [str(riga) for riga in list(df['Normal'])]
-        #colonna_semplice = [str(riga) for riga in list(df['Simple'])]
+        colonna_complessa = [str(riga) for riga in list(df['Normal'])]
+        colonna_semplice = [str(riga) for riga in list(df['Simple'])]
 
-        #dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+        dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 
-        dataset = HuggingFaceDataset.hf_dataset(df,
+        dataset = HuggingFaceDataset.hf_dataset(dataframe,
                                                 remove_columns_list=['Normal', 'Simple'],
                                                 identifier="dbmdz/bert-base-italian-xxl-cased",
                                                 batch_size=8)
@@ -51,8 +51,8 @@ class HuggingFaceTrainer:
         print(dataset1)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        train_ds.to_csv('train_data.csv')
-        test_ds.to_csv('test_data.csv')
+        #train_ds.to_csv('train_data.csv')
+        #test_ds.to_csv('test_data.csv')
 
         HuggingFaceTrainer.__logger.info(
             f" Loaded train_dataset length is: {len(dataset1['train'])}."
@@ -140,7 +140,10 @@ class HuggingFaceTrainer:
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
         elif pretrained_model_path is not None and model_path is None:
-            model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
+            model = EncoderDecoderModel.from_encoder_decoder_pretrained(
+                pretrained_model_path, pretrained_model_path, tie_encoder_decoder=tie_encoder_decoder
+            )
+            #model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             #cache_dir = '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert'
             HuggingFaceTrainer.__logger.info(
                 f"Model loaded from: {pretrained_model_path}."
