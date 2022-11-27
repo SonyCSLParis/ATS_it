@@ -98,8 +98,6 @@ with open(data_path, 'r') as csv_file:
 
 
 
-print(len(list_complex))
-print(len(list_simple))
 
 #I create the final dataset and I save ita s a csv
 d = {'Normal':list_complex,'Simple':list_simple}

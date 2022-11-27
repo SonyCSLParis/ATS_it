@@ -5,7 +5,7 @@ from typing import Dict, List, Optional, Tuple
 import pandas as pd
 import torch
 from torch.utils.data import DataLoader, Dataset
-from torchtext.legacy import data
+from torchtext import data
 from tqdm import tqdm
 from transformers import AutoTokenizer
 

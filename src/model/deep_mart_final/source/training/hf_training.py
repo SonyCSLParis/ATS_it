@@ -4,23 +4,18 @@ import logging
 import os
 import sys
 from typing import Dict, Optional, Tuple
-from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
-from src.model.deep_mart_final.source.preprocessing.dataset import DatasetHelper
+from preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 import pandas as pd
 from transformers import logging as hf_logging
 from datasets import Dataset, load_metric
-from os import path, makedirs
 from transformers import (
-    AutoModel,
-    AutoConfig,
     AutoTokenizer,
     EncoderDecoderModel,
     EvalPrediction,
     Seq2SeqTrainer,
-    Seq2SeqTrainingArguments,
-    DataCollatorForSeq2Seq,
+    Seq2SeqTrainingArguments
 )
 
 
@@ -42,12 +37,12 @@ class HuggingFaceTrainer:
     @staticmethod
     def __load_dataset(path) -> Tuple[Dataset, Dataset]:
         df = pd.read_csv(path)
-        colonna_complessa = [str(riga) for riga in list(df['Sentence_1'])]
-        colonna_semplice = [str(riga) for riga in list(df['Sentence_2'])]
+        #colonna_complessa = [str(riga) for riga in list(df['Normal'])]
+        #colonna_semplice = [str(riga) for riga in list(df['Simple'])]
 
-        dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+        #dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 
-        dataset = HuggingFaceDataset.hf_dataset(dataframe,
+        dataset = HuggingFaceDataset.hf_dataset(df,
                                                 remove_columns_list=['Normal', 'Simple'],
                                                 identifier="dbmdz/bert-base-italian-xxl-cased",
                                                 batch_size=8)
@@ -56,6 +51,8 @@ class HuggingFaceTrainer:
         print(dataset1)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
+        train_ds.to_csv('train_data.csv')
+        test_ds.to_csv('test_data.csv')
 
         HuggingFaceTrainer.__logger.info(
             f" Loaded train_dataset length is: {len(dataset1['train'])}."
@@ -143,7 +140,8 @@ class HuggingFaceTrainer:
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
         elif pretrained_model_path is not None and model_path is None:
-            model = EncoderDecoderModel.from_pretrained(pretrained_model_path, cache_dir = '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert')
+            model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
+            #cache_dir = '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert'
             HuggingFaceTrainer.__logger.info(
                 f"Model loaded from: {pretrained_model_path}."
             )
@@ -259,27 +257,3 @@ class HuggingFaceTrainer:
 
 
 
-
-def load_dataset(d1, d2) -> Tuple[Dataset, Dataset]:
-    df = pd.read_csv(path)
-    colonna_complessa = [str(riga) for riga in list(df['Sentence_1'])]
-    colonna_semplice = [str(riga) for riga in list(df['Sentence_2'])]
-
-    dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-
-    dataset = HuggingFaceDataset.hf_dataset('/Users/francesca/Desktop/Github/Final/output/df_train_ultimated.csv'
-                                            '/Users/francesca/Desktop/Github/Final/output/df_test_ultimated.csv',
-                                            remove_columns_list=['Normal', 'Simple'],
-                                            identifier="dbmdz/bert-base-italian-xxl-cased",
-                                            batch_size=8)
-
-    dataset1 = dataset.train_test_split(shuffle=True, test_size=0.10)
-    print(dataset1)
-    train_ds = dataset1["train"].shuffle(seed=42)
-    test_ds = dataset1["test"]
-
-    return train_ds, test_ds
-tr, te = load_dataset('/Users/francesca/Desktop/Github/Final/output/ultimated.csv')
-
-for ele in te:
-    print(ele)
