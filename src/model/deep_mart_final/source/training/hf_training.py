@@ -35,33 +35,27 @@ class HuggingFaceTrainer:
         )
 
     @staticmethod
-    def __load_dataset(path) -> Tuple[Dataset, Dataset]:
-        df = pd.read_csv(path)
-        colonna_complessa = [str(riga) for riga in list(df['Normal'])]
-        colonna_semplice = [str(riga) for riga in list(df['Simple'])]
+    def __load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
 
-        dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+        path_first = ds_path + '/train'
+        path_second = ds_path + '/test'
 
-        dataset = HuggingFaceDataset.hf_dataset(dataframe,
-                                                remove_columns_list=['Normal', 'Simple'],
-                                                identifier="dbmdz/bert-base-italian-xxl-cased",
-                                                batch_size=8)
+        dataset_tr, dataset_ts = HuggingFaceDataset.hf_dataset(
+            path1=path_first,
+            path2=path_second,
+            remove_columns_list=['Normal', 'Simple'],
+            identifier="dbmdz/bert-base-italian-xxl-cased",
+            batch_size=8)
 
-        dataset1 = dataset.train_test_split(shuffle=True, test_size=0.10)
-        print(dataset1)
-        train_ds = dataset1["train"].shuffle(seed=42)
-        test_ds = dataset1["test"]
-        #train_ds.to_csv('train_data.csv')
-        #test_ds.to_csv('test_data.csv')
 
         HuggingFaceTrainer.__logger.info(
-            f" Loaded train_dataset length is: {len(dataset1['train'])}."
+            f" Loaded train_dataset length is: {len(dataset_tr)}."
         )
         HuggingFaceTrainer.__logger.info(
-            f" Loaded test_dataset length is: {len(dataset1['test'])}."
+            f" Loaded test_dataset length is: {len(dataset_ts)}."
         )
 
-        return train_ds, test_ds
+        return dataset_tr, dataset_ts
 
 
 
@@ -139,12 +133,10 @@ class HuggingFaceTrainer:
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
+
         elif pretrained_model_path is not None and model_path is None:
-            model = EncoderDecoderModel.from_encoder_decoder_pretrained(
-                pretrained_model_path, pretrained_model_path, tie_encoder_decoder=tie_encoder_decoder
-            )
-            #model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
-            #cache_dir = '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert'
+
+            model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(
                 f"Model loaded from: {pretrained_model_path}."
             )
