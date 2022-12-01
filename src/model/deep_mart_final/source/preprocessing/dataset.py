@@ -9,7 +9,7 @@ from torchtext import data
 from tqdm import tqdm
 from transformers import AutoTokenizer
 from datasets import load_dataset, load_from_disk
-
+from transformers import AutoConfig
 
 class DatasetHelper:
     @classmethod
