@@ -8,6 +8,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchtext import data
 from tqdm import tqdm
 from transformers import AutoTokenizer
+from datasets import load_dataset, load_from_disk
 
 
 class DatasetHelper:
@@ -117,7 +118,8 @@ class HuggingFaceDataset:
 
     @staticmethod
     def hf_dataset(
-        df: pd.DataFrame,
+        path1,
+        path2,
         remove_columns_list: List[str],
         identifier: str,
         batch_size: int = 8,
@@ -128,22 +130,31 @@ class HuggingFaceDataset:
         :identifier: The identifier is also known as the path for the tokenizer (e.g. `bert-base-cased`).
         :batch_size: The default batch size is set to 8. This is also the default value from Hugging Face.
         """
-        from datasets import Dataset
-        data = Dataset.from_pandas(df)
+
+        train_ds = load_from_disk(path1)
+        test_ds = load_from_disk(path2)
+
 
         tokenizer = AutoTokenizer.from_pretrained(identifier)
         print(f"Using {identifier} tokenizer.")
 
         function = functools.partial(HuggingFaceDataset.__process, tokenizer)
 
-        dataset = data.map(
+        dataset_tr = train_ds.map(
             function=function,
             batched=True,
             batch_size=batch_size,
             remove_columns=remove_columns_list,
         )
 
-        dataset.set_format(
+        dataset_ts = test_ds.map(
+            function=function,
+            batched=True,
+            batch_size=batch_size,
+            remove_columns=remove_columns_list,
+        )
+
+        dataset_tr.set_format(
             type="torch",
             columns=[
                 "input_ids",
@@ -154,7 +165,32 @@ class HuggingFaceDataset:
             ],
         )
 
-        return dataset
+        dataset_ts.set_format(
+            type="torch",
+            columns=[
+                "input_ids",
+                "attention_mask",
+                "decoder_input_ids",
+                "decoder_attention_mask",
+                "labels",
+            ],
+        )
+
+        return dataset_tr, dataset_ts
+
+    @staticmethod
+    def get_train_test_csv(df: pd.DataFrame):
+        from datasets import Dataset
+        data = Dataset.from_pandas(df)
+
+        dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
+        train_ds = dataset1["train"].shuffle(seed=42)
+        test_ds = dataset1["test"]
+        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset')
+        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_data.csv', index=False)
+        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_data.csv', index=False)
+        return
+
 
     @staticmethod
     def __process(auto_tokenizer, batch: Dict):
@@ -390,3 +426,20 @@ class TextDataset:
             shuffle=False,
         )
         return train_iterator, test_iterator
+
+
+
+#with the code below I create the train and test split and I save it in the local folder
+
+df = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/processed_ultimated.csv')
+colonna_complessa = [str(riga) for riga in list(df['Normal'])]
+colonna_semplice = [str(riga) for riga in list(df['Simple'])]
+
+dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+#HuggingFaceDataset.get_train_test_csv(dataframe)
+
+
+
+
+
+
