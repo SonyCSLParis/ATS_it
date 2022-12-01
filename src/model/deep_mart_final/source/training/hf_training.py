@@ -17,7 +17,8 @@ from transformers import (
     Seq2SeqTrainer,
     BertTokenizer,
     AutoConfig,
-    Seq2SeqTrainingArguments
+    Seq2SeqTrainingArguments,
+    DataCollatorForSeq2Seq
 )
 
 
@@ -197,6 +198,8 @@ class HuggingFaceTrainer:
         )
         train_ds, eval_ds = HuggingFaceTrainer.__load_dataset(ds_path)
 
+
+
         if hf_logging_enabled:
             HuggingFaceTrainer.__logger.info("HF logging activated.")
             hf_logging.set_verbosity_info()
@@ -210,6 +213,8 @@ class HuggingFaceTrainer:
             tokenizer,
         )
 
+
+        d_collator = DataCollatorForSeq2Seq(tokenizer = tokenizer, model = model, padding= 'max_length')
 
 
         training_arguments = Seq2SeqTrainingArguments(
@@ -239,6 +244,7 @@ class HuggingFaceTrainer:
             compute_metrics=compute_metrics,
             train_dataset=train_ds,
             eval_dataset=eval_ds,
+            data_collator= d_collator
         )
 
         if resume:
