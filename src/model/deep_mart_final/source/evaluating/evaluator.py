@@ -16,7 +16,6 @@ class HFEvaluator:
             self,
             eval_dataset_path: str,
             model_path: str,
-            #doc2vec_model_path: str,
             tokenizer_path: Optional[str] = None,
             log_level="WARNING"):
 
@@ -24,7 +23,7 @@ class HFEvaluator:
         df = pd.read_csv(eval_dataset_path, index_col=False)
         self.df = df.head(200)
         # you load all the metrics of interest and
-        # self.logger = logging.getLogger(_name_)
+        self.logger = logging.getLogger(__name__)
         self.sari = load_metric("sari")
         self.bert_score = load_metric("bertscore")
         self.rouge = load_metric("rouge")
@@ -32,7 +31,6 @@ class HFEvaluator:
         self.meteor = load_metric("meteor")
 
         # you call that function, implemented in analysis.py file, to the doc2vec model_deep, but very uncertain on that
-        #self.analysis_helper = AnalysisHelper(doc2vec_model_path)
 
         if tokenizer_path is None:
             tokenizer_path = model_path
@@ -99,7 +97,7 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 20)
+        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 19)
 
         return model_output, self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
@@ -192,7 +190,7 @@ class HFEvaluator:
             print(output)
 
             glue_result = self.eval_glue_score(
-                predictions=undecoded_out[0][0:20].tolist(), # 0:21 va cambiato quando capiamo come far generare inputs e reference da massimo 20
+                predictions=undecoded_out[0].tolist(), # 0:21 va cambiato quando capiamo come far generare inputs e reference da massimo 20
                 references=reference_tokens[0][0].tolist(),
             )
 
@@ -228,16 +226,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path =  OUTPUT_DIR + '/df_test_ultimated.csv',
-                     model_path= '/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/LAST_HF_1/checkpoint-6000',
-                     tokenizer_path= "dbmdz/bert-base-italian-xxl-cased",
+classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final/output/output_modello/test_data.csv',
+                     model_path= '/Users/francesca/Desktop/model_deep/1_epoch_1',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/1_epoch_1",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/model_deep/trained_model/LAST_HF_1/checkpoint-6000/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/1_epoch_1/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation3.csv',
+                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation4.csv',
                              extend_dataframe=False)
