@@ -438,6 +438,8 @@ colonna_semplice = [str(riga) for riga in list(df['Simple'])]
 dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
 #HuggingFaceDataset.get_train_test_csv(dataframe)
 
+tok = AutoTokenizer.from_pretrained('dbmdz/bert-base-italian-xxl-cased', config= AutoConfig.from_pretrained('dbmdz/bert-base-italian-xxl-cased'))
+
 
 
 

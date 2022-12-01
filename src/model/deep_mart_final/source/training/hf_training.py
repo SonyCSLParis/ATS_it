@@ -16,6 +16,7 @@ from transformers import (
     EvalPrediction,
     Seq2SeqTrainer,
     BertTokenizer,
+    AutoConfig,
     Seq2SeqTrainingArguments
 )
 
@@ -187,7 +188,7 @@ class HuggingFaceTrainer:
     ):
         gc.enable()
 
-        tokenizer = BertTokenizer.from_pretrained(tokenizer_id)
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_id, config= AutoConfig.from_pretrained(tokenizer_id))
         compute_metrics = functools.partial(
             HuggingFaceTrainer.__compute_metrics, tokenizer
         )
