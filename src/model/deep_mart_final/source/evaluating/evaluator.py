@@ -97,7 +97,7 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 19)
+        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 29)
 
         return model_output, self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
@@ -189,14 +189,14 @@ class HFEvaluator:
             print(undecoded_out)
             print(output)
 
-            glue_result = self.eval_glue_score(
+            '''glue_result = self.eval_glue_score(
                 predictions=undecoded_out[0].tolist(), # 0:21 va cambiato quando capiamo come far generare inputs e reference da massimo 20
                 references=reference_tokens[0][0].tolist(),
             )
 
             rouge_result = self.eval_rouge_scores(
                 predictions=output, references=[references]
-            )
+            )'''
 
 
             sari_result = self.eval_sari_score(
@@ -212,9 +212,9 @@ class HFEvaluator:
                     "Simple": output[0],
                     "SARI": sari_result["sari_score"],
                     "METEOR": meteor_result["meteor_score"],
-                    "ROUGE_F": rouge_result["rouge2_f_measure"],
-                    "SPEARMAN_CORRELATION": glue_result["glue_spearman_r"],
-                    "PEARSON_CORRELATION": glue_result["glue_pearson"],
+                    "ROUGE_F": 0,
+                    "SPEARMAN_CORRELATION": 0,
+                    "PEARSON_CORRELATION": 0,
                 },
                 ignore_index=True,
             )
@@ -227,15 +227,15 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final/output/output_modello/test_data.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/1_epoch_1',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/1_epoch_1",
+                     model_path= '/Users/francesca/Desktop/model_deep/checkpoint-54000',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/checkpoint-54000",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/1_epoch_1/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/checkpoint-54000/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation4.csv',
+                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation5.csv',
                              extend_dataframe=False)

@@ -186,17 +186,17 @@ class HuggingFaceDataset:
         dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset')
-        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_data.csv', index=False)
-        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_data.csv', index=False)
+        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset_lemmatized')
+        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_data_lem.csv', index=False)
+        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_data_lem.csv', index=False)
         return
 
 
     @staticmethod
     def __process(auto_tokenizer, batch: Dict):
         tokenizer = auto_tokenizer
-        encoder_max_length = 20
-        decoder_max_length = 20
+        encoder_max_length = 30
+        decoder_max_length = 30
 
         inputs = tokenizer(
             batch["Normal"],
@@ -225,198 +225,6 @@ class HuggingFaceDataset:
         return batch
 
 
-class DatasetManager:
-    @staticmethod
-    def create_asset_csv(source_folder_path: str, output_file_path: str):
-        """
-        :param source_folder_path: Path to the folder which contains the test and validation files. Files need
-        to have specific names: `test.orig.txt`, `valid.orig.txt`, `test.simp.0.txt`, `valid.simp.0.txt`, etc.
-        :param output_file_path: Path to the output csv file.
-        """
-        df = pd.DataFrame(columns=["Normal", "Simple"])
-
-        with open(f"{source_folder_path}/train.orig.txt", "r") as train_orig_file:
-            for line_index, orig_line in enumerate(train_orig_file):
-                for i in range(10):
-                    with open(
-                        f"{source_folder_path}/train.simp.{i}.txt"
-                    ) as train_simp_file:
-                        simple_lines = train_simp_file.readlines()
-                        df = df.append(
-                            {"Normal": orig_line, "Simple": simple_lines[line_index]},
-                            ignore_index=True,
-                        )
-
-        with open(f"{source_folder_path}/valid.orig.txt", "r") as valid_orig_file:
-            for line_index, orig_line in enumerate(valid_orig_file):
-                for i in range(10):
-                    with open(
-                        f"{source_folder_path}/valid.simp.{i}.txt"
-                    ) as valid_simp_file:
-                        simple_lines = valid_simp_file.readlines()
-                        df = df.append(
-                            {"Normal": orig_line, "Simple": simple_lines[line_index]},
-                            ignore_index=True,
-                        )
-
-        df.to_csv(output_file_path)
-
-    @staticmethod
-    def create_one_stop_csv_from_txt(txt_path: str, output_file_path: str):
-        """Create csv from txt files containing separated sentences."""
-        rows: List[str] = []
-
-        with codecs.open(txt_path, "r", encoding="utf-8") as file:
-            for line in tqdm(file):
-                if line != "*******\n":
-                    rows.append(line)
-
-        df = pd.DataFrame(
-            list(zip(rows[0::2], rows[1::2])), columns=["Normal", "Simple"]
-        )
-        df.to_csv(output_file_path)
-
-    @staticmethod
-    def create_simpa_csv(source_folder_path: str, output_file_path: str):
-        df = pd.DataFrame(columns=["Normal", "Simple"])
-
-        for simpa_type in tqdm(["ls", "ss"]):
-            with open(
-                f"{source_folder_path}/{simpa_type}_normal.txt", "r"
-            ) as normal_file:
-                with open(
-                    f"{source_folder_path}/{simpa_type}_simplified.txt", "r"
-                ) as simple_file:
-                    simple_lines = simple_file.readlines()
-                    for line_index, line in enumerate(normal_file):
-                        df = df.append(
-                            {"Normal": line, "Simple": simple_lines[line_index]},
-                            ignore_index=True,
-                        )
-
-        df.to_csv(output_file_path)
-
-    @staticmethod
-    def create_ss_csv(input_file_path: str, output_file_path: str):
-        df = pd.DataFrame(columns=["Normal", "Simple"])
-        with open(input_file_path, "r") as file:
-            for line in tqdm(file):
-                split = re.split(r"\t+", line)
-                df = df.append(
-                    {"Normal": split[0], "Simple": split[1]}, ignore_index=True
-                )
-
-        df.to_csv(output_file_path)
-
-    @staticmethod
-    def create_wiki_large_csv(
-        normal_file_path: str,
-        simple_file_path: str,
-        output_file_path: str,
-        shuffle: bool = False,
-    ):
-        """
-        :param normal_file_path: Path to the text file containing the normal sentences.
-        :param simple_file_path: Path to the text file containing the simplified (target) sentences.
-        :param output_file_path: Path to the output csv file.
-        :param shuffle: Shuffle the dataset after process.
-        """
-        df = pd.DataFrame(columns=["Normal", "Simple"])
-        with open(simple_file_path, "r") as simple_file:
-            with open(normal_file_path, "r") as normal_file:
-                normal_lines = normal_file.readlines()
-                for index, simple_line in tqdm(enumerate(simple_file)):
-                    df = df.append(
-                        {"Normal": normal_lines[index], "Simple": simple_line},
-                        ignore_index=True,
-                    )
-
-        if shuffle:
-            df = df.sample(frac=1)
-        df.to_csv(output_file_path)
-
-    @staticmethod
-    def create_cleaned_wiki_split_tsv(tsv_file_path: str, output_file_path: str):
-        """
-        :param tsv_file_path: Path to tsv file where the source sentence is separated from the target sentence by tab.
-        :param output_file_path: Path for the output tsv file.
-        """
-        delete_list = ["<::::> "]
-        with open(tsv_file_path) as in_file, open(output_file_path, "w+") as out_file:
-            for line in tqdm(in_file):
-                for string in delete_list:
-                    line = line.replace(string, "")
-                out_file.write(line)
-
-    @staticmethod
-    def create_wiki_split_csv(
-        tsv_file_path: str,
-        output_csv_path: str,
-        shuffle: bool = True,
-        clean_up: bool = False,
-        content_to_drop: Optional[List[str]] = None,
-    ):
-        tqdm.pandas()
-
-        df = pd.read_csv(tsv_file_path, sep="\t")
-
-        if clean_up and content_to_drop is not None:
-            df = df[~df["Normal"].isin(content_to_drop)]
-
-        if shuffle:
-            df = df.sample(frac=1)
-        df.to_csv(output_csv_path, header=["Normal", "Simple"])
-
-
-class TextDataset:
-    __tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-cased")
-
-    def __init__(
-        self,
-        path: str,
-        train_file: str,
-        test_file: str,
-        batch_size: int,
-        device: torch.device,
-        max_length: int,
-    ):
-        super(TextDataset, self).__init__()
-        __df = pd.read_csv(f"{path}/{train_file}")
-        self.batch_size = batch_size
-        self.device = device
-        self.vocab_size = TextDataset.__tokenizer.vocab_size
-        self.rows = __df.shape[0]
-
-        normal = data.Field(
-            sequential=True,
-            use_vocab=False,
-            tokenize=TextDataset.__tokenize,
-            pad_token=0,
-            fix_length=max_length,
-        )
-        simple = data.Field(
-            sequential=True,
-            use_vocab=False,
-            tokenize=TextDataset.__tokenize,
-            pad_token=0,
-            is_target=True,
-            fix_length=max_length,
-        )
-
-        fields = {"Normal": ("normal", normal), "Simple": ("simple", simple)}
-
-        self.train_data, self.test_data = data.TabularDataset.splits(
-            path=path,
-            train=train_file,
-            test=test_file,
-            format="csv",
-            fields=fields,
-            skip_header=False,
-        )
-
-    @staticmethod
-    def __tokenize(text: str):
-        return TextDataset.__tokenizer(text)["input_ids"]
 
     def iterators(self):
         train_iterator, test_iterator = data.BucketIterator.splits(
@@ -431,12 +239,12 @@ class TextDataset:
 
 #with the code below I create the train and test split and I save it in the local folder
 
-df = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/processed_ultimated.csv')
-colonna_complessa = [str(riga) for riga in list(df['Normal'])]
-colonna_semplice = [str(riga) for riga in list(df['Simple'])]
+df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/lemmatized_ultimated.csv')
+colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
+colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
-dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-#HuggingFaceDataset.get_train_test_csv(dataframe)
+dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+HuggingFaceDataset.get_train_test_csv(dataframe_prova)
 
 tok = AutoTokenizer.from_pretrained('dbmdz/bert-base-italian-xxl-cased', config= AutoConfig.from_pretrained('dbmdz/bert-base-italian-xxl-cased'))
 
