@@ -244,7 +244,7 @@ colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova)
+#HuggingFaceDataset.get_train_test_csv(dataframe_prova)
 
 tok = AutoTokenizer.from_pretrained('dbmdz/bert-base-italian-xxl-cased', config= AutoConfig.from_pretrained('dbmdz/bert-base-italian-xxl-cased'))
 
