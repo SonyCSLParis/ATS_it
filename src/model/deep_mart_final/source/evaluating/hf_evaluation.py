@@ -2,10 +2,11 @@
 import pandas as pd
 import numpy as np
 import evaluate
+import functools
 import torch
 from datasets import load_metric
 import wandb
-
+from datasets import load_from_disk
 from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
 from transformers import (
     AutoModel,
@@ -86,6 +87,81 @@ def setup_model(
     model.config.num_beams = model_config["num_beams"]
     return model
 
+
+def __process(auto_tokenizer, batch):
+    tokenizer = auto_tokenizer
+    encoder_max_length = 20
+    decoder_max_length = 20
+
+    inputs = tokenizer(
+        batch["Normal"],
+        padding="max_length",
+        truncation=True,
+        max_length=encoder_max_length,
+    )
+    outputs = tokenizer(
+        batch["Simple"],
+        padding="max_length",
+        truncation=True,
+        max_length=decoder_max_length,
+    )
+
+    batch["input_ids"] = inputs.input_ids
+    batch["attention_mask"] = inputs.attention_mask
+    batch["decoder_input_ids"] = outputs.input_ids
+    batch["decoder_attention_mask"] = outputs.attention_mask
+    batch["labels"] = outputs.input_ids.copy()
+
+    batch["labels"] = [
+        [-100 if token == tokenizer.pad_token_id else token for token in labels]
+        for labels in batch["labels"]
+    ]
+
+    return batch
+
+
+
+#obtain train and test split
+train_set = load_from_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset/train')
+test_set = load_from_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset/test')
+function = functools.partial(__process, tokenizer)
+
+dataset_tr = train_set.map(
+    function=function,
+    batched=True,
+    batch_size=8,
+    remove_columns=['Normal', 'Simple'],
+)
+
+dataset_ts = test_set.map(
+    function=function,
+    batched=True,
+    batch_size=8,
+    remove_columns=['Normal', 'Simple'],
+)
+
+dataset_tr.set_format(
+    type="torch",
+    columns=[
+        "input_ids",
+        "attention_mask",
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "labels",
+    ],
+)
+
+dataset_ts.set_format(
+    type="torch",
+    columns=[
+        "input_ids",
+        "attention_mask",
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "labels",
+    ],
+)
+
 #qui creiamo un dizionario con le configurazioni importanti del nostro modello
 model_config_dict = {
     "max_length": 20,
@@ -107,21 +183,16 @@ modello_1= setup_model(model_config=model_config_dict,
 
 
 
-#load dataset (full)
-dataset = load_dataset('/Users/francesca/Desktop/Github/Final/output/ultimated.csv', tokenizer_id=tokenizer_id)
-#split the dataset
-dataset1 = dataset.train_test_split(shuffle=False, test_size=0.10)
-#obtain train and test split
-train_ds = dataset1["train"].shuffle(seed=42)
-test_ds = dataset1["test"]
 
 
 
-#dataset1["validation"] = dataset1.pop("test")
+
+
+
 
 #create the data collator (it will be useful to create the batches of reference sentences for later testing)
 data_collator = DataCollatorForSeq2Seq(tokenizer, model=modello_1)
-batch = data_collator([train_ds[i] for i in range(1, 5)])
+batch = data_collator([dataset_tr[i] for i in range(1, 3)])
 
 #download the metric of interest
 metric = evaluate.load("sacrebleu")
@@ -137,7 +208,7 @@ print(metric.compute(predictions=predictions, references=references))
 
 
 frase = 'Marta ha sporcato i calzini di salsa'
-inputs = tokenizer([frase], padding='max_length', max_length=20, truncation=True, return_tensors='pt')
+inputs = tokenizer([frase], padding='max_length', max_length=20, truncation=True, return_tensors='tf')
 predictions = modello_1.generate(inputs['input_ids'], max_length=20, min_length=0,
                                  num_beams=1,
                                  length_penalty=1.0,

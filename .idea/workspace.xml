@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/clean_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/clean_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +74,7 @@
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.evaluator">
+  <component name="RunManager" selected="Python.dataset">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,6 +89,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/create_charts/PoS.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="clean_text" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data_merging" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data_merging/clean_text.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,6 +250,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="experimenting" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="hf_evaluation" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,72 +371,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/load_correct.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/PACCS-IT/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="orig_all_stop" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ARTIS_ATS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/orig_all_stop.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="orig_stop_filtered" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ARTIS_ATS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/orig_stop_filtered.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -511,6 +493,7 @@
       <item itemvalue="Python.custom_transformer_trainer" />
       <item itemvalue="Python.custom_transformer_training" />
       <item itemvalue="Python.evaluator" />
+      <item itemvalue="Python.experimenting" />
       <item itemvalue="Python.hf_evaluation" />
       <item itemvalue="Python.examples" />
       <item itemvalue="Python.exp" />
@@ -518,21 +501,14 @@
       <item itemvalue="Python.load_correct" />
       <item itemvalue="Python.hf_transformer_trainer" />
       <item itemvalue="Python.join_dataset" />
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.orig_all_stop" />
-      <item itemvalue="Python.orig_stop_filtered" />
       <item itemvalue="Python.dataset" />
+      <item itemvalue="Python.clean_text" />
       <item itemvalue="Python.settings" />
       <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.tab_freq" />
       <item itemvalue="Python.tutorial_checkpoints_hf" />
       <item itemvalue="Python.verb_mood_tense" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
