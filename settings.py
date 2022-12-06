@@ -1,5 +1,5 @@
-from os import path,makedirs
-
+from os import path
+import spacy
 
 SRC_ROOT_DIR = path.dirname(path.realpath(__file__))  # path to this script
 SOURCE_DIR = path.join(SRC_ROOT_DIR + '/src')
@@ -22,4 +22,4 @@ CSV_EVAL_OUTPUT = path.join(MODEL_DEEP_MARTIN + '/model_deep' + '/csv_output') #
 HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory for final visualisations
 
 
-
+nlp = spacy.load('it_core_news_sm')

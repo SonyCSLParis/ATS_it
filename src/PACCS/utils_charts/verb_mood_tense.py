@@ -2,10 +2,10 @@ from collections import OrderedDict
 
 import plotly.graph_objects as go
 
-from settings import *
-from utils_charts.stopwords_distribution import is_number
-from utils_charts.subject_verb_object_extract import findSVOs
 
+from settings import *
+from PACCS.utils_charts.stopwords_distribution import is_number
+from PACCS.utils_charts.subject_verb_object_extract import findSVOs
 
 def verbal_features(typev, filename):
     '''
@@ -116,7 +116,8 @@ def coord_subord(corpus, sentence_type, which_POS):
     '''
     coll = {}
     for sentence in corpus[f'Sentence_{sentence_type}']:
-        doc = nlp(sentence)
+        sentence1 = str(sentence)
+        doc = nlp(sentence1)
         for token in doc:
             if token.pos_ == which_POS:
                 if not is_number(token.text):
@@ -138,7 +139,8 @@ def amount_SVO(corpus, sentence_type):
     '''
     count = 0
     for sentence in corpus[f'Sentence_{sentence_type}']:
-        doc = nlp(sentence)
+        sentence1 = str(sentence)
+        doc = nlp(sentence1)
         svos = findSVOs(doc)
         if len(svos) > 0:
             count += 1

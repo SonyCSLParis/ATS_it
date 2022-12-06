@@ -59,7 +59,7 @@ def open_txt():
                         else:
                             err_count += 1
 
-        # Some lines (rows) where not properly designed and build, therefore we discarded them and print how many of them were not considered
+        # Some lines (rows) where not properly designed and built, therefore we discarded them and print how many of them were not considered
         print(f'The wrong lines are: {err_count}.')
 
         # Reassign the column names (header)

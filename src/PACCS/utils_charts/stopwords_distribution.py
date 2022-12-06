@@ -1,7 +1,5 @@
-from settings import *
 import pandas as pd
 import plotly.express as px
-
 from settings import *
 
 
@@ -20,7 +18,7 @@ def is_number(n):
     return is_number
 
 
-def amount_words(type_sent, final_corpu, corpus_length=61861):
+def amount_words(type_sent, final_corpu, corpus_length=63551):
     '''
     This function count the average word length of the sentences of PaCCS-IT corpus.
     :param type_sent: which type of sentences we want to analyze, could be either 1 (complex) or 2 (simplified)
@@ -30,7 +28,8 @@ def amount_words(type_sent, final_corpu, corpus_length=61861):
     '''
     amount_of_words = 0
     for sentence in final_corpu[f'Sentence_{type_sent}']:
-        length = len(sentence.split())
+        sentence1 = str(sentence)
+        length = len(sentence1.split())
         amount_of_words += length
     if type_sent == 1:
         t = 'Complex'
@@ -40,9 +39,9 @@ def amount_words(type_sent, final_corpu, corpus_length=61861):
     return amount_of_words, f'The average amount of words for {t} Sentences is {round(amount_of_words / corpus_length, 2)}'
 
 
-def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = False):
+def stopwords(type_sent, final_corpu, filter=None, corpus_length=63551, save = False):
     '''
-    This function calculate the amount of stopwords present in the stopwords.
+    This function calculate the amount of stopwords present in the dataset.
     :param type_sent: which type of sentences we want to analyze, could be either 1 (complex) or 2 (simplified)
     :param final_corpu: is the corpus we are referring to
     :param filter: if True it allows to eliminate some stopwords from the original list
@@ -51,10 +50,11 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = F
     :return: a Tuple containing as first argument the list of stopwords that were found and the average amount of stopwords for sentences
     '''
 
+    set_stopwords = nlp.Defaults.stop_words
+
     if filter:
         #nlp.Defaults.stop_words |= {"i","I", 'molte', 'molti'}
-        nlp.Defaults.stop_words
-        list_stop = list(nlp.Defaults.stop_words)
+        list_stop = list(set_stopwords)
         set_stop = ' '.join(list_stop)
         doc = nlp(set_stop)
         for token in doc:
@@ -63,18 +63,17 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = F
             #we need to understand if it's a good idea to keep or exclude the ADV
             if pos == 'VERB' or pos == 'AUX' or pos == 'ADV':
 
-                    nlp.Defaults.stop_words -= {word}
+                    set_stopwords -= {word}
 
-    else:
-        nlp.Defaults.stop_words
 
     count = 0
     which_stopwords = []
     sentences_final = []
     for sentence in final_corpu[f'Sentence_{type_sent}']:
+        sentence1 = str(sentence)
         lst = []
-        for token in sentence.split():
-            if token.lower() not in nlp.Defaults.stop_words and not token.isdigit() and not is_number(token):
+        for token in sentence1.split():
+            if token.lower() not in set_stopwords and not token.isdigit() and not is_number(token):
                 lst.append(token)
 
             else:
@@ -90,12 +89,12 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=61861, save = F
 
     if save:
         if filter:
-            with open(INTERMEDIATE_DIR + f'/ADV_no_stop_sentences_{type_sent}.txt', 'w') as fp:
+            with open(INTERMEDIATE_DIR + f'/ADV_no_stop_tts_{type_sent}.txt', 'w') as fp:
                 for item in sentences_final:
                     # write each item on a new line
                     fp.write("%s\n" % item)
 
-        with open(INTERMEDIATE_DIR + f'/no_stop_sentences_{type_sent}.txt', 'w') as fp:
+        with open(INTERMEDIATE_DIR + f'/no_stop_tts_{type_sent}.txt', 'w') as fp:
             for item in sentences_final:
                 # write each item on a new line
                 fp.write("%s\n" % item)
