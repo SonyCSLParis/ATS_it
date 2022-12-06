@@ -1,7 +1,7 @@
-import functools
-from transformers import EncoderDecoderModel, Seq2SeqTrainer
-from src.model.deep_mart_final.source.training.hf_training import *
-from settings import *
+
+from hf_training import *
+from hf_training import HuggingFaceTrainer
+#from settings import *
 import optuna
 import json
 
@@ -71,6 +71,9 @@ def __setup_model(
     return model
 
 
+
+
+
 def __compute_metrics(auto_tokenizer, prediction: EvalPrediction):
     __rouge = load_metric("rouge")
     __bert_score = load_metric("bertscore")
@@ -109,8 +112,8 @@ compute_metrics = functools.partial(
     __compute_metrics, my_tokenizer
 )
 
-ds_path =  '/Users/francesca/Desktop/Github/Final/output/output_modello/complete_df'
-train_ds, eval_ds = HuggingFaceTrainer.__load_dataset(ds_path)
+ds_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/complete_df'
+train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
 training_config_dict = {
@@ -154,7 +157,7 @@ def objective(trial: optuna.Trial):
         evaluation_strategy="epoch",
         per_device_train_batch_size=trial.suggest_categorical("per_device_train_batch_size", [4, 8, 16, 32, 64, 128]),
         fp16=training_config_dict["fp16"] if torch.cuda.is_available() else False,
-        output_dir=TRAINED_MODEL + '/HYPERPARAM_SEARCH',
+        output_dir='/Users/francesca/Desktop/model_deep' + '/HYPERPARAM_SEARCH',
         overwrite_output_dir=False,
         logging_steps=training_config_dict["logging_steps"],
         save_steps=training_config_dict["save_steps"],
