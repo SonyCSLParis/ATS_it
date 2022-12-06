@@ -21,7 +21,7 @@ class HFEvaluator:
 
         # read the csv
         df = pd.read_csv(eval_dataset_path, index_col=False)
-        self.df = df.head(200)
+        self.df = df
         # you load all the metrics of interest and
         self.logger = logging.getLogger(__name__)
         self.sari = load_metric("sari")
@@ -226,16 +226,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final/output/output_modello/test_data.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/checkpoint-54000',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/checkpoint-54000",
+classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/test_tts.csv',
+                     model_path= '/Users/francesca/Desktop/model_deep/1_tts',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/1_tts",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/checkpoint-54000/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/1_tts/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path=  CSV_EVAL_OUTPUT + '/evaluation5.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_tts.csv',
                              extend_dataframe=False)

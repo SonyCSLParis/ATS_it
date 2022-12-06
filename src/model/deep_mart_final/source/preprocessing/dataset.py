@@ -186,9 +186,9 @@ class HuggingFaceDataset:
         dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/full_dataset_lemmatized')
-        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_data_lem.csv', index=False)
-        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_data_lem.csv', index=False)
+        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/tts')
+        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_tts.csv', index=False)
+        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_tts.csv', index=False)
         return
 
 
@@ -239,15 +239,12 @@ class HuggingFaceDataset:
 
 #with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/lemmatized_ultimated.csv')
+df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/tts.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-#HuggingFaceDataset.get_train_test_csv(dataframe_prova)
-
-tok = AutoTokenizer.from_pretrained('dbmdz/bert-base-italian-xxl-cased', config= AutoConfig.from_pretrained('dbmdz/bert-base-italian-xxl-cased'))
-
+HuggingFaceDataset.get_train_test_csv(dataframe_prova)
 
 
 

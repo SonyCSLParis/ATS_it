@@ -3,8 +3,7 @@ from collections import OrderedDict
 import plotly.graph_objects as go
 
 from settings import *
-from utils_charts.stopwords_distribution import is_number
-
+from PACCS.utils_charts.stopwords_distribution import is_number
 
 def PoS_analysis(filename):
     '''
@@ -13,7 +12,6 @@ def PoS_analysis(filename):
     :return: a Tuple with the keys and the values of the frequency dictionary, sorted for key (n alphabetical order)
     '''
 
-    stopwords = nlp.Defaults.stop_words
 
     sentences_final = []
     with open(filename, "r") as infile:
