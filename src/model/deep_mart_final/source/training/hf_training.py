@@ -4,7 +4,7 @@ import logging
 import os
 import sys
 from typing import Dict, Optional, Tuple
-from preprocessing.dataset import HuggingFaceDataset
+from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 import pandas as pd
@@ -38,7 +38,7 @@ class HuggingFaceTrainer:
         )
 
     @staticmethod
-    def __load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
+    def load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
 
         path_first = ds_path + '/train'
         path_second = ds_path + '/test'
@@ -257,6 +257,3 @@ class HuggingFaceTrainer:
             wandb.finish()
 
         torch.cuda.empty_cache()
-
-
-
