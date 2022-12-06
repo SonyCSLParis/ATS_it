@@ -1,6 +1,6 @@
 
 from hf_training import *
-from hf_training import HuggingFaceTrainer
+from src.model.deep_mart_final.source.training.hf_training import HuggingFaceTrainer
 #from settings import *
 import optuna
 import json
