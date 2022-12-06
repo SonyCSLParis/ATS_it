@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation6.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation7.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation8.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_PACS_only.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_tts.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/intermediatesimpitiki.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_11.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_TTS_10.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/open_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/open_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/utils_charts/PoS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/utils_charts/PoS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/utils_charts/stopwords_distribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/utils_charts/stopwords_distribution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/utils_charts/verb_mood_tense.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/utils_charts/verb_mood_tense.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PACCS/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/PACCS/visualisations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/join_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/join_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_SIM.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/parse_SIM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hyperparameter_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hyperparameter_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +73,7 @@
       <recent name="$PROJECT_DIR$/output/output_analysis" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.evaluator">
+  <component name="RunManager" selected="Python.parse_SIM">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -373,9 +363,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -430,6 +420,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="parse_SIM" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data_merging/parse_SIM.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="settings" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -466,28 +478,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/PACCS/utils_charts/stopwords_distribution.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tab_freq" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="ARTIS_ATS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tab_freq.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -558,7 +548,7 @@
       <item itemvalue="Python.settings" />
       <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.tab_freq" />
+      <item itemvalue="Python.parse_SIM" />
       <item itemvalue="Python.tutorial_checkpoints_hf" />
       <item itemvalue="Python.verb_mood_tense" />
     </list>

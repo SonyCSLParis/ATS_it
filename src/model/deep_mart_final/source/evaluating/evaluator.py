@@ -227,15 +227,15 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/test_tts.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/1_tts',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/1_tts",
+                     model_path= '/Users/francesca/Desktop/model_deep/2_epochs_tts',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/2_epochs_tts",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/1_tts/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/2_epochs_tts/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_tts.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_TTS_10.csv',
                              extend_dataframe=False)

@@ -1,10 +1,10 @@
 import csv
-from src.data_merging.settings import *
+from settings import *
 import re
 
 
-full_dir = DATA_DIR + 'simpitiki-v1.txt'
-
+full_dir = DATA_DIR + '/simpitiki-v1.txt'
+print(full_dir)
 with open(full_dir, 'r') as infile:
     original = []
     simple = []
@@ -31,6 +31,9 @@ with open(full_dir, 'r') as infile:
 
             if '&#xF4;' in riga:
                 riga = re.sub('&#xF4;', 'o', riga)
+
+            if '&#xec;' in riga:
+                riga = re.sub('&#xec;', 'i', riga)
 
             if '[...]' in riga:
                 riga = riga.replace('[...]', '')
@@ -81,8 +84,9 @@ for i in range(len(original)):
     if original[i] not in dizio:
         dizio[original[i]] = simple[i]
 
+print(INTERMEDIATE_DIR + 'simpitiki.csv')
 
-with open(INTERMEDIATE_DIR + 'simpitiki.csv', 'w') as outfile:
+with open(INTERMEDIATE_DIR + '/simpitiki.csv', 'w') as outfile:
     writer = csv.writer(outfile)
     header = ['index','Sentente_1', 'Sentence_2']
     writer.writerow(header)
