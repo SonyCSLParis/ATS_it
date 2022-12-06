@@ -1,10 +1,8 @@
 import functools
 from transformers import EncoderDecoderModel, Seq2SeqTrainer
-from training.hf_training import *
+from src.model.deep_mart_final.source.training.hf_training import *
 from settings import *
 import optuna
-from datasets import Dataset
-from preprocessing.dataset import HuggingFaceDataset
 import json
 
 
@@ -21,7 +19,7 @@ LR_CEIL = 0.01
 WD_MIN = 4e-5
 WD_CEIL = 0.01
 MIN_EPOCHS = 2
-MAX_EPOCHS = 5
+MAX_EPOCHS = 20
 NUM_TRIALS = 10
 NAME_OF_MODEL = '/BEST_HYP'
 
@@ -106,29 +104,13 @@ def __compute_metrics(auto_tokenizer, prediction: EvalPrediction):
     }
 
 
-my_tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH)
+my_tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-cased")
 compute_metrics = functools.partial(
     __compute_metrics, my_tokenizer
 )
 
-
-def __load_dataset(path) -> Tuple[Dataset, Dataset]:
-    df = pd.read_csv(path)
-    colonna_complessa = [str(riga) for riga in list(df['Sentence_1'])]
-    colonna_semplice = [str(riga) for riga in list(df['Sentence_2'])]
-
-    dataframe = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-    dataf = dataframe.head(1000)
-    dataset = HuggingFaceDataset.hf_dataset(dataframe,
-                                            remove_columns_list=['Normal', 'Simple'],
-                                            identifier="dbmdz/bert-base-italian-xxl-cased",
-                                            batch_size=8)
-
-    dataset1 = dataset.train_test_split(shuffle=True, test_size=0.10)
-    train_ds = dataset1["train"].shuffle(seed=42)
-    test_ds = dataset1["test"]
-
-    return train_ds, test_ds
+ds_path =  '/Users/francesca/Desktop/Github/Final/output/output_modello/complete_df'
+train_ds, eval_ds = HuggingFaceTrainer.__load_dataset(ds_path)
 
 
 training_config_dict = {
@@ -141,27 +123,27 @@ training_config_dict = {
     "per_device_eval_batch_size": 8,
     "logging_steps": 100,
     "save_steps": 100,
-    "run_name": 'HuggingF Model ',
-    "dataset": 'Paccsit',
+    "run_name": 'HuggingF Model',
+    "dataset": 'Complete_dataset',
     "gradient_accumulation_steps": 1
 }
 
 model_config_dict = {
     "max_length": 30,
     "min_length": 2,
-    "no_repeat_ngram_size": 0,
-    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 3,
+    "length_penalty": 0.5,
     "num_beams": 1.0,
 }
 
 print_custom('Setting up Optuna study')
-train_set, test_set = __load_dataset(OUTPUT_DIR + '/ultimated.csv')
+
 
 
 def objective(trial: optuna.Trial):
     modello = __setup_model(model_config=model_config_dict,
                             model_path=None,
-                            pretrained_model_path=BERT2BERT_DIR,
+                            pretrained_model_path='/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert',
                             resume=False,
                             tie_encoder_decoder=False,
                             tokenizer=my_tokenizer)
@@ -192,8 +174,8 @@ def objective(trial: optuna.Trial):
         tokenizer=my_tokenizer,
         args=training_arguments,
         compute_metrics=compute_metrics,
-        train_dataset=train_set,
-        eval_dataset=test_set,
+        train_dataset=train_ds,
+        eval_dataset=eval_ds,
     )
 
     result = trainer.train()
@@ -237,7 +219,7 @@ with open("best_run.json", "w+") as f:
 #                   TRAIN BASED ON OPTUNAS SELECTED HP
 # ----------------------------------------------------------------------------------------------------
 
-print_custom('Training the model on the custom parameters')
+'''print_custom('Training the model on the custom parameters')
 modello = __setup_model(model_config=model_config_dict,
                         model_path=None,
                         pretrained_model_path=BERT2BERT_DIR,
@@ -259,8 +241,8 @@ trainer = Seq2SeqTrainer(
     tokenizer=my_tokenizer,
     args=training_args,
     compute_metrics=compute_metrics,
-    train_dataset=train_set,
-    eval_dataset=test_set,
+    train_dataset=train_ds,
+    eval_dataset=eval_ds,
 )
 
 result = trainer.train()
@@ -270,4 +252,4 @@ print_custom('Saving the best Optuna tuned model')
 
 model_path = TRAINED_MODEL + NAME_OF_MODEL
 modello.save_pretrained(model_path)
-my_tokenizer.save_pretrained(model_path)
+my_tokenizer.save_pretrained(model_path)'''
