@@ -2,10 +2,10 @@ from settings import *
 import csv
 import pandas as pd
 pacssit = INCOMPLETE_DATASET_DIR + '/final_hf.csv'
-teacher = INTERMEDIATE_DIR + '/teacher.csv'
-terence = INTERMEDIATE_DIR + '/terence.csv'
-simptiki = INTERMEDIATE_DIR + '/simpitiki.csv'
-all_together = OUTPUT_DIR + '/output_modello/complete.csv'
+teacher = INTERMEDIATE_DIR + '/incomplete_datasets/teacher.csv'
+terence = INTERMEDIATE_DIR + '/incomplete_datasets/terence.csv'
+simptiki = INTERMEDIATE_DIR + '/incomplete_datasets/simpitiki.csv'
+all_together = OUTPUT_DIR + '/output_modello/tts.csv'
 
 
 
@@ -20,5 +20,5 @@ df3 = pd.read_csv(pacssit)
 
 df3 = df3[['Sentence_1', 'Sentence_2']]
 
-df4 = pd.concat([df, df1, df2, df3])
+df4 = pd.concat([df, df1, df2])
 df4.to_csv(all_together, index=False)

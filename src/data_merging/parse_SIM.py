@@ -88,7 +88,7 @@ print(INTERMEDIATE_DIR + 'simpitiki.csv')
 
 with open(INTERMEDIATE_DIR + '/simpitiki.csv', 'w') as outfile:
     writer = csv.writer(outfile)
-    header = ['index','Sentente_1', 'Sentence_2']
+    header = ['index','Sentence_1', 'Sentence_2']
     writer.writerow(header)
     lista = list(dizio.items())
     for i in range(len(lista)):
