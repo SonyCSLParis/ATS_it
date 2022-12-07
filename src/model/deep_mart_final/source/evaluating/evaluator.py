@@ -45,6 +45,8 @@ class HFEvaluator:
                 f"Could not find a suitable tokenizer for: {tokenizer_path}!"
             )
 
+
+
         # load the model_deep
         self.model = EncoderDecoderModel.from_pretrained(model_path)
 
@@ -67,13 +69,14 @@ class HFEvaluator:
         self.model.config.min_length = model_config['decoder']["min_length"]
         self.model.config.no_repeat_ngram_size = 3
         self.model.config.early_stopping = model_config['decoder']["early_stopping"]
-        self.model.config.length_penalty = model_config['decoder']["length_penalty"]
+        self.model.config.length_penalty = -0.5
         self.model.config.num_beams = model_config['decoder']["num_beams"]
-        self.model.config.temperature = model_config['decoder']["temperature"]
-        self.model.config.top_k = model_config['decoder']["top_k"]
+        self.model.config.temperature = 0.8
+        self.model.config.top_k = 50
         self.model.config.top_p = model_config['decoder']["top_p"]
         self.model.config.num_beam_groups = model_config['decoder']["num_beam_groups"]
         self.model.config.do_sample = model_config['decoder']["do_sample"]
+        self.model.config.repetition_penalty = 1
 
     # this function allows to iterate through all the rows of the dataset and obtain the Normal and Simplified sentences.
     # it then creates a dictionaries of key/values with them
@@ -97,7 +100,10 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 29)
+        '''bad_words = self.tokenizer(['##stiche', '##lusione', '##estra'], add_special_tokens=False).input_ids
+        print(bad_words)'''
+
+        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 29, renormalize_logits = True)
 
         return model_output, self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
@@ -184,6 +190,7 @@ class HFEvaluator:
             reference_tokens = self.__tokenize(references)
             print(references)
             print(reference_tokens)
+
             undecoded_out, output = self.generate(*inputs, model_config=model_config)
 
             print(undecoded_out)
@@ -226,16 +233,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/test_tts.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/2_epochs_tts',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/2_epochs_tts",
+classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/test_only_pac.csv',
+                     model_path= '/Users/francesca/Desktop/model_deep/10_epochs_PACS_only',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/10_epochs_PACS_only",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/2_epochs_tts/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/10_epochs_PACS_only/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_TTS_10.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_prova2.csv',
                              extend_dataframe=False)

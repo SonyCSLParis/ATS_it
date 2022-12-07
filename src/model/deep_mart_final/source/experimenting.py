@@ -1,13 +1,9 @@
-import spacy
-import csv
-import pandas as pd
-data_path = '/Users/francesca/Desktop/Github/Final/output/ultimated.csv'
-data_output = '/Users/francesca/Desktop/Github/Final/output/lemmatized_ultimated.csv'
+import os
+import openai
+OPENAI_API_KEY = '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'
+# Load your API key from an environment variable or secret management service
+openai.api_key = OPENAI_API_KEY
 
-nlp = spacy.load('it_core_news_sm')
+response = openai.Completion.create(model="text-davinci-003", prompt="Simplify the following code: I have been to the supermarket and I bought more than needed. I will probably contribute to food waste in the next weeks. ", temperature=0.8, max_tokens=30)
 
-
-docum = nlp('Il galleggiante rimaneva a galla e non più permetteva di andare a mangià la pizza, questo eè un peccato')
-
-for tok in docum:
-    print(tok.text, tok.is_ascii)
+print(response)
