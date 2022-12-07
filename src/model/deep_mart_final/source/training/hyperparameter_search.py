@@ -111,7 +111,7 @@ compute_metrics = functools.partial(
     __compute_metrics, my_tokenizer
 )
 
-ds_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/complete_df'
+ds_path = '~/Desktop/output/complete_df'
 train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
@@ -135,7 +135,7 @@ model_config_dict = {
     "min_length": 2,
     "no_repeat_ngram_size": 3,
     "length_penalty": 0.5,
-    "num_beams": 1.0,
+    "num_beams": 4.0,
 }
 
 print_custom('Setting up Optuna study')
@@ -145,7 +145,7 @@ print_custom('Setting up Optuna study')
 def objective(trial: optuna.Trial):
     modello = __setup_model(model_config=model_config_dict,
                             model_path=None,
-                            pretrained_model_path='/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert',
+                            pretrained_model_path='~/Desktop/bert2bert',
                             resume=False,
                             tie_encoder_decoder=False,
                             tokenizer=my_tokenizer)
@@ -156,14 +156,13 @@ def objective(trial: optuna.Trial):
         evaluation_strategy="epoch",
         per_device_train_batch_size=trial.suggest_categorical("per_device_train_batch_size", [4, 8, 16, 32, 64, 128]),
         fp16=training_config_dict["fp16"] if torch.cuda.is_available() else False,
-        output_dir='/Users/francesca/Desktop/model_deep' + '/HYPERPARAM_SEARCH',
+        output_dir='~/Desktop/model_deep' + '/HYPERPARAM_SEARCH',
         overwrite_output_dir=False,
         logging_steps=training_config_dict["logging_steps"],
-        save_steps=training_config_dict["save_steps"],
-        eval_steps=training_config_dict["eval_steps"],
-        warmup_steps=training_config_dict["warmup_steps"],
         run_name=training_config_dict["run_name"],
         ignore_data_skip=True,
+        save_strategy='epoch',
+        warmup_ratio=0.10,
         gradient_accumulation_steps=training_config_dict["gradient_accumulation_steps"],
         save_total_limit=training_config_dict["save_total_limit"],
         learning_rate=trial.suggest_loguniform('learning_rate', low=LR_MIN, high=LR_CEIL),
