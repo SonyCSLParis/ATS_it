@@ -134,11 +134,11 @@ class HuggingFaceDataset:
 
 
 
-#with the code below I create the train and test split and I save it in the local folder
+'''#with the code below I create the train and test split and I save it in the local folder
 
 df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/tts.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova)
+HuggingFaceDataset.get_train_test_csv(dataframe_prova)'''
