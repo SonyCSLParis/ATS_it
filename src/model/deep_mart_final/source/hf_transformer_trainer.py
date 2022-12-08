@@ -1,6 +1,6 @@
 import argparse
 
-from training.hf_training import HuggingFaceTrainer
+from hf_training import HuggingFaceTrainer
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -9,8 +9,8 @@ if __name__ == "__main__":
     parser.add_argument("--warmup_steps", type=int)
     parser.add_argument("--num_train_epochs", type=int, default=3)
     parser.add_argument("--save_total_limit", type=int, default=3)
-    parser.add_argument("--per_device_train_batch_size", type=int, default=8)
-    parser.add_argument("--per_device_eval_batch_size", type=int, default=8)
+    parser.add_argument("--per_device_train_batch_size", type=int, default=16)
+    parser.add_argument("--per_device_eval_batch_size", type=int, default=16)
     parser.add_argument("--logging_steps", type=int, default=100)
     #parser.add_argument("--save_steps", type=int, default=2000)
     parser.add_argument(
