@@ -4,7 +4,7 @@ import logging
 import os
 import sys
 from typing import Dict, Optional, Tuple
-from dataset import HuggingFaceDataset
+from preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 import pandas as pd
