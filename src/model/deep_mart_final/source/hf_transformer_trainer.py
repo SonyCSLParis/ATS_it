@@ -5,7 +5,7 @@ from training.hf_training import HuggingFaceTrainer
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--eval_steps", type=int)
+    #parser.add_argument("--eval_steps", type=int)
     parser.add_argument("--warmup_steps", type=int)
     parser.add_argument("--num_train_epochs", type=int, default=3)
     parser.add_argument("--save_total_limit", type=int, default=3)

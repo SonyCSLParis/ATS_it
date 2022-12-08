@@ -3,6 +3,7 @@ from src.model.deep_mart_final.source.training.hf_training import *
 #from settings import *
 import optuna
 import json
+wandb.init(mode="disabled")
 
 
 # customized print function
@@ -111,7 +112,7 @@ compute_metrics = functools.partial(
     __compute_metrics, my_tokenizer
 )
 
-ds_path = '~/Desktop/output/complete_df'
+ds_path = '/Users/francesca/Desktop/Github/Final/output/hugging_face/complete_df'
 train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
@@ -145,7 +146,7 @@ print_custom('Setting up Optuna study')
 def objective(trial: optuna.Trial):
     modello = __setup_model(model_config=model_config_dict,
                             model_path=None,
-                            pretrained_model_path='~/Desktop/bert2bert',
+                            pretrained_model_path='/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert',
                             resume=False,
                             tie_encoder_decoder=False,
                             tokenizer=my_tokenizer)

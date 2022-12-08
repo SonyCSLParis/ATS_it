@@ -13,7 +13,6 @@ TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-cased"
 
 MODEL_DIR_GENERAL = path.join(SOURCE_DIR + '/model') #general model directory
 MODEL_DEEP_MARTIN = path.join(MODEL_DIR_GENERAL + '/deep_mart_final') #Deep Martin Transformer path
-print(MODEL_DEEP_MARTIN)
 SOURCE_MODEL_DIR = path.join(MODEL_DEEP_MARTIN + '/source')
 BERT2BERT_DIR = SOURCE_MODEL_DIR + '/bert2bert'
 
