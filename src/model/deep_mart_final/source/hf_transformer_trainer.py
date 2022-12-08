@@ -1,6 +1,6 @@
 import argparse
 
-from hf_training import HuggingFaceTrainer
+from training.hf_training import HuggingFaceTrainer
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
