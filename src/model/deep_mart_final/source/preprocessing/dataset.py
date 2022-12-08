@@ -85,9 +85,9 @@ class HuggingFaceDataset:
         dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk(HF_DATASETS + '/tts')
-        train_ds.to_csv(HF_DATASETS + '/train_tts.csv', index=False)
-        test_ds.to_csv(HF_DATASETS + '/test_tts.csv', index=False)
+        dataset1.save_to_disk(HF_DATASETS + '/finalized_df')
+        train_ds.to_csv(HF_DATASETS + '/train_fin.csv', index=False)
+        test_ds.to_csv(HF_DATASETS + '/test_fin.csv', index=False)
         return
 
 
@@ -125,11 +125,11 @@ class HuggingFaceDataset:
 
 
 
-'''#with the code below I create the train and test split and I save it in the local folder
+#with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv(HF_DATASETS + '/tts.csv')
+df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova)'''
+HuggingFaceDataset.get_train_test_csv(dataframe_prova)

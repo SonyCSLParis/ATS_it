@@ -4,7 +4,7 @@ import logging
 import os
 import sys
 from typing import Dict, Optional, Tuple
-from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
+from dataset import HuggingFaceDataset
 import torch
 import wandb
 import pandas as pd
