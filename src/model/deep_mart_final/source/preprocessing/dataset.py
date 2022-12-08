@@ -8,6 +8,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchtext import data
 from tqdm import tqdm
 from transformers import AutoTokenizer
+from settings import *
 from datasets import load_dataset, load_from_disk, Dataset, DatasetDict
 
 
@@ -75,6 +76,7 @@ class HuggingFaceDataset:
 
         return dataset_tr, dataset_ts
 
+
     @staticmethod
     def get_train_test_csv(df: pd.DataFrame):
         from datasets import Dataset
@@ -83,9 +85,9 @@ class HuggingFaceDataset:
         dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk('/Users/francesca/Desktop/Github/Final/output/output_modello/tts')
-        train_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/train_tts.csv', index=False)
-        test_ds.to_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/test_tts.csv', index=False)
+        dataset1.save_to_disk(HF_DATASETS + '/tts')
+        train_ds.to_csv(HF_DATASETS + '/train_tts.csv', index=False)
+        test_ds.to_csv(HF_DATASETS + '/test_tts.csv', index=False)
         return
 
 
@@ -122,21 +124,10 @@ class HuggingFaceDataset:
         return batch
 
 
-    @staticmethod
-    def iterators(self):
-        train_iterator, test_iterator = data.BucketIterator.splits(
-            (self.train_data, self.test_data),
-            batch_size=self.batch_size,
-            device=self.device,
-            shuffle=False,
-        )
-        return train_iterator, test_iterator
-
-
 
 '''#with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final/output/output_modello/tts.csv')
+df_prova = pd.read_csv(HF_DATASETS + '/tts.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
