@@ -43,14 +43,14 @@ def clean_corpus(input_file, output_file, file_trattini = None):
                             lista_semplice_tr.append(row[2])'''
 
                     prima = nlp(row[0])
-                    prima1 = [str(token) for token in prima if not token.is_punct]
+                    prima1 = [str(token).lower() for token in prima if not token.is_punct]
                     prima1_1 = ' '.join(prima1)
 
 
 
                 elif i == 1:
                     seconda = nlp(row[1])
-                    seconda1 = [str(token) for token in seconda if not token.is_punct]
+                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
                     seconda1_1 = ' '.join(seconda1)
 
 
@@ -75,7 +75,7 @@ def clean_corpus(input_file, output_file, file_trattini = None):
     return
 
 
-#clean_corpus(input_file=data_input, output_file= data_output, file_trattini = None)
+clean_corpus(input_file=data_input, output_file= data_output, file_trattini = None)
 
 
 to_be_adjusted = '/Users/francesca/Desktop/Github/Final/intermediate/incomplete_datasets/pacs_pulito.csv'
@@ -117,7 +117,6 @@ def adjust_number(input_file, output_file):
                     if semplice[j].isdigit():
                         if len(numeri_complessi) != 0:
                             ele = numeri_complessi.pop()
-                            print(ele)
                             semplice[j] = ele
 
 
@@ -157,14 +156,13 @@ def eliminate_punct(input_file, output_file):
                 if i == 1:
 
                     prima = nlp(row[1])
-                    prima1 = [str(token) for token in prima if not token.is_punct]
+                    prima1 = [str(token).lower() for token in prima if not token.is_punct]
                     prima1_1 = ' '.join(prima1)
-
 
 
                 elif i == 2:
                     seconda = nlp(row[2])
-                    seconda1 = [str(token) for token in seconda if not token.is_punct]
+                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
                     seconda1_1 = ' '.join(seconda1)
 
 

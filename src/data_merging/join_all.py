@@ -2,10 +2,10 @@ from settings import *
 import csv
 import pandas as pd
 pacssit = INCOMPLETE_DATASET_DIR + '/pacs_pulito_finale.csv'
-teacher =  INCOMPLETE_DATASET_DIR + '/teacher_1.csv'
+teacher = INCOMPLETE_DATASET_DIR + '/teacher_1.csv'
 terence = INCOMPLETE_DATASET_DIR + '/terence_1.csv'
 simptiki = INCOMPLETE_DATASET_DIR + '/simpitiki_1.csv'
-all_together = HF_DATASETS + '/finilized_dataset.csv'
+all_together = HF_DATASETS + '/finilized_dataset_1.csv'
 
 
 

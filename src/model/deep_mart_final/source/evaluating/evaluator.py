@@ -233,16 +233,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/output_modello/test_only_pac.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/10_epochs_PACS_only',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/10_epochs_PACS_only",
+classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/hugging_face/test_fin.csv',
+                     model_path= '/Users/francesca/Desktop/model_deep/finalized_15',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/finalized_15",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/10_epochs_PACS_only/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/finalized_15/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_prova2.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_finalized.csv',
                              extend_dataframe=False)

@@ -82,12 +82,12 @@ class HuggingFaceDataset:
         from datasets import Dataset
         data = Dataset.from_pandas(df)
 
-        dataset1 = data.train_test_split(shuffle=True, test_size=0.10)
+        dataset1 = data.train_test_split(shuffle=True, test_size=0.05)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk(HF_DATASETS + '/finalized_df')
-        train_ds.to_csv(HF_DATASETS + '/train_fin.csv', index=False)
-        test_ds.to_csv(HF_DATASETS + '/test_fin.csv', index=False)
+        dataset1.save_to_disk(HF_DATASETS + '/finalized_df_1')
+        train_ds.to_csv(HF_DATASETS + '/train_fin_1.csv', index=False)
+        test_ds.to_csv(HF_DATASETS + '/test_fin_1.csv', index=False)
         return
 
 
@@ -127,7 +127,7 @@ class HuggingFaceDataset:
 
 #with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset.csv')
+df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset_1.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
