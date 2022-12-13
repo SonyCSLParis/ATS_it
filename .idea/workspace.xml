@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_finalized.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/join_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/join_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/preprocess_paccsit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/preprocess_paccsit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,7 @@
       <recent name="$PROJECT_DIR$/output/output_analysis" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dataset">
+  <component name="RunManager" selected="Python.evaluator">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -548,25 +552,25 @@
     </configuration>
     <list>
       <item itemvalue="Python.PoS" />
-      <item itemvalue="Python.preprocess_paccsit" />
+      <item itemvalue="Python.clean_text" />
       <item itemvalue="Python.custom_transformer_training" />
+      <item itemvalue="Python.dataset" />
       <item itemvalue="Python.evaluator" />
-      <item itemvalue="Python.join_all" />
-      <item itemvalue="Python.hyperparameter_search" />
-      <item itemvalue="Python.hf_evaluation" />
       <item itemvalue="Python.examples" />
       <item itemvalue="Python.exp" />
-      <item itemvalue="Python.hf_training" />
-      <item itemvalue="Python.load_correct" />
-      <item itemvalue="Python.hf_transformer_trainer" />
       <item itemvalue="Python.experimenting" />
+      <item itemvalue="Python.hf_evaluation" />
+      <item itemvalue="Python.hf_training" />
+      <item itemvalue="Python.hf_transformer_trainer" />
+      <item itemvalue="Python.hyperparameter_search" />
+      <item itemvalue="Python.join_all" />
       <item itemvalue="Python.join_dataset" />
-      <item itemvalue="Python.dataset" />
-      <item itemvalue="Python.clean_text" />
-      <item itemvalue="Python.settings" />
-      <item itemvalue="Python.stopwords_distribution" />
+      <item itemvalue="Python.load_correct" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.parse_SIM" />
+      <item itemvalue="Python.preprocess_paccsit" />
+      <item itemvalue="Python.settings" />
+      <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.tutorial_checkpoints_hf" />
       <item itemvalue="Python.verb_mood_tense" />
     </list>
