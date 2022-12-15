@@ -38,7 +38,7 @@ class HuggingFaceTrainer:
         )
 
     @staticmethod
-    def load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
+    def __load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
 
         path_first = ds_path + '/train'
         path_second = ds_path + '/test'
@@ -47,7 +47,7 @@ class HuggingFaceTrainer:
             path1=path_first,
             path2=path_second,
             remove_columns_list=['Normal', 'Simple'],
-            identifier="dbmdz/bert-base-italian-xxl-cased",
+            identifier="dbmdz/bert-base-italian-xxl-uncased",
             batch_size=8)
 
 
@@ -76,6 +76,7 @@ class HuggingFaceTrainer:
         rouge_output = HuggingFaceTrainer.__rouge.compute(
             predictions=pred_str, references=label_str, rouge_types=["rouge2"]
         )["rouge2"].mid
+
         bert_score_output = HuggingFaceTrainer.__bert_score.compute(
             predictions=pred_str, references=label_str, lang="en"
         )
@@ -133,17 +134,20 @@ class HuggingFaceTrainer:
     ):
 
         if resume:
+
+            #you resume from some fine-tuned checkpoints
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
-
+        #if you  have the pre-trained model saved locally, you just provide the function with the directory
         elif pretrained_model_path is not None and model_path is None:
 
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(
                 f"Model loaded from: {pretrained_model_path}."
             )
-
+        # if you don't have the pre-trained model saved locally and you want to save it to a specific directory
+        # by specifying tie_encoder_decoder variable you decide if to let the weights to be shared between Encoder and Decoder
         elif pretrained_model_path is not None:
             model = EncoderDecoderModel.from_encoder_decoder_pretrained(
                 model_path, model_path, tie_encoder_decoder=tie_encoder_decoder
@@ -156,11 +160,9 @@ class HuggingFaceTrainer:
                 "Please provide either `pretrained_model_path` or `model_path` and `pretrained_model_path`."
             )
 
-        if tokenizer.name_or_path != "facebook/bart-base":
-            model.config.vocab_size = model.config.encoder.vocab_size
 
-
-        #qui nella parte destra dell'uguale c'era tokenizer.config, ora però ho messo model_deep
+        #potrei cambiare la vocab_size per provare
+        model.config.vocab_size = model.config.encoder.vocab_size
         model.config.decoder_start_token_id = tokenizer.cls_token_id
         model.config.eos_token_id = tokenizer.sep_token_id
         model.config.pad_token_id = tokenizer.pad_token_id
