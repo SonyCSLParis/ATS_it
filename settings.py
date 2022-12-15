@@ -8,7 +8,7 @@ INTERMEDIATE_DIR = path.join(SRC_ROOT_DIR + '/intermediate')  # txt and others i
 INCOMPLETE_DATASET_DIR = path.join(INTERMEDIATE_DIR + '/incomplete_datasets') # primarily processed datasets
 OUTPUT_DIR = path.join(SRC_ROOT_DIR + '/output')  # datasets in output
 HF_DATASETS = path.join(OUTPUT_DIR + '/hugging_face')
-TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-cased"
+TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-uncased"
 
 
 MODEL_DIR_GENERAL = path.join(SOURCE_DIR + '/model') #general model directory
