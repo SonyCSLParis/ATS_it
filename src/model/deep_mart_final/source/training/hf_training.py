@@ -3,11 +3,11 @@ import gc
 import logging
 import os
 import sys
+import optuna
 from typing import Dict, Optional, Tuple
-from preprocessing.dataset import HuggingFaceDataset
+from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
-import pandas as pd
 from transformers import logging as hf_logging
 from datasets import Dataset, load_metric
 from transformers import (
@@ -15,7 +15,6 @@ from transformers import (
     EncoderDecoderModel,
     EvalPrediction,
     Seq2SeqTrainer,
-    BertTokenizer,
     AutoConfig,
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq
@@ -38,7 +37,7 @@ class HuggingFaceTrainer:
         )
 
     @staticmethod
-    def __load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
+    def load_dataset(ds_path) -> Tuple[Dataset, Dataset]:
 
         path_first = ds_path + '/train'
         path_second = ds_path + '/test'
@@ -63,7 +62,7 @@ class HuggingFaceTrainer:
 
 
     @staticmethod
-    def __compute_metrics(auto_tokenizer, prediction: EvalPrediction):
+    def compute_metrics(auto_tokenizer, prediction: EvalPrediction):
         tokenizer = auto_tokenizer
 
         labels_ids = prediction.label_ids
@@ -93,8 +92,9 @@ class HuggingFaceTrainer:
         }
 
 
+
     @staticmethod
-    def __setup_wandb(resume, training_config, wandb_config):
+    def setup_wandb(resume, training_config, wandb_config):
         if wandb_config is not None:
             HuggingFaceTrainer.__logger.info(
                 f"Starting Wandb with:\n"
@@ -116,6 +116,7 @@ class HuggingFaceTrainer:
                 os.environ["WANDB_RESUME"] = "never"
                 os.environ["WANDB_RUN_ID"] = wandb.util.generate_id()
 
+
             HuggingFaceTrainer.__logger.info(f"Run id: {os.environ['WANDB_RUN_ID']}\n")
             return ["wandb", "tensorboard"]
         else:
@@ -124,7 +125,17 @@ class HuggingFaceTrainer:
             return ["tensorboard"]
 
     @staticmethod
-    def __setup_model(
+    def hyperparameter_space(trial: optuna.Trial):
+        return {
+            "learning_rate": trial.suggest_float("learning_rate", 1e-6, 1e-4, log=True),
+            "per_device_train_batch_size": trial.suggest_categorical("per_device_train_batch_size", [4, 8, 16, 32]),
+            "weight_decay": trial.suggest_float("weight_decay", 1e-12, 1e-1, log=True),
+            "adam_epsilon": trial.suggest_float("adam_epsilon", 1e-10, 1e-6, log=True),
+            'num_train_epochs': trial.suggest_int(low=2, high=50, log=True)
+        }
+
+    @staticmethod
+    def setup_model(
         model_config,
         model_path,
         pretrained_model_path,
@@ -174,6 +185,8 @@ class HuggingFaceTrainer:
         model.config.num_beams = model_config["num_beams"]
         return model
 
+
+
     @staticmethod
     def train(
         ds_path: str,
@@ -193,12 +206,14 @@ class HuggingFaceTrainer:
 
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_id, config= AutoConfig.from_pretrained(tokenizer_id))
         compute_metrics = functools.partial(
-            HuggingFaceTrainer.__compute_metrics, tokenizer
+            HuggingFaceTrainer.compute_metrics, tokenizer
         )
-        report_to = HuggingFaceTrainer.__setup_wandb(
+        report_to = HuggingFaceTrainer.setup_wandb(
             resume, training_config, wandb_config
         )
-        train_ds, eval_ds = HuggingFaceTrainer.__load_dataset(ds_path)
+        wandb.init(project= wandb_config['project'], entity= wandb_config['entity'], id = wandb_config['run_id'])
+
+        train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
 
@@ -206,7 +221,7 @@ class HuggingFaceTrainer:
             HuggingFaceTrainer.__logger.info("HF logging activated.")
             hf_logging.set_verbosity_info()
 
-        model = HuggingFaceTrainer.__setup_model(
+        model = HuggingFaceTrainer.setup_model(
             model_config,
             model_path,
             pretrained_model_path,
@@ -252,6 +267,7 @@ class HuggingFaceTrainer:
             trainer.train(resume_from_checkpoint=True)
         else:
             trainer.train()
+
         trainer.save_model(save_model_path)
 
         if wandb_config is not None:

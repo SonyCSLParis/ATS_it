@@ -42,15 +42,13 @@ if __name__ == "__main__":
     parser.add_argument("--wandb_project", type=str)
     parser.add_argument("--wandb_api_key", type=str)
 
-    parser.add_argument("--hf_logging_enabled", type=str, default="false")
+    parser.add_argument("--hf_logging_enabled", type=str, default="true")
 
     args, _ = parser.parse_known_args()
 
     training_config_dict = {
         "num_train_epochs": args.num_train_epochs,
         "fp16": True,
-        "eval_steps": args.eval_steps,
-        "warmup_steps": args.warmup_steps,
         "save_total_limit": args.save_total_limit,
         "per_device_train_batch_size": args.per_device_train_batch_size,
         "per_device_eval_batch_size": args.per_device_eval_batch_size,
