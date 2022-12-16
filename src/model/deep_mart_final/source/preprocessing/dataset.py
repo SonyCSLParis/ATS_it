@@ -1,12 +1,6 @@
-import codecs
 import functools
-import re
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Tuple, Union
 import pandas as pd
-import torch
-from torch.utils.data import DataLoader, Dataset
-from torchtext import data
-from tqdm import tqdm
 from transformers import AutoTokenizer
 from settings import *
 from datasets import load_dataset, load_from_disk, Dataset, DatasetDict
@@ -94,7 +88,7 @@ class HuggingFaceDataset:
     @staticmethod
     def __process(auto_tokenizer, batch: Dict):
         tokenizer = auto_tokenizer
-        encoder_max_length = 30
+        encoder_max_length = 40
         decoder_max_length = 30
 
         inputs = tokenizer(
@@ -125,11 +119,11 @@ class HuggingFaceDataset:
 
 
 
-#with the code below I create the train and test split and I save it in the local folder
+'''#with the code below I create the train and test split and I save it in the local folder
 
 df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset_1.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova)
+HuggingFaceDataset.get_train_test_csv(dataframe_prova)'''

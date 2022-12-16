@@ -37,10 +37,3 @@ print(text)
 print("Augmented Text:")
 print(augmented_text)'''
 
-model_path = "dbmdz/bert-base-italian-xxl-uncased"
-model = EncoderDecoderModel.from_encoder_decoder_pretrained(
-                model_path, model_path, tie_encoder_decoder=False
-            )
-model.save_pretrained('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert')
-tokenize = AutoTokenizer.from_pretrained(model_path)
-tokenize.save_pretrained('/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert')

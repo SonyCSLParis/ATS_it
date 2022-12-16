@@ -8,7 +8,7 @@ from datasets import load_metric
 from tqdm import tqdm
 from transformers import EncoderDecoderModel, AutoTokenizer
 from settings import *
-
+import evaluate
 
 class HFEvaluator:
 
@@ -21,9 +21,10 @@ class HFEvaluator:
 
         # read the csv
         df = pd.read_csv(eval_dataset_path, index_col=False)
-        self.df = df
+        self.df = df.head(10)
         # you load all the metrics of interest and
         self.logger = logging.getLogger(__name__)
+        self.blue = evaluate.load("sacrebleu")
         self.sari = load_metric("sari")
         self.bert_score = load_metric("bertscore")
         self.rouge = load_metric("rouge")
@@ -100,8 +101,6 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        '''bad_words = self.tokenizer(['##stiche', '##lusione', '##estra'], add_special_tokens=False).input_ids
-        print(bad_words)'''
 
         model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 29, renormalize_logits = True)
 
@@ -130,7 +129,7 @@ class HFEvaluator:
 
 
 
-    def eval_bert_score(self, predictions: List[str], references: List[str]) -> Dict:
+    def eval_bert_score(self, predictions, references) -> Dict:
         result = self.bert_score.compute(
             predictions=predictions, references=references, lang="en"
         )
@@ -138,13 +137,13 @@ class HFEvaluator:
 
 
 
-    def eval_meteor_score(self, predictions: List[str], references: List[str]) -> Dict:
+    def eval_meteor_score(self, predictions, references) -> Dict:
         result = self.meteor.compute(predictions=predictions, references=references)
         return {"meteor_score": round(result["meteor"], 4)}
 
 
 
-    def eval_rouge_scores(self, predictions: List[str], references: List[str]) -> Dict:
+    def eval_rouge_scores(self, predictions, references ) -> Dict:
         result = self.rouge.compute(
             predictions=predictions, references=references, rouge_types=["rouge2"]
         )["rouge2"].mid
@@ -155,8 +154,15 @@ class HFEvaluator:
         }
 
 
+    def eval_blue_score(self, predictions, references):
+        results = self.blue.compute(predictions = predictions, references = references)
+        return {
+            'score': round(results["score"], 1),
+            'precision': results["precisions"]
+        }
 
-    def eval_glue_score(self, predictions: List[int], references: List[int]) -> Dict:
+
+    def eval_glue_score(self, predictions, references) -> Dict:
         result = self.glue.compute(predictions=predictions, references=references)
         return {
             "glue_pearson": round(result["pearson"], 4),
@@ -174,12 +180,11 @@ class HFEvaluator:
             # the path where to place the output
             csv_output_path: Optional[str] = None,
 
-            # I don't know what does it mean
             extend_dataframe: bool = False,
     ):
 
         # creation of the output csv file that will be shown to us as output
-        result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F", "SPEARMAN_CORRELATION", "PEARSON_CORRELATION"])
+        result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F",'BLEU', "SPEARMAN_CORRELATION", "PEARSON_CORRELATION"])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
@@ -196,15 +201,13 @@ class HFEvaluator:
             print(undecoded_out)
             print(output)
 
-            '''glue_result = self.eval_glue_score(
-                predictions=undecoded_out[0].tolist(), # 0:21 va cambiato quando capiamo come far generare inputs e reference da massimo 20
-                references=reference_tokens[0][0].tolist(),
-            )
+
 
             rouge_result = self.eval_rouge_scores(
-                predictions=output, references=[references]
-            )'''
+                predictions=[undecoded_out], references=[reference_tokens]
+            )
 
+            blue_result = self.eval_blue_score(predictions= output, references= [[references]])
 
             sari_result = self.eval_sari_score(
                 sources=[source], predictions=output, references=[[references]]
@@ -219,9 +222,11 @@ class HFEvaluator:
                     "Simple": output[0],
                     "SARI": sari_result["sari_score"],
                     "METEOR": meteor_result["meteor_score"],
-                    "ROUGE_F": 0,
+                    "ROUGE_F": rouge_result['rouge2_f_measure'],
+                    'BLEU': blue_result['score'],
                     "SPEARMAN_CORRELATION": 0,
                     "PEARSON_CORRELATION": 0,
+
                 },
                 ignore_index=True,
             )
