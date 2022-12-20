@@ -10,6 +10,11 @@ from transformers import EncoderDecoderModel, AutoTokenizer
 from settings import *
 import evaluate
 
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
+
+Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+'''
+
 class HFEvaluator:
 
     def __init__(
@@ -236,13 +241,13 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/hugging_face/test_fin_1.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/finalized_50',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/finalized_50",
+classe = HFEvaluator(eval_dataset_path =  HF_DATASETS + '/test_fin_1.csv',
+                     model_path= TRAINED_MODEL + '/finalized_50',
+                     tokenizer_path= TRAINED_MODEL + '/finalized_50',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/finalized_50/config.json') as json_file:
+with open( TRAINED_MODEL + '/finalized_50/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data

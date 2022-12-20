@@ -3,7 +3,12 @@ from typing import Dict, List, Tuple, Union
 import pandas as pd
 from transformers import AutoTokenizer
 from settings import *
-from datasets import load_dataset, load_from_disk, Dataset, DatasetDict
+from datasets import  load_from_disk, Dataset, DatasetDict
+
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
+
+Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+'''
 
 
 class HuggingFaceDataset:
@@ -17,7 +22,7 @@ class HuggingFaceDataset:
         batch_size: int = 8,
     ) -> Tuple[Union[Dataset, DatasetDict], Union[Dataset, DatasetDict]]:
         """
-        :param df: Pandas DataFrame which contain a `Normal` and a `Simple` column containing sentences or short paragraphs.
+        :param path1 and path2: path for the Dataset HF format for train and test dataset
         :remove_columns_list: A list of columns which should be removed. Those columns will not be a part of the dataset
         :identifier: The identifier is also known as the path for the tokenizer (e.g. `bert-base-cased`).
         :batch_size: The default batch size is set to 8. This is also the default value from Hugging Face.
@@ -72,24 +77,35 @@ class HuggingFaceDataset:
 
 
     @staticmethod
-    def get_train_test_csv(df: pd.DataFrame):
+    def get_train_test_csv(df: pd.DataFrame, output_name, train_name, test_name):
+        '''
+        This function has the objactive of saving locally the train and test split of our input dataset.
+        :param df: the input dataset, in format .csv
+        :return: the Hugging Face Dataset type, it saves it in the correct local directory
+        '''
         from datasets import Dataset
         data = Dataset.from_pandas(df)
 
         dataset1 = data.train_test_split(shuffle=True, test_size=0.05)
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
-        dataset1.save_to_disk(HF_DATASETS + '/finalized_df_1')
-        train_ds.to_csv(HF_DATASETS + '/train_fin_1.csv', index=False)
-        test_ds.to_csv(HF_DATASETS + '/test_fin_1.csv', index=False)
+        dataset1.save_to_disk(HF_DATASETS + output_name)
+        train_ds.to_csv(HF_DATASETS + train_name, index=False)
+        test_ds.to_csv(HF_DATASETS + test_name, index=False)
         return
 
 
     @staticmethod
     def __process(auto_tokenizer, batch: Dict):
+        '''
+        This function allows to process the dataset and prepare the batch of sentences to be processed by the HF model (e.g., a transformer)
+        :param auto_tokenizer: type of tokenizer used
+        :param batch: our original sentences in batch
+        :return: processed sentences in batch
+        '''
         tokenizer = auto_tokenizer
-        encoder_max_length = 40
-        decoder_max_length = 30
+        encoder_max_length = 80
+        decoder_max_length = 80
 
         inputs = tokenizer(
             batch["Normal"],
@@ -119,11 +135,11 @@ class HuggingFaceDataset:
 
 
 
-'''#with the code below I create the train and test split and I save it in the local folder
+#with the code below I create the train and test split and I save it in the local folder
 
 df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset_1.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova)'''
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/finilized_df_1', '/train_fin_1.csv', '/test_fin_1.csv')
