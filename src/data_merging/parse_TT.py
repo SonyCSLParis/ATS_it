@@ -76,7 +76,7 @@ for filename in os.listdir(full_dir):
                                     original_teach.append(orig_p1)
                                     semplici_teach.append(seml_p1)
 
-    write_on_file('teacher.csv')
+    write_on_file('/teacher.csv')
 
 
 
@@ -131,7 +131,7 @@ for filename in os.listdir(full_dir):
                                             original_ter.append(original_p[i][2])
                                             semplici_ter.append(ele[1])
 
-    write_on_file('terence.csv')
+    write_on_file('/terence.csv')
 
 
 
