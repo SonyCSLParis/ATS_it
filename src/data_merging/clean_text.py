@@ -4,6 +4,10 @@ from settings import *
 nlp = spacy.load('it_core_news_sm')
 avg_cos_sim = 0.782
 
+'''
+the functions clean_sentence_1, lemmatize_text and clean_corpus are specifically designed for paccsit only, while the last function
+called eliminate_punct can be used for the other three dataset
+'''
 
 def clean_sentence_1(sentence):
     # create the doc
@@ -73,8 +77,8 @@ def clean_corpus(operation, input_file, output_file):
                 similarity = d1.similarity(d2)
                 list_of_cos.append(d1.similarity(d2))
 
-            #I set the value to 0.7 because the average cosine similarity is 0.78
-            if similarity > 0.25 and similarity < 0.9:
+
+            if similarity > 0.10 and similarity < 0.90:
 
 
                 if operation == 'lemmatization':
@@ -136,6 +140,60 @@ def clean_corpus(operation, input_file, output_file):
     df.to_csv(output_file, index=False)
 
     return
+
+
+
+
+def eliminate_punct(input_file, output_file):
+    list_complex = []
+    list_simple = []
+
+    # open the complete dataset as a csv
+    with open(input_file, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        # skip header
+        next(csv_reader)
+
+        # read each row
+        for row in csv_reader:
+
+            # read each sentence of the raw
+            for i in range(len(row)):
+
+                if i == 1:
+
+                    prima = nlp(row[1])
+                    prima1 = [str(token).lower() for token in prima if not token.is_punct]
+                    prima1_1 = ' '.join(prima1)
+
+
+                elif i == 2:
+                    seconda = nlp(row[2])
+                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
+                    seconda1_1 = ' '.join(seconda1)
+
+
+            list_complex.append(prima1_1)
+            list_simple.append(seconda1_1)
+
+
+    d = {'Normal': list_complex, 'Simple': list_simple}
+    df = pd.DataFrame(d)
+    df.to_csv(output_file, index=False)
+
+    return
+
+
+eliminate_punct(input_file= INCOMPLETE_DATASET_DIR +'/simpitiki_1.csv', output_file= '/Users/francesca/Desktop/Github/Final/intermediate/incomplete_datasets/simpitiki_2.csv')
+eliminate_punct(input_file= INCOMPLETE_DATASET_DIR + '/teacher.csv', output_file= INCOMPLETE_DATASET_DIR + '/teacher_1.csv')
+eliminate_punct(input_file= INCOMPLETE_DATASET_DIR + '/terence.csv', output_file= INCOMPLETE_DATASET_DIR + '/terence_1.csv')
+
+
+
+
+
+
 
 
 

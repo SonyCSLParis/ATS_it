@@ -7,7 +7,7 @@ pacssit = INCOMPLETE_DATASET_DIR + '/pacs_pulito_finale.csv'
 #teacher, terence and simpitiki in lower case
 teacher = INCOMPLETE_DATASET_DIR + '/teacher_1.csv'
 terence = INCOMPLETE_DATASET_DIR + '/terence_1.csv'
-simpitiki = INCOMPLETE_DATASET_DIR + '/simpitiki_1.csv'
+simpitiki = INCOMPLETE_DATASET_DIR + '/simpitiki_2.csv'
 
 #path of the joined dataset
 all_together = HF_DATASETS + '/finilized_dataset_1.csv'
