@@ -1,18 +1,16 @@
 import argparse
-
 from training.hf_training import HuggingFaceTrainer
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    #parser.add_argument("--eval_steps", type=int)
     parser.add_argument("--warmup_steps", type=int)
     parser.add_argument("--num_train_epochs", type=int, default=3)
     parser.add_argument("--save_total_limit", type=int, default=3)
     parser.add_argument("--per_device_train_batch_size", type=int, default=8)
     parser.add_argument("--per_device_eval_batch_size", type=int, default=8)
     parser.add_argument("--logging_steps", type=int, default=500)
-    #parser.add_argument("--save_steps", type=int, default=2000)
     parser.add_argument(
         "--run_name", type=str, default="My first Hugging Face Seq2Seq model_deep"
     )
@@ -25,6 +23,7 @@ if __name__ == "__main__":
     parser.add_argument("--seq_max_length", type=int, default=30)
     parser.add_argument("--seq_min_length", type=int, default=3)
     parser.add_argument("--no_repeat_ngram_size", type=int, default=3)
+
     #length penalty only used with beam generation type
     parser.add_argument("--length_penalty", type=float, default=-0.5)
     #beam - search decoding by calling beam_search() if num_beams > 1 and do_sample = False.
