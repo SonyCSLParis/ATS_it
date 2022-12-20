@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_finalized_20epoche.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_finalized_20epoche.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/clean_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/clean_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/join_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/join_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_ET.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/parse_TT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation6.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation8.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_11.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_PACS_only.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_TTS_10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_finalized.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_finalized_20epoche.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/model_deep/csv_output/evaluation_tts.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hf_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hyperparameter_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/training/hyperparameter_search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
