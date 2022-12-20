@@ -19,10 +19,8 @@ class HFEvaluator:
             tokenizer_path: Optional[str] = None,
             log_level="WARNING"):
 
-        # read the csv
         df = pd.read_csv(eval_dataset_path, index_col=False)
-        self.df = df.head(10)
-        # you load all the metrics of interest and
+        self.df = df
         self.logger = logging.getLogger(__name__)
         self.blue = evaluate.load("sacrebleu")
         self.sari = load_metric("sari")
@@ -91,7 +89,7 @@ class HFEvaluator:
         return dictionary
 
 
-    # this function is the one we found to be used before on the model_deep
+
     def generate(
             self,
             input_ids: torch.Tensor,
@@ -239,15 +237,15 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/Final/output/hugging_face/test_fin_1.csv',
-                     model_path= '/Users/francesca/Desktop/model_deep/finalized_20',
-                     tokenizer_path= "/Users/francesca/Desktop/model_deep/finalized_20",
+                     model_path= '/Users/francesca/Desktop/model_deep/finalized_50',
+                     tokenizer_path= "/Users/francesca/Desktop/model_deep/finalized_50",
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open('/Users/francesca/Desktop/model_deep/finalized_20/config.json') as json_file:
+with open('/Users/francesca/Desktop/model_deep/finalized_50/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_finalized_20epoche.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_finalized_50epoche.csv',
                              extend_dataframe=False)

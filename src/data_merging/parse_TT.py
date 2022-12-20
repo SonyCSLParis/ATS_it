@@ -1,14 +1,28 @@
 import csv
 import os
 import re
-from src.data_merging.settings import *
+from settings import *
 
-
+'''In this script allow to parse the folders containing the files with complex and simple sentences, called Teacher and Terence,
+ which I downloaded from the official website of ItaliaNLP Lab in Pisa. 
+ At the end we write the collected parallel sentences into two separate .csv files.
+'''
 full_dir = DATA_DIR
 original_teach = []
 semplici_teach = []
 original_ter = []
 semplici_ter = []
+
+def write_on_file(output_data):
+    with open(INTERMEDIATE_DIR + output_data, 'w') as outfile:
+        writer = csv.writer(outfile)
+        header = ['index','Sentence_1', 'Sentence_2']
+        writer.writerow(header)
+        for i in range(len(original_teach)):
+            if semplici_teach[i] != '':
+                writer.writerow([str(i), original_teach[i], semplici_teach[i]])
+
+
 for filename in os.listdir(full_dir):
     if filename == 'Teacher':
         part_1 = '/Teacher'
@@ -38,7 +52,6 @@ for filename in os.listdir(full_dir):
                             else:
                                 start_id = line.find('id=')
                                 end_id = line.find('>')
-                                # start_sent = line.find('">')
                                 end_sent = line.find('</')
                                 id, frase = line[start_id + 4: end_id - 1], line[end_id + 1: end_sent]
                                 if id == '':
@@ -63,13 +76,7 @@ for filename in os.listdir(full_dir):
                                     original_teach.append(orig_p1)
                                     semplici_teach.append(seml_p1)
 
-    with open(INTERMEDIATE_DIR + 'teacher.csv', 'w') as outfile:
-        writer = csv.writer(outfile)
-        header = ['index','Sentence_1', 'Sentence_2']
-        writer.writerow(header)
-        for i in range(len(original_teach)):
-            if semplici_teach[i] != '':
-                writer.writerow([str(i), original_teach[i], semplici_teach[i]])
+    write_on_file('teacher.csv')
 
 
 
@@ -124,13 +131,7 @@ for filename in os.listdir(full_dir):
                                             original_ter.append(original_p[i][2])
                                             semplici_ter.append(ele[1])
 
-    with open( INTERMEDIATE_DIR + 'terence.csv', 'w') as outfile:
-        writer = csv.writer(outfile)
-        header = ['index','Sentence_1', 'Sentence_2']
-        writer.writerow(header)
-        for i in range(len(original_ter)):
-            if semplici_ter[i] != '':
-                writer.writerow([str(i), original_ter[i], semplici_ter[i]])
+    write_on_file('terence.csv')
 
 
 

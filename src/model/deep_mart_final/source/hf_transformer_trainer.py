@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser.add_argument("--save_total_limit", type=int, default=3)
     parser.add_argument("--per_device_train_batch_size", type=int, default=8)
     parser.add_argument("--per_device_eval_batch_size", type=int, default=8)
-    parser.add_argument("--logging_steps", type=int, default=100)
+    parser.add_argument("--logging_steps", type=int, default=500)
     #parser.add_argument("--save_steps", type=int, default=2000)
     parser.add_argument(
         "--run_name", type=str, default="My first Hugging Face Seq2Seq model_deep"

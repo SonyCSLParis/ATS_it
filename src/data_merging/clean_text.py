@@ -1,8 +1,8 @@
-import spacy
 import csv
 import pandas as pd
-
+from settings import *
 nlp = spacy.load('it_core_news_sm')
+avg_cos_sim = 0.782
 
 
 def clean_sentence_1(sentence):
@@ -25,16 +25,10 @@ def clean_sentence_1(sentence):
 
     return final
 
+
 def lemmatize_text(doc):
 
-    tokens = [str(token.lemma_) if token.pos_ == 'VERB' or token.pos_ == 'AUX' else str(token.text) for token in doc ]
-
-    output = ' '.join(tokens)
-
-    return output
-
-def lemmatize_text_nostop(doc):
-
+    #you get the lemma only of verbs and auxiliaries, the rest of teh words are kept as the original
     tokens = [str(token.lemma_) if token.pos_ == 'VERB' or token.pos_ == 'AUX' else str(token.text) for token in doc ]
 
     output = ' '.join(tokens)
@@ -48,7 +42,6 @@ def clean_corpus(operation, input_file, output_file):
     list_simple = []
     list_of_cos = []
 
-    average_sim = 0.782
 
     #open the complete dataset as a csv
     with open(input_file, 'r') as csv_file:
@@ -81,11 +74,12 @@ def clean_corpus(operation, input_file, output_file):
                 list_of_cos.append(d1.similarity(d2))
 
             #I set the value to 0.7 because the average cosine similarity is 0.78
-            if similarity > 0.6:
+            if similarity > 0.25 and similarity < 0.9:
 
 
                 if operation == 'lemmatization':
 
+                    #just lemmatize the complex and simple words
                     lem_complex = lemmatize_text(doc1)
                     list_complex.append(lem_complex)
 
@@ -102,6 +96,7 @@ def clean_corpus(operation, input_file, output_file):
                     len_frase_2 = len(doc2)
                     stopwords_2 = [token for token in doc2 if token.is_stop]
 
+                    #if neither the first or the second sentence are made up of all stopwords, then lemmatize them
                     if len_frase_1 != len(stopwords_1) and len_frase_2 != len(stopwords_2):
 
                         lem_complex = lemmatize_text(doc1)
@@ -112,7 +107,6 @@ def clean_corpus(operation, input_file, output_file):
 
 
                 elif operation == 'general_filtering':
-
 
                     #this time I filter out only for puntuation and non-latin characters
                     to_charge = [token for token in doc1 if token.is_punct == False and token.is_ascii == True]
@@ -136,7 +130,7 @@ def clean_corpus(operation, input_file, output_file):
                         f_sim = ' '.join(to_charge1_sim)
                         list_simple.append(f_sim)
 
-    # I create the final dataset and I save ita s a csv
+    # I create the final dataset and I save it as a csv
     d = {'Normal': list_complex, 'Simple': list_simple}
     df = pd.DataFrame(d)
     df.to_csv(output_file, index=False)
@@ -144,11 +138,6 @@ def clean_corpus(operation, input_file, output_file):
     return
 
 
-
-data_input = '/Users/francesca/Desktop/Github/Final/output/output_modello/ultimated.csv'
-data_output = '/Users/francesca/Desktop/Github/Final/output/output_modello/lem_nostop_ultimated.csv'
-
-clean_corpus(operation='lemmatiz_stopwords', input_file=data_input, output_file=data_output)
 
 
 
