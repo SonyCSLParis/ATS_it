@@ -4,8 +4,8 @@ import plotly.graph_objects as go
 
 
 from settings import *
-from PACCS.utils_charts.stopwords_distribution import is_number
-from PACCS.utils_charts.subject_verb_object_extract import findSVOs
+from src.PACCS.utils_charts.stopwords_distribution import is_number
+from src.PACCS.utils_charts.subject_verb_object_extract import findSVOs
 
 def verbal_features(typev, filename):
     '''

@@ -20,7 +20,10 @@ from transformers import (
     DataCollatorForSeq2Seq
 )
 
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
 
+Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+'''
 
 class HuggingFaceTrainer:
     __rouge = load_metric("rouge")

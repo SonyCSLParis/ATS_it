@@ -1,7 +1,6 @@
 import optuna
 import json
-import sys
-import os
+from settings import *
 from hf_training import *
 
 # customized print function
@@ -24,14 +23,13 @@ NAME_OF_MODEL = '/BEST_HYP'
 
 
 
-ds_path = '/Users/francesca/Desktop/Github/Final/output/hugging_face/finalized_df_1'
+ds_path = HF_DATASETS + '/finalized_df_1'
 train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
 training_config_dict = {
     "fp16": True,
     "save_total_limit": 3,
-    #'logging_steps': 100,
     "run_name": 'Hyperparameter_Search',
     "dataset": 'Finalized_dataset',
     "gradient_accumulation_steps": 1

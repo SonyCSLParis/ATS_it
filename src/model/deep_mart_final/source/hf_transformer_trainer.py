@@ -1,6 +1,10 @@
 import argparse
 from training.hf_training import HuggingFaceTrainer
 
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
+
+Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+'''
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
