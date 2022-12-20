@@ -10,13 +10,15 @@ from transformers import EncoderDecoderModel, AutoTokenizer
 from settings import *
 import evaluate
 
-'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
-Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
 '''
 
 class HFEvaluator:
-
+    '''
+    This class deals with the entire performance evaluation part of the model.
+    '''
     def __init__(
             self,
             eval_dataset_path: str,
@@ -24,9 +26,20 @@ class HFEvaluator:
             tokenizer_path: Optional[str] = None,
             log_level="WARNING"):
 
+        '''
+        The class is initialized with some parameters.
+        :param eval_dataset_path: The path to the dataset on which is made teh evaluation.
+        :param model_path: The path of the model which will be tested and evaluated.
+        :param tokenizer_path: The path to the tokenizer which we are going to use.
+        :param log_level: which is the level for the logging of teh parameters
+        '''
+
+        #open the evaluation dataset
         df = pd.read_csv(eval_dataset_path, index_col=False)
         self.df = df
         self.logger = logging.getLogger(__name__)
+
+        #loading of all the metrics that will be used in order to conduct the evaluation
         self.blue = evaluate.load("sacrebleu")
         self.sari = load_metric("sari")
         self.bert_score = load_metric("bertscore")
@@ -34,8 +47,7 @@ class HFEvaluator:
         self.glue = load_metric("glue", "stsb")
         self.meteor = load_metric("meteor")
 
-        # you call that function, implemented in analysis.py file, to the doc2vec model_deep, but very uncertain on that
-
+        #you initialize your tokenizer
         if tokenizer_path is None:
             tokenizer_path = model_path
             self.logger.info(
@@ -51,20 +63,24 @@ class HFEvaluator:
 
 
 
-        # load the model_deep
+        # load the model trained and instantiate it
         self.model = EncoderDecoderModel.from_pretrained(model_path)
 
         # set up the correct device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+        #logging the configuration
         logging.basicConfig(
             level=log_level,
             handlers=[logging.StreamHandler(sys.stdout)],
             format="%(levelname)s - %(message)s",
         )
 
-    # here you configure the model_deep setting by giving a dictionary to the function, which is saved in the same directory of the trained model_deep
+
     def __config_model(self, model_config: Dict):
+        '''
+        Here you configure the model setting by giving a dictionary as input to the function
+        '''
         self.model.config.decoder_start_token_id = self.tokenizer.cls_token_id
         self.model.config.eos_token_id = self.tokenizer.sep_token_id
         self.model.config.pad_token_id = self.tokenizer.pad_token_id
@@ -82,9 +98,12 @@ class HFEvaluator:
         self.model.config.do_sample = model_config['decoder']["do_sample"]
         self.model.config.repetition_penalty = 1
 
-    # this function allows to iterate through all the rows of the dataset and obtain the Normal and Simplified sentences.
-    # it then creates a dictionaries of key/values with them
+
     def __sources_and_references(self) -> Dict:
+        '''
+        This function allows to iterate through all the rows of the dataset and obtain the Normal and Simplified sentences,
+        it then creates a dictionaries of key/values with them.
+        '''
         dictionary = {}
         for index, row in self.df.iterrows():
             key = str(row["Normal"]).replace("\n", "")
@@ -101,6 +120,10 @@ class HFEvaluator:
             attention_mask: torch.Tensor,
             model_config: Dict,
     ) -> List[str]:
+        '''
+        This fuction allows the model to generate new simplified sentences,
+        '''
+
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
@@ -112,6 +135,9 @@ class HFEvaluator:
 
 
     def __tokenize(self, sources: List[str]) -> Tuple[torch.Tensor, torch.Tensor]:
+        '''
+        This function permits to tokenize correctly the sentences which receives in input.
+        '''
         inputs = self.tokenizer(
             sources, padding="max_length", truncation=True, return_tensors="pt"
         )
@@ -121,7 +147,8 @@ class HFEvaluator:
         return input_ids, attention_mask
 
 
-
+    #here below we have the list of functions which load the metrics and return the score
+    #and results according to each specific implementation
     def eval_sari_score(
             self, sources: List[str], predictions: List[str], references: List[List[str]]
     ) -> Dict:
@@ -186,7 +213,7 @@ class HFEvaluator:
             extend_dataframe: bool = False,
     ):
 
-        # creation of the output csv file that will be shown to us as output
+        # creation of the output .csv file which will contain the ground truth sentences, the predictions and all the scores of the different metrics
         result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F",'BLEU', "SPEARMAN_CORRELATION", "PEARSON_CORRELATION"])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function

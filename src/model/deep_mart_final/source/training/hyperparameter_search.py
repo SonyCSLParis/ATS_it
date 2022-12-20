@@ -2,7 +2,10 @@ import optuna
 import json
 from settings import *
 from hf_training import *
-
+'''
+In this script, the necessary pipeline was set up to conduct an optimisation of the hyper-parameter space.
+Then, thanks to this optimisation process, we should find the best parameters with which to finally draw our best model.
+'''
 # customized print function
 def print_custom(text):
     print('\n')
@@ -44,7 +47,7 @@ model_config_dict = {
 }
 
 
-wandb_config_dict = { "run_id": 'trial',
+wandb_config_dict = { "run_id": 'trial1',
                       "entity": 'sony',
                       "project":'Automatic_Text_Simplification',
                       "api_key": 'REDACTED',
@@ -68,7 +71,7 @@ wandb.init(project= wandb_config_dict['project'], entity= wandb_config_dict['ent
 def objective(trial: optuna.Trial):
     modello = HuggingFaceTrainer.setup_model(model_config=model_config_dict,
                             model_path=None,
-                            pretrained_model_path='/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/source/bert2bert',
+                            pretrained_model_path= BERT2BERT_DIR,
                             resume=False,
                             tie_encoder_decoder=False,
                             tokenizer=my_tokenizer)
@@ -80,7 +83,7 @@ def objective(trial: optuna.Trial):
         per_device_train_batch_size=trial.suggest_categorical("per_device_train_batch_size", [4, 8, 16, 32, 64, 128]),
         per_device_eval_batch_size=trial.suggest_categorical("per_device_eval_batch_size", [4, 8, 16, 32, 64, 128]),
         fp16=training_config_dict["fp16"] if torch.cuda.is_available() else False,
-        output_dir= '/Users/francesca/Desktop/model_deep' + '/HYPERPARAM_SEARCH',
+        output_dir= TRAINED_MODEL + '/HYPERPARAM_SEARCH',
         overwrite_output_dir=False,
         #logging_steps=training_config_dict["logging_steps"],
         run_name=training_config_dict["run_name"],

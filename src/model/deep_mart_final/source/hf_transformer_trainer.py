@@ -1,12 +1,16 @@
 import argparse
 from training.hf_training import HuggingFaceTrainer
 
-'''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
+'''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
-Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
+Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
 '''
 
 if __name__ == "__main__":
+    '''
+    Within the main, we retrieve all the arguments that were provided as input in the terminal when the code was launched.
+    If we do not specify any values from the CLI, the variables will assume the default values we have set. 
+    '''
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--warmup_steps", type=int)
@@ -24,8 +28,8 @@ if __name__ == "__main__":
     parser.add_argument("--resume", type=str, default="false")
     parser.add_argument("--tokenizer_id", type=str)
 
-    parser.add_argument("--seq_max_length", type=int, default=30)
-    parser.add_argument("--seq_min_length", type=int, default=3)
+    parser.add_argument("--seq_max_length", type=int, default=80)
+    parser.add_argument("--seq_min_length", type=int, default=4)
     parser.add_argument("--no_repeat_ngram_size", type=int, default=3)
 
     #length penalty only used with beam generation type
@@ -49,6 +53,7 @@ if __name__ == "__main__":
 
     args, _ = parser.parse_known_args()
 
+    #we set up the configuration dictionary of the training parameters, which are necessary for the training phase
     training_config_dict = {
         "num_train_epochs": args.num_train_epochs,
         "fp16": True,
@@ -62,6 +67,7 @@ if __name__ == "__main__":
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
     }
 
+    #we set up the configuration dictionary of model parameters, required for the model setting
     model_config_dict = {
         "max_length": args.seq_max_length,
         "min_length": args.seq_min_length,
@@ -70,6 +76,8 @@ if __name__ == "__main__":
         "num_beams": args.num_beams,
     }
 
+    #we set up the configuration dictionary for the wandb parameter logging system, only if some parameters
+    # that should be provided in input are not None
     wandb_config_dict = None
     if (
         args.wandb_api_key is not None
@@ -90,6 +98,7 @@ if __name__ == "__main__":
 
     print("\nStarting training ... have a coffee ...")
 
+    #we call the train function which is a method of the HuggingFaceTrainer class implemented in another script
     HuggingFaceTrainer.setup_logger()
     HuggingFaceTrainer.train(
         model_path=args.model_path,
