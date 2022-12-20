@@ -84,7 +84,6 @@ __pypackages__/
 
 # legati al modello ma troppo grandi 
 src/model/deep_mart_final/bert_score
-src/model/deep_mart_final/transformers
 src/model/deep_mart_final/transformers/
 /Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/transformers
 src/model/deep_mart_final/transformers/*

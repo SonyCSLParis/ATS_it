@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/clean_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/clean_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/join_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/join_datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_SIM.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/parse_SIM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_TT.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/parse_TT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/preprocess_paccsit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_merging/preprocess_paccsit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating/hf_evaluation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/experimenting.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/deep_mart_final/source/hf_transformer_trainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
