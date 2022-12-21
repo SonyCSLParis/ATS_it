@@ -37,9 +37,15 @@ These are simple *NLP* analyses and the main library used is *spacy*. By running
 #### model
 Inside this folder you will find another one called deep_martin_final which is structured like that:
 
-- source:
-- training:
-- 
+- **source**:
+
+  - **preprocessing**: this folder contains the file `dataset.py`, which allows you to create an instance of the HuggingFaceDataset class;
+  
+  - **training**: this folder include the `hf_training.py` script which sets the complete training pipeline and the `hyperparameter_search.py` script which   is in charge of finding the best hyperparameters in the searching space;
+  
+  - **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline;
+  
+  - `hf_transformer_trainer.py`: is the script which actually launch the training.
 
 
 #### Dependencies & Python Version 
