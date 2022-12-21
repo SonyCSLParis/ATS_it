@@ -90,8 +90,8 @@ class HuggingFaceDataset:
         train_ds = dataset1["train"].shuffle(seed=42)
         test_ds = dataset1["test"]
         dataset1.save_to_disk(HF_DATASETS + output_name)
-        train_ds.to_csv(HF_DATASETS + train_name, index=False)
-        test_ds.to_csv(HF_DATASETS + test_name, index=False)
+        train_ds.to_csv(CSV_FILES_PATH + train_name, index=False)
+        test_ds.to_csv(CSV_FILES_PATH + test_name, index=False)
         return
 
 
@@ -137,9 +137,9 @@ class HuggingFaceDataset:
 
 #with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv(HF_DATASETS + '/finilized_dataset_1.csv')
+df_prova = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/finilized_df_1', '/train_fin_1.csv', '/test_fin_1.csv')
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/paccss_only', '/paccssit/train_paccssit.csv', '/paccssit/test_paccssit.csv')

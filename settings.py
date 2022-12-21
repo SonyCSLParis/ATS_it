@@ -8,6 +8,7 @@ INTERMEDIATE_DIR = path.join(SRC_ROOT_DIR + '/intermediate')  # txt and others i
 INCOMPLETE_DATASET_DIR = path.join(INTERMEDIATE_DIR + '/incomplete_datasets') # primarily processed datasets
 OUTPUT_DIR = path.join(SRC_ROOT_DIR + '/output')  # datasets in output
 HF_DATASETS = path.join(OUTPUT_DIR + '/hugging_face')
+CSV_FILES_PATH = path.join(OUTPUT_DIR + '/csv_files')
 TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-uncased"
 
 
