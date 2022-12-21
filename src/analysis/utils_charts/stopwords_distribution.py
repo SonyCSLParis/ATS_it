@@ -89,12 +89,12 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=63551, save = F
 
     if save:
         if filter:
-            with open(INTERMEDIATE_DIR + f'/ADV_no_stop_tts_{type_sent}.txt', 'w') as fp:
+            with open(INTERMEDIATE_DIR + f'/ADV_no_stop_final_{type_sent}.txt', 'w') as fp:
                 for item in sentences_final:
                     # write each item on a new line
                     fp.write("%s\n" % item)
 
-        with open(INTERMEDIATE_DIR + f'/no_stop_tts_{type_sent}.txt', 'w') as fp:
+        with open(INTERMEDIATE_DIR + f'/no_stop_final_{type_sent}.txt', 'w') as fp:
             for item in sentences_final:
                 # write each item on a new line
                 fp.write("%s\n" % item)

@@ -43,7 +43,7 @@ model_config_dict = {
     "min_length": 2,
     "no_repeat_ngram_size": 3,
     "length_penalty": 0.5,
-    "num_beams": 4.0,
+    "num_beams": 4,
 }
 
 
@@ -66,7 +66,7 @@ report_to = HuggingFaceTrainer.setup_wandb(
 print_custom('Setting up Optuna study')
 
 
-wandb.init(project= wandb_config_dict['project'], entity= wandb_config_dict['entity'], id = wandb_config_dict['run_id'])
+wandb.init(project= wandb_config_dict['project'], entity= wandb_config_dict['entity'], id = wandb_config_dict['run_id'], resume='allow')
 
 def objective(trial: optuna.Trial):
     modello = HuggingFaceTrainer.setup_model(model_config=model_config_dict,

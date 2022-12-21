@@ -8,10 +8,10 @@ def create_visualisation(final_corpus):
     print('complex', amount_words(1, final_corpu=final_corpus, corpus_length=dimension))
     print('simple', amount_words(2, final_corpu=final_corpus, corpus_length=dimension))
 
-    which_stop1, average_amount1 = stopwords(1, final_corpu=final_corpus ,filter=False,  corpus_length= dimension, save=False)
-    which_stop11, average_amount11 = stopwords(1, final_corpu=final_corpus, filter=True, corpus_length= dimension, save=False)
-    which_stop_2, average_amount2 = stopwords(2, final_corpu=final_corpus, filter=False, corpus_length= dimension, save=False)
-    which_stop22, average_amount22 = stopwords(2, final_corpu=final_corpus, filter=True,  corpus_length= dimension, save=False)
+    which_stop1, average_amount1 = stopwords(1, final_corpu=final_corpus ,filter=False,  corpus_length= dimension, save=True)
+    which_stop11, average_amount11 = stopwords(1, final_corpu=final_corpus, filter=True, corpus_length= dimension, save=True)
+    which_stop_2, average_amount2 = stopwords(2, final_corpu=final_corpus, filter=False, corpus_length= dimension, save=True)
+    which_stop22, average_amount22 = stopwords(2, final_corpu=final_corpus, filter=True,  corpus_length= dimension, save=True)
     print()
     print(average_amount1, average_amount11, average_amount2, average_amount22)
 
@@ -20,23 +20,23 @@ def create_visualisation(final_corpus):
     plot_stop(stopwords=which_stop_2, filter='not filtered', original='simplified', color='lightblue')
     plot_stop(stopwords=which_stop22, filter='filtered', original='simplified', color='blue')
 
-    key1, value1 = PoS_analysis(INTERMEDIATE_DIR + '/ADV_no_stop_tts_1.txt')
-    key11, value11 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_tts_2.txt')
-    key2, value2 = PoS_analysis(INTERMEDIATE_DIR + '/ADV_no_stop_tts_2.txt')
-    key22, value22 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_tts_2.txt')
+    key1, value1 = PoS_analysis(INTERMEDIATE_DIR + '/ADV_no_stop_final_1.txt')
+    key11, value11 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_final_2.txt')
+    key2, value2 = PoS_analysis(INTERMEDIATE_DIR + '/ADV_no_stop_final_2.txt')
+    key22, value22 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_final_2.txt')
     print('done')
 
     barplot_PoS(key1, value1, value2)
     barplot_PoS(key11, value11, value22)
 
     mood_complex = verbal_features(typev='Mood',
-                                   filename=INTERMEDIATE_DIR + '/ADV_no_stop_tts_1.txt')
+                                   filename=INTERMEDIATE_DIR + '/ADV_no_stop_final_1.txt')
     mood_simple = verbal_features(typev='Mood',
-                                  filename=INTERMEDIATE_DIR + '/ADV_no_stop_tts_2.txt')
+                                  filename=INTERMEDIATE_DIR + '/ADV_no_stop_final_2.txt')
     tense_complex = verbal_features(typev='Tense',
-                                    filename=INTERMEDIATE_DIR + '/ADV_no_stop_tts_1.txt')
+                                    filename=INTERMEDIATE_DIR + '/ADV_no_stop_final_1.txt')
     tense_simple = verbal_features(typev='Tense',
-                                   filename=INTERMEDIATE_DIR + '/ADV_no_stop_tts_2.txt')
+                                   filename=INTERMEDIATE_DIR + '/ADV_no_stop_final_2.txt')
     print('Done')
     double_barplot(mood_complex, mood_simple, 'indianred', 'lightsalmon', 'Mood')
     double_barplot(tense_complex, tense_simple, 'dodgerblue', 'skyblue', 'Tense')
