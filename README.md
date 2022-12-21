@@ -7,7 +7,7 @@ The following project aims to use a state-of-the-art model, a transformer to be 
 Francesca Padovani, trainee at CSL Sony Paris contributed to the creation of this repository, under the supervision of Martina Galletti.
 
 ## Structure
-The repository contains the **src** code, the structure of which will be explained below, the **requirements.txt** file, which contains all the libraries needed to set up your environment and be able to run the code, and the **settings.py** file in which we placed all local paths and assigned them to global variables, which we then reused in the scripts to access data. All the input datasets, the pre-processed ones and those generated in the Hugging Face format needed to tune the model, were not published, partly because of the large size. The online sources from which I primarily retrieved the three corpus used in this project are as follows: 
+All the input datasets, the pre-processed ones and those generated in the Hugging Face format needed to tune the model, are not published, partly because of the large size. The online sources from which I primarily retrieved the three corpus used in this project are as follows: 
 
 - [PACCSS-IT (Parallel Corpus of Complex-Simple Sentences for ITalian)](http://www.italianlp.it/resources/paccss-it-parallel-corpus-of-complex-simple-sentences-for-italian/): PaCCSS-IT is a corpus of Complex-Simple Aligned Sentences for ITalian of about 63,000 pairs of sentences extracted from the ItWaC corpus, the largest copy-right free corpus of contemporary Italian web texts. 
 
@@ -16,8 +16,8 @@ The repository contains the **src** code, the structure of which will be explain
 - [SIMPITIKI](https://github.com/dhfbk/simpitiki): SIMPITIKI is a Simplification corpus for Italian and it consists of two sets of simplified pairs: the first one is harvested from the Italian Wikipedia in a semi-automatic way; the second one is manually annotated sentence-by-sentence from documents in the administrative domain.
 
 
-### src 
-Inside the src folder you can find three sub-categories named: **analysis**, **data_merging**, **model** that relate to three different stages of the project.
+## src folder
+Inside the src folder you can find three sub-categories named: **analysis**, **data_merging**, **model** that relate to three different stages of the project. A `settings.py` file is available: whithin it all local paths are assigned to global variables, which are reused in the scripts to access data.
 
 #### data merging
 This folder is quite composite:
@@ -34,11 +34,30 @@ This folder is quite composite:
 This folder contains scripts for doing quantitative analyses and making qualitative judgements (as far as possible) on the datasets used. 
 These are simple *NLP* analyses and the main library used is *spacy*. By running `main.py`, one can obtain graphs and metrics, including the distribution of Part Of Speech, see how many simple structures (SVO - Subject Verb Object -) are present in both simple and complex sentences, and understand the Mood and Tense of verbs. 
 
+#### model
+Inside this folder you will find another one called deep_martin_final which is structured like that:
 
-#### Model Folder
+- source:
+- training:
+- 
+
+
 #### Dependencies & Python Version 
-#### requirements.txt 
-
+In the repository you can find the `requirements.txt` file, which contains all the libraries needed to set up your environment and be able to run the code.  This project requires `Python 3.10.6` version to be run.
+ 
 ## How to run the code and train a model
+In order to use the Hugging Face pipeline to fine-tune your model you need to provide a dataset which should be an instance of the `HuggingFaceDataset` class. It needs to have one column with the normal version (`Normal`) and one for the simplified version (`Simple`). 
+
+To train a model you then simply run something like:
+
+`python /your/path/to/deep-martin/src/hf_transformer_trainer.py \
+--num_train_epochs 20  # number of the epochs  
+--ds_path /path/ # path to you dataset.
+--save_model_path /path/  # path to where the trained model should be stored.
+--pretrained_model_path /path/ # path where your pre-trained checkpoints are saved
+--training_output_path /path/  # path to where the checkpoints and the training data should be stored.
+--tokenizer_id /tokenizer/ # Path or identifier to Hugging Face tokenizer.`
+
+To evaluate your model you will find instruction in the function within the `evaluator.py` script. You will have to provide the test_dataset and at the end of the evaluation a .csv file file will be generated containing the simplified sentences predicted by the model and the evaluation metrics.
 
 ### License
