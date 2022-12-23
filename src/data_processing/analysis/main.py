@@ -1,4 +1,3 @@
-from src.data_merging.open_paccsit import *
 from visualisations import *
 from settings import *
 
