@@ -28,10 +28,10 @@ To evaluate your model you will find instruction in the function within the `eva
 
 ## Structure
 
-## **src** folder
+## **src** 
 Inside the src folder you can find two subfolders named: **data** and **model**.  A `settings.py` file is available: whithin it all local paths are assigned to global variables, which are reused in the scripts to access data.
 
-## **data** folder
+### **data** folder
 
 #### data merging
 This folder is quite composite:
@@ -50,18 +50,18 @@ These are simple *NLP* analyses and the main library used is *spacy*. By running
 
 #### data augmentation
 
-## **model** folder
+### **model** folder
 Inside this folder you will find another one called deep_martin_final which is structured like that:
 
 - **source**:
 
-  - **preprocessing**: this folder contains the file `dataset.py`, which allows you to create an instance of the HuggingFaceDataset class;
+- **preprocessing**: this folder contains the file `dataset.py`, which allows you to create an instance of the HuggingFaceDataset class;
   
-  - **training**: this folder include the `hf_training.py` script which sets the complete training pipeline and the `hyperparameter_search.py` script which   is in charge of finding the best hyperparameters in the searching space;
+- **training**: this folder include the `hf_training.py` script which sets the complete training pipeline and the `hyperparameter_search.py` script which   is in charge of finding the best hyperparameters in the searching space;
   
-  - **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline;
+- **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline;
   
-  - `hf_transformer_trainer.py`: is the script which actually launch the training.
+- `hf_transformer_trainer.py`: is the script which actually launch the training.
 
 
 All the input datasets, the pre-processed ones and those generated in the Hugging Face format needed to tune the model, are not published, partly because of the large size. The online sources from which I primarily retrieved the three corpus used in this project are as follows: 
