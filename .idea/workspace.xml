@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data_processing/data_merging/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/utils_charts/PoS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/utils_charts/PoS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/utils_charts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/utils_charts/stopwords_distribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/utils_charts/stopwords_distribution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/utils_charts/subject_verb_object_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/utils_charts/subject_verb_object_extract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/utils_charts/verb_mood_tense.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/utils_charts/verb_mood_tense.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analysis/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/visualisations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/analysis/utils_charts/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/clean_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/clean_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/join_datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/join_datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/open_paccsit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/open_paccsit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_SIM.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/parse_SIM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/parse_TT.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/parse_TT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_merging/preprocess_paccsit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_processing/data_merging/preprocess_paccsit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +27,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/settings.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/data_processing/analysis/main.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/data_processing/analysis/utils_charts/subject_verb_object_extract.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/data_processing/analysis/utils_charts/verb_mood_tense.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -57,14 +42,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francesca/Desktop/Github/Final&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/francesca/Desktop/Github/Final_final",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/PACCS/utils_charts" />
