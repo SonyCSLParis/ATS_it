@@ -75,7 +75,7 @@ def clean_corpus(operation, input_file, output_file):
                 d1 = nlp(complex_s)
                 d2 = nlp(simplified_s)
                 similarity = d1.similarity(d2)
-                list_of_cos.append(d1.similarity(d2))
+                list_of_cos.append(similarity)
 
 
             if similarity > 0.10 and similarity < 0.90:
@@ -124,15 +124,17 @@ def clean_corpus(operation, input_file, output_file):
                         # I recreate the string
                         f = ' '.join(to_charge1)
 
-                        # append it to the list of complex sentences
-                        list_complex.append(f)
+                        if f not in list_complex:
 
-                        #do the same thing for the simplified sentence
-                        to_charge_sim = [token for token in doc2 if token.is_punct == False and token.is_ascii == True]
-                        to_charge1_sim = [str(token) for token in to_charge_sim]
+                            # append it to the list of complex sentences
+                            list_complex.append(f)
 
-                        f_sim = ' '.join(to_charge1_sim)
-                        list_simple.append(f_sim)
+                            #do the same thing for the simplified sentence
+                            to_charge_sim = [token for token in doc2 if token.is_punct == False and token.is_ascii == True]
+                            to_charge1_sim = [str(token) for token in to_charge_sim]
+
+                            f_sim = ' '.join(to_charge1_sim)
+                            list_simple.append(f_sim)
 
     # I create the final dataset and I save it as a csv
     d = {'Normal': list_complex, 'Simple': list_simple}
