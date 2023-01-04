@@ -44,8 +44,8 @@ import deepl
 
 pipe = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-it")
 
-data_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/training.csv'
-output_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/training_italiano.csv'
+data_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/development.csv'
+output_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/development_italiano.csv'
 
 def parsing_turk_corpus(data_input, data_output):
 
@@ -86,19 +86,26 @@ def parsing_wiki(data_input_com, data_input_sem, data_output):
 
     with open(data_input_com, 'r') as in_compl:
 
-        lines = in_compl.readlines()
-        for line in lines:
-            pip1 = pipe(line)
-            pip11 = pip1[0]['translation_text']
-            list_complex_it.append(pip11)
+        with open(data_input_sem, 'r') as in_semp:
 
-    with open(data_input_sem, 'r') as in_semp:
+            lines_compl = in_compl.readlines()
+            lines_sempl = in_semp.readlines()
 
-        lines_sempl = in_semp.readlines()
-        for line in lines_sempl:
-            pip2 = pipe(line)
-            pip22 = pip2[0]['translation_text']
-            list_simple_it.append(pip22)
+            f = open(data_output, 'w')
+            # create the csv writer
+            writer = csv.writer(f)
+
+            for i in range(len(lines_compl)):
+                pip1 = pipe(lines_compl[i])
+                pip11 = pip1[0]['translation_text']
+                pip2 = pipe(lines_sempl[i])
+                pip22 = pip2[0]['translation_text']
+
+                writer.writerow([pip11, pip22])
+
+
+            f.close()
+
 
 
     with open(data_output, 'w') as outfile:
