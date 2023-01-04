@@ -131,7 +131,7 @@ def clean_corpus(operation, input_file, output_file):
 
                             #do the same thing for the simplified sentence
                             to_charge_sim = [token for token in doc2 if token.is_punct == False and token.is_ascii == True]
-                            to_charge1_sim = [str(token) for token in to_charge_sim]
+                            to_charge1_sim = [str(token).lower() for token in to_charge_sim]
 
                             f_sim = ' '.join(to_charge1_sim)
                             list_simple.append(f_sim)
@@ -144,7 +144,9 @@ def clean_corpus(operation, input_file, output_file):
     return
 
 
-
+clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/documenti_potenziali/data.v1.split/dataset_tradotto_first.csv', output_file='/Users/francesca/Desktop/dataset_utilizzati/dataset_tradotto_pulito.csv' )
+clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/dataset_utilizzati/training_italiano.csv', output_file='/Users/francesca/Desktop/dataset_utilizzati/training_italiano_pulito.csv')
+clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/dataset_utilizzati/development_italiano.csv', output_file= '/Users/francesca/Desktop/dataset_utilizzati/development_italiano_pulito.csv')
 
 def eliminate_punct(input_file, output_file):
     list_complex = []
@@ -187,9 +189,9 @@ def eliminate_punct(input_file, output_file):
     return
 
 
-eliminate_punct(input_file= INCOMPLETE_DATASET_DIR +'/simpitiki_1.csv', output_file= '/Users/francesca/Desktop/Github/Final/intermediate/incomplete_datasets/simpitiki_2.csv')
+'''eliminate_punct(input_file= INCOMPLETE_DATASET_DIR +'/simpitiki_1.csv', output_file= '/Users/francesca/Desktop/Github/Final/intermediate/incomplete_datasets/simpitiki_2.csv')
 eliminate_punct(input_file= INCOMPLETE_DATASET_DIR + '/teacher.csv', output_file= INCOMPLETE_DATASET_DIR + '/teacher_1.csv')
-eliminate_punct(input_file= INCOMPLETE_DATASET_DIR + '/terence.csv', output_file= INCOMPLETE_DATASET_DIR + '/terence_1.csv')
+eliminate_punct(input_file= INCOMPLETE_DATASET_DIR + '/terence.csv', output_file= INCOMPLETE_DATASET_DIR + '/terence_1.csv')'''
 
 
 
