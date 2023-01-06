@@ -268,16 +268,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path =  HF_DATASETS + '/test_fin_1.csv',
-                     model_path= TRAINED_MODEL + '/finalized_50',
-                     tokenizer_path= TRAINED_MODEL + '/finalized_50',
+classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/test_augmented.csv',
+                     model_path= '/Users/francesca/Desktop/trained_models/augmented_20',
+                     tokenizer_path= '/Users/francesca/Desktop/trained_models/augmented_20',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open( TRAINED_MODEL + '/finalized_50/config.json') as json_file:
+with open( '/Users/francesca/Desktop/trained_models/augmented_20/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/evaluation_finalized_50epoche.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_20.csv',
                              extend_dataframe=False)
