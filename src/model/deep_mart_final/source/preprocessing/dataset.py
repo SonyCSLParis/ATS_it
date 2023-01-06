@@ -137,9 +137,10 @@ class HuggingFaceDataset:
 
 #with the code below I create the train and test split and I save it in the local folder
 
-df_prova = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only.csv')
+#df_prova = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only.csv')
+df_prova = pd.read_csv('/Users/francesca/Desktop/dataset_utilizzati/augmented_dataset.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/paccss_only', '/paccssit/train_paccssit.csv', '/paccssit/test_paccssit.csv')
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/augmented', '/augmented/train_augmented.csv', '/augmented/test_augmented.csv')

@@ -78,7 +78,7 @@ def clean_corpus(operation, input_file, output_file):
                 list_of_cos.append(similarity)
 
 
-            if similarity > 0.10 and similarity < 0.90:
+            if similarity > 0.05 and similarity < 0.95:
 
 
                 if operation == 'lemmatization':
@@ -113,10 +113,10 @@ def clean_corpus(operation, input_file, output_file):
                 elif operation == 'general_filtering':
 
                     #this time I filter out only for puntuation and non-latin characters
-                    to_charge = [token for token in doc1 if token.is_punct == False and token.is_ascii == True]
+                    to_charge = [token for token in doc1 if token.is_punct == False ]
 
                     # I rebuild the list of strings
-                    to_charge1 = [str(token) for token in to_charge]
+                    to_charge1 = [str(token).lower() for token in to_charge]
 
                     #if the list of string is longer than 2
                     if len(to_charge1) > 2:
@@ -130,7 +130,7 @@ def clean_corpus(operation, input_file, output_file):
                             list_complex.append(f)
 
                             #do the same thing for the simplified sentence
-                            to_charge_sim = [token for token in doc2 if token.is_punct == False and token.is_ascii == True]
+                            to_charge_sim = [token for token in doc2 if token.is_punct == False ]
                             to_charge1_sim = [str(token).lower() for token in to_charge_sim]
 
                             f_sim = ' '.join(to_charge1_sim)
