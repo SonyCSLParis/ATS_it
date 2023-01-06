@@ -1,5 +1,5 @@
 import argparse
-from training.hf_training import HuggingFaceTrainer
+from src.model.deep_mart_final.source.training.hf_training import HuggingFaceTrainer
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
