@@ -218,6 +218,10 @@ class HuggingFaceTrainer:
         model.config.pad_token_id = tokenizer.pad_token_id
         model.config.max_length = model_config["max_length"]
         model.config.min_length = model_config["min_length"]
+        model.config.encoder['max_length'] = model_config["max_length"]
+        model.config.encoder['min_length'] = model_config["min_length"]
+        model.config.decoder['max_length'] = model_config["max_length"]
+        model.config.decoder['min_length'] = model_config["min_length"]
         model.config.no_repeat_ngram_size = model_config["no_repeat_ngram_size"]
         model.config.early_stopping = True
         model.config.length_penalty = model_config["length_penalty"]
