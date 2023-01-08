@@ -1,49 +1,10 @@
-import os
-import openai
-import nlpaug.augmenter.word as naw
-import nlpaug.augmenter.sentence as nas
-from transformers import EncoderDecoderModel, AutoTokenizer
-'''OPENAI_API_KEY = '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'
-# Load your API key from an environment variable or secret management service
-openai.api_key = OPENAI_API_KEY
-
-response = openai.Completion.create(model="text-davinci-003", prompt="Simplify the following code: I have been to the supermarket and I bought more than needed. I will probably contribute to food waste in the next weeks. ", temperature=0.8, max_tokens=30)
-
-
-text = 'Questa sera pulisco bene la casa e poi metto delle trappole per topo'
-aug = naw.SynonymAug(aug_src='wordnet', lang= 'ita')
-augmented_text = aug.augment(text)
-print("Original:")
-print(text)
-print("Augmented Text:")
-
-print(augmented_text)
-
-
-
-aug = naw.RandomWordAug(action="swap")
-augmented_text = aug.augment(text)
-print("Original:")
-print(text)
-print("Augmented Text:")
-print(augmented_text)
-
-
-
-aug = naw.RandomWordAug()
-augmented_text = aug.augment(text)
-print("Original:")
-print(text)
-print("Augmented Text:")
-print(augmented_text)'''
-
 from transformers import pipeline
 import csv
+from nltk.translate.bleu_score import sentence_bleu
 import deepl
-
+import evaluate
 
 pipe = pipeline("translation", model="Helsinki-NLP/opus-mt-tc-big-en-it")
-
 data_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/development.csv'
 output_path = '/Users/francesca/Desktop/documenti_potenziali/data_1/development_italiano.csv'
 
@@ -52,7 +13,7 @@ def parsing_turk_corpus(data_input, data_output):
     with open(data_input, 'r') as infile:
 
         input = csv.reader(infile)
-        header = next(input)
+        next(input)
 
         with open(data_output, 'w') as outfile:
             lista_complesse = []
@@ -71,13 +32,23 @@ def parsing_turk_corpus(data_input, data_output):
 
                     compl_piped = pipe(complessa)
                     comp_translated = compl_piped[0]['translation_text']
+                    meteor = evaluate.load('meteor')
+                    results = meteor.compute(predictions=[complessa], references=[comp_translated])
+                    print(results['meteor'])
+                    if results['meteor'] < 0.1:
+                        print(complessa)
+                        print(comp_translated)
+                    score_c = sentence_bleu([complessa.split()], comp_translated.split())
+
+
                     sempl_piped = pipe(semplice)
                     sem_translated = sempl_piped[0]['translation_text']
+                    score_s = sentence_bleu([semplice.split()], sem_translated.split())
 
                     writer.writerow([comp_translated, sem_translated])
             
 
-#parsing_turk_corpus(data_path, output_path)
+parsing_turk_corpus(data_path, output_path)
 
 
 def parsing_wiki(data_input_com, data_input_sem, data_output):
@@ -119,12 +90,12 @@ def parsing_wiki(data_input_com, data_input_sem, data_output):
 
 
 
-parsing_wiki('/Users/francesca/Desktop/documenti_potenziali/data.v1.split/normal.training.txt',
+'''parsing_wiki('/Users/francesca/Desktop/documenti_potenziali/data.v1.split/normal.training.txt',
              '/Users/francesca/Desktop/documenti_potenziali/data.v1.split/simple.training.txt',
              '/Users/francesca/Desktop/documenti_potenziali/data.v1.split/dataset_tradotto.csv')
 
 
-
+'''
 
 
 

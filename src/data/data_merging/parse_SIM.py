@@ -2,6 +2,7 @@ import csv
 from settings import *
 import re
 
+
 #directory of the original .txt file, downloaded from the official Github of the project https://github.com/dhfbk/simpitiki
 full_dir = DATA_DIR + '/simpitiki-v2.txt'
 
@@ -20,26 +21,35 @@ def write_on_file(output_data, dizionario):
 with open(full_dir, 'r') as infile:
     original = []
     simple = []
+    dizionario = []
 
     for line in infile:
 
         if 'before' in line:
+            aggiungi = []
             riga = line
 
             if '&lt;del&gt;' in riga:
                 riga = re.sub('&lt;del&gt;', '', riga)
 
+
             if '&lt;/del&gt;' in riga:
                 riga = re.sub('&lt;/del&gt;', '', riga)
 
             if '&#xF2' in riga:
-                riga = re.sub('&#xF2', 'ó', riga)
+                riga = re.sub('&#xF2;', 'ó', riga)
 
             if '&#xE8;' in riga:
                 riga = re.sub('&#xE8;', 'è', riga)
 
             if '&#xE0' in riga:
-                riga = re.sub('&#xE0', 'à', riga)
+                riga = re.sub('&#xE0;', 'à', riga)
+
+            if '&#x94' in riga:
+                riga = re.sub('&#x94;', '', riga)
+
+            if '&#x93' in riga:
+                riga = re.sub('&#x93;', '', riga)
 
             if '&#xF4;' in riga:
                 riga = re.sub('&#xF4;', 'o', riga)
@@ -55,12 +65,12 @@ with open(full_dir, 'r') as infile:
             start = riga.find('re>')
             end = riga.find('</b')
             origi = riga[start + 3:end]
-            original.append(origi.lower())
+            aggiungi.append(origi)
+
 
 
 
         if 'after' in line:
-
             riga = line
 
             if '&lt;ins&gt;' in riga:
@@ -70,13 +80,19 @@ with open(full_dir, 'r') as infile:
                 riga = re.sub('&lt;/ins&gt;', '', riga)
 
             if '&#xF2' in riga:
-                riga = re.sub('&#xF2', 'ó', riga)
+                riga = re.sub('&#xF2;', 'ó', riga)
 
             if '&#xE8;' in riga:
                 riga = re.sub('&#xE8;', 'è', riga)
 
             if '&#xE0' in riga:
-                riga = re.sub('&#xE0', 'à', riga)
+                riga = re.sub('&#xE0;', 'à', riga)
+
+            if '&#x94' in riga:
+                riga = re.sub('&#x94;', '', riga)
+
+            if '&#x93' in riga:
+                riga = re.sub('&#x93;', '', riga)
 
             if '&#xF4;' in riga:
                 riga = re.sub('&#xF4;', 'o', riga)
@@ -87,15 +103,21 @@ with open(full_dir, 'r') as infile:
             start = riga.find('er>')
             end = riga.find('</a')
             simp = riga[start + 3:end]
-            simple.append(simp.lower())
+            aggiungi.append(simp)
 
+            if len(aggiungi) == 2:
+                original.append(aggiungi[0])
+                simple.append(aggiungi[1])
 
-#eliminate copies of the same phrase
 dizio = {}
-
 for i in range(len(original)):
-    if original[i] not in dizio:
-        dizio[original[i]] = simple[i]
+    if original[i] != '' and original[i] not in dizio:
+        d1 = nlp(original[i])
+        d2 = nlp(simple[i])
+        cs = d1.similarity(d2)
+        if cs > 0.7:
+            dizio[original[i]] = simple[i]
+
 
 write_on_file('/simpitiki_1.csv', dizionario=dizio)
 

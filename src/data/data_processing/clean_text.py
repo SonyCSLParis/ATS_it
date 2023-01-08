@@ -112,7 +112,7 @@ def clean_corpus(operation, input_file, output_file):
 
                 elif operation == 'general_filtering':
 
-                    #this time I filter out only for puntuation and non-latin characters
+                    #this time I filter out only for puntuation
                     to_charge = [token for token in doc1 if token.is_punct == False ]
 
                     # I rebuild the list of strings
@@ -143,11 +143,12 @@ def clean_corpus(operation, input_file, output_file):
 
     return
 
+clean_corpus('general_filtering')
 
-clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/documenti_potenziali/data.v1.split/dataset_tradotto_second.csv', output_file='/Users/francesca/Desktop/dataset_utilizzati/dataset_tradotto_pulito.csv' )
+'''clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/documenti_potenziali/data.v1.split/dataset_tradotto_second.csv', output_file='/Users/francesca/Desktop/dataset_utilizzati/dataset_tradotto_pulito.csv' )
 clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/dataset_utilizzati/training_italiano.csv', output_file='/Users/francesca/Desktop/dataset_utilizzati/training_italiano_pulito.csv')
 clean_corpus('general_filtering', input_file='/Users/francesca/Desktop/dataset_utilizzati/development_italiano.csv', output_file= '/Users/francesca/Desktop/dataset_utilizzati/development_italiano_pulito.csv')
-
+'''
 def eliminate_punct(input_file, output_file):
     list_complex = []
     list_simple = []

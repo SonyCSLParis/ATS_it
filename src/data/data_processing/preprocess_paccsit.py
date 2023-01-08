@@ -4,7 +4,7 @@ import pandas as pd
 from settings import *
 
 data_input = INCOMPLETE_DATASET_DIR + '/pacs_number.csv'
-data_output = INCOMPLETE_DATASET_DIR + '/pacs_pulito_finale.csv'
+data_output = INCOMPLETE_DATASET_DIR + '/pacs_clean_final.csv'
 file_pronouns = INCOMPLETE_DATASET_DIR +'/pronomi.csv'
 
 def clean_corpus(input_file, output_file, file_pronomi = None):
@@ -32,26 +32,27 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
                     check = row[0].split()
                     check2 = row[1].split()
 
-                    #this part is needed to detect which sentences marks the pronoun on some verbs
-                    for i in range(len(check) -1):
-                        if '-' in check[i] and len(check[i+1]) == 2 and check[i+1].isalpha():
-                            lista_complessa_tr.append(row[0])
-                            lista_semplice_tr.append(row[1])
+                    if file_pronomi:
+                        #this part is needed to detect which sentences marks the pronoun on some verbs
+                        for i in range(len(check) -1):
+                            if '-' in check[i] and len(check[i+1]) == 2 and check[i+1].isalpha():
+                                lista_complessa_tr.append(row[0])
+                                lista_semplice_tr.append(row[1])
 
-                    for i in range(len(check2) - 1):
-                        if '-' in check2[i] and len(check2[i + 1]) == 2 and check2[i + 1].isalpha():
-                            lista_complessa_tr.append(row[0])
-                            lista_semplice_tr.append(row[1])
+                        for i in range(len(check2) - 1):
+                            if '-' in check2[i] and len(check2[i + 1]) == 2 and check2[i + 1].isalpha():
+                                lista_complessa_tr.append(row[0])
+                                lista_semplice_tr.append(row[1])
 
                     prima = nlp(row[0])
-                    prima1 = [str(token).lower() for token in prima if not token.is_punct and token.is_ascii]
+                    prima1 = [str(token).lower() for token in prima if not token.is_punct]
                     prima1_1 = ' '.join(prima1)
 
 
 
                 elif i == 1:
                     seconda = nlp(row[1])
-                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct and token.is_ascii]
+                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
                     seconda1_1 = ' '.join(seconda1)
 
 
@@ -64,7 +65,7 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
                         doc2 = nlp(seconda1_1)
                         similarity = doc1.similarity(doc2)
 
-                        if similarity > 10 and similarity < 95:
+                        if similarity > 0.10 and similarity < 0.95:
 
                             list_complex.append(prima1_1)
                             list_simple.append(seconda1_1)
@@ -82,10 +83,10 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
     return
 
 
-clean_corpus(input_file=data_input, output_file= data_output, file_pronomi = None)
+#clean_corpus(input_file=data_input, output_file= data_output, file_pronomi = None)
 
 
-to_be_processed = INCOMPLETE_DATASET_DIR + '/pacs_pulito.csv'
+to_be_processed = INCOMPLETE_DATASET_DIR + '/pacs_clean.csv'
 processed = INCOMPLETE_DATASET_DIR + '/pacs_number.csv'
 
 def adjust_number(input_file, output_file):

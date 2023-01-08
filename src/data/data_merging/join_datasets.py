@@ -2,7 +2,7 @@ from settings import *
 import pandas as pd
 
 #this is the pacssit dataset without double sentences and correct with respect to the numbers, everything in lower case
-pacssit = INCOMPLETE_DATASET_DIR + '/pacs_pulito_finale.csv'
+pacssit = INCOMPLETE_DATASET_DIR + '/pacs_clean_final.csv'
 
 #teacher, terence and simpitiki in lower case
 teacher = INCOMPLETE_DATASET_DIR + '/teacher_1.csv'
@@ -10,7 +10,7 @@ terence = INCOMPLETE_DATASET_DIR + '/terence_1.csv'
 simpitiki = INCOMPLETE_DATASET_DIR + '/simpitiki_1.csv'
 
 #path of the joined dataset
-all_together =  CSV_FILES_PATH + '/ter_tea_sim/tts.csv'
+all_together =  CSV_FILES_PATH + '/finalized_dataset/finalized_df.csv'
 
 
 #another phase of joining. We merge our final corpus of 32000 instances (obtained by the join of paccsit, terence, teacher and simpitiki)
@@ -20,7 +20,7 @@ finalized_corpus = '/Users/francesca/Desktop/Github/Final_final/output/csv_files
 training = '/Users/francesca/Desktop/dataset_utilizzati/training_italiano_pulito.csv'
 development = '/Users/francesca/Desktop/dataset_utilizzati/development_italiano_pulito.csv'
 wikipedia = '/Users/francesca/Desktop/dataset_utilizzati/dataset_tradotto_pulito.csv'
-joined_data = '/Users/francesca/Desktop/dataset_utilizzati/augmented_dataset.csv'
+joined_data = '/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/augmented_dataset.csv'
 
 
 #open the dataset and select the columns of interest, eventually join everything
