@@ -1,12 +1,13 @@
 import functools
 from typing import Dict, List, Tuple, Union
+
+import datasets
 import pandas as pd
 from transformers import AutoTokenizer
 from settings import *
 from datasets import  load_from_disk, Dataset, DatasetDict
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
-
 Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
 '''
 
@@ -77,7 +78,7 @@ class HuggingFaceDataset:
 
 
     @staticmethod
-    def get_train_test_csv(df: pd.DataFrame, output_name, train_name, test_name):
+    def get_train_test_csv(df: pd.DataFrame, output_name, train_name,val_name, test_name):
         '''
         This function has the objactive of saving locally the train and test split of our input dataset.
         :param df: the input dataset, in format .csv
@@ -86,11 +87,21 @@ class HuggingFaceDataset:
         from datasets import Dataset
         data = Dataset.from_pandas(df)
 
-        dataset1 = data.train_test_split(shuffle=True, test_size=0.05)
+        dataset1 = data.train_test_split(shuffle=True, test_size=0.1)
         train_ds = dataset1["train"].shuffle(seed=42)
-        test_ds = dataset1["test"]
-        dataset1.save_to_disk(HF_DATASETS + output_name)
+        test_valid = dataset1["test"].train_test_split(test_size = 0.5, shuffle = True)
+        val_ds = test_valid['train']
+        test_ds = test_valid['test']
+
+        dataset_finale = datasets.DatasetDict({
+        'train': train_ds,
+        'validation': val_ds,
+        'test': test_ds})
+
+
+        dataset_finale.save_to_disk(HF_DATASETS + output_name)
         train_ds.to_csv(CSV_FILES_PATH + train_name, index=False)
+        val_ds.to_csv(CSV_FILES_PATH + val_name, index = False)
         test_ds.to_csv(CSV_FILES_PATH + test_name, index=False)
         return
 
@@ -135,12 +146,12 @@ class HuggingFaceDataset:
 
 
 
-#with the code below I create the train and test split and I save it in the local folder
+'''#with the code below I create the train and test split and I save it in the local folder
 
 #df_prova = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only.csv')
-df_prova = pd.read_csv('/Users/francesca/Desktop/dataset_utilizzati/augmented_dataset.csv')
+df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/augmented_dataset.csv')
 colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
 colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/augmented', '/augmented/train_augmented.csv', '/augmented/test_augmented.csv')
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/augmented', '/augmented/train_aug.csv', '/augmented/val_aug.csv', '/augmented/test_aug.csv')'''

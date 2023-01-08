@@ -1,5 +1,5 @@
 import argparse
-from src.model.deep_mart_final.source.training.hf_training import HuggingFaceTrainer
+from training.hf_training import HuggingFaceTrainer
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
@@ -16,8 +16,9 @@ if __name__ == "__main__":
     parser.add_argument("--warmup_steps", type=int)
     parser.add_argument("--num_train_epochs", type=int, default=3)
     parser.add_argument("--save_total_limit", type=int, default=3)
-    parser.add_argument("--per_device_train_batch_size", type=int, default=8)
-    parser.add_argument("--per_device_eval_batch_size", type=int, default=8)
+    # 4 when we use the augmented dataset, 8 when we use all the other datasets
+    parser.add_argument("--per_device_train_batch_size", type=int, default=4)
+    parser.add_argument("--per_device_eval_batch_size", type=int, default=4)
     parser.add_argument("--logging_steps", type=int, default=500)
     parser.add_argument(
         "--run_name", type=str, default="My first Hugging Face Seq2Seq model_deep"
@@ -61,7 +62,6 @@ if __name__ == "__main__":
         "per_device_train_batch_size": args.per_device_train_batch_size,
         "per_device_eval_batch_size": args.per_device_eval_batch_size,
         "logging_steps": args.logging_steps,
-        "save_steps": args.save_steps,
         "run_name": args.run_name,
         "dataset": args.dataset_name,
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
