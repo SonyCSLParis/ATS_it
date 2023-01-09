@@ -2,7 +2,7 @@ from settings import *
 import pandas as pd
 
 #this is the pacssit dataset without double sentences and correct with respect to the numbers, everything in lower case
-pacssit = INCOMPLETE_DATASET_DIR + '/pacs_clean_final.csv'
+pacssit = '/Users/francesca/Desktop/Github/Final_final/output/csv_files/paccssit/paccss_only_1.csv'
 
 #teacher, terence and simpitiki in lower case
 teacher = INCOMPLETE_DATASET_DIR + '/teacher_1.csv'

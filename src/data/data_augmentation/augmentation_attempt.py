@@ -1,6 +1,9 @@
 from nltk.corpus import wordnet
 import spacy
 import csv
+from datasets import load_dataset
+from transformers import pipeline
+
 nlp = spacy.load('it_core_news_sm')
 
 #synonym generation
@@ -33,6 +36,42 @@ def lexical_augmentation(input_file, output_file):
 
                     parallel.append(syn_sentence)
                 writer.writerow(parallel)
+    return
 
 
 #back-and-forth translation
+
+def back_and_forth(file_to_parse, file_to_generate):
+    pipe_back = pipeline("translation", model="Helsinki-NLP/opus-mt-it-de")
+    pipe_forth = pipeline("translation", model="Helsinki-NLP/opus-mt-de-it")
+
+    with open(file_to_parse, 'r') as input_file:
+
+        reader = csv.reader(input_file)
+
+        #skip header
+        next(reader)
+        with open(file_to_generate, 'w') as output_file:
+
+            writer = csv.writer(output_file)
+            writer.writerow(['Normal', 'Simple'])
+
+            for row in reader:
+
+                org = row[0]
+                spl = row[1]
+
+                org_back = pipe_back(org)
+                org_forth = pipe_forth(org_back[0]['translation_text'])
+
+                spl_back = pipe_back(spl)
+                spl_forth = pipe_forth(spl_back[0]['translation_text'])
+
+                writer.writerow([org_forth[0]['translation_text'], spl_forth[0]['translation_text']])
+
+    return
+
+
+file1 = '/Users/francesca/Desktop/Github/Final_final/output/csv_files/ter_tea_sim/tts.csv'
+file2 = '/Users/francesca/Desktop/Github/Final_final/output/csv_files/ter_tea_sim/tts_augmented_back_and_forth.csv'
+back_and_forth(file_to_parse = file1, file_to_generate = file2)

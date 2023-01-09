@@ -9,6 +9,7 @@ file_pronouns = INCOMPLETE_DATASET_DIR +'/pronomi.csv'
 
 def clean_corpus(input_file, output_file, file_pronomi = None):
     list_complex = []
+    list_complex_fourtok = []
     list_simple = []
 
     lista_semplice_tr = []
@@ -44,32 +45,32 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
                                 lista_complessa_tr.append(row[0])
                                 lista_semplice_tr.append(row[1])
 
-                    prima = nlp(row[0])
-                    prima1 = [str(token).lower() for token in prima if not token.is_punct]
-                    prima1_1 = ' '.join(prima1)
+            prima = nlp(row[0])
+            prima1 = [str(token).lower() for token in prima if not token.is_punct]
+            prima1_1 = ' '.join(prima1)
 
 
-
-                elif i == 1:
-                    seconda = nlp(row[1])
-                    seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
-                    seconda1_1 = ' '.join(seconda1)
+            seconda = nlp(row[1])
+            seconda1 = [str(token).lower() for token in seconda if not token.is_punct]
+            seconda1_1 = ' '.join(seconda1)
 
 
+            #avoid to add the sentences which are completely equal
             if prima1_1 not in list_complex:
 
-                for complex in list_complex:
-                    if prima1_1[:4] != complex[:4]:
+                #avoid to add the sentences which are very similar, that they have the first 6 tokens in common and also the complex sentences that starts with 'articolo'
+                if ' '.join(prima1_1.split()[:6]) not in list_complex_fourtok and prima1_1.split()[0] != 'articolo':
 
                         doc1 = nlp(prima1_1)
                         doc2 = nlp(seconda1_1)
                         similarity = doc1.similarity(doc2)
 
-                        if similarity > 0.10 and similarity < 0.95:
+                        if similarity > 0.05 and similarity < 0.95:
+
 
                             list_complex.append(prima1_1)
+                            list_complex_fourtok.append(' '.join(prima1_1.split()[:4]))
                             list_simple.append(seconda1_1)
-
 
 
     d = {'Normal': list_complex, 'Simple': list_simple}
@@ -83,7 +84,9 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
     return
 
 
-#clean_corpus(input_file=data_input, output_file= data_output, file_pronomi = None)
+#clean_corpus(input_file='/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/augmented_dataset.csv', output_file= '/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/augmented_dataset_1.csv', file_pronomi = None)
+clean_corpus(input_file='/Users/francesca/Desktop/Github/Final_final/output/csv_files/paccssit/paccss_only.csv', output_file= '/Users/francesca/Desktop/Github/Final_final/output/csv_files/paccssit/paccss_only_1.csv', file_pronomi = None)
+#clean_corpus(input_file='/Users/francesca/Desktop/Github/Final_final/output/csv_files/finalized_dataset/finalized_df.csv', output_file= '/Users/francesca/Desktop/Github/Final_final/output/csv_files/finalized_dataset/finalized_df_1.csv', file_pronomi = None)
 
 
 to_be_processed = INCOMPLETE_DATASET_DIR + '/pacs_clean.csv'

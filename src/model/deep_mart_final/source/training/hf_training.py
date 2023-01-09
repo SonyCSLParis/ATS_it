@@ -5,7 +5,7 @@ import os
 import sys
 import optuna
 from typing import Dict, Optional, Tuple
-from source.preprocessing.dataset import HuggingFaceDataset
+from preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 from transformers import logging as hf_logging
