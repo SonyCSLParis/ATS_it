@@ -2,7 +2,7 @@ import csv
 
 import pandas as pd
 
-from settings import *
+from src.settings import *
 
 
 def open_txt():

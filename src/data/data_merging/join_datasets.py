@@ -1,4 +1,4 @@
-from settings import *
+from src.settings import *
 import pandas as pd
 
 #this is the pacssit dataset without double sentences and correct with respect to the numbers, everything in lower case

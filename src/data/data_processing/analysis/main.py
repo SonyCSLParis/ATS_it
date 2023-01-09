@@ -1,6 +1,6 @@
 from src.data.data_merging.open_paccsit import open_txt
 from visualisations import *
-from settings import *
+from src.settings import *
 
 
 def main(only_PACSSIT = None, dataset_name = None):

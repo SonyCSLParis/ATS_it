@@ -1,7 +1,6 @@
-import spacy
 import csv
 import pandas as pd
-from settings import *
+from src.settings import *
 
 data_input = INCOMPLETE_DATASET_DIR + '/pacs_number.csv'
 data_output = INCOMPLETE_DATASET_DIR + '/pacs_clean_final.csv'

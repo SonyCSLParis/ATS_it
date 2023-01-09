@@ -1,6 +1,6 @@
 import csv
 import pandas as pd
-from settings import *
+from src.settings import *
 nlp = spacy.load('it_core_news_sm')
 avg_cos_sim = 0.782
 

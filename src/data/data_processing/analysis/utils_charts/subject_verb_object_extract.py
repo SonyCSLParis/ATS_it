@@ -14,7 +14,7 @@
 
 from collections.abc import Iterable
 
-from settings import *
+from src.settings import *
 
 # use spacy small model_deep
 

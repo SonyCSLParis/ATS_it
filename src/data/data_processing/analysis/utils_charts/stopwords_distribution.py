@@ -1,6 +1,6 @@
 import pandas as pd
 import plotly.express as px
-from settings import *
+from src.settings import *
 
 
 def is_number(n):

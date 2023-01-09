@@ -1,7 +1,7 @@
 import csv
 import os
 import re
-from settings import *
+from src.settings import *
 
 '''In this script allow to parse the folders containing the files with complex and simple sentences, called Teacher and Terence,
  which I downloaded from the official website of ItaliaNLP Lab in Pisa. 

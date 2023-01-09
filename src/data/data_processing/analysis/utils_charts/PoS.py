@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 import plotly.graph_objects as go
 
-from settings import *
+from src.settings import *
 from src.data_processing.analysis.utils_charts.stopwords_distribution import is_number
 
 def PoS_analysis(filename):

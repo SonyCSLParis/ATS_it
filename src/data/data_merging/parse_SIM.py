@@ -1,5 +1,5 @@
 import csv
-from settings import *
+from src.settings import *
 import re
 
 

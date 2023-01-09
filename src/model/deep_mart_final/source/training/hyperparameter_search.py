@@ -1,6 +1,5 @@
-import optuna
 import json
-from settings import *
+from src.settings import *
 from hf_training import *
 '''
 In this script, the necessary pipeline was set up to conduct an optimisation of the hyper-parameter space.
