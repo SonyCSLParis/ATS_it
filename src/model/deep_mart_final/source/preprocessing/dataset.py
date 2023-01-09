@@ -4,7 +4,7 @@ from typing import Dict, List, Tuple, Union
 import datasets
 import pandas as pd
 from transformers import AutoTokenizer
-from src.settings import *
+from settings import *
 from datasets import  load_from_disk, Dataset, DatasetDict
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemke.
