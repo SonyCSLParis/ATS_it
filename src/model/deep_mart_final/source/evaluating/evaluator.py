@@ -7,7 +7,7 @@ import torch
 from datasets import load_metric
 from tqdm import tqdm
 from transformers import EncoderDecoderModel, AutoTokenizer
-from settings import *
+from src.settings import *
 import evaluate
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
