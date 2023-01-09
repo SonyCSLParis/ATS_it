@@ -62,7 +62,6 @@ class HFEvaluator:
             )
 
 
-
         # load the model trained and instantiate it
         self.model = EncoderDecoderModel.from_pretrained(model_path)
 
@@ -85,18 +84,38 @@ class HFEvaluator:
         self.model.config.eos_token_id = self.tokenizer.sep_token_id
         self.model.config.pad_token_id = self.tokenizer.pad_token_id
         self.model.config.vocab_size = self.model.config.encoder.vocab_size
-        self.model.config.max_length = model_config['decoder']["max_length"]
-        self.model.config.min_length = model_config['decoder']["min_length"]
-        self.model.config.no_repeat_ngram_size = 3
+        self.model.config.max_length = model_config["max_length"]
+        self.model.config.min_length = model_config["min_length"]
+
+        #if set to int > 0, all ngrams of that size can only occur once
+        self.model.config.no_repeat_ngram_size = model_config['no_repeat_ngram_size']
         self.model.config.early_stopping = model_config['decoder']["early_stopping"]
-        self.model.config.length_penalty = -0.5
-        self.model.config.num_beams = model_config['decoder']["num_beams"]
-        self.model.config.temperature = 0.8
-        self.model.config.top_k = 50
+
+        #exponential penalty to the length that is used with beam-based generation.
+        # It is applied as an exponent to the sequence length, which in turn is used to divide the score of the sequence.
+        # Since the score is the log likelihood of the sequence (i.e. negative), length_penalty > 0.0 promotes longer sequences, while length_penalty < 0.0 encourages shorter sequences.
+        self.model.config.length_penalty = model_config['length_penalty']
+
+        #number of beams for beam search. 1 means no beam search
+        self.model.config.num_beams = model_config["num_beams"]
+
+        #the value used to module the next token probabilities
+        self.model.config.temperature = model_config['decoder']["temperature"]
+
+        #the number of highest probability vocabulary tokens to keep for top-k-filtering
+        self.model.config.top_k = model_config['decoder']["top_k"]
+
+        #if set to float < 1, only the smallest set of most probable tokens with probabilities that add up to top_p or higher are kept for generation
         self.model.config.top_p = model_config['decoder']["top_p"]
+
         self.model.config.num_beam_groups = model_config['decoder']["num_beam_groups"]
+
+        #to use sampling or not (otherwise greedy search)
         self.model.config.do_sample = model_config['decoder']["do_sample"]
-        self.model.config.repetition_penalty = 1
+
+        #the parameter for repetition penalty. 1.0 means no penalty
+        self.model.config.repetition_penalty = model_config['decoder']["repetition_penalty"]
+
 
 
     def __sources_and_references(self) -> Dict:
@@ -128,7 +147,7 @@ class HFEvaluator:
         self.__config_model(model_config)
         model = self.model.to(self.device)
 
-        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 29, renormalize_logits = True)
+        model_output = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens = 50, renormalize_logits = True)
 
         return model_output, self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
 
@@ -223,13 +242,13 @@ class HFEvaluator:
             inputs = self.__tokenize(source)
             print(inputs)
             reference_tokens = self.__tokenize(references)
-            print(references)
-            print(reference_tokens)
+            '''print(references)
+            print(reference_tokens)'''
 
             undecoded_out, output = self.generate(*inputs, model_config=model_config)
 
-            print(undecoded_out)
-            print(output)
+            '''print(undecoded_out)
+            print(output)'''
 
 
 
@@ -268,7 +287,7 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/test_augmented.csv',
+classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/test.csv',
                      model_path= '/Users/francesca/Desktop/trained_models/augmented_20',
                      tokenizer_path= '/Users/francesca/Desktop/trained_models/augmented_20',
                      log_level="WARNING")
@@ -276,6 +295,7 @@ classe = HFEvaluator(eval_dataset_path =  '/Users/francesca/Desktop/Github/Final
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
 with open( '/Users/francesca/Desktop/trained_models/augmented_20/config.json') as json_file:
     data = json.load(json_file)
+    print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,

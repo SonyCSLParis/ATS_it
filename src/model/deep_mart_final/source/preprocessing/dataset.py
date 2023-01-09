@@ -146,12 +146,16 @@ class HuggingFaceDataset:
 
 
 
-'''#with the code below I create the train and test split and I save it in the local folder
+#with the code below I create the train and test split and I save it in the local folder
 
-#df_prova = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only.csv')
-df_prova = pd.read_csv('/Users/francesca/Desktop/Github/Final_final/output/csv_files/augmented/augmented_dataset.csv')
-colonna_complessa = [str(riga) for riga in list(df_prova['Normal'])]
-colonna_semplice = [str(riga) for riga in list(df_prova['Simple'])]
+df1 = pd.read_csv(CSV_FILES_PATH + '/finalized_dataset/finalized_df.csv')
+df2 = pd.read_csv(CSV_FILES_PATH + '/augmented/augmented_dataset.csv')
+df3 = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only_1.csv')
 
-dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/augmented', '/augmented/train_aug.csv', '/augmented/val_aug.csv', '/augmented/test_aug.csv')'''
+for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit')]:
+
+    colonna_complessa = [str(riga) for riga in list(df[0]['Normal'])]
+    colonna_semplice = [str(riga) for riga in list(df[0]['Simple'])]
+
+    dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
+    HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')
