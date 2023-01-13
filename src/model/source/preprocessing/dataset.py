@@ -89,7 +89,7 @@ class HuggingFaceDataset:
 
         dataset1 = data.train_test_split(shuffle=True, test_size=0.1)
         train_ds = dataset1["train"].shuffle(seed=42)
-        test_valid = dataset1["test"].train_test_split(test_size = 0.5, shuffle = True)
+        test_valid = dataset1["test"].train_test_split(test_size = 0.2, shuffle = True)
         val_ds = test_valid['train']
         test_ds = test_valid['test']
 
@@ -148,11 +148,12 @@ class HuggingFaceDataset:
 
 '''#with the code below I create the train and test split and I save it in the local folder
 
-df1 = pd.read_csv(CSV_FILES_PATH + 'finalized_dataset/finalized_df.csv')
+df1 = pd.read_csv(CSV_FILES_PATH + '/finalized_dataset/finalized_df.csv')
 df2 = pd.read_csv(CSV_FILES_PATH + '/augmented/augmented_dataset.csv')
-df3 = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccss_only_1.csv')
+df3 = pd.read_csv(CSV_FILES_PATH + '/paccssit/paccsit_processato.csv')
+df4 = pd.read_csv(CSV_FILES_PATH + '/ter_tea_sim/tts.csv')
 
-for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit')]:
+for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit'), (df4, '/ter_tea_sim')]:
 
     colonna_complessa = [str(riga) for riga in list(df[0]['Normal'])]
     colonna_semplice = [str(riga) for riga in list(df[0]['Simple'])]
