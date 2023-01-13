@@ -1,7 +1,8 @@
 # Automatic Text Simplification for SENDs 
 ### Working with a low-resource language, such as Italian
 
-The following project aims to use a state-of-the-art model, a transformer to be more precise, within the discipline of Natural Language Processing, in order to fine-tune our task of interest, i.e. to create text simplifications to enable better reading for individuals, both children and adults, who suffer from text comprehension disorder. It also includes the pre-processing of the datasets used and the code used and implemented to parse the original files containing the parallel sentences (Complex and Simple) and merge all available resources. Finally, attempts were made at data augmentation, the code for which is given below. [Link to the web page of the Project](https://csl.sony.fr/project/ai-for-send-students/)
+The following project aims to use a state-of-the-art model, a transformer to be more precise, within the discipline of Natural Language Processing, in order to fine-tune our task of interest, i.e. to create text simplifications to enable better reading for individuals, both children and adults, who suffer from text comprehension disorder. It also includes the pre-processing of the datasets used and the code used and implemented to parse the original files containing the parallel sentences (Complex and Simple) and merge all available resources. Finally, attempts were made at data augmentation, the code for which is given below. 
+[Link to the web page of the Project](https://csl.sony.fr/project/ai-for-send-students/)
 
 ## Contributors
 
