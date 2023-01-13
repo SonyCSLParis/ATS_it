@@ -48,6 +48,11 @@ This folder is quite composite:
 Inside the **analysis** folder there are scripts for doing quantitative analyses and making qualitative judgements (as far as possible) on the datasets used. These are simple *NLP* analyses and the main library used is *spacy*. By running `main.py`, one can obtain graphs and metrics, including the distribution of Part Of Speech, see how many simple structures (SVO - Subject Verb Object -) are present in both simple and complex sentences, and understand the Mood and Tense of verbs.
 
 #### data augmentation
+In this folder there are two files:
+
+- the script `augmentation_trial.py` contains the code to perform synonym generation and back translation, two of the most used techniques to augment an existing corpus
+
+- the script `translate_df.py` contains the code two parse and translate (from English to Italian) the two english corpora we chose to take into consideration
 
 ### **model** folder
 Inside this folder you will find another one called deep_martin_final which is structured like that:
@@ -70,6 +75,12 @@ All the input datasets, the pre-processed ones and those generated in the Huggin
 - [TERENCE and TEACHER](http://www.italianlp.it/resources/terence-and-teacher/)
 
 - [SIMPITIKI](https://github.com/dhfbk/simpitiki)
+
+Moreover, here below you can find the link to the English Dataset that we chose for translation:
+
+- [Wikipedia Datasets](https://cs.pomona.edu/~dkauchak/simplification/)
+
+- [Human Simplification with Sentence Fusion Data Set](https://cs.pomona.edu/~dkauchak/simplification/)
 
 
 ### License
