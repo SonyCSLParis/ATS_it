@@ -5,45 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/augmentation_attempt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/translate_df.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_merging/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_merging/open_paccsit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_merging/parse_SIM.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_merging/parse_TT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/PoS.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/stopwords_distribution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/subject_verb_object_extract.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/verb_mood_tense.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/visualisations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/clean_paccsit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/preprocess_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/bert_score" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/loss_plot/loss_plot.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_20.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/evaluating/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/hf_transformer_trainer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/preprocessing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/training/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/training/experiment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/training/hf_training.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/training/hyperparameter_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/bert_score" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/bert_score/scorer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/bert_score/scorer.py" afterDir="false" />
@@ -58,6 +25,11 @@
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/training/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/experiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/hf_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/training/hyperparameter_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/hyperparameter_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/workflows/add-model-like.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/workflows/add-model-like.yml" afterDir="false" />
@@ -1331,28 +1303,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francesca/Desktop/Github/Final_final&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/francesca/Desktop/Github/PROJECT_SONY/intermediate/incomplete_datasets/processed",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/intermediate/incomplete_datasets/processed" />
       <recent name="$PROJECT_DIR$/src/PACCS/utils_charts" />
       <recent name="$PROJECT_DIR$/src/PACCS" />
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/transformers" />
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/training" />
-      <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/evaluating" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/output/csv_files/paccssit" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/data/data_augmentation" />
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/training" />
       <recent name="$PROJECT_DIR$/src/data/data_processing" />
-      <recent name="$PROJECT_DIR$/src/data_processing" />
     </key>
   </component>
   <component name="RunManager" selected="Python.dataset">
@@ -1450,12 +1422,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/source/preprocessing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/preprocessing/dataset.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1645,9 +1617,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data/data_merging" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" />

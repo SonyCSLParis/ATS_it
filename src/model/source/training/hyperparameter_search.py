@@ -58,7 +58,7 @@ def setup_wandb(resume, training_config, wandb_config):
 
 
 #ds_path = HF_DATASETS + '/finalized_df_1'
-ds_path = '/Users/francesca/Desktop/Github/Final_final/output/hugging_face/augmented'
+ds_path = HF_DATASETS + '/augmented'
 train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
 
 
@@ -85,7 +85,7 @@ wandb_config_dict = { "run_id": 'trial_nuovo',
                       "api_key": 'REDACTED',
 }
 
-my_tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-uncased")
+my_tokenizer = AutoTokenizer.from_pretrained("dbmdz/bert-base-italian-xxl-cased")
 compute_metrics = functools.partial(
             HuggingFaceTrainer.compute_metrics, my_tokenizer
         )
@@ -103,7 +103,7 @@ wandb.init(project= wandb_config_dict['project'], entity= wandb_config_dict['ent
 def objective(trial: optuna.Trial):
     modello = HuggingFaceTrainer.setup_model(model_config=model_config_dict,
                             model_path=None,
-                            pretrained_model_path= '/Users/francesca/Desktop/Github/Final_final/src/model/deep_mart_final/source/bert2bert',
+                            pretrained_model_path= BERT2BERT_CASED_DIR,
                             resume=False,
                             tie_encoder_decoder=False,
                             tokenizer=my_tokenizer)

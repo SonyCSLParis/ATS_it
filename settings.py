@@ -20,12 +20,13 @@ INCOMPLETE_PROCESSED = path.join(INCOMPLETE_DATASET_DIR + '/processed')
 OUTPUT_DIR = path.join(SRC_ROOT_DIR + '/output')  # datasets in output
 HF_DATASETS = path.join(OUTPUT_DIR + '/hugging_face')
 CSV_FILES_PATH = path.join(OUTPUT_DIR + '/csv_files')
-TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-uncased"
+TOKENIZER_PATH = "dbmdz/bert-base-italian-xxl-cased"
 
 
 MODEL_DIR_GENERAL = path.join(SOURCE_DIR + '/model') #general model directory
 SOURCE_MODEL_DIR = path.join(MODEL_DIR_GENERAL + '/source')
 BERT2BERT_DIR = SOURCE_MODEL_DIR + '/bert2bert'
+BERT2BERT_CASED_DIR = SOURCE_MODEL_DIR + '/bert2bert_cased'
 
 TRAINED_MODEL = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/trained_model') #trained models checkpoints
 CSV_EVAL_OUTPUT = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/csv_output') #output csv after evaluation

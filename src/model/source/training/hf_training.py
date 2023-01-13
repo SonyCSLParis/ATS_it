@@ -5,7 +5,7 @@ import os
 import sys
 import optuna
 from typing import Dict, Optional, Tuple
-from src.model.deep_mart_final.source.preprocessing.dataset import HuggingFaceDataset
+from src.model.source.preprocessing.dataset import HuggingFaceDataset
 import torch
 import wandb
 from transformers import logging as hf_logging
@@ -62,7 +62,7 @@ class HuggingFaceTrainer:
             path1=path_first,
             path2=path_second,
             remove_columns_list=['Normal', 'Simple'],
-            identifier="dbmdz/bert-base-italian-xxl-uncased",
+            identifier="dbmdz/bert-base-italian-xxl-cased",
             batch_size=8)
 
 

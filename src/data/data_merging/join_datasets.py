@@ -11,7 +11,7 @@ simpitiki = INCOMPLETE_PROCESSED + '/simpitiki_processato.csv'
 
 #path of the joined dataset
 all_together =  CSV_FILES_PATH + '/finalized_dataset/finalized_df.csv'
-
+only_tts = CSV_FILES_PATH + '/ter_tea_sim/tts.csv'
 #open the dataset and select the columns of interest, eventually join everything
 df = pd.read_csv(pacssit)
 df = df[['Normal', 'Simple']]
@@ -25,8 +25,8 @@ df2 = df2[['Normal', 'Simple']]
 df3 = pd.read_csv(simpitiki)
 df3 = df3[['Normal', 'Simple']]
 
-df4 = pd.concat([df, df1, df2, df3])
-df4.to_csv(all_together, index=False)
+df4 = pd.concat([df1, df2, df3])
+df4.to_csv(only_tts, index=False)
 
 
 #another phase of joining. We merge our final corpus of 32000 instances (obtained by the join of paccsit, terence, teacher and simpitiki)
@@ -52,5 +52,5 @@ df2 = df2[['Normal', 'Simple']]
 df3 = pd.read_csv(wikipedia)
 df3 = df3[['Normal', 'Simple']]
 
-df4 = pd.concat([df, df1, df2, df3])
-df4.to_csv(joined_data, index=False)
+#df4 = pd.concat([df, df1, df2, df3])
+#df4.to_csv(joined_data, index=False)
