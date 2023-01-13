@@ -53,7 +53,6 @@ coverage.xml
 
 
 # repo specific
-/data/
 /output/
 /intermediate/
 
@@ -82,16 +81,13 @@ __pypackages__/
 *.ini
 /.DS_Store
 
-# legati al modello ma troppo grandi 
-src/model/deep_mart_final/bert_score
-src/model/deep_mart_final/transformers/
-/Users/francesca/Desktop/Github/Final/src/model/deep_mart_final/transformers
-src/model/deep_mart_final/transformers/*
+# legati al modello ma troppo grandi
 
-# checkpoint 
-src/model/deep_mart_final/model_deep/trained_model/*
-src/model/deep_mart_final/source/bert2bert/*
-src/model/deep_mart_final/source/wandb/*
-src/model/sourcebert2bert/*
-
-
+/english_corpus/
+/input/
+/src/model/bert_score/
+/src/model/source/bert2bert/
+/src/model/source/bert2bert_cased/
+/src/model/source/wandb/
+/src/model/transformers/
+/src/model/model_deep/trained_model/

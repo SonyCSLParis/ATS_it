@@ -6,6 +6,8 @@
     <mapping directory="$PROJECT_DIR$/deep_mart_final/transformers" vcs="" />
     <mapping directory="$PROJECT_DIR$/deep_mart_model/bert_score" vcs="" />
     <mapping directory="$PROJECT_DIR$/deep_mart_model/transformers" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/model/bert_score" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/model/deep_mart_final/transformers" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/model/transformers" vcs="Git" />
   </component>
 </project>
