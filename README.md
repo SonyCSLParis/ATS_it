@@ -2,7 +2,7 @@
 
 ## Contributors
 
-- Student : Francesca Padovani - mail
+- Student : Francesca Padovani - francesca.padovani@sony.com
 - Supervisor : Martina Galletti - martina.galletti@sony.com
 
 ## Context
