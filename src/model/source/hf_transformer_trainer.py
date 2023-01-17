@@ -1,5 +1,7 @@
 import argparse
 from training.hf_training import HuggingFaceTrainer
+from settings import *
+from src.model.source.preprocessing.dataset import get_max_length
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
@@ -67,9 +69,12 @@ if __name__ == "__main__":
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
     }
 
+    max_seq_length = get_max_length(CSV_FILES_PATH + args.ds_path[64:] + 'train.csv') - 80
+
+
     #we set up the configuration dictionary of model parameters, required for the model setting
     model_config_dict = {
-        "max_length": args.seq_max_length,
+        "max_length": max_seq_length,
         "min_length": args.seq_min_length,
         "no_repeat_ngram_size": args.no_repeat_ngram_size,
         "length_penalty": args.length_penalty,

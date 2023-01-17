@@ -141,8 +141,26 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        model_output = model.generate(input_ids, attention_mask=attention_mask, max_length = 80, do_sample = False, num_beams= 4)
-        return self.tokenizer.batch_decode(model_output, skip_special_tokens=True)
+        '''model_output = model.generate(input_ids, attention_mask=attention_mask, max_length = 80, do_sample = False, num_beams= 4)
+        return self.tokenizer.batch_decode(model_output, skip_special_tokens=True)'''
+
+        beam_outputs = model.generate(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            do_sample=False,
+            max_length=80,
+            num_beams=8,
+            top_k=120,
+            top_p=0.98,
+            early_stopping=True,
+            num_return_sequences=1
+        )
+        final_outputs = []
+        for beam_output in beam_outputs:
+            sent = self.tokenizer.decode(beam_output, skip_special_tokens=True, clean_up_tokenization_spaces=True)
+            final_outputs.append(sent)
+
+        return final_outputs
 
 
 
@@ -239,25 +257,26 @@ class HFEvaluator:
     ):
 
         # creation of the output .csv file which will contain the ground truth sentences, the predictions and all the scores of the different metrics
-        result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F",'BLEU', "SPEARMAN_CORRELATION", "PEARSON_CORRELATION"])
+        result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F",'BLEU'])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
 
             print(source)
-
             print()
 
             inputs = self.__tokenize(source)
             reference_tokens = self.__tokenize(references)
 
-            print(references)
-
             output1 = self.generate(*inputs, model_config=model_config)
-            output4 = self.generate_sampling(*inputs, model_config= model_config)
+            list_of_simplified = self.generate_sampling(*inputs, model_config= model_config)
+            list_of_simplified1 = []
+            for sent in list_of_simplified:
+                if sent.lower() != source.lower() and sent not in list_of_simplified1:
+                    list_of_simplified1.append(sent)
 
             print(output1)
-            print(output4)
+            print(list_of_simplified1[0])
             print()
 
 
@@ -265,6 +284,7 @@ class HFEvaluator:
             rouge_result = self.eval_rouge_scores(
                 predictions=[output1], references=[references]
             )
+
 
             blue_result = self.eval_blue_score(predictions= output1, references= [[references]])
 
@@ -282,9 +302,8 @@ class HFEvaluator:
                     "SARI": sari_result["sari_score"],
                     "METEOR": meteor_result["meteor_score"],
                     "ROUGE_F": rouge_result['rouge2_f_measure'],
-                    'BLEU': blue_result['score'],
-                    "SPEARMAN_CORRELATION": 0,
-                    "PEARSON_CORRELATION": 0,
+                    'BLEU': blue_result['score']
+
 
                 },
                 ignore_index=True,
@@ -298,16 +317,16 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/augmented/test.csv',
-                     model_path= TRAINED_MODEL + '/augmented_20',
-                     tokenizer_path= TRAINED_MODEL + '/augmented_20',
+                     model_path= TRAINED_MODEL + '/augmented_cased_20',
+                     tokenizer_path= TRAINED_MODEL + '/augmented_cased_20',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open( TRAINED_MODEL + '/augmented_20/config.json') as json_file:
+with open( TRAINED_MODEL + '/augmented_cased_20/config.json') as json_file:
     data = json.load(json_file)
     print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_20.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_cased_20_1.csv',
                              extend_dataframe=False)

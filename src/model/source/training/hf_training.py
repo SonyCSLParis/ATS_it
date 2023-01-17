@@ -5,7 +5,8 @@ import os
 import sys
 import optuna
 from typing import Dict, Optional, Tuple
-from preprocessing.dataset import HuggingFaceDataset
+import csv
+from src.model.source.preprocessing.dataset import HuggingFaceDataset, get_max_length
 import torch
 import wandb
 from transformers import logging as hf_logging
@@ -24,6 +25,7 @@ from transformers import (
 
 Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
 '''
+
 
 class HuggingFaceTrainer:
     '''
@@ -62,7 +64,7 @@ class HuggingFaceTrainer:
             path1=path_first,
             path2=path_second,
             remove_columns_list=['Normal', 'Simple'],
-            identifier="dbmdz/bert-base-italian-xxl-cased",
+            identifier="gsarti/it5-base",
             batch_size=8)
 
 
@@ -223,6 +225,7 @@ class HuggingFaceTrainer:
         model.config.length_penalty = model_config["length_penalty"]
         model.config.num_beams = model_config["num_beams"]
         return model
+
 
 
 
