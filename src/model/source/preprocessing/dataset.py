@@ -3,6 +3,7 @@ from typing import Dict, List, Tuple, Union
 
 import datasets
 import pandas as pd
+import csv
 from transformers import AutoTokenizer
 from settings import *
 from datasets import  load_from_disk, Dataset, DatasetDict
@@ -11,6 +12,20 @@ from datasets import  load_from_disk, Dataset, DatasetDict
 Copyright (c) 2022, Cristopher Lemke <github: https://github.com/chrislemke/deep-martin
 '''
 
+def get_max_length(input_data):
+
+    with open(input_data, 'r') as input_file:
+        reader = csv.reader(input_file)
+
+        max_length = 0
+        for row in reader:
+            if len(row[0].split()) > max_length:
+                max_length = len(row[0].split())
+
+            elif len(row[1].split()) > max_length:
+                max_length = len(row[1].split())
+
+    return max_length
 
 class HuggingFaceDataset:
 
@@ -36,7 +51,7 @@ class HuggingFaceDataset:
         tokenizer = AutoTokenizer.from_pretrained(identifier)
         print(f"Using {identifier} tokenizer.")
 
-        function = functools.partial(HuggingFaceDataset.__process, tokenizer)
+        function = functools.partial(HuggingFaceDataset.__process, tokenizer, get_max_length(CSV_FILES_PATH + path1[64:] + '.csv'))
 
         dataset_tr = train_ds.map(
             function=function,
@@ -107,7 +122,7 @@ class HuggingFaceDataset:
 
 
     @staticmethod
-    def __process(auto_tokenizer, batch: Dict):
+    def __process(auto_tokenizer, max_length, batch: Dict):
         '''
         This function allows to process the dataset and prepare the batch of sentences to be processed by the HF model (e.g., a transformer)
         :param auto_tokenizer: type of tokenizer used
@@ -115,8 +130,8 @@ class HuggingFaceDataset:
         :return: processed sentences in batch
         '''
         tokenizer = auto_tokenizer
-        encoder_max_length = 80
-        decoder_max_length = 80
+        encoder_max_length = max_length
+        decoder_max_length = max_length - 30
 
         inputs = tokenizer(
             batch["Normal"],
