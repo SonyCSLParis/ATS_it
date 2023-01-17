@@ -13,6 +13,7 @@ from transformers import logging as hf_logging
 from datasets import Dataset, load_metric
 from transformers import (
     AutoTokenizer,
+    AutoModelForSeq2SeqLM,
     EncoderDecoderModel,
     EvalPrediction,
     Seq2SeqTrainer,
@@ -191,6 +192,10 @@ class HuggingFaceTrainer:
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
+        if 'it5' in pretrained_model_path:
+            model = AutoModelForSeq2SeqLM.from_pretrained("gsarti/it5-base")
+
+
         #if you have the pre-trained model saved locally, you just provide the function with the directory
         elif pretrained_model_path is not None and model_path is None:
 
@@ -213,7 +218,7 @@ class HuggingFaceTrainer:
             )
 
 
-        #potrei cambiare la vocab_size per provare
+
         model.config.vocab_size = model.config.encoder.vocab_size
         model.config.decoder_start_token_id = tokenizer.cls_token_id
         model.config.eos_token_id = tokenizer.sep_token_id
