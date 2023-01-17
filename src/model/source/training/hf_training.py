@@ -65,7 +65,7 @@ class HuggingFaceTrainer:
             path1=path_first,
             path2=path_second,
             remove_columns_list=['Normal', 'Simple'],
-            identifier="gsarti/it5-base",
+            identifier="dbmdz/bert-base-italian-xxl-cased",
             batch_size=8)
 
 
@@ -192,11 +192,8 @@ class HuggingFaceTrainer:
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
             HuggingFaceTrainer.__logger.info(f"Resuming from: {pretrained_model_path}.")
 
-        if 'it5' in pretrained_model_path:
-            model = AutoModelForSeq2SeqLM.from_pretrained("gsarti/it5-base")
 
-
-        '''#if you have the pre-trained model saved locally, you just provide the function with the directory
+        #if you have the pre-trained model saved locally, you just provide the function with the directory
         elif pretrained_model_path is not None and model_path is None:
 
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
@@ -216,7 +213,6 @@ class HuggingFaceTrainer:
             raise ValueError(
                 "Please provide either `pretrained_model_path` or `model_path` and `pretrained_model_path`."
             )
-'''
 
 
         model.config.vocab_size = model.config.encoder.vocab_size
