@@ -196,7 +196,7 @@ class HuggingFaceTrainer:
             model = AutoModelForSeq2SeqLM.from_pretrained("gsarti/it5-base")
 
 
-        #if you have the pre-trained model saved locally, you just provide the function with the directory
+        '''#if you have the pre-trained model saved locally, you just provide the function with the directory
         elif pretrained_model_path is not None and model_path is None:
 
             model = EncoderDecoderModel.from_pretrained(pretrained_model_path)
@@ -216,7 +216,7 @@ class HuggingFaceTrainer:
             raise ValueError(
                 "Please provide either `pretrained_model_path` or `model_path` and `pretrained_model_path`."
             )
-
+'''
 
 
         model.config.vocab_size = model.config.encoder.vocab_size
