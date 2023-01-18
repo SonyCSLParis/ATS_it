@@ -32,6 +32,6 @@ CSV_EVAL_OUTPUT = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/csv_output') #
 
 HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory for final visualisations
 AUTHENTICATION_DEEPL = 'b95b8cb8-cb6b-c36a-e49e-d17dac11061d:fx'
-FASTTEXT_EMBEDDINGS_PATH = '/Users/francesca/Desktop/wiki.it.vec'
+FASTTEXT_EMBEDDINGS_PATH = '/Users/francesca/Desktop/Github/PROJECT_SONY/input/embedding/wiki.it.vec'
 
 nlp = spacy.load('it_core_news_sm')
