@@ -9,7 +9,6 @@ from functools import lru_cache
 import re
 from string import punctuation
 from settings import *
-from nltk.tokenize.nist import NISTTokenizer
 import spacy
 
 # TODO: #language_specific

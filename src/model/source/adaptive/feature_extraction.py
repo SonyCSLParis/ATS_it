@@ -10,8 +10,7 @@ from settings import *
 import Levenshtein
 import numpy as np
 from src.model.source.adaptive.text import (to_words, remove_punctuation_tokens, remove_stopwords, spacy_process)
-from src.access.utils.helpers import yield_lines
-
+from src.model.source.adaptive.helper import yield_lines
 
 def safe_division(a, b):
     return a / b if b else 0
@@ -27,12 +26,12 @@ def tokenize(sentence):
 
 
 #this is the parameter which corresponds to #word
-def get_word_length_ratio(self, complex_sentence, simple_sentence):
-    return round(safe_division(len(tokenize(simple_sentence)), len(tokenize(complex_sentence))))
+def get_word_length_ratio(complex_sentence, simple_sentence):
+    return round(safe_division(len(tokenize(simple_sentence)), len(tokenize(complex_sentence))), 2)
 
 #this is the parameter which corresponds to #chars
-def get_char_length_ratio(self, complex_sentence, simple_sentence):
-    return round(safe_division(len(simple_sentence), len(complex_sentence)))
+def get_char_length_ratio(complex_sentence, simple_sentence):
+    return round(safe_division(len(simple_sentence), len(complex_sentence)), 2)
 
 #this is the parameter that corresponds to the WordRank; it addresses the lexical complexity of our sentence
 @lru_cache(maxsize=1)
@@ -99,10 +98,9 @@ def get_dependency_tree_depth(sentence):
 
 
 #this parameter accounts for the syntactic complexity of the sentences
-def get_dependency_tree_depth_ratio(self, complex_sentence, simple_sentence):
-    return round(
-        safe_division(self.get_dependency_tree_depth(simple_sentence),
-                      self.get_dependency_tree_depth(complex_sentence)))
+def get_dependency_tree_depth_ratio(complex_sentence, simple_sentence):
+    return round(safe_division(get_dependency_tree_depth(simple_sentence),
+                      get_dependency_tree_depth(complex_sentence)))
 
 
 
