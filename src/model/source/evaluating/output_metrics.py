@@ -1,6 +1,7 @@
 import csv
 from settings import *
 
+#let the matrics be saved on a json file or a csv file
 def average_evaluation(input_csv):
     metrics = ['sari', 'meteor', 'rouge', 'bleu']
     sari = 0
