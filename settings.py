@@ -11,7 +11,6 @@ TURKUS_COS_SIM = path.join(TURKUS_DIR + '/similarity')
 WIKIPEDIA_DIR = path.join(ENGLISH_CORPUS + '/wikipedia')
 WIKIPEDIA_TRANSLATED = path.join(WIKIPEDIA_DIR + '/translated_training')
 
-
 SOURCE_DIR = path.join(SRC_ROOT_DIR + '/src') # path to the src script
 INTERMEDIATE_DIR = path.join(SRC_ROOT_DIR + '/intermediate')  # txt and others intermediate output
 INCOMPLETE_DATASET_DIR = path.join(INTERMEDIATE_DIR + '/incomplete_datasets') # primarily processed datasets
@@ -33,6 +32,6 @@ CSV_EVAL_OUTPUT = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/csv_output') #
 
 HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory for final visualisations
 AUTHENTICATION_DEEPL = 'b95b8cb8-cb6b-c36a-e49e-d17dac11061d:fx'
-
+FASTTEXT_EMBEDDINGS_PATH = '/Users/francesca/Desktop/wiki.it.vec'
 
 nlp = spacy.load('it_core_news_sm')
