@@ -15,4 +15,7 @@ def main(only_PACSSIT = None, dataset_name = None):
 
 
 if __name__ == '__main__':
-    main(only_PACSSIT = False, dataset_name= CSV_FILES_PATH + '/ter_tea_sim/tts.csv')
+    main(only_PACSSIT = False, dataset_name= '/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/finalized_dataset/finalized_df.csv')
+
+
+

@@ -1,6 +1,6 @@
-from utils_charts.verb_mood_tense import verbal_features, double_barplot, coord_subord, amount_SVO
-from utils_charts.stopwords_distribution import *
-from utils_charts.PoS import PoS_analysis, barplot_PoS
+from verb_mood_tense import verbal_features, double_barplot, coord_subord, amount_SVO
+from stopwords_distribution import *
+from PoS import PoS_analysis, barplot_PoS
 
 def create_visualisation(final_corpus):
     dimension = len(final_corpus)
