@@ -4,8 +4,21 @@ import plotly.graph_objects as go
 
 
 from settings import *
-from src.data_processing.analysis.utils_charts.stopwords_distribution import is_number
-from src.data_processing.analysis.utils_charts.subject_verb_object_extract import findSVOs
+from subject_verb_object_extract import findSVOs
+
+def is_number(n):
+    '''
+    This function controls if the string we give in input is a number or not.
+    :return: a boolean, True if the string is a number and False otherwise.
+    '''
+    is_number = True
+    try:
+        num = float(n)
+        # check for "nan" floats
+        is_number = num == num   # or use `math.isnan(num)`
+    except ValueError:
+        is_number = False
+    return is_number
 
 def verbal_features(typev, filename):
     '''

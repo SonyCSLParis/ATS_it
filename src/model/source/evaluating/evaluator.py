@@ -172,7 +172,7 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        outputs = model.generate(input_ids=input_ids, attention_mask= attention_mask, max_length = 80, top_k=50, do_sample=True)
+        outputs = model.generate(input_ids=input_ids, attention_mask= attention_mask, max_length = 80, top_k=50, top_p = 1, do_sample=True)
         return self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
 
@@ -257,52 +257,72 @@ class HFEvaluator:
     ):
 
         # creation of the output .csv file which will contain the ground truth sentences, the predictions and all the scores of the different metrics
-        result_df = pd.DataFrame(columns=["Normal", "Simple", "SARI", "METEOR", "ROUGE_F",'BLEU'])
+        result_df = pd.DataFrame(columns=["Normal", "Simple1",'Simple2', "SARI", "METEOR", "ROUGE_F",'BLEU'])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
 
-            print(source)
-            print()
+            '''print(source)
+            print()'''
 
             inputs = self.__tokenize(source)
             reference_tokens = self.__tokenize(references)
 
             output1 = self.generate(*inputs, model_config=model_config)
             list_of_simplified = self.generate_sampling(*inputs, model_config= model_config)
-            list_of_simplified1 = []
+            '''list_of_simplified1 = []
             for sent in list_of_simplified:
                 if sent.lower() != source.lower() and sent not in list_of_simplified1:
                     list_of_simplified1.append(sent)
 
             print(output1)
-            print(list_of_simplified1[0])
-            print()
+            print(list_of_simplified)
+            #print(list_of_simplified1[0])
+            print()'''
 
+            sari_result = self.eval_sari_score(
+                sources=[source], predictions=output1, references=[[references]]
+            )
 
+            sari_result_2 = self.eval_sari_score(
+                sources=[source], predictions=list_of_simplified, references=[[references]]
+            )
+
+            meteor_result = self.eval_meteor_score(
+                predictions=output1, references=[references]
+            )
+
+            meteor_result_2 = self.eval_meteor_score(
+                predictions=list_of_simplified, references=[references]
+            )
 
             rouge_result = self.eval_rouge_scores(
                 predictions=[output1], references=[references]
             )
 
+            rouge_result_2 = self.eval_rouge_scores(
+                predictions=[list_of_simplified], references=[references]
+            )
 
             blue_result = self.eval_blue_score(predictions= output1, references= [[references]])
 
-            sari_result = self.eval_sari_score(
-                sources=[source], predictions=output1, references=[[references]]
-            )
-            meteor_result = self.eval_meteor_score(
-                predictions=output1, references=[references]
-            )
+            blue_result_2 = self.eval_blue_score(predictions=list_of_simplified, references=[[references]])
+
+
 
             result_df = result_df.append(
                 {
                     "Normal": source,
-                    "Simple": output1[0],
-                    "SARI": sari_result["sari_score"],
-                    "METEOR": meteor_result["meteor_score"],
-                    "ROUGE_F": rouge_result['rouge2_f_measure'],
-                    'BLEU': blue_result['score']
+                    "Simple1": output1[0],
+                    "SARI_1": sari_result["sari_score"],
+                    "METEOR_1": meteor_result["meteor_score"],
+                    "ROUGE_F_1": rouge_result['rouge2_f_measure'],
+                    'BLEU_1': blue_result['score'],
+                    'Simple2': list_of_simplified[0],
+                    "SARI_2": sari_result_2["sari_score"],
+                    "METEOR_2": meteor_result_2["meteor_score"],
+                    "ROUGE_F_2": rouge_result_2['rouge2_f_measure'],
+                    'BLEU_2': blue_result_2['score']
 
 
                 },
@@ -328,5 +348,5 @@ with open( TRAINED_MODEL + '/augmented_cased_20/config.json') as json_file:
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_cased_20_1.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_cased_20_double.csv',
                              extend_dataframe=False)

@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_cased_20_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/PoS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/PoS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/verb_mood_tense.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/verb_mood_tense.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/visualisations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" afterDir="false" />
@@ -20,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
@@ -1318,14 +1325,14 @@
       <recent name="$PROJECT_DIR$/src/model/deep_mart_final/source/training" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts" />
+      <recent name="$PROJECT_DIR$/src/data/data_processing/analysis" />
       <recent name="$PROJECT_DIR$/output/csv_files" />
       <recent name="$PROJECT_DIR$/src/model/source/adaptive" />
       <recent name="$PROJECT_DIR$/output/csv_files/paccssit" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/data/data_augmentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dataset">
+  <component name="RunManager" selected="Python.evaluator">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1699,12 +1706,12 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/deep_mart_final/venv/bin/python3.8" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/analysis" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data/data_processing/analysis" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/analysis/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1843,6 +1850,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="subject_verb_object_extract" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/src/model/venv/bin/python3.8" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/subject_verb_object_extract.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="text" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1913,13 +1941,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/create_charts/verb_mood_tense.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/verb_mood_tense.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1957,6 +1985,7 @@
       <item itemvalue="Python.translate_df" />
       <item itemvalue="Python.tutorial_checkpoints_hf" />
       <item itemvalue="Python.verb_mood_tense" />
+      <item itemvalue="Python.subject_verb_object_extract" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
