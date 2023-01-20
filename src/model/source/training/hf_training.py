@@ -6,7 +6,7 @@ import sys
 import optuna
 from typing import Dict, Optional, Tuple
 import csv
-from src.model.source.preprocessing.dataset import HuggingFaceDataset, get_max_length
+from preprocessing.dataset import HuggingFaceDataset, get_max_length
 import torch
 import wandb
 from transformers import logging as hf_logging
