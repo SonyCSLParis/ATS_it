@@ -1,0 +1,332 @@
+Normal,Simple1,SARI_1,METEOR_1,ROUGE_F_1,BLEU_1,Simple2,SARI_2,METEOR_2,ROUGE_F_2,BLEU_2
+« Sono una cosa sola .,Sono una cosa sola »,30.793650793650794,0.3,0.0,14.1,Sono una cosa sola »,30.793650793650794,0.3,0.0,14.1
+"Anzi , siamo in ritardo .",Sei un pò in ritardo,83.33333333333333,0.996,1.0,100.0,Sei un pò in ritardo,83.33333333333333,0.996,1.0,100.0
+"Ma non è tutto rose e fiori , naturalmente",Non è tutto rose e fiori.,25.72751322751323,0.5068,0.4,20.9,Non è tutto rose e fiori.,25.72751322751323,0.5068,0.4,20.9
+"All' articolo 48 , il comma 2 è sostituito dal seguente : "" 2",Il comma 1 dell'articolo 2 è sostituito con il seguente : 1.,79.58656539538892,0.8089,1.0,70.5,Il comma 1 dell'articolo 2 è sostituito con il seguente : 1.,79.58656539538892,0.8089,1.0,70.5
+"La cucina umbra è abbondante , sana , gustosa e genuina",La sua ricetta è buona e sua.,40.73203842940685,0.2817,0.0,7.8,La base è abbastanza semplice.,38.76775271512114,0.2174,0.0,9.0
+Forse c' è anche un problema metodologico,E c'è un altro problema.,40.09559884559885,0.7361,0.25,15.2,E c'è un altro problema.,40.09559884559885,0.7361,0.25,15.2
+Ad alzare il livello dello scontro,Così alza il livello dello scontro.,100.0,0.9985,1.0,100.0,Così alza il livello dello scontro.,100.0,0.9985,1.0,100.0
+"è un' occasione da non perdere "" .",È veramente un'occasione da non perdere,56.216931216931215,0.4808,0.4,25.6,È veramente un'occasione da non perdere,56.216931216931215,0.4808,0.4,25.6
+"Certo , il rischio c' è","Certo che no, è stato il rischio.",41.687710437710436,0.7079,0.0,14.3,"Certo che no, è stato il rischio.",41.687710437710436,0.7079,0.0,14.3
+""" Questo è un tema cruciale e delicato .",Questo è un tema delicato,64.81481481481481,0.7938,0.6667,66.9,Questo è un tema delicato,64.81481481481481,0.7938,0.6667,66.9
+Naturalmente non è un compito facile,Ma non sarà un compito facile.,91.66666666666667,0.9985,1.0,100.0,Ma non sarà un compito facile.,91.66666666666667,0.9985,1.0,100.0
+La ringrazio per l' aiuto,La ringrazio tantissimo per il suo aiuto!,52.601010101010104,0.7031,0.5,27.1,La ringrazio tantissimo per il suo aiuto!,52.601010101010104,0.7031,0.5,27.1
+La causa è tuttora sconosciuta .,La loro causa è ancora sconosciuta,83.33333333333333,0.9977,1.0,100.0,La loro causa è ancora sconosciuta,83.33333333333333,0.9977,1.0,100.0
+All' inizio tutto fu difficile .,All'inizio è stato difficile,50.0462962962963,0.5077,1.0,46.3,All'inizio è stato difficile,50.0462962962963,0.5077,1.0,46.3
+E si potrebbe continuare a lungo .,E si può continuare a lungo,82.88359788359789,0.9765,0.8889,50.8,E si può continuare a lungo,82.88359788359789,0.9765,0.8889,50.8
+Uno dei problemi più gravi oggi in città è il traffico,I problemi sono più difficili in città.,32.256917918682625,0.2608,0.0,9.5,I problemi sono più difficili in città.,32.256917918682625,0.2608,0.0,9.5
+Ci potreste dare dei consigli ?,Che consigli ci può dare,32.83730158730159,0.2,0.0,12.7,Che consigli ci può dare,32.83730158730159,0.2,0.0,12.7
+"L' emendamento 2.10 , posto ai voti , è respinto",Posto ai voti è respinto l'emendamento 1. 10.,62.485708735708734,0.5889,1.0,41.1,Posto ai voti è respinto l'emendamento 1. 10.,62.485708735708734,0.5889,1.0,41.1
+Personalmente mi trovo molto bene .,Mi sono trovato molto bene,83.33333333333333,0.996,1.0,100.0,Mi sono trovato molto bene,83.33333333333333,0.996,1.0,100.0
+E questo non avviene oggi,Questo non deve essere avvenuto.,34.72222222222222,0.25,0.0,9.7,Questo non deve essere avvenuto.,34.72222222222222,0.25,0.0,9.7
+""" Questa è una bella realtà",Questa è una triste realtà.,61.11111111111111,0.5718,0.25,24.6,Questa è una triste realtà.,61.11111111111111,0.5718,0.25,24.6
+"Approva , altresì , l' articolo 7 .",Approva altresì l'articolo 34,44.914529914529915,0.4406,1.0,27.5,Approva altresì l'articolo 34,44.914529914529915,0.4406,1.0,27.5
+Adesso non puoi più fare niente .,Non potevamo fare assolutamente niente,33.76623376623377,0.1471,0.0,7.2,Non potevamo fare assolutamente niente,33.76623376623377,0.1471,0.0,7.2
+- Posso chieder- le una cosa ?,Posso chiedere solo una cosa,83.33333333333333,0.996,1.0,100.0,Posso chiedere solo una cosa,83.33333333333333,0.996,1.0,100.0
+Si ritiene pertanto di ammettere la candidata alle prove successive,Si ritiene quindi di ammettere il candidato alle prove successive.,31.25,0.5213,0.125,9.9,Si ritiene quindi di ammettere il candidato alle prove successive.,31.25,0.5213,0.125,9.9
+Vi ringrazio per l' attenzione e Vi auguro buon lavoro .,La ringrazio per la sua cortese attenzione e le auguro buon lavoro,91.66666666666667,0.9997,1.0,100.0,La ringrazio per la sua cortese attenzione e le auguro buon lavoro,91.66666666666667,0.9997,1.0,100.0
+"Il cammino è stato lungo , arduo e tortuoso",Il cammino è lungo e difficile.,76.11111111111111,0.8757,0.6667,51.5,Il cammino è stato lungo e difficile.,63.60750360750361,0.8648,0.6,50.0
+"La notte sarà lunga """,La notte è ancora lunga.,83.33333333333333,0.9977,1.0,100.0,La notte è ancora lunga.,83.33333333333333,0.9977,1.0,100.0
+"Salve a tutti , non mi è chiara una cosa",Ma una cosa non mi è chiara.,93.17460317460318,0.9845,0.8889,68.0,Ma una cosa non mi è chiara.,93.17460317460318,0.9845,0.8889,68.0
+LAVORO AUTONOMO : è verificata là condizione di reciprocità per lo straniero residente,lavoro A parità di opportunità è verificata una condizione di parità per gli stranieri.,26.18201243201243,0.3816,0.087,8.2,lavoratore autonomo è nata una condizione di parità per gli stranieri componenti lo stretto nucleo familiare.,24.067460317460316,0.3155,0.08,6.0
+Un altro esempio potrebbe essere questo .,Un altro esempio è il software,37.5462962962963,0.2941,0.0,9.7,Un altro esempio è il software,37.5462962962963,0.2941,0.0,9.7
+"La terza separazione ha rotto il rapporto fra le due capacità insite nella sessualità , quella unitiva e procreativa , in una duplice direzione .",La tremenda differenza ha rotto il rapporto fra le due delle nello stesso secolo,35.0862604920576,0.4291,0.4,31.3,La tremenda differenza ha rotto il rapporto fra le due delle nello stesso sesso,35.0862604920576,0.4291,0.4,31.3
+« È un fatto gravissimo .,È un altro fatto grave,83.33333333333333,0.996,1.0,100.0,È un altro fatto grave,83.33333333333333,0.996,1.0,100.0
+La femmina è più piccola e meno appariscente,La femmina è più piccola.,27.361111111111114,0.1667,0.0,9.7,La femmina è la più piccola.,32.525252525252526,0.1639,0.0,7.8
+La proposta viene accolta all' unanimità,Questa proposta viene accolta all'unanimità.,35.97222222222222,0.4808,0.8,27.5,Questa proposta viene accolta all'unanimità.,35.97222222222222,0.4808,0.8,27.5
+La sua è stata proprio una pessima caduta di stile,è una presa di stile.,50.77380952380952,0.6464,0.2857,27.5,è una presa di stile.,50.77380952380952,0.6464,0.2857,27.5
+""" ; il comma 3 è sostituito dal seguente : "" 3 .",Sostituire il comma 3 con il seguente :,91.66666666666667,0.999,1.0,100.0,Sostituire il comma 3 con il seguente :,91.66666666666667,0.999,1.0,100.0
+L' audizione informale è stata svolta dalle 11.15 alle 11.40 .,L'audizione si è svolta dalle 21. 15 alle 21. 40,49.56402257872846,0.4745,1.0,22.4,L'audizione si è svolta dalle 21. 15 alle 21. 40,49.56402257872846,0.4745,1.0,22.4
+Non c' è più alcun dubbio,Non c'è alcun dubbio.,47.281746031746025,0.9985,1.0,35.0,Non c'è alcun dubbio.,47.281746031746025,0.9985,1.0,35.0
+Ma questo è giusto un parere marginale,Ma è un mio parere personale.,75.0,0.9985,1.0,100.0,Ma è un mio parere personale.,75.0,0.9985,1.0,100.0
+Ci sarà una inversione di tendenza ?,è indispensabile una inversione di tendenza,51.269841269841265,0.5435,0.5,30.2,è indispensabile una inversione di tendenza,51.269841269841265,0.5435,0.5,30.2
+E già questo sarebbe un notevole risultato .,Questo è un grande risultato,52.77777777777777,0.75,0.3333,42.7,Questo è un grande risultato,52.77777777777777,0.75,0.3333,42.7
+Rinvia pertanto il seguito dell' esame congiunto,Rinvia il seguito dell'esame.,47.83730158730159,0.5515,1.0,35.0,Rinvia il seguito dell'esame.,47.83730158730159,0.5515,1.0,35.0
+""" La cosa è molto semplice",La cosa è molto semplice.,62.42063492063492,0.8535,0.5714,51.2,La cosa è molto semplice.,62.42063492063492,0.8535,0.5714,51.2
+Non sarebbe mica colpa sua,Non è mica una colpa.,40.939153439153436,0.526,0.0,19.3,Non è mica una colpa.,40.939153439153436,0.526,0.0,19.3
+Non è questo il loro compito .,Non è il loro compito,83.33333333333333,0.996,1.0,66.9,Non è il loro compito,83.33333333333333,0.996,1.0,66.9
+Poi si accese un' altra sigaretta,Si accende un'altra sigaretta.,37.757936507936506,0.3758,0.75,19.4,Si accende un'altra sigaretta.,37.757936507936506,0.3758,0.75,19.4
+Fossero questi i veri problemi .,Sono questi dunque i problemi,30.555555555555554,0.0,0.0,2.9,Sono questi i problemi principali,29.62962962962963,0.0,0.0,2.9
+Si passa all' esame degli emendamenti relativi all' articolo 2 .,Passa quindi all'esame dell'articolo 2 e dei relativi emendamenti,52.465127465127466,0.5491,1.0,41.1,Passa quindi all'esame dell'articolo 2 e dei relativi emendamenti,52.465127465127466,0.5491,1.0,41.1
+Uno era morto sul colpo,è morto praticamente sul colpo.,62.53968253968254,0.6615,0.5714,50.8,è morto praticamente sul colpo.,62.53968253968254,0.6615,0.5714,50.8
+Tali argomenti non possono essere condivisi,Questo argomento non può essere condiviso.,75.0,0.9985,1.0,100.0,Questo argomento non può essere condiviso.,75.0,0.9985,1.0,100.0
+"Ma allora , come andarono le cose ?",Ma come sono andate veramente le cose,65.97222222222223,0.8413,0.6667,48.9,Ma come sono andate veramente le cose,65.97222222222223,0.8413,0.6667,48.9
+Ed è una novità non da poco .,Non è una novità assoluta,52.37373737373738,0.75,0.3333,42.7,Non è una novità assoluta,52.37373737373738,0.75,0.3333,42.7
+Cosa può essere successo ,Cosa poteva essere successo dunque?,26.666666666666668,0.0,0.0,4.1,Cosa poteva essere successo dunque?,26.666666666666668,0.0,0.0,4.1
+Questo è il punto ! ! ! !,il punto è proprio questo!,83.33333333333333,0.9977,1.0,100.0,il punto è proprio questo!,83.33333333333333,0.9977,1.0,100.0
+Ovviamente non so assolutamente il perché,Non so neanche il perché.,59.02777777777777,0.8067,0.5,32.5,Non so neanche il perché.,59.02777777777777,0.8067,0.5,32.5
+"Altrimenti ci saranno conseguenze """,E ci saranno le conseguenze.,30.65476190476191,0.1724,0.0,6.5,E ci saranno le conseguenze.,30.65476190476191,0.1724,0.0,6.5
+Invece le cose sono andate diversamente »,Invece le cose andarono diversamente.,37.26851851851852,0.4259,0.25,18.0,Invece le cose andarono diversamente.,37.26851851851852,0.4259,0.25,18.0
+Ma le applicazioni di ciò sono innumerevoli .,Ma le applicazioni sono infinite,41.54040404040404,0.3758,0.2,15.8,Ma le applicazioni sono infinite,41.54040404040404,0.3758,0.2,15.8
+Anche questo era un buon segno,è davvero un buon segno.,72.22222222222221,0.8067,0.6667,53.7,è davvero un buon segno.,72.22222222222221,0.8067,0.6667,53.7
+"Prima di tutto , è un problema etico",Prima di tutto è un problema di business.,91.66666666666667,0.9993,1.0,100.0,Prima di tutto è un problema di business.,91.66666666666667,0.9993,1.0,100.0
+E quelle hanno un prezzo .,E poi ha un prezzo,56.03174603174603,0.5889,0.5,39.8,E poi ha un prezzo,56.03174603174603,0.5889,0.5,39.8
+Articolo 17 Gli Stati membri sono destinatari della presente direttiva,Articolo 32 Gli Stati membri sono gli unici destinatari della direttiva.,100.0,0.9997,1.0,100.0,Articolo 32 Gli Stati membri sono gli unici destinatari della direttiva.,100.0,0.9997,1.0,100.0
+"Però , un fatto è certo",Un fatto però è certo.,83.33333333333333,0.9977,1.0,100.0,Un fatto però è certo.,83.33333333333333,0.9977,1.0,100.0
+Fortunatamente tutto è andato bene .,Tutto è andato molto bene,91.66666666666667,0.996,1.0,100.0,Tutto è andato molto bene,91.66666666666667,0.996,1.0,100.0
+Il giudizio della commissione è estremamente positivo,Il giudizio della commissione è estremamente positivo.,15.277777777777779,0.6817,0.4,25.8,Il giudizio della commissione è estremamente positivo.,15.277777777777779,0.6817,0.4,25.8
+E ci sono due motivi .,I motivi possono essere due,41.2962962962963,0.4331,0.2222,10.4,I motivi possono essere due,41.2962962962963,0.4331,0.2222,10.4
+"Per il resto si vedrà ""","Per il resto, vedremo.",62.142857142857146,0.7433,1.0,34.3,"Per il resto, vedremo.",62.142857142857146,0.7433,1.0,34.3
+Tutti i problemi sono stati risolti .,Quindi i problemi sono risolti,64.39153439153439,0.7938,0.75,66.9,E i problemi economici furono risolti?,35.61507936507936,0.4915,0.2222,14.5
+"Evitando , se possibile , retorica e luoghi comuni .",È gradito e porgo distinti saluti,31.372549019607842,0.0,0.0,4.1,È gradito e porgo distinti saluti,31.372549019607842,0.0,0.0,4.1
+"Si tratta , infatti , di una norma limitativa , iniqua e antidemocratica",Si tratta infatti di una norma ingiusta.,61.186868686868685,0.7923,0.5455,27.1,Si tratta infatti di una norma ingiusta.,61.186868686868685,0.7923,0.5455,27.1
+La libertà sessuale invece si ed è un valore,La libertà religiosa è un bene.,45.96250971250971,0.5068,0.2,14.8,La libertà religiosa è un bene.,45.96250971250971,0.5068,0.2,14.8
+"articolo 42 , dopo il comma 47 , inserire il seguente : « 47 - bis",Dopo il comma 2 dell'articolo 431 è inserito il seguente : 2 - bis.,79.2343144733103,0.8292,0.7273,61.8,Dopo il comma 2 dell'articolo 431 è inserito il seguente : 2 - bis.,79.2343144733103,0.8292,0.7273,61.8
+"Sull' emendamento 2.2 , invece , si rimette alla Commissione .",Si rimette alla Commissione sull'emendamento 2. 2,43.125,0.3827,0.25,13.8,Si rimette alla Commissione sull'emendamento 2. 2,43.125,0.3827,0.25,13.8
+Comunque la risposta sarebbe in ogni caso sì,In questo caso la risposta è sì.,56.81216931216932,0.7031,0.2,22.1,In questo caso la risposta è sì.,56.81216931216932,0.7031,0.2,22.1
+C' è ora un grosso lavoro da fare » .,C'è un lavoro immenso da fare,65.4563492063492,0.999,1.0,64.3,C'è un lavoro immenso da fare,65.4563492063492,0.999,1.0,64.3
+"Una è toscana , bionda e minuta",Ed è una magnifica donna.,38.82575757575758,0.25,0.0,9.7,Ed è una magnifica donna.,38.82575757575758,0.25,0.0,9.7
+Forse potrebbe essere un fantastico ritorno alle origini,è stato un ritorno alle origini.,79.28571428571429,0.9654,0.8571,64.3,è stato un ritorno alle origini.,79.28571428571429,0.9654,0.8571,64.3
+"Le camere sono ampie , confortevoli e pulite .",Le nostre camere sono ampie e luminose,91.66666666666667,0.9985,1.0,100.0,Le nostre camere sono ampie e luminose,91.66666666666667,0.9985,1.0,100.0
+""" Le risorse , ancora una volta , ci sono .","Le risorse saranno, ancora una volta, soltanto private",100.0,0.9995,1.0,100.0,"Le risorse saranno, ancora una volta, soltanto private",100.0,0.9995,1.0,100.0
+Conseguentemente sostituire il comma 2 con il seguente : « 2,Il comma 2 è sostituito dal seguente : « 2.,100.0,0.9996,1.0,100.0,Il comma 2 è sostituito dal seguente : « 2.,100.0,0.9996,1.0,100.0
+"L' accantonamento utilizzato , sebbene privo di un' apposita voce programmatica , presenta la necessaria disponibilità finanziaria .",L'accantonamento utilizzato presenta le necessarie disponibilità ed un'apposita voce programmatica,58.18859780066676,0.5836,1.0,47.6,L'accantonamento utilizzato presenta le necessarie disponibilità ed un'apposita voce programmatica,58.18859780066676,0.5836,1.0,47.6
+"Infatti "" Ogni essere umano è unico ed irripetibile .",""" Ogni essere umano è unico",58.422318422318426,0.9765,1.0,76.0,""" Ogni essere umano è unico",58.422318422318426,0.9765,1.0,76.0
+« Questa è la nostra risposta .,Questa è stata la risposta,33.10185185185185,0.3,0.0,12.7,Questa è stata la risposta,33.10185185185185,0.3,0.0,12.7
+Togliete dal forno e servite immediatamente,Togliere dal forno e servire tiepida.,91.66666666666667,0.9985,1.0,100.0,Togliere dal forno e servire tiepida.,91.66666666666667,0.9985,1.0,100.0
+"La mia richiesta , pertanto non può essere accolta",Entrambe le richieste non possono essere accolte.,75.0,0.999,1.0,100.0,Entrambe le richieste non possono essere accolte.,75.0,0.999,1.0,100.0
+non mi aveva detto niente !,Non ho detto assolutamente niente!,83.33333333333333,0.9977,1.0,100.0,Non ho detto assolutamente niente!,83.33333333333333,0.9977,1.0,100.0
+""" Ma questo non è uno studio legale .",Ma non è uno scherzo,30.0,0.2,0.0,10.7,Non è un semplice ricorso,30.769230769230763,0.1,0.0,10.7
+"Dunque , è arrivato il momento della verità .",Il momento della verità è arrivato,91.66666666666667,0.9977,1.0,100.0,Il momento della verità è arrivato,91.66666666666667,0.9977,1.0,100.0
+"Sì , li trovi anche sul ns",La trova anche sul ns,91.66666666666667,0.996,1.0,100.0,La trova anche sul ns,91.66666666666667,0.996,1.0,100.0
+"Ma è solo un' ipotesi , molto improbabile",Ma la mia è solo un'ipotesi.,59.82804232804233,0.6692,1.0,55.8,Ma la mia è solo un'ipotesi.,59.82804232804233,0.6692,1.0,55.8
+E guardando- ci negli occhi !,E guardar - ci negli occhi.,44.84126984126984,0.607,0.25,15.6,E guarda guardar - ci negli occhi.,44.84126984126984,0.5955,0.2222,13.1
+Nel ringraziare per la collaborazione si porgono distinti saluti,Ringrazio per la consueta cortese collaborazione e porgo distinti saluti.,83.33333333333333,0.9996,1.0,100.0,Ringrazio per la consueta cortese collaborazione e porgo distinti saluti.,83.33333333333333,0.9996,1.0,100.0
+"Appare quindi , opportuno acquisire l' avviso del Governo al riguardo .",Apparirà l'avviso del Governo al riguardo,29.219854219854223,0.3571,0.5333,9.2,Apparirà l'avviso del Governo al riguardo,29.219854219854223,0.3571,0.5333,9.2
+"Non è una battuta , la mia .",Non è solo una battuta,38.101851851851855,0.6356,0.2857,19.4,Non è solo una battuta,38.101851851851855,0.6356,0.2857,19.4
+Ulteriori informazioni possono essere trovate su :,Ulteriori informazioni potete trovare su :,20.873015873015873,0.2662,0.1176,0.9,Ulteriori informazioni possono essere trovare su :,42.916666666666664,0.499,0.3333,3.8
+"Ma in pratica , come funziona ?",Ma in pratica come funziona,40.231481481481474,0.6313,0.25,25.4,Ma in pratica come funziona,40.231481481481474,0.6313,0.25,25.4
+Quindi qual è il problema,Quindi il problema qual è?,33.75,0.4574,0.3333,19.3,Ma dov'è il problema?,43.333333333333336,0.8413,0.6667,19.4
+La gente non gli parlava .,La gente non gli parla più,32.36111111111111,0.5011,0.2222,18.0,La gente non gli parla più,32.36111111111111,0.5011,0.2222,18.0
+Le dici che non è vero .,Le avevo detto che non era semplice,40.50925925925926,0.3074,0.2,13.1,Le avevo detto che non era semplice,40.50925925925926,0.3074,0.2,13.1
+") La mattina seguente , un nuovo e più strano , più significante spettacolo colpì gli occhi e le menti de ' cittadini .","La mattina è stato più difficile, intenso e persistente dei suoi occhi",10.222724135767615,0.2021,0.0714,4.1,"La mattina è più tardi, e i sogni parlano gli occhi di tutti",11.514089446504817,0.27,0.1379,5.2
+"Per tali ragioni , preannuncia un voto di astensione",Per tutte queste ragioni preannuncia sin d'ora un voto di astensione.,87.43315508021391,0.7947,1.0,67.6,Per tutte queste ragioni preannuncia sin d'ora un voto di astensione.,87.43315508021391,0.7947,1.0,67.6
+"Dopo l' articolo 316 del codice penale è inserito il seguente : "" Art",Dopo l'articolo 1130 del codice civile è inserito il seguente : « Art,85.17542914601738,0.8089,1.0,78.0,Dopo l'articolo 1130 del codice civile è inserito il seguente : « Art,85.17542914601738,0.8089,1.0,78.0
+Magari sono anche in forma,Ma sono anche in forma.,31.468253968253965,0.526,0.0,19.3,Ma sono anche in forma.,31.468253968253965,0.526,0.0,19.3
+La tecnologia ne è solo uno strumento .,La tecnologia è uno strumento,49.01094276094276,0.8203,0.5714,40.9,La tecnologia è uno strumento,49.01094276094276,0.8203,0.5714,40.9
+Puoi dir- ci qualcosa di più a riguardo,Cosa puoi dire al riguardo?,47.77777777777778,0.625,0.25,32.5,Cosa puoi dire al riguardo?,47.77777777777778,0.625,0.25,32.5
+Da dove le è venuta l' ispirazione,Da dove viene l'ispirazione?,50.18518518518518,0.4331,0.25,19.4,Da dove viene l'ispirazione?,50.18518518518518,0.4331,0.25,19.4
+"Il soggetto non è originalissimo , certo",Il tema non è originale.,41.42857142857142,0.526,0.0,19.3,Il tema non è originale.,41.42857142857142,0.526,0.0,19.3
+Quella fu l' ultima volta che li vidi,Quella fu l'ultima volta che la vidi.,37.33706108706109,0.574,0.8571,23.9,Quella fu l'ultima volta che la vidi.,37.33706108706109,0.574,0.8571,23.9
+"La seduta , sospesa alle 17.20 , è ripresa alle 17.30 .",La seduta sospesa alle 11. 20 è ripresa alle 12. 30,61.36574074074074,0.736,1.0,28.0,La seduta sospesa alle 11. 20 è ripresa alle 12. 30,61.36574074074074,0.736,1.0,28.0
+Il resto si può facilmente immaginare,Il resto può essere immaginare.,45.1058201058201,0.4276,0.1818,7.0,Il resto può essere immaginare.,45.1058201058201,0.4276,0.1818,7.0
+C' era veramente un equivoco .,Ma tutto questo è un equivoco,50.0,0.3676,0.25,16.2,Ma tutto questo è un equivoco,50.0,0.3676,0.25,16.2
+Ma non ci si faccia troppe illusioni .,Ma non dobbiamo far - ci troppe illusioni,44.34824434824435,0.5091,0.3636,13.1,Ma non dobbiamo far - ci troppe illusioni,44.34824434824435,0.5091,0.3636,13.1
+"I problemi , tuttavia , sono molti",I problemi ovviamente sono molti.,49.629629629629626,0.625,0.25,23.0,I problemi ovviamente sono molti.,49.629629629629626,0.625,0.25,23.0
+"Il ricorso è infondato e , come tale , deve essere rigettato , con conseguente condanna del ricorrente al pagamento delle ulteriori spese processuali .",Il ricorso è infondato e deve essere rigettato al termine delle spese del giudizio,32.92012345788089,0.4591,0.2143,8.8,Il ricorso è infondato e deve essere rigettato al termine delle spese del giudizio,32.92012345788089,0.4591,0.2143,8.8
+Fino a qualche anno fa c' erano .,Era così fino a qualche anno fa,100.0,0.9985,1.0,100.0,Era così fino a qualche anno fa,100.0,0.9985,1.0,100.0
+"Nel 2004 , queste avevano già superato i 100 miliardi ed oggi , in molti paesi , gareggiano addirittura con i flussi di aiuto allo sviluppo quanto ad entità","Nel 2003 ha superato i 100 milioni di euro e attuali soprattutto in molti paesi, con i quali, all'estero.",34.78301609880557,0.4581,0.2439,15.5,"Nel 2003 ha superato i 100 milioni di euro nell'aria, con i più grandi.",26.35673490277071,0.296,0.1667,6.7
+E spiega anche il perché,E le spiego anche il perché.,58.67063492063492,0.9654,0.6667,41.1,E le spiego anche il perché.,58.67063492063492,0.9654,0.6667,41.1
+"La seduta , sospesa alle 9.30 , è ripresa alla 9.40",La seduta sospesa alle 12. 30 è ripresa alla 12. 40.,52.36309098538201,0.6103,0.7778,22.0,La seduta sospesa alle 12. 30 è ripresa alle 12 40.,58.373875866135926,0.7562,1.0,28.9
+Che cosa si può ancora fare,Che cosa si può ancora fare?,8.333333333333334,0.5943,0.25,14.5,Che cosa si può ancora fare?,8.333333333333334,0.5943,0.25,14.5
+Ma questo è il primo passo .,è solo il primo passo,91.66666666666667,0.996,1.0,100.0,è solo il primo passo,91.66666666666667,0.996,1.0,100.0
+Agli eventuali oneri per gli esercizi successivi si provvede con la legge di bilancio .,All'articolo 10 si provvede con la legge di bilancio,24.040137422490364,0.354,0.1905,12.9,"All'articolo 6, si procede con la legge di bilancio",30.459618211166198,0.3512,0.1905,13.1
+Chi mi dà una mano ?,Chi vuol dare una mano,83.33333333333333,0.996,1.0,100.0,Chi vuol dare una mano,83.33333333333333,0.996,1.0,100.0
+L' emendamento 3.4 è stato ritirato .,Posto ai voti l'emendamento 24. 4 è respinto,31.18686868686869,0.0617,0.1538,4.8,Posto ai voti l'emendamento 24. 4 è respinto,31.18686868686869,0.0617,0.1538,4.8
+È questa la nostra forza » .,Questa è la nostra forza,78.33333333333333,0.8441,0.8571,81.9,Questa è la nostra forza,78.33333333333333,0.8441,0.8571,81.9
+Dov' è dunque il sole ?,Dov'è dunque il sole,25.793650793650794,0.625,0.0,12.4,Dov'è dunque il sole,25.793650793650794,0.625,0.0,12.4
+"Dopo l' articolo 2044 del codice civile è inserito il seguente : "" Art",Dopo l'articolo 1130 del codice civile è inserito il seguente : « Art,80.79205516705517,0.8089,1.0,78.0,Dopo l'articolo 1130 del codice civile è inserito il seguente : « Art,80.79205516705517,0.8089,1.0,78.0
+Ma è solo la punta dell' iceberg .,Ma è la punta di un iceberg,75.56517556517555,0.9813,0.8889,61.5,Ma è la punta di un iceberg,75.56517556517555,0.9813,0.8889,61.5
+Questo è un grosso limite,Ma è un mio limite.,73.6111111111111,0.83,0.6667,76.0,Ma è un mio limite.,73.6111111111111,0.83,0.6667,76.0
+Compensa tra le parti per intero le spese di lite .,Compensa tra le parti le spese di lite,59.616309616309614,0.7891,0.7143,51.7,Compensa tra le parti le spese di lite,59.616309616309614,0.7891,0.7143,51.7
+La notizia è stata confermata da fonti giudiziarie .,La stessa notizia è confermata anche da altre fonti,83.33333333333333,0.9993,1.0,100.0,La stessa notizia è confermata anche da altre fonti,83.33333333333333,0.9993,1.0,100.0
+È un fattore in più,Questo è un altro fattore.,38.25396825396825,0.3333,0.0,10.7,Questo è un altro fattore.,38.25396825396825,0.3333,0.0,10.7
+· La partecipazione al concorso implica la completa accettazione del presente regolamento,La partecipazione al concorso implica la piena accettazione del presente regolamento.,55.59255559255559,0.7752,0.5556,40.6,La partecipazione al concorso implica la piena accettazione del presente regolamento.,55.59255559255559,0.7752,0.5556,40.6
+26 [ Appartiene ] ad Allah tutto quello che è nei cieli e sulla terra .,132 Appartiene ad Allah tutto quello che è nei cieli e sulla terra,79.16666666666667,0.9228,0.9091,91.2,132 Appartiene ad Allah tutto quello che è nei cieli e sulla terra,79.16666666666667,0.9228,0.9091,91.2
+Concettualmente la questione non è tanto chiara .,La questione non è chiara,91.66666666666667,0.996,1.0,100.0,La questione non è chiara,91.66666666666667,0.996,1.0,100.0
+Vabbè questa poi è una mia opinione ...,questa è una mia personalissima opinione...,93.7169312169312,0.7577,0.8889,80.1,questa è una mia personalissima opinione...,93.7169312169312,0.7577,0.8889,80.1
+E mi venne un' idea .,E mi venne questa idea,91.66666666666667,0.996,1.0,100.0,E mi venne questa idea,91.66666666666667,0.996,1.0,100.0
+Ora che ha trovato un suo equilibrio .,Ho trovata un suo equilibrio,37.842712842712835,0.3,0.0,12.7,Ho trovata un suo equilibrio,37.842712842712835,0.3,0.0,12.7
+Lo si faceva e basta,Lo abbiamo fatto e nostro dovere.,32.55952380952381,0.1639,0.0,7.8,Lo abbiamo fatto e nostro dovere.,32.55952380952381,0.1639,0.0,7.8
+L' audizione informale è stata svolta dalle 13.10 alle 13.40,L'audizione si è svolta dalle 13. 10 alle 13. 40.,41.1523199023199,0.5022,1.0,21.4,L'audizione si è svolta dalle 13. 10 alle 13. 40.,41.1523199023199,0.5022,1.0,21.4
+La percentuale dei disoccupati è molto al di sopra della media provinciale,La percentuale dei disoccupati è sotto la media provinciale.,79.9074074074074,0.8951,0.7143,65.8,La percentuale dei disoccupati è sotto la media provinciale.,79.9074074074074,0.8951,0.7143,65.8
+Direi proprio che non tutto il male viene per nuocere,Le male non sempre vengono per nuocere.,34.532828282828284,0.3845,0.1333,14.2,Le male non sempre vengono per nuocere.,34.532828282828284,0.3845,0.1333,14.2
+Dall' attuazione del presente articolo non devono derivare nuovi o maggiori oneri a carico della finanza pubblica,Dall'attuazione del presente articolo non devono derivare nuovi maggiori oneri a carico della finanza pubblica,28.236222946162098,0.7087,0.7333,54.5,Dall'attuazione del presente articolo non devono derivare nuovi maggiori oneri a carico della finanza pubblica,28.236222946162098,0.7087,0.7333,54.5
+"Come sempre , c' è un rovescio della medaglia .",Ma c'è il rovescio della medaglia,45.056332556332556,0.6009,0.3636,18.3,Ma c'è il rovescio della medaglia,45.056332556332556,0.6009,0.3636,18.3
+Idealmente è così che dovrebbe essere,Così è e così è.,37.00396825396825,0.25,0.0,10.7,Così è e così è.,37.00396825396825,0.25,0.0,10.7
+Come si esce da questo circolo vizioso ?,Come uscire da questo circolo vizioso,76.3059163059163,0.755,0.6667,57.0,Come uscire da questo circolo vizioso,76.3059163059163,0.755,0.6667,57.0
+Quali sono le patologie più diffuse ?,Quali sono le principali patologie,91.66666666666667,0.996,1.0,100.0,Quali sono le principali patologie,91.66666666666667,0.996,1.0,100.0
+« Questo non lo so .,Questo proprio non lo sappiamo,83.33333333333333,0.996,1.0,100.0,Questo proprio non lo sappiamo,83.33333333333333,0.996,1.0,100.0
+""" Questa è la mia vita",Questa è la mia vita.,47.22222222222222,0.8519,0.6667,19.3,Questa è la mia vita.,47.22222222222222,0.8519,0.6667,19.3
+è successo tutto così in fretta .,E poi è successo tutto in fretta,91.66666666666667,0.9985,1.0,100.0,E poi è successo tutto in fretta,91.66666666666667,0.9985,1.0,100.0
+"L' articolo 1137 del codice civile è sostituito dal seguente : "" Art",L'articolo 323 del codice penale è sostituito con il seguente : « Art,74.98339333537544,0.8106,1.0,84.5,L'articolo 323 del codice penale è sostituito con il seguente : « Art,74.98339333537544,0.8106,1.0,84.5
+""" Non sarà una passeggiata """,Ma non è stata esattamente una passeggiata.,83.33333333333333,0.999,1.0,100.0,Ma non è stata esattamente una passeggiata.,83.33333333333333,0.999,1.0,100.0
+Qualcuno può dar- me delle indicazioni,Qualcuno può dar - me indicazioni precise?,34.74206349206349,0.4445,0.6,13.1,Qualcuno può dar - me indicazioni precise?,34.74206349206349,0.4445,0.6,13.1
+Ma sono solo delle eccezioni che confermano la regola .,Sono proprio l'eccezione che conferma la regola,56.13095238095239,0.451,0.5714,30.9,Sono proprio l'eccezione che conferma la regola,56.13095238095239,0.451,0.5714,30.9
+si gettano tutti in acqua !,Quindi dobbiamo buttare tutti in acqua!,42.63888888888889,0.4827,0.2222,24.4,Si Gettiamo tutti in acqua!,45.18518518518518,0.625,0.25,30.2
+"Propone , pertanto , di esprimere un parere favorevole circa la sussistenza dei presupposti costituzionali",Propone quindi di esprimere un parere favorevole circa la sussistenza dei presupposti costituzionali.,100.0,0.9998,1.0,100.0,Propone quindi di esprimere un parere favorevole circa la sussistenza dei presupposti costituzionali.,100.0,0.9998,1.0,100.0
+"Pertanto , il ricorso deve essere dichiarato inammissibile",Il ricorso deve essere dichiarato inammissibile.,100.0,0.9985,1.0,100.0,Il ricorso deve essere dichiarato inammissibile.,100.0,0.9985,1.0,100.0
+Dovrebbe parlare con un avvocato prima .,Deve parlare con un uomo,65.87301587301589,0.5154,0.5455,21.8,Deve parlare con un uomo,65.87301587301589,0.5154,0.5455,21.8
+Forse era solo un' allucinazione .,Forse era solo un'allucinazione,22.61904761904762,0.0,0.25,6.2,Forse era solo un'allucinazione,22.61904761904762,0.0,0.25,6.2
+Puoi far- ci un caso concreto ?,Può fare un caso concreto,91.66666666666667,0.996,1.0,100.0,Può fare un caso concreto,91.66666666666667,0.996,1.0,100.0
+Quindi questo è un fatto scontato,Questo è un altro fatto.,91.66666666666667,0.9977,1.0,76.0,E questo è un altro fatto positivo.,76.38888888888889,0.9498,0.75,54.1
+"[ 17 ] Tobi si avvicinò poi a Sara , la sposa di suo figlio Tobia , e la benedisse : « Sii la benvenuta , figlia !",17 Pietro si avvicinò alla donna di cui la si sposò e la donna di lui.,16.666666666666668,0.1394,0.1176,4.4,17 Pietro si avvicinò alla donna di cui la si sposò e la moglie di lui.,16.666666666666668,0.1394,0.1176,4.4
+"Non è un problema , almeno per me .",Non è un problema per me,51.92400192400192,0.8152,0.4444,16.3,Non è un problema per me,51.92400192400192,0.8152,0.4444,16.3
+Ma il problema è tutt' altro che semplice,Ma il problema è un altro.,70.27777777777777,0.8757,0.6667,51.5,Ma il problema è un altro.,70.27777777777777,0.8757,0.6667,51.5
+Conseguentemente sostituire il comma 2 con il seguente : « 4,il comma 4 è sostituito dal seguente : « 4.,65.29761904761905,0.803,0.5,49.6,il comma 4 è sostituito dal seguente : « 4.,65.29761904761905,0.803,0.5,49.6
+Chissà forse è proprio questa la sua vita reale,è questa la sua vita?,42.9419191919192,0.625,0.3333,32.5,è questa la sua vita?,42.9419191919192,0.625,0.3333,32.5
+« E questa è una forzatura »,Questa è una vera forza popolare.,33.5978835978836,0.2459,0.0,7.8,E questa è una forza.,28.67063492063492,0.25,0.0,9.7
+La ringrazio e le porgo distinti saluti .,La ringrazio e porgo distinti saluti,83.33333333333333,0.9977,1.0,100.0,La ringrazio e porgo distinti saluti,83.33333333333333,0.9977,1.0,100.0
+Ci sono delle cose che non potrò mai dimenticare .,Ci sono molte cose che non possiamo dimenticare,27.675565175565172,0.3194,0.1538,12.2,Ci sono molte cose che non possiamo dimenticare,27.675565175565172,0.3194,0.1538,12.2
+Finalmente arrivò il gran giorno .,Il grande giorno è arrivato,51.09126984126984,0.75,0.3333,42.7,Il grande giorno è arrivato,51.09126984126984,0.75,0.3333,42.7
+La mia risposta è : purtroppo sì .,La risposta è ovviamente sì,39.457671957671955,0.6313,0.0,25.4,La risposta è ovviamente sì,39.457671957671955,0.6313,0.0,25.4
+quest' idea non è niente male ! !,Non è male l'idea!,47.4037999037999,0.5515,0.6667,19.4,Non è male l'idea!,47.4037999037999,0.5515,0.6667,19.4
+non è questo il punto .,Ma non è il punto,83.33333333333333,0.996,1.0,100.0,Ma non è il punto,83.33333333333333,0.996,1.0,100.0
+Si passa all' esame degli emendamenti relativi all' articolo 9 .,Passa quindi all'esame dell'articolo 2 e dei relativi emendamenti,52.99573470045607,0.5491,1.0,41.1,Passa quindi all'esame dell'articolo 2 e dei relativi emendamenti,52.99573470045607,0.5491,1.0,41.1
+Invece le cose non stanno proprio così,Le cose non stanno così.,100.0,0.9977,1.0,100.0,Le cose non stanno così.,100.0,0.9977,1.0,100.0
+"E , comunque , il mio dramma è il "" mio """,Il mio dramma è il mio dramma.,39.469537815126046,0.2817,0.0,13.1,Il mio dramma è il mio dramma.,39.469537815126046,0.2817,0.0,13.1
+Il numero verde dovrebbe essere 803868 .,Il numero verde è 800900713,91.66666666666667,0.996,1.0,100.0,Il numero verde è 800900713,91.66666666666667,0.996,1.0,100.0
+Non ci sarà pace senza giustizia,Non c'è una pace senza giustizia.,59.861111111111114,0.5975,0.3636,37.7,Non c'è una pace senza giustizia.,59.861111111111114,0.5975,0.3636,37.7
+Siamo solo ai primi passi .,è solo il primo passo,75.0,0.996,1.0,100.0,è solo il primo passo,75.0,0.996,1.0,100.0
+"Tranquilli , è solo l' inizio",Certo è solo l'inizio.,34.68253968253968,0.2206,0.6667,10.4,Certo è solo l'inizio.,34.68253968253968,0.2206,0.6667,10.4
+"Conseguentemente , dopo il comma 1 , aggiungere i seguenti : 2 .",Dopo il comma 1 è aggiunto il seguente : « 2,100.0,0.9996,1.0,100.0,Dopo il comma 1 è aggiunto il seguente : « 2,100.0,0.9996,1.0,100.0
+è una domanda : ne vale ancora la pena,La domanda è : ne vale la pena?,82.77000777000777,0.9041,0.7273,79.6,La domanda è : ne vale la pena?,82.77000777000777,0.9041,0.7273,79.6
+Questo è lo spirito dei tempi .,Era lo spirito dei tempi,100.0,0.996,1.0,100.0,Era lo spirito dei tempi,100.0,0.996,1.0,100.0
+Perchè il tuo cuore è abbastanza fermo .,Il tuo cuore è fermo,46.944444444444436,0.5889,0.5714,21.4,Il tuo cuore è fermo,46.944444444444436,0.5889,0.5714,21.4
+"Per informazioni , telefonare allo 0376 338645",Per informazioni potete telefonare allo 0532 209988.,83.33333333333333,0.999,1.0,100.0,Per informazioni potete telefonare allo 0532 209988.,83.33333333333333,0.999,1.0,100.0
+Sarebbe molto duro e difficile .,"è stato molto doloroso, difficile",35.17857142857143,0.1282,0.0,6.9,"è stato molto doloroso, difficile",35.17857142857143,0.1282,0.0,6.9
+Quale consiglio mi può dare ?,Mi può dare qualche consiglio,58.333333333333336,0.75,0.5,42.7,Mi può dare qualche consiglio,58.333333333333336,0.75,0.5,42.7
+Poi si toglie un sassolino dalla scarpa .,tolde un sasso dalla scarpe,30.987762237762237,0.0649,0.0,5.9,tolde un sasso dalla scarpe,30.987762237762237,0.0649,0.0,5.9
+Per saper- ne di più metti- ti in contatto direttamente con le università degli studi,Deve metter - si in contatto con le università degli studi per saper - ne di più.,73.3924911642303,0.8599,1.0,60.3,Deve metter - si in contatto con le università degli studi per saper - ne di più.,73.3924911642303,0.8599,1.0,60.3
+Ma c' è una questione ancora più grave,Ma la questione più grave è un'altra.,69.56376956376955,0.706,1.0,62.4,Ma la questione più grave è un'altra.,69.56376956376955,0.706,1.0,62.4
+Ed in effetti è così,Ed in effetti così è stato.,66.77248677248677,0.9813,0.8571,61.5,E in effetti così è stato.,78.62433862433862,0.9813,0.8571,61.5
+"Si applicano le disposizioni del presente articolo , commi 3 , 4 e 5",Si applicano le disposizioni dei commi 4 e 5 dell'articolo 6.,66.66107671138631,0.5644,0.5455,41.2,Si applicano le disposizioni dei commi 4 e 5 dell'articolo 6.,66.66107671138631,0.5644,0.5455,41.2
+Quello è un fatto realmente grave .,È un fatto estremamente grave,45.370370370370374,0.6313,0.0,25.4,È un fatto estremamente grave,45.370370370370374,0.6313,0.0,25.4
+"In conclusione , propone di esprimere un parere favorevole , senza osservazioni né condizioni .",In conclusione propone di esprimere un parere favorevole senza condizioni né osservazioni,51.88303814161937,0.9445,0.5714,45.9,In conclusione propone di esprimere un parere favorevole senza condizioni né osservazioni,51.88303814161937,0.9445,0.5714,45.9
+"Sì , è una cosa gravissima .",È una cosa gravissima »,37.88359788359788,0.4642,0.3333,15.8,È una cosa gravissima »,37.88359788359788,0.4642,0.3333,15.8
+- Non senti che buon odore ?,Non sentivo un cattivo effetto,31.296296296296294,0.0847,0.0,10.7,Non ho mai sentito un buon effetto,29.35185185185185,0.082,0.0,6.6
+I risultati dello studio sono stati pubblicati dalla rivista Nature .,I risultati dello studio sono stati pubblicati sulla rivista Nature,38.870273245273246,0.6356,0.5556,19.4,I risultati di questo progetto sono stati pubblicati sulla rivista Nature,52.057656395891684,0.7231,0.6316,33.0
+Questo avviene nel dicembre del 1980 .,Avvenne nel dicembre del 1712,75.0,0.7938,0.75,66.9,Avvenne nel dicembre del 1712,75.0,0.7938,0.75,66.9
+Questa comunque è storia del passato .,è una storia del passato,91.66666666666667,0.996,1.0,100.0,è una storia del passato,91.66666666666667,0.996,1.0,100.0
+"Successivamente , viene posto ai voti e approvato l' emendamento 5.0.1 .","Posto ai voti, l'emendamento 2. 0. 1 viene approvato",51.74423615600086,0.5204,0.7778,15.9,"Posto ai voti, l'emendamento 2. 0. 1 viene approvato",51.74423615600086,0.5204,0.7778,15.9
+Poi mi venne un' idea,E mi venne questa idea.,83.33333333333333,0.9977,1.0,100.0,E mi venne questa idea.,83.33333333333333,0.9977,1.0,100.0
+Meglio che vada a dormire appena possibile,Devo andare a dormire prima.,44.212962962962955,0.4259,0.25,18.0,Che vadano a dormire prima del mattino?,43.91534391534392,0.4122,0.2,11.0
+« Logisticamente è andato tutto bene .,« È andato tutto bene,91.66666666666667,0.996,1.0,100.0,« È andato tutto bene,91.66666666666667,0.996,1.0,100.0
+"Per fortuna , non è così",Per fortuna non è così.,75.63492063492063,0.8535,0.5714,67.3,Per fortuna non è così.,75.63492063492063,0.8535,0.5714,67.3
+Qui siamo ancora tutti in piena campagna elettorale » .,Siamo sempre in questa campagna elettorale,41.127853627853625,0.526,0.2,19.3,Siamo ancora in questa campagna elettorale,37.91208791208791,0.526,0.2,19.3
+"Hai fatto un ottimo lavoro , complimenti !",Hai fatto un ottimo lavoro!,52.71464646464646,0.7014,0.4444,45.5,hai \ avete fatto un'ottimo lavoro!,34.83766233766233,0.3651,0.4,14.5
+Le norme di cui al presente articolo si applicano dal 1º gennaio 1996 .,Le norme del presente articolo si applicano dal gennaio 1996,80.5402394876079,0.9138,0.8421,75.2,Le norme del presente articolo si applicano dal gennaio 1996,80.5402394876079,0.9138,0.8421,75.2
+L' importante è che lo sappia .,L'importante è che lo sappiamo,28.27380952380953,0.1695,0.2857,12.7,L'importante è sapere che lo sono,30.820105820105823,0.1667,0.25,9.7
+Questo la legge non lo consente .,La legge non può essere applicata,34.48412698412698,0.3704,0.1818,8.2,La legge non può essere applicata,34.48412698412698,0.3704,0.1818,8.2
+"L' attività didattica è ampia , continuativa e pertinente",L'attività didattica è ampia e continuativa.,36.36363636363636,0.3995,0.4444,15.6,L'attività didattica è ampia e continuativa.,36.36363636363636,0.3995,0.4444,15.6
+- - Non vedo l' ora !,Non vede proprio l'ora!,48.41931216931217,0.5515,1.0,35.0,Non vede proprio l'ora!,48.41931216931217,0.5515,1.0,35.0
+Volevo semplicemente dire una cosa,Voglio dire ancora una cosa.,43.75661375661375,0.4574,0.25,10.7,Voglio dire ancora una cosa.,43.75661375661375,0.4574,0.25,10.7
+è questo un giudizio condivisibile .,è un giudizio condivisibile,34.92063492063492,0.4406,0.0,21.4,è un giudizio condivisibile,34.92063492063492,0.4406,0.0,21.4
+Da oggi le cose potrebbero cambiare,Oggi le cose sono cambiate.,42.063492063492056,0.4259,0.25,18.0,Oggi le cose sono cambiate.,42.063492063492056,0.4259,0.25,18.0
+Era solo la punta dell' iceberg,Questa era solo la punta dell'iceberg.,39.30555555555555,0.6692,1.0,55.8,Questa era solo la punta dell'iceberg.,39.30555555555555,0.6692,1.0,55.8
+Ma forse non è così semplice .,Ma non deve essere così semplice,83.33333333333333,0.9977,1.0,100.0,Ma non deve essere così semplice,83.33333333333333,0.9977,1.0,100.0
+Questa è la sola domanda che merita una risposta .,è questa la domanda che merita una risposta,62.69841269841269,0.8294,0.7273,54.1,è questa la domanda che merita una risposta,62.69841269841269,0.8294,0.7273,54.1
+Rinvia pertanto ad altra seduta il seguito dell' esame congiunto .,Il seguito dell'esame viene rinviato ad altra seduta,64.35846560846561,0.706,1.0,52.5,Rinvia ad altra seduta il seguito dell'esame,38.325563325563316,0.499,0.6667,19.7
+Cosa si vuol dire con questo ?,Cosa voglio dire con tutto ciò,61.957671957671955,0.8067,0.6,53.7,Cosa voglio dire con tutto ciò,61.957671957671955,0.8067,0.6,53.7
+Questo mi sembra un punto molto importante .,Questo punto mi sembra molto importante,75.0,0.9977,1.0,100.0,Questo punto mi sembra molto importante,75.0,0.9977,1.0,100.0
+"è una cosa che devo assolutamente fare "" .",è una cosa che dobbiamo fare,100.0,0.9977,1.0,100.0,è una cosa che dobbiamo fare,100.0,0.9977,1.0,100.0
+Allora saprete anche come va a finire .,Vogliamo sapere come andrà a finire,73.6111111111111,0.83,0.8,76.0,Vogliamo sapere come andrà a finire,73.6111111111111,0.83,0.8,76.0
+"La verità , come sovente accade , sta nel mezzo .",Come spesso accade la verità sta nel mezzo,46.14300051800052,0.6231,0.6667,14.5,"Come accade spesso, la verità probabilmente sta nel mezzo",42.03117144293614,0.6037,0.375,14.3
+Supportati tutti i formati più comuni .,Sono supportati tutti i formating,26.05820105820106,0.0847,0.0,8.7,Sono supportati tutti i formating,26.05820105820106,0.0847,0.0,8.7
+è questo uno dei loro punti di forza,Questo è un altro punto di forza.,67.63888888888889,0.8648,0.6,50.0,Questo è un altro punto di forza.,67.63888888888889,0.8648,0.6,50.0
+Sarebbe stato un bel pasticcio .,è stato anche un peccato,33.154761904761905,0.2,0.0,12.7,è stato anche un peccato,33.154761904761905,0.2,0.0,12.7
+Il messaggio potrebbe essere questo .,Il messaggio è anche questo,50.0,0.4331,0.25,10.4,Il messaggio è anche questo,50.0,0.4331,0.25,10.4
+"è sempre in ritardo "" .",Sei un pò in ritardo,83.33333333333333,0.996,1.0,100.0,Sei un pò in ritardo,83.33333333333333,0.996,1.0,100.0
+- la questione è fondata,Neppure tale questione è fondata.,91.66666666666667,0.9977,1.0,100.0,Neppure tale questione è fondata.,91.66666666666667,0.9977,1.0,100.0
+HA DECISO di non far- lo .,Non potevamo decidere di far - lo,42.42424242424242,0.4509,0.5455,14.5,E decide di non far - lo,37.61904761904762,0.2143,0.1818,8.6
+"I generi alimentari , ricevuti dall' esterno o acquistati , non devono eccedere in quantità il fabbisogno mensile di una persona",I prodotti per i tipi non devono eccedere in quantità del giorno.,38.73023273023273,0.3484,0.2857,19.8,I prodotti per i prodotti non devono eccedere in quantità del giorno.,39.12705812705813,0.3484,0.2857,19.8
+""" Il mondo è cambiato",Tutto il mondo è cambiato.,83.33333333333333,0.83,0.6667,76.0,Tutto il mondo è cambiato.,83.33333333333333,0.83,0.6667,76.0
+"A chi si rivolge questo libro , dunque",A chi è rivolto questo libro?,83.33333333333333,0.9985,1.0,100.0,A chi è rivolto questo libro?,83.33333333333333,0.9985,1.0,100.0
+"Si applica l' articolo 562 , secondo comma """,Si applica il secondo comma dell'articolo 2410.,62.22157472157471,0.6009,0.8571,47.8,Si applica il secondo comma dell'articolo 2410.,62.22157472157471,0.6009,0.8571,47.8
+Non si capisce più niente,Non avete capito proprio niente.,43.75661375661375,0.526,0.0,19.3,Non avete capito proprio niente.,43.75661375661375,0.526,0.0,19.3
+Il voto è pertanto 10,Il voto è stato 30.,91.66666666666667,0.9977,1.0,100.0,Il voto è stato 30.,91.66666666666667,0.9977,1.0,100.0
+Ne provai una sensazione strana .,Abbiamo provato una strana sensazione,75.0,0.996,1.0,100.0,Abbiamo provato una strana sensazione,75.0,0.996,1.0,100.0
+Ma non è un leader,Un leader liberale non è un leader.,100.0,0.999,1.0,100.0,Un leader liberale non è un leader.,100.0,0.999,1.0,100.0
+La domanda è palesemente retorica .,La domanda è pura retorica,91.66666666666667,0.996,1.0,100.0,La domanda è pura retorica,91.66666666666667,0.996,1.0,100.0
+""" Questa non è la mia casa .",Non è più la mia casa,43.40909090909091,0.5391,0.0,17.3,Non è più la mia casa,43.40909090909091,0.5391,0.0,17.3
+O a cosa le serve ?,O ci sono altre cose,28.240740740740737,0.0,0.0,5.3,O a cosa può servir - ti,39.285714285714285,0.3606,0.2222,6.6
+Il giudizio è pertanto pienamente positivo,Il mio giudizio è estremamente positivo.,65.97222222222223,0.8413,0.5,48.9,Il giudizio è pienamente favorevole.,41.92460317460317,0.4574,0.0,16.3
+Davvero : non è un messaggio,Non è un messaggio intelligente.,41.944444444444436,0.5391,0.0,17.3,Non è un messaggio intelligente.,41.944444444444436,0.5391,0.0,17.3
+[ 2 ] O non sapete che i santi giudicheranno il mondo ?,Odrete che i santi rimarranno il mondo,31.381812631812636,0.499,0.4,20.0,Odrete che i santi rimarranno il mondo,31.381812631812636,0.499,0.4,20.0
+"è morto così , sul colpo","è morto così, sul colpo.",16.944444444444446,0.4827,0.2857,24.4,"è morto così, sul colpo.",16.944444444444446,0.4827,0.2857,24.4
+"Oggi la realtà è diversa """,Oggi la realtà è diversa.,43.24074074074073,0.8067,0.3333,32.5,Oggi la realtà è diversa.,43.24074074074073,0.8067,0.3333,32.5
+"Infine , rinvia il seguito dell' esame ad altra seduta .",Il seguito dell'esame viene rinviato ad altra seduta,44.247557997558,0.4939,0.625,19.5,Rinvia pertanto ad altra seduta il seguito dell'esame,72.44708994708994,0.7132,1.0,74.2
+Ma c' è un' altra possibilità .,Ma ci sono altre possibilità,50.13227513227514,0.6356,0.4444,24.7,Ma ci sono altre possibilità,50.13227513227514,0.6356,0.4444,24.7
+All' udienza dell' 8 febbraio 2005 la causa è stata trattenuta per la decisione .,Alla pubblica udienza dell'11 febbraio 2003 la causa veniva trattenuta in decisione,66.48994280573227,0.7647,0.5833,50.2,Alla pubblica udienza dell'11 febbraio 2003 la causa veniva trattenuta in decisione,66.48994280573227,0.7647,0.5833,50.2
+"Il momento , insomma , è estremamente delicato .",Il momento è estremamente delicato,73.6111111111111,0.7324,0.75,67.0,Il momento è estremamente delicato,73.6111111111111,0.7324,0.75,67.0
+La porta si chiudeva alle sue spalle .,Chiude la porta alle proprie spalle,83.33333333333333,0.9977,1.0,100.0,Chiude la porta alle proprie spalle,83.33333333333333,0.9977,1.0,100.0
+Potrebbe anche essere il contrario,Ora è anche il contrario.,83.33333333333333,0.9977,1.0,100.0,Ora è anche il contrario.,83.33333333333333,0.9977,1.0,100.0
+Ma questo non dovrebbe essere un problema ...,- Si ma non è un problema...,77.64550264550265,0.6401,0.5714,63.9,- Si ma non è un problema...,77.64550264550265,0.6401,0.5714,63.9
+"Non tutti gli scienziati , però , sono d' accordo .",Non tutti gli scienziati però sono d'accordo,35.625,0.3587,0.3077,6.8,Non tutti gli scienziati però sono d'accordo,35.625,0.3587,0.3077,6.8
+E questo è un punto fermo e inamovibile,Questo è un bel punto fermo.,39.72222222222222,0.5174,0.0,15.6,Questo è un bel punto fermo.,39.72222222222222,0.5174,0.0,15.6
+"Posto ai voti , l' emendamento 42.0.1 , viene respinto .",Posto ai voti l'emendamento 5. 0. 1 è respinto,55.33549783549784,0.5261,1.0,17.5,Posto ai voti l'emendamento 5. 0. 1 è respinto,55.33549783549784,0.5261,1.0,17.5
+è a quest' ultima domanda che tutti vorrebbero dare una risposta,è una domanda a questa domanda.,52.72529213705684,0.6392,0.4,34.2,è una domanda a questa domanda.,52.72529213705684,0.6392,0.4,34.2
+"articolo 3 , comma 122 , della legge 24 dicembre 2003 , n. 350 , è sostituito dal seguente :",Il comma 29 dell'articolo 17 della legge n. 449 del 27 dicembre 1997 è sostituito dal seguente : « 29.,93.11954891123712,0.8768,1.0,83.4,Il comma 29 dell'articolo 17 della legge n. 449 del 27 dicembre 1997 è sostituito dal seguente : « 29.,93.11954891123712,0.8768,1.0,83.4
+Ma è proprio la verità ?,Ma sarà proprio la verità,35.61507936507936,0.5111,0.2857,23.6,Ma sarà proprio la verità,35.61507936507936,0.5111,0.2857,23.6
+"La cosa , tuttavia , non era totalmente disperata",La cosa non è tuttavia facile.,83.33333333333333,0.9985,1.0,100.0,La cosa non è tuttavia facile.,83.33333333333333,0.9985,1.0,100.0
+Questa è una nostra caratteristica da sempre,è questa una nostra caratteristica.,44.39814814814815,0.5391,0.2857,16.3,è questa una nostra caratteristica.,44.39814814814815,0.5391,0.2857,16.3
+Questa è un' altra domanda che mi pongo,è una domanda che non porgo.,63.227513227513235,0.7934,0.5714,26.3,è una domanda che non porgo.,63.227513227513235,0.7934,0.5714,26.3
+Ti mando un libercolo sull' argomento .,mando un libercolo su questi argomenti,86.90476190476191,0.8676,0.9091,84.6,mando un libercolo su questi argomenti,86.90476190476191,0.8676,0.9091,84.6
+"Il fenomeno è in crescita , ovunque",Eppure il fenomeno è in crescita.,67.69841269841271,0.7454,0.4444,53.3,Eppure il fenomeno è in crescita.,67.69841269841271,0.7454,0.4444,53.3
+Ma non era quello l' unico problema,Ma non è l'unico problema.,51.47486772486772,0.6205,1.0,32.2,Ma non è l'unico problema.,51.47486772486772,0.6205,1.0,32.2
+"Per quanto attiene ai servizi pubblici , la microzona è servita marginalmente da linee del Tram urbano ed extraurbano .","Per quanto attiene ai servizi pubblici, la microzona è servita da numerose linee del Tram urbano",69.09256923061479,0.9306,0.8148,76.2,"Per quanto attiene ai servizi pubblici, la microzona è servita da numerose linee del Tram urbano",69.09256923061479,0.9306,0.8148,76.2
+Questo è solo l' inizio,Certo è solo l'inizio.,31.388888888888886,0.2206,0.6667,10.4,E sarà solo l'inizio.,30.0,0.1471,0.5714,10.4
+C' è un particolare però,C'è però un piccolo particolare.,27.6984126984127,0.5743,0.0,7.7,C'è però un piccolo particolare.,27.6984126984127,0.5743,0.0,7.7
+Ne hanno parlato anche i giornali .,Ne abbiamo parlato con i giornali,40.231481481481474,0.526,0.2,19.3,Ne abbiamo parlato con i giornali,40.231481481481474,0.526,0.2,19.3
+è semplicemente una storia d' amore disperato ?,è una storia d'amore,48.51851851851851,0.5077,1.0,46.3,è una storia d'amore,48.51851851851851,0.5077,1.0,46.3
+Ma questo è soltanto l' inizio .,Invece era solo l'inizio,38.63636363636363,0.3233,0.75,24.9,Invece era solo l'inizio,38.63636363636363,0.3233,0.75,24.9
+"L' articolo 630 del codice penale è sostituito dal seguente : "" Art",L'articolo 323 del codice penale è sostituito con il seguente : « Art,90.534560755149,0.8106,1.0,84.5,L'articolo 323 del codice penale è sostituito con il seguente : « Art,90.534560755149,0.8106,1.0,84.5
+Oggi purtroppo non è più così »,Oggi non può più essere così.,75.0,0.9985,1.0,100.0,Oggi non può più essere così.,75.0,0.9985,1.0,100.0
+L' attività didattica della candidata è piuttosto rilevante,Buona è l'attività didattica della candidata.,56.88492063492063,0.6692,1.0,42.4,Buona è l'attività didattica della candidata.,56.88492063492063,0.6692,1.0,42.4
+Meglio non entrare nei dettagli .,Non possiamo entrare nei dettagli,58.333333333333336,0.75,0.5,42.7,Non possiamo entrare nei dettagli,58.333333333333336,0.75,0.5,42.7
+Ma oramai la frittata era fatta,Adesso la frittata è fatta.,41.86507936507937,0.625,0.2857,23.0,Adesso la frittata è fatta.,41.86507936507937,0.625,0.2857,23.0
+"allora , qui il discorso è complesso .",Qui il discorso è complesso,57.46031746031747,0.7118,0.5,28.6,Qui il discorso è complesso,57.46031746031747,0.7118,0.5,28.6
+""" Questo è un vero scandalo",Questo è un altro scandalo.,37.202380952380956,0.526,0.0,16.2,Questo è un altro scandalo.,37.202380952380956,0.526,0.0,16.2
+C' è tutto quello che sappiamo .,Tutto quello che sai è falso,47.72486772486773,0.625,0.5,32.5,Tutto quello che sai è falso,47.72486772486773,0.625,0.5,32.5
+Ma è molto difficile preveder- le .,è molto difficile da prevedere,91.66666666666667,0.996,1.0,66.9,è stato molto difficile da prevedere,66.48148148148148,0.949,0.8571,50.8
+"Va al mercato delle riforme , e se ne prende un pezzo .",Va al mercato delle imprese e ne ha un pezzo,40.23182957393484,0.5952,0.3,25.6,Va al mercato delle riforma e ne ha un pezzo,40.23182957393484,0.5952,0.3,25.6
+"In attesa di un risposta , porgo i saluti più distinti .",In attesa di una vostra risposta porgiamo distinti saluti,91.66666666666667,0.9993,1.0,100.0,In attesa di una vostra risposta porgiamo distinti saluti,91.66666666666667,0.9993,1.0,100.0
+Ma di questo potremmo parlare un' altra volta,Ma ne parliamo un'altra volta.,34.35064935064935,0.2662,0.3333,10.9,Ma ne parliamo un'altra volta.,34.35064935064935,0.2662,0.3333,10.9
+A cosa si riferisce in particolare ?,A che cosa si riferisce,36.99074074074074,0.4099,0.1818,7.0,A che cosa si riferisce,36.99074074074074,0.4099,0.1818,7.0
+C' è poi un altro particolare .,Ma è un altro particolare,68.33333333333333,0.6727,0.5714,54.8,Ma è un altro particolare,68.33333333333333,0.6727,0.5714,54.8
+"La seduta , sospesa alle 11.30 , è ripresa alle 12.30",La seduta sospesa alle 11. 30 è ripresa alle 15. 30.,58.62384347678466,0.7489,1.0,26.6,La seduta sospesa alle 11. 30 è ripresa alle 15. 30.,58.62384347678466,0.7489,1.0,26.6
+"La Commissione prosegue la discussione congiunta , rinviata nella seduta del 23 febbraio 2005 .",La Commissione prosegue la discussione rinviata nella seduta del 2 febbraio 2005,76.94444444444444,0.9139,0.8182,76.9,La Commissione prosegue la discussione rinviata nella seduta del 2 febbraio 2005,76.94444444444444,0.9139,0.8182,76.9
+Questa è una pericolosissima novità,Questa è stata un'altra novità.,41.37566137566137,0.4259,0.0,18.0,Questa è stata un'altra novità.,41.37566137566137,0.4259,0.0,18.0
+"10 Gli rispose Gesù : "" Tu sei maestro in Israele e non sai queste cose","11 Gli risposerono : "" Non temere in Israele e non temere.",20.499451528863293,0.3389,0.2727,15.7,"11 Gli risposerono : "" Non temere in Israele e non temere.",20.499451528863293,0.3389,0.2727,15.7
+- Ma come fai a dir- lo ?,E soprattutto come fare a dir - lo,57.26070226070226,0.8294,1.0,54.1,E soprattutto come fare a dir - lo,57.26070226070226,0.8294,1.0,54.1
+A disposizione ci sono 27 milioni di euro .,Sono 222 i milioni di euro a disposizione,91.66666666666667,0.999,1.0,100.0,Sono 222 i milioni di euro a disposizione,91.66666666666667,0.999,1.0,100.0
+Allora il problema vero è un altro .,Il vero problema sono gli zoom,75.0,0.9977,1.0,100.0,Il vero problema sono gli zoom,75.0,0.9977,1.0,100.0
+( si accettano tutte le carte di credito,Si accettano tutte le principali carte di credito.,43.51851851851851,0.625,0.4286,20.2,Si accettano tutte le principali carte di credito.,43.51851851851851,0.625,0.4286,20.2
+Ma non è così facile,Ma non può essere così facile.,83.33333333333333,0.9985,1.0,100.0,Ma non può essere così facile.,83.33333333333333,0.9985,1.0,100.0
+Ciascuno dei predetti disegni di legge deve essere corredato da idonea relazione tecnica e non deve recare oneri aggiuntivi a carico della finanza pubblica,Ciascuna disegno di legge deve essere corredata da apposita relazione a carico della finanza pubblica,41.94879194879195,0.4317,0.4571,29.6,Ciascuno dei predetti progetti di legge deve essere corredata da apposita relazione a carico della finanza pubblica,30.5514141655446,0.3982,0.3784,25.9
+"Ma che , siamo matti",Ma siamo proprio troppi ottimista.,30.277777777777782,0.1667,0.0,9.7,Ma siamo proprio troppi ottimista.,30.277777777777782,0.1667,0.0,9.7
+""" Qui siamo come a scuola",erano stato come una scuola.,39.47089947089947,0.3704,0.0,15.2,erano come una scuola adesso.,37.61904761904761,0.2174,0.0,9.0
+E ci tengo a precisare una cosa .,E ci metto una cosa,24.834656084656086,0.375,0.25,21.4,E ci metto una cosa,24.834656084656086,0.375,0.25,21.4
+"Il mondo è cambiato , soprattutto negli ultimi anni",Il mondo era cambiato in pochi anni.,45.45634920634921,0.4791,0.1667,6.9,Il mondo era cambiato in pochi anni.,45.45634920634921,0.4791,0.1667,6.9
+"Non è stata una brutta idea , anzi",Non è una mia idea.,43.9092389092389,0.4574,0.0,16.3,Non è una mia idea.,43.9092389092389,0.4574,0.0,16.3
+Ma secondo me non è più questa la cosa più importante,Secondo me non è la cosa più importante.,41.62464985994398,0.6503,0.1429,20.1,E la cosa non è piaciuta.,42.869607244607245,0.4208,0.1667,15.7
+Vorrei un vostro parere al riguardo .,Volevo un tuo parere a riguardo,75.0,0.9977,1.0,100.0,Volevo un tuo parere a riguardo,75.0,0.9977,1.0,100.0
+La Presidenza si attiverà nel senso indicato,La Presidenza si riunisce nel senso seguente.,44.56349206349207,0.5575,0.3333,23.4,La Presidenza si attiverà nel senso seguente.,44.936868686868685,0.7031,0.5,38.3
+Quali furono le cause del disastro ?,Quali sono le cause di questo disastro,61.81216931216932,0.8413,0.6667,64.3,Quali sono le cause del vostro disastro,30.83333333333334,0.4509,0.1667,15.6
+""" Questo è proprio il compito essenziale .",Questo è stato il compito essenziale,44.53342953342953,0.7353,0.2857,23.0,Questo è stato il tuo compito essenziale,42.05026455026455,0.607,0.0,15.6
+Le borse di studio verranno assegnate secondo l' ordine definito nella relativa graduatoria .,Le domande di partecipazione vengono assegnate secondo l'ordine alfabetico delle stesse graduatorie,26.387916277622157,0.263,0.2727,8.1,Le domande di partecipazione vengono assegnate secondo l'ordine alfabetico delle stesse graduatorie,26.387916277622157,0.263,0.2727,8.1
+I punti per le prove d' esame sono così ripartiti : 100 punti per la prova scritta ; 100 punti per la prova pratica ; 100 punti per la prova orale,I punti per le prove d'esame sono così ripartiti : - 30 punti per la prova scritta ; - 20 punti per l'esame orale.,60.28700879493183,0.6419,0.7083,48.6,I punti per le prove d'esame sono così ripartiti : - 30 punti per la prova scritta ; - 30 minuti per la prove pratica ; - 20 punti per l'esame.,56.4505923559605,0.6796,0.7547,52.8
+"Sulla proposta del Presidente conviene la Commissione e il seguito dell' esame è , quindi , rinviato",Sulla proposta del Presidente conviene la Commissione ed il seguito dell'esame è infine rinviato.,43.45234930761246,0.6107,0.5185,18.1,La Commissione conviene con la proposta del Presidente ed il seguito dell'esame è quindi rinviato.,73.4552947052947,0.8417,1.0,76.6
+"Insomma , qual è il suo vero obiettivo",E qual è il suo obiettivo?,26.763468013468014,0.082,0.0,6.6,E qual è il suo obiettivo?,26.763468013468014,0.082,0.0,6.6
+"Come ogni regola , anche questa ha le sue brave eccezioni .",Ogni regola ha le sue eccezioni,83.33333333333333,0.9977,1.0,100.0,Ogni regola ha le sue eccezioni,83.33333333333333,0.9977,1.0,100.0
+Il candidato potrebbe comunque meritare una qualche considerazione ai fini della presente valutazione comparativa .,Il candidato merita una considerazione ai fini della valutazione comparativa,60.52174949233773,0.7789,0.5556,39.3,Il candidato merita una considerazione ai fini della valutazione comparativa,60.52174949233773,0.7789,0.5556,39.3
+è proprio il sistema che non funziona,è il sistema che non funziona.,48.11507936507936,0.8034,0.4444,29.0,è il sistema che non funziona.,48.11507936507936,0.8034,0.4444,29.0
+"L' articolo 1136 del codice civile è sostituito dal seguente : "" Art",L'articolo 323 del codice penale è sostituito con il seguente : « Art,74.98339333537544,0.8106,1.0,84.5,L'articolo 323 del codice penale è sostituito con il seguente : « Art,74.98339333537544,0.8106,1.0,84.5
+Ma ci sono due spiegazioni .,Le spiegazioni sono due,44.82804232804233,0.5215,0.2857,27.5,Le spiegazioni sono due,44.82804232804233,0.5215,0.2857,27.5
+E questo è semplicemente un bel disco rock .,è un gran bel disco,76.5079365079365,0.8441,0.8571,81.9,è un disco allegra,41.544011544011546,0.4406,0.0,21.4
+Era sotto gli occhi di tutti .,Tutto questo è sotto gli occhi di tutti,100.0,0.999,1.0,100.0,Tutto questo è sotto gli occhi di tutti,100.0,0.999,1.0,100.0
+[ 22 ] Ma ora ascolta anche tu la voce della tua serva,22 Ora sentiamo la voce della tua servi.,35.83605664488017,0.5425,0.3529,23.7,22 Ora alzai la voce della tua servi.,35.83605664488017,0.5425,0.3529,23.7
+L' attività didattica è documentata e pertinente .,L'attività didattica è documentata,40.97222222222222,0.3874,0.4444,21.9,L'attività didattica è documentata,40.97222222222222,0.3874,0.4444,21.9
+"Tuttavia , si possono fare ulteriori considerazioni .",Si possono fare ulteriori considerazioni,40.69444444444444,0.6356,0.4444,19.4,Si possono fare ulteriori considerazioni,40.69444444444444,0.6356,0.4444,19.4
+"* "" Le bugie hanno le gambe corte "" .",Le menzogna hanno le spalle,32.22055722055722,0.2206,0.0,9.4,Le menzogna hanno le spalle,32.22055722055722,0.2206,0.0,9.4
+"Il problema , dunque , è quello delle risorse",Il problema è quello delle risorse.,100.0,0.9985,1.0,100.0,Il problema è quello delle risorse.,100.0,0.9985,1.0,100.0
+Lo sapeva con precisione assoluta,Lo sappiamo con molta sicurezza.,39.523809523809526,0.25,0.0,9.7,Lo sappiamo con molta sicurezza.,39.523809523809526,0.25,0.0,9.7
+"Dichiara , infine , la propria astensione .",Dichiara quindi la propria astensione,58.333333333333336,0.75,0.5,42.7,Dichiara quindi la propria astensione,58.333333333333336,0.75,0.5,42.7
+è questa una questione decisiva .,è una questione di marketing,83.33333333333333,0.996,1.0,100.0,è una questione di marketing,83.33333333333333,0.996,1.0,100.0
+"è una cosa gravissima "" .","è una cosa vostra """,38.59126984126984,0.3758,0.3333,15.8,"è una cosa vostra """,38.59126984126984,0.3758,0.3333,15.8
+Ma questo non è il mio problema,Ma non è un problema.,48.333333333333336,0.4769,0.0,14.6,Ma non è un problema.,48.333333333333336,0.4769,0.0,14.6
+Che non sia un romanzo,Ma non è un romanzo.,73.01587301587301,0.8535,0.5714,67.3,Ma non è un romanzo.,73.01587301587301,0.8535,0.5714,67.3
+"La partita , però , è ancora aperta .",La partita è ancora aperta,77.22222222222221,0.8441,0.8571,54.8,La partita è ancora aperta,77.22222222222221,0.8441,0.8571,54.8
+Dovrebbero far- la e si può fare anche facilmente .,Si può fare abbastanza facile,54.19413919413919,0.2206,0.4,26.7,Poi si può fare la facile,52.5534188034188,0.2174,0.3636,15.2
+La ringrazio per la consueta cortesia e la saluto .,Ringrazio per la consueta cortesia e saluto cordialmente,24.36868686868687,0.25,0.0,7.3,Ringrazio per la consueta cortesia e saluto cordialmente,24.36868686868687,0.25,0.0,7.3
+"Posto ai voti , è respinto l' emendamento 2.0.1 .",Posto ai voti l'emendamento 5. 0. 1 è respinto,50.89077589077589,0.5261,1.0,17.5,Posto ai voti l'emendamento 5. 0. 1 è respinto,50.89077589077589,0.5261,1.0,17.5

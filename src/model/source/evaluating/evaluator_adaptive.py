@@ -16,10 +16,12 @@ from src.model.source.evaluating.easse_sari.sari import corpus_sari
 Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
 '''
 
+
 class HFEvaluator:
     '''
     This class deals with the entire performance evaluation part of the model.
     '''
+
     def __init__(
             self,
             eval_dataset_path: str,
@@ -35,12 +37,12 @@ class HFEvaluator:
         :param log_level: which is the level for the logging of teh parameters
         '''
 
-        #open the evaluation dataset
+        # open the evaluation dataset
         df = pd.read_csv(eval_dataset_path, index_col=False)
         self.df = df
         self.logger = logging.getLogger(__name__)
 
-        #loading of all the metrics that will be used in order to conduct the evaluation
+        # loading of all the metrics that will be used in order to conduct the evaluation
         self.blue = evaluate.load("sacrebleu")
         self.sari = load_metric("sari")
         self.bert_score = load_metric("bertscore")
@@ -48,7 +50,7 @@ class HFEvaluator:
         self.glue = load_metric("glue", "stsb")
         self.meteor = load_metric("meteor")
 
-        #you initialize your tokenizer
+        # you initialize your tokenizer
         if tokenizer_path is None:
             tokenizer_path = model_path
             self.logger.info(
@@ -62,20 +64,18 @@ class HFEvaluator:
                 f"Could not find a suitable tokenizer for: {tokenizer_path}!"
             )
 
-
         # load the model trained and instantiate it
         self.model = EncoderDecoderModel.from_pretrained(model_path)
 
         # set up the correct device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        #logging the configuration
+        # logging the configuration
         logging.basicConfig(
             level=log_level,
             handlers=[logging.StreamHandler(sys.stdout)],
             format="%(levelname)s - %(message)s",
         )
-
 
     def __config_model(self, model_config: Dict):
         '''
@@ -88,36 +88,34 @@ class HFEvaluator:
         self.model.config.max_length = model_config["max_length"]
         self.model.config.min_length = model_config["min_length"]
 
-        #if set to int > 0, all ngrams of that size can only occur once
+        # if set to int > 0, all ngrams of that size can only occur once
         self.model.config.no_repeat_ngram_size = model_config['no_repeat_ngram_size']
         self.model.config.early_stopping = model_config['decoder']["early_stopping"]
 
-        #exponential penalty to the length that is used with beam-based generation.
+        # exponential penalty to the length that is used with beam-based generation.
         # It is applied as an exponent to the sequence length, which in turn is used to divide the score of the sequence.
         # Since the score is the log likelihood of the sequence (i.e. negative), length_penalty > 0.0 promotes longer sequences, while length_penalty < 0.0 encourages shorter sequences.
         self.model.config.length_penalty = model_config['length_penalty']
 
-        #number of beams for beam search. 1 means no beam search
+        # number of beams for beam search. 1 means no beam search
         self.model.config.num_beams = model_config["num_beams"]
 
-        #the value used to module the next token probabilities
+        # the value used to module the next token probabilities
         self.model.config.temperature = model_config['decoder']["temperature"]
 
-        #the number of highest probability vocabulary tokens to keep for top-k-filtering
+        # the number of highest probability vocabulary tokens to keep for top-k-filtering
         self.model.config.top_k = model_config['decoder']["top_k"]
 
-        #if set to float < 1, only the smallest set of most probable tokens with probabilities that add up to top_p or higher are kept for generation
+        # if set to float < 1, only the smallest set of most probable tokens with probabilities that add up to top_p or higher are kept for generation
         self.model.config.top_p = model_config['decoder']["top_p"]
 
         self.model.config.num_beam_groups = model_config['decoder']["num_beam_groups"]
 
-        #to use sampling or not (otherwise greedy search)
+        # to use sampling or not (otherwise greedy search)
         self.model.config.do_sample = model_config['decoder']["do_sample"]
 
-        #the parameter for repetition penalty. 1.0 means no penalty
+        # the parameter for repetition penalty. 1.0 means no penalty
         self.model.config.repetition_penalty = model_config['decoder']["repetition_penalty"]
-
-
 
     def __sources_and_references(self) -> Dict:
         '''
@@ -131,7 +129,6 @@ class HFEvaluator:
             dictionary[key] = value
 
         return dictionary
-
 
     def generate(
             self,
@@ -161,20 +158,16 @@ class HFEvaluator:
 
         return final_outputs
 
-
-
-
-    def generate_sampling(self,input_ids: torch.Tensor,
-            attention_mask: torch.Tensor,
-            model_config: Dict,
-            ) -> List[str]:
+    def generate_sampling(self, input_ids: torch.Tensor,
+                          attention_mask: torch.Tensor,
+                          model_config: Dict,
+                          ) -> List[str]:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        outputs = model.generate(input_ids=input_ids, attention_mask= attention_mask, max_length = 200, top_k=120, top_p = 1, do_sample=True)
+        outputs = model.generate(input_ids=input_ids, attention_mask=attention_mask, max_length=200, top_k=120, top_p=1,
+                                 do_sample=True)
         return self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
-
-
 
     def __tokenize(self, sources: List[str]) -> Tuple[torch.Tensor, torch.Tensor]:
         '''
@@ -188,9 +181,8 @@ class HFEvaluator:
 
         return input_ids, attention_mask
 
-
-    #here below we have the list of functions which load the metrics and return the score
-    #and results according to each specific implementation
+    # here below we have the list of functions which load the metrics and return the score
+    # and results according to each specific implementation
     def eval_sari_score(
             self, sources: List[str], predictions: List[str], references: List[List[str]]
     ) -> Dict:
@@ -199,23 +191,17 @@ class HFEvaluator:
         )
         return {"sari_score": round(result["sari"], 4)}
 
-
-
     def eval_bert_score(self, predictions, references) -> Dict:
         result = self.bert_score.compute(
             predictions=predictions, references=references, lang="en"
         )
         return {"bert_score_f1": round(result["f1"][0], 4)}
 
-
-
     def eval_meteor_score(self, predictions, references) -> Dict:
         result = self.meteor.compute(predictions=predictions, references=references)
         return {"meteor_score": round(result["meteor"], 4)}
 
-
-
-    def eval_rouge_scores(self, predictions, references ) -> Dict:
+    def eval_rouge_scores(self, predictions, references) -> Dict:
         result = self.rouge.compute(
             predictions=predictions, references=references, rouge_types=["rouge2"]
         )["rouge2"].mid
@@ -225,14 +211,12 @@ class HFEvaluator:
             "rouge2_f_measure": round(result.fmeasure, 4),
         }
 
-
     def eval_blue_score(self, predictions, references):
-        results = self.blue.compute(predictions = predictions, references = references)
+        results = self.blue.compute(predictions=predictions, references=references)
         return {
             'score': round(results["score"], 1),
             'precision': results["precisions"]
         }
-
 
     def eval_glue_score(self, predictions, references) -> Dict:
         result = self.glue.compute(predictions=predictions, references=references)
@@ -240,8 +224,6 @@ class HFEvaluator:
             "glue_pearson": round(result["pearson"], 4),
             "glue_spearman_r": round(result["spearmanr"], 4),
         }
-
-
 
     # this is the most important function which connects all the steps have been defined above
     def evaluate_with_dataset(
@@ -256,78 +238,106 @@ class HFEvaluator:
     ):
 
         # creation of the output .csv file which will contain the ground truth sentences, the predictions and all the scores of the different metrics
-        result_df = pd.DataFrame(columns=["Normal", "Simple1", "SARI_1", "METEOR_1", "ROUGE_F_1",'BLEU_1', 'Simple2', "SARI_2", "METEOR_2", "ROUGE_F_2",'BLEU_2'])
+        result_df = pd.DataFrame(
+            columns=["Normal", "Simple1", "SARI_1", "METEOR_1", "ROUGE_F_1", 'BLEU_1', 'Simple2', "SARI_2", "METEOR_2",
+                     "ROUGE_F_2", 'BLEU_2'])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
 
-            inputs = self.__tokenize(source)
+
+            source_1 = ['semplifica:']
+
+            i = 1
+            for ele in source.split():
+                if i <=6:
+                    if i == 1:
+                        #word_length_ratio
+                        source_1.append('0.20')
+
+                    elif i == 2:
+                        #character_length_ratio
+                        source_1.append('0.20')
+
+                    elif i == 3:
+                        #levensthain_similarity
+                        source_1.append('0.90')
+
+                    elif i == 4:
+                        #word_rank_ratio (complexity)
+                        source_1.append('0.90')
+
+                    elif i == 5:
+                        #depth_tree
+                        source_1.append('1')
+
+                else:
+                    source_1.append(ele)
+
+                i +=1
+
+            source_2 = ' '.join(source_1)
+
+
+            inputs_default = self.__tokenize(source)
+            inputs_modified = self.__tokenize(source_2)
             reference_tokens = self.__tokenize(references)
 
-            output_1 = self.generate(*inputs, model_config=model_config)
-            output_2 = self.generate_sampling(*inputs, model_config=model_config)
+            output_default = self.generate(*inputs_default, model_config=model_config)
+            output_modificed = self.generate(*inputs_modified, model_config=model_config)
 
-            print('OUTPUT1: ' + output_1[0])
-            print('OUTPUT2: ' + output_2[0])
 
 
 
             sari_result = self.eval_sari_score(
-                sources=[source], predictions=output_1, references=[[references]]
+                sources=[source], predictions=output_default, references=[[references]]
             )
 
-            sari_easse1 = corpus_sari(orig_sents=[source],
-                              sys_sents=output_1,
-                              refs_sents=[[references]])
-
-
+            easse_sari1 = corpus_sari(orig_sents = [source],
+                                     sys_sents = output_default,
+                                     refs_sents = [[references]])
 
             sari_result_2 = self.eval_sari_score(
-                sources=[source], predictions=output_2, references=[[references]]
+                sources=[source], predictions=output_modificed, references=[[references]]
             )
 
-            sari_easse2 = corpus_sari(orig_sents=[source],
-                                      sys_sents=output_2,
+            easse_sari2 = corpus_sari(orig_sents=[source],
+                                      sys_sents=output_modificed,
                                       refs_sents=[[references]])
 
             meteor_result = self.eval_meteor_score(
-                predictions=output_1, references=[references]
+                predictions=output_default, references=[references]
             )
 
             meteor_result_2 = self.eval_meteor_score(
-                predictions=output_2, references=[references]
+                predictions=output_modificed, references=[references]
             )
 
-
             rouge_result = self.eval_rouge_scores(
-                predictions=[output_1], references=[references]
+                predictions=[output_default], references=[references]
             )
 
             rouge_result_2 = self.eval_rouge_scores(
-                predictions=[output_2], references=[references]
+                predictions=[output_modificed], references=[references]
             )
 
-            blue_result = self.eval_blue_score(predictions= output_1, references= [[references]])
+            blue_result = self.eval_blue_score(predictions=output_default, references=[[references]])
 
-
-            blue_result_2 = self.eval_blue_score(predictions=output_2, references=[[references]])
-
-
+            blue_result_2 = self.eval_blue_score(predictions=output_modificed, references=[[references]])
 
             result_df = result_df.append(
                 {
                     "Normal": source,
-                    "Simple1": output_1[0],
-                    "SARI_1": sari_easse1,
+                    "Simple1": output_default[0],
+                    "SARI_1": easse_sari1,
                     "METEOR_1": meteor_result["meteor_score"],
                     "ROUGE_F_1": rouge_result['rouge2_f_measure'],
                     'BLEU_1': blue_result['score'],
-                    'Simple2': output_2[0],
-                    "SARI_2": sari_easse2,
+                    'Simple2': output_modificed[0],
+                    "SARI_2":easse_sari2,
                     "METEOR_2": meteor_result_2["meteor_score"],
                     "ROUGE_F_2": rouge_result_2['rouge2_f_measure'],
                     'BLEU_2': blue_result_2['score']
-
 
                 },
                 ignore_index=True,
@@ -338,19 +348,19 @@ class HFEvaluator:
             print(f"Dataframe saved at: {csv_output_path}.")
 
 
-
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/augmented/test_filtered.csv',
-                     model_path= '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20',
-                     tokenizer_path= '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20',
+classe = HFEvaluator(eval_dataset_path=CSV_FILES_PATH + '/adaptive/test_filtered.csv',
+                     model_path='/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param',
+                     tokenizer_path='/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open( '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20/config.json') as json_file:
+with open(
+        '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param/config.json') as json_file:
     data = json.load(json_file)
     print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_easse.csv',
+                             csv_output_path=CSV_EVAL_OUTPUT + '/adaptive_8_params.csv',
                              extend_dataframe=False)

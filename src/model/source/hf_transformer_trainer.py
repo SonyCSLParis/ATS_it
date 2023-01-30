@@ -69,7 +69,7 @@ if __name__ == "__main__":
         "gradient_accumulation_steps": args.gradient_accumulation_steps,
     }
 
-    max_seq_length = get_max_length(CSV_FILES_PATH + args.ds_path[64:] + 'train.csv') - 80
+    max_seq_length = get_max_length(CSV_FILES_PATH + args.ds_path[64:] + '/train.csv') - 80
 
 
     #we set up the configuration dictionary of model parameters, required for the model setting

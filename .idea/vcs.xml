@@ -9,6 +9,7 @@
     <mapping directory="$PROJECT_DIR$/easse" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/model/bert_score" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/model/deep_mart_final/transformers" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/model/source/evaluating/easse" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/model/transformers" vcs="Git" />
   </component>
 </project>

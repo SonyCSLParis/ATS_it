@@ -91,3 +91,4 @@ __pypackages__/
 /src/model/source/wandb/
 /src/model/transformers/
 /src/model/model_deep/trained_model/
+/src/model/source/evaluating/easse/
