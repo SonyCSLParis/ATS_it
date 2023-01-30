@@ -26,6 +26,10 @@ from tqdm import tqdm
 #from access.text import (to_words, remove_punctuation_tokens, remove_stopwords, spacy_process)
 from pathlib import Path
 
+print(len('semplifica: 0.83 0.8 0.7 1.0 1.0'))
+
+
+
 
 '''def download_and_extract(url):
     tmp_dir = Path(tempfile.mkdtemp())

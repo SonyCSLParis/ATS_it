@@ -38,4 +38,3 @@ def generate_feature(path1, path2):
 
     return
 
-generate_feature(from_path, to_path)

@@ -4,8 +4,6 @@ import csv
 from settings import *
 from transformers import pipeline
 
-nlp = spacy.load('it_core_news_sm')
-
 #synonym generation
 def lexical_augmentation(input_file, output_file):
 
