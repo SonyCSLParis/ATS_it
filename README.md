@@ -93,7 +93,7 @@ Inside this folder you will find another one called deep_martin_final which is s
   
   - **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline for baseline models and the `evaluator_adaptive.py` for the adaptive model. In addition, it contains the `output_metrics.py` script that allows to output the evaluation metrics calculated on the test set of the corpus. We make use of the Easse implementation of SARI, which can be found inside the **easse_sari** folder.
   
-  - **adaptive**: this folder 
+  - **adaptive**: This folder contains four files (`feature_extraction.py`, `helper.py`, `metrics_calculation.py`, `text.py`), dedicated to the extrapolation of control tokens for the adaptive part of our model. 
   
   - `hf_transformer_trainer.py`: is the script which actually launch the training.
 
