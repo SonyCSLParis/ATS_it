@@ -41,4 +41,4 @@ def average_evaluation(input_csv):
     to_report_second = [(metrics[0],sari1//i), (metrics[1],round(meteor1/i, 3)), (metrics[2],round(rouge1/i,3)),(metrics[3],bleu1//i)]
     return to_report_first, to_report_second
 
-print(average_evaluation('/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/csv_output/adaptive_8_params.csv'))
+print(average_evaluation(CSV_EVAL_OUTPUT + '/adaptive_8_params.csv'))

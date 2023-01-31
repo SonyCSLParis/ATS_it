@@ -28,6 +28,7 @@ BERT2BERT_DIR = SOURCE_MODEL_DIR + '/bert2bert'
 BERT2BERT_CASED_DIR = SOURCE_MODEL_DIR + '/bert2bert_cased'
 
 TRAINED_MODEL = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/trained_model') #trained models checkpoints
+print(TRAINED_MODEL)
 CSV_EVAL_OUTPUT = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/csv_output') #output csv after evaluation
 
 HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory for final visualisations

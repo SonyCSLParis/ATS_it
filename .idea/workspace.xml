@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/data_processing/filter_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/adaptive_10_double_easse.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_easse.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/finalized_10.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/made_up_test_augmented.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/made_up_test_paccsit.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/paccsit_pure.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/evaluating/easse_sari/preprocessing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/evaluating/easse_sari/sari.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/data_processing/parse_books.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/adaptive_8_params.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/quinta_elementare.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/seconda_elementare.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_augmentation/augmentation_trial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_augmentation/augmentation_trial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/PoS.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/PoS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/easse_sari/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/stopwords_distribution.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/stopwords_distribution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/subject_verb_object_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/subject_verb_object_extract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/verb_mood_tense.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/verb_mood_tense.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts/visualisations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/utils_charts/visualisations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" afterDir="false" />
@@ -42,16 +26,10 @@
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_20.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_cased_20.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_cased_20_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/adaptive/metrics_calculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/adaptive/metrics_calculation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/output_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/output_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/hf_transformer_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/hf_transformer_trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/training/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/experiment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/hf_training.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
@@ -1357,7 +1335,7 @@
       <recent name="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.output_metrics">
+  <component name="RunManager" selected="Python.evaluator_adaptive">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1501,28 +1479,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="examples" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/enhanced-subject-verb-object-extraction-master" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/enhanced-subject-verb-object-extraction-master/examples.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1852,6 +1808,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="parse_books" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/data/data_processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_processing/parse_books.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="preprocess_paccsit" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1866,6 +1843,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data/data_processing/preprocess_paccsit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/settings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1959,27 +1958,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tutorial_checkpoints_hf" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="pythonProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/model/deep_mart_final/source" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model/deep_mart_final/source/tutorial_checkpoints_hf.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="verb_mood_tense" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -2009,7 +1987,7 @@
       <item itemvalue="Python.custom_transformer_training" />
       <item itemvalue="Python.dataset" />
       <item itemvalue="Python.evaluator" />
-      <item itemvalue="Python.examples" />
+      <item itemvalue="Python.settings" />
       <item itemvalue="Python.exxp_1" />
       <item itemvalue="Python.hf_evaluation" />
       <item itemvalue="Python.hf_training" />
@@ -2030,7 +2008,7 @@
       <item itemvalue="Python.filter_test" />
       <item itemvalue="Python.stopwords_distribution" />
       <item itemvalue="Python.translate_df" />
-      <item itemvalue="Python.tutorial_checkpoints_hf" />
+      <item itemvalue="Python.parse_books" />
       <item itemvalue="Python.verb_mood_tense" />
       <item itemvalue="Python.subject_verb_object_extract" />
     </list>

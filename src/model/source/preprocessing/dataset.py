@@ -174,12 +174,12 @@ for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit'), (
     colonna_semplice = [str(riga) for riga in list(df[0]['Simple'])]
 
     dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-    HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')'''
+    HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')
 
-file = pd.read_csv('/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/paccsit_pure/pacssit.csv')
+file = pd.read_csv(CSV_FILES_PATH + '/paccsit_pure/pacssit.csv')
 colonna_complessa = [str(riga) for riga in list(file['Sentence_1'])]
 colonna_semplice = [str(riga) for riga in list(file['Sentence_2'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/paccsit_pure', '/paccsit_pure/train.csv', '/paccsit_pure/val.csv', '/paccsit_pure/test.csv')
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/paccsit_pure', '/paccsit_pure/train.csv', '/paccsit_pure/val.csv', '/paccsit_pure/test.csv')'''
 
