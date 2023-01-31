@@ -89,9 +89,11 @@ Inside this folder you will find another one called deep_martin_final which is s
 
   - **preprocessing**: this folder contains the file `dataset.py`, which allows you to create an instance of the HuggingFaceDataset class;
   
-  - **training**: this folder include the `hf_training.py` script which sets the complete training pipeline and the `hyperparameter_search.py` script which     is in charge of finding the best hyperparameters in the searching space;
+  - **training**: this folder include the `hf_training.py` script which sets the complete training pipeline and the `hyperparameter_search.py` script which is in charge of finding the best hyperparameters in the searching space;
   
-  - **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline;
+  - **evaluation**: this folder include the `evaluator.py` script which sets the complete evaluation pipeline for baseline models and the `evaluator_adaptive.py` for the adaptive model. In addition, it contains the `output_metrics.py` script that allows to output the evaluation metrics calculated on the test set of the corpus. We make use of the Easse implementation of SARI, which can be found inside the **easse_sari** folder.
+  
+  - **adaptive**: this folder 
   
   - `hf_transformer_trainer.py`: is the script which actually launch the training.
 
