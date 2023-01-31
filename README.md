@@ -68,10 +68,12 @@ This folder is quite composite:
 
 - the script `join_datasets.py` allows you to merge the three individual datasets into a final one;
 
-- the two scripts `clean_text.py` and `preprocess_paccsit.py` are used for pre-processing analyses to clean up datasets, either lemmatising, removing stopwords, or filtering for cosine similarity between complex and simple sentences. Various tests and trials were conducted during the project.
-
 #### data processing 
-Inside the **analysis** folder there are scripts for doing quantitative analyses and making qualitative judgements (as far as possible) on the datasets used. These are simple *NLP* analyses and the main library used is *spacy*. By running `main.py`, one can obtain graphs and metrics, including the distribution of Part Of Speech, see how many simple structures (SVO - Subject Verb Object -) are present in both simple and complex sentences, and understand the Mood and Tense of verbs.
+Inside the **utils_charts** folder there are scripts for doing quantitative analyses and making qualitative judgements (as far as possible) on the datasets used. These are simple *NLP* analyses and the main library used is *spacy*. By running `main.py`, one can obtain graphs and metrics, including the distribution of Part Of Speech, see how many simple structures (SVO - Subject Verb Object -) are present in both simple and complex sentences, and understand the Mood and Tense of verbs.
+
+Moreover, the two scripts `clean_paccsit.py` and `preprocess_data.py` are used for pre-processing analyses to clean up datasets, either lemmatising, removing stopwords, or filtering for cosine similarity between complex and simple sentences. Various tests and trials were conducted during the project.
+The script `filter_test.py`, instead, is subsequently used to filter our test dataset from the sentences already seen by the model in the training and validation set.
+
 
 #### data augmentation
 In this folder there are two files:
