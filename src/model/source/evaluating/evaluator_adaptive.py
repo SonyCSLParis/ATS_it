@@ -350,13 +350,12 @@ class HFEvaluator:
 
 # I instantiate the class, giving all the required arguments
 classe = HFEvaluator(eval_dataset_path=CSV_FILES_PATH + '/adaptive/test_filtered.csv',
-                     model_path='/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param',
-                     tokenizer_path='/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param',
+                     model_path= TRAINED_MODEL + '/adap_8_param',
+                     tokenizer_path= TRAINED_MODEL + '/adap_8_param',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(
-        '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/adap_8_param/config.json') as json_file:
+with open(TRAINED_MODEL + '/adap_8_param/config.json') as json_file:
     data = json.load(json_file)
     print(data)
 

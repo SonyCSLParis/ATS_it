@@ -11,6 +11,7 @@ from settings import *
 import evaluate
 from src.model.source.evaluating.easse_sari.sari import corpus_sari
 
+
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
 
 Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
@@ -340,17 +341,17 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/augmented/test_filtered.csv',
-                     model_path= '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20',
-                     tokenizer_path= '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20',
+classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/quinta.csv',
+                     model_path= TRAINED_MODEL + '/finalized_10',
+                     tokenizer_path= TRAINED_MODEL + '/finalized_10',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open( '/Users/francesca/Desktop/Github/PROJECT_SONY/src/model/model_deep/trained_model/augmented_cased_20/config.json') as json_file:
+with open(TRAINED_MODEL + '/finalized_10/config.json') as json_file:
     data = json.load(json_file)
     print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/augmented_easse.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/quinta_elementare.csv',
                              extend_dataframe=False)
