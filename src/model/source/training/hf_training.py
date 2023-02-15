@@ -293,8 +293,7 @@ class HuggingFaceTrainer:
             per_device_train_batch_size=training_config["per_device_train_batch_size"],
             per_device_eval_batch_size=training_config["per_device_eval_batch_size"],
             fp16=training_config["fp16"] if torch.cuda.is_available() else False,
-            learning_rate = 3e-4,
-            weigth_decay = 0.1,
+            learning_rate = 3e-4, #potentially add weight decay 0.1 and notice the differences 
             output_dir=training_output_path,
             overwrite_output_dir=False,
             logging_steps=training_config["logging_steps"],
