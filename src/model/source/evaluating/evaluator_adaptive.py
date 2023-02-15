@@ -239,8 +239,14 @@ class HFEvaluator:
 
         # creation of the output .csv file which will contain the ground truth sentences, the predictions and all the scores of the different metrics
         result_df = pd.DataFrame(
-            columns=["Normal", "Simple1", "SARI_1", "METEOR_1", "ROUGE_F_1", 'BLEU_1', 'Simple2', "SARI_2", "METEOR_2",
-                     "ROUGE_F_2", 'BLEU_2'])
+            columns=["Normal",
+                     "Simple1",
+                     "SARI_1",
+                     'BLEU_1',
+                     'Normal2',
+                     'Simple2',
+                     "SARI_2",
+                     'BLEU_2'])
 
         # iterate through all the instances of the dictionary created by the __source_and_reference() function
         for source, references in tqdm(self.__sources_and_references().items()):
@@ -277,6 +283,8 @@ class HFEvaluator:
                 i +=1
 
             source_2 = ' '.join(source_1)
+            print(source)
+            print(source_2)
 
 
             inputs_default = self.__tokenize(source)
@@ -284,25 +292,21 @@ class HFEvaluator:
             reference_tokens = self.__tokenize(references)
 
             output_default = self.generate(*inputs_default, model_config=model_config)
-            output_modificed = self.generate(*inputs_modified, model_config=model_config)
+            output_modified = self.generate(*inputs_modified, model_config=model_config)
 
 
+            print('output_default: ', output_default)
+            print('output_modified: ', output_modified)
 
-
-            sari_result = self.eval_sari_score(
-                sources=[source], predictions=output_default, references=[[references]]
-            )
 
             easse_sari1 = corpus_sari(orig_sents = [source],
                                      sys_sents = output_default,
                                      refs_sents = [[references]])
 
-            sari_result_2 = self.eval_sari_score(
-                sources=[source], predictions=output_modificed, references=[[references]]
-            )
+
 
             easse_sari2 = corpus_sari(orig_sents=[source],
-                                      sys_sents=output_modificed,
+                                      sys_sents=output_modified,
                                       refs_sents=[[references]])
 
             meteor_result = self.eval_meteor_score(
@@ -310,7 +314,7 @@ class HFEvaluator:
             )
 
             meteor_result_2 = self.eval_meteor_score(
-                predictions=output_modificed, references=[references]
+                predictions=output_modified, references=[references]
             )
 
             rouge_result = self.eval_rouge_scores(
@@ -318,25 +322,22 @@ class HFEvaluator:
             )
 
             rouge_result_2 = self.eval_rouge_scores(
-                predictions=[output_modificed], references=[references]
+                predictions=[output_modified], references=[references]
             )
 
             blue_result = self.eval_blue_score(predictions=output_default, references=[[references]])
 
-            blue_result_2 = self.eval_blue_score(predictions=output_modificed, references=[[references]])
+            blue_result_2 = self.eval_blue_score(predictions=output_modified, references=[[references]])
 
             result_df = result_df.append(
                 {
                     "Normal": source,
                     "Simple1": output_default[0],
                     "SARI_1": easse_sari1,
-                    "METEOR_1": meteor_result["meteor_score"],
-                    "ROUGE_F_1": rouge_result['rouge2_f_measure'],
                     'BLEU_1': blue_result['score'],
-                    'Simple2': output_modificed[0],
+                    'Normal2': source_2,
+                    'Simple2': output_modified[0],
                     "SARI_2":easse_sari2,
-                    "METEOR_2": meteor_result_2["meteor_score"],
-                    "ROUGE_F_2": rouge_result_2['rouge2_f_measure'],
                     'BLEU_2': blue_result_2['score']
 
                 },
@@ -349,17 +350,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path=CSV_FILES_PATH + '/adaptive/test_filtered.csv',
-                     model_path= TRAINED_MODEL + '/adap_8_param',
-                     tokenizer_path= TRAINED_MODEL + '/adap_8_param',
+classe = HFEvaluator(eval_dataset_path='/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/adaptive/test_filtered.csv',
+                     model_path= TRAINED_MODEL + '/adaptive_20 ',
+                     tokenizer_path= TRAINED_MODEL + '/adaptive_20 ',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(TRAINED_MODEL + '/adap_8_param/config.json') as json_file:
+with open(TRAINED_MODEL + '/adaptive_20 /config.json') as json_file:
     data = json.load(json_file)
-    print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path=CSV_EVAL_OUTPUT + '/adaptive_8_params.csv',
+                             csv_output_path=CSV_EVAL_OUTPUT + '/test_prova_adaptive.csv',
                              extend_dataframe=False)

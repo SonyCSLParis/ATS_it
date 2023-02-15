@@ -25,8 +25,8 @@ df2 = df2[['Normal', 'Simple']]
 df3 = pd.read_csv(simpitiki)
 df3 = df3[['Normal', 'Simple']]
 
-df4 = pd.concat([df1, df2, df3])
-df4.to_csv(only_tts, index=False)
+#df4 = pd.concat([df1, df2, df3])
+#df4.to_csv(only_tts, index=False)
 
 
 #another phase of joining. We merge our final corpus of 32000 instances (obtained by the join of paccsit, terence, teacher and simpitiki)

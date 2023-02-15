@@ -3,8 +3,8 @@ from text import *
 from settings import *
 import csv
 
-from_path = CSV_FILES_PATH + '/augmented/augmented_dataset.csv'
-to_path = CSV_FILES_PATH + '/adaptive/control_token_data.csv'
+from_path = CSV_FILES_PATH + '/enriched/enriched_final.csv'
+to_path = CSV_FILES_PATH + '/enriched/enriched_adaptive.csv'
 
 
 def generate_feature(path1, path2):
@@ -33,8 +33,8 @@ def generate_feature(path1, path2):
                     text += str(ele) + ' '
 
                 addition = 'semplifica: ' + text + complex
-                print(addition)
                 writer.writerow([addition, simple])
 
     return
 
+print(generate_feature(path1=from_path, path2 =to_path))

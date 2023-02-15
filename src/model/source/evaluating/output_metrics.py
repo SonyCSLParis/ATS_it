@@ -37,8 +37,46 @@ def average_evaluation(input_csv):
 
 
 
-    to_report_first = [(metrics[0],sari//i), (metrics[1],round(meteor/i, 3)), (metrics[2],round(rouge/i,3)),(metrics[3] ,bleu//i)]
-    to_report_second = [(metrics[0],sari1//i), (metrics[1],round(meteor1/i, 3)), (metrics[2],round(rouge1/i,3)),(metrics[3],bleu1//i)]
+    to_report_first = [(metrics[0],sari/i), (metrics[1],round(meteor/i, 3)), (metrics[2],round(rouge/i,3)),(metrics[3] ,bleu/i)]
+    to_report_second = [(metrics[0],sari1/i), (metrics[1],round(meteor1/i, 3)), (metrics[2],round(rouge1/i,3)),(metrics[3],bleu1//i)]
     return to_report_first, to_report_second
 
-print(average_evaluation(CSV_EVAL_OUTPUT + '/adaptive_8_params.csv'))
+print(average_evaluation(CSV_EVAL_OUTPUT +'/adaptive_10_double_easse.csv'))
+
+
+#let the matrics be saved on a json file or a csv file
+def average_evaluation2(input_csv):
+    metrics = ['sari', 'bleu']
+    sari = 0
+    bleu = 0
+
+    sari1 = 0
+    bleu1 = 0
+
+    with open(input_csv, 'r') as in_file:
+
+        reader = csv.reader(in_file)
+        next(reader)
+
+
+        i = 0
+        j = 0
+        for row in reader:
+            print(row)
+            i +=1
+            j +=1
+
+            sari += float(row[2])
+            bleu += float(row[3])
+
+            sari1 += float(row[6])
+            bleu1 += float(row[7])
+
+
+
+    to_report_first = [(metrics[0],sari/i), (metrics[1],bleu/i)]
+    to_report_second = [(metrics[0],sari1/i), (metrics[1],bleu1/i)]
+    return to_report_first, to_report_second
+
+
+#print(average_evaluation2(CSV_EVAL_OUTPUT + '/adaptive_10_double_easse.csv'))
