@@ -98,7 +98,7 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
 
 
                 #adjust the numbers in the sentences and eliminate punctuation at the beginning and at the end of the sentences
-                ccomm, ssempp = adjust_number(row[0], row[1])
+                ccomm, ssempp = adjust_number(row[1], row[2])
                 res = re.sub(r'(^[^\w]+)|([^\w]+$)', '', ccomm)
                 res1 = re.sub(r'(^[^\w]+)|([^\w]+$)', '', ssempp)
 
@@ -114,6 +114,7 @@ def clean_corpus(input_file, output_file, file_pronomi = None):
                 #keep only instances with a similarity bigger than 0.05
                 if similarity > 0.05:
 
+                    #if the complex sentence is not in the list already, add it, together with the corresponding simple one
                     if res not in list_complex and not res1.startswith('articolo'):
                         writer.writerow([res, res1])
                         list_complex.append(res)
@@ -152,6 +153,5 @@ for ground in grounds:
                 full_out = full[:-4] + '_processato.csv'
                 print(full_out)
                 clean_corpus(input_file=full, output_file=full_out)
-
 
 

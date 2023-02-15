@@ -136,7 +136,7 @@ if not os.path.exists(base_dir_sim):
 for file in os.listdir(base_dir_sim):
     i = file.find('_')
     name = file[:i+1] + 'it.csv'
-    input_dir = path + '/' + file
+    input_dir = str(path) + '/' + file
     outpur_dir = TURKUS_TRANSLATED + '/' + name
 
     parse_turk_corpus(data_input= input_dir, data_output=outpur_dir)
@@ -168,25 +168,26 @@ def parsing_wiki(data_input_com, data_input_sem, data_output):
             writer.writerow(['Normal', 'Simple'])
 
             for i in range(len(lines_compl)):
-                translator = deepl.Translator(auth_key)
-                c = translator.translate_text(lines_compl[i], target_lang= 'IT')
-                s = translator.translate_text(lines_sempl[i], target_lang= 'IT')
-                writer.writerow([c, s])
+                if i < 1000:
+                    translator = deepl.Translator(auth_key)
+                    c = translator.translate_text(lines_compl[i], target_lang= 'IT')
+                    s = translator.translate_text(lines_sempl[i], target_lang= 'IT')
+                    writer.writerow([c, s])
+
+
 
             f.close()
 
     return
 
 
-#procedure for the WIKIPEDIA DATASET (divided in training, validation and test), here we peocess only the training set
-base_dir_wiki = WIKIPEDIA_DIR
-translated_dir_wiki = WIKIPEDIA_TRANSLATED
 
-for textfile in base_dir_wiki:
-    if 'training' in textfile:
-            first = '/normal.training.txt'
-            second = '/simple.training.txt'
-            parsing_wiki(data_input_com=WIKIPEDIA_DIR + first, data_input_sem= WIKIPEDIA_DIR + second, data_output= WIKIPEDIA_TRANSLATED + '/dataset_tradotto.csv')
+
+
+
+
+
+
 
 
 

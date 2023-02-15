@@ -43,7 +43,6 @@ class HFEvaluator:
 
         #loading of all the metrics that will be used in order to conduct the evaluation
         self.blue = evaluate.load("sacrebleu")
-        self.sari = load_metric("sari")
         self.bert_score = load_metric("bertscore")
         self.rouge = load_metric("rouge")
         self.glue = load_metric("glue", "stsb")
@@ -150,8 +149,8 @@ class HFEvaluator:
             do_sample=False,
             max_length=200,
             num_beams=8,
-            top_k=120,
-            top_p=0.98,
+            top_k=200,
+            top_p=1,
             early_stopping=True,
             num_return_sequences=1
         )
@@ -172,7 +171,7 @@ class HFEvaluator:
 
         self.__config_model(model_config)
         model = self.model.to(self.device)
-        outputs = model.generate(input_ids=input_ids, attention_mask= attention_mask, max_length = 200, top_k=120, top_p = 1, do_sample=True)
+        outputs = model.generate(input_ids=input_ids, attention_mask= attention_mask, max_length = 200, top_k=120, top_p = 0.98, do_sample=True, temperature = 0.8)
         return self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
 
@@ -263,6 +262,8 @@ class HFEvaluator:
         for source, references in tqdm(self.__sources_and_references().items()):
 
             inputs = self.__tokenize(source)
+            print('SOURCE: ', source)
+            print('REFERENCE: ', references)
             reference_tokens = self.__tokenize(references)
 
             output_1 = self.generate(*inputs, model_config=model_config)
@@ -273,19 +274,12 @@ class HFEvaluator:
 
 
 
-            sari_result = self.eval_sari_score(
-                sources=[source], predictions=output_1, references=[[references]]
-            )
 
             sari_easse1 = corpus_sari(orig_sents=[source],
                               sys_sents=output_1,
                               refs_sents=[[references]])
 
 
-
-            sari_result_2 = self.eval_sari_score(
-                sources=[source], predictions=output_2, references=[[references]]
-            )
 
             sari_easse2 = corpus_sari(orig_sents=[source],
                                       sys_sents=output_2,
@@ -341,17 +335,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/quinta.csv',
-                     model_path= TRAINED_MODEL + '/finalized_10',
-                     tokenizer_path= TRAINED_MODEL + '/finalized_10',
+classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/paccsit_pure/test_filtered.csv',
+                     model_path= TRAINED_MODEL + '/paccsit_original_20',
+                     tokenizer_path= TRAINED_MODEL + '/paccsit_original_20',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(TRAINED_MODEL + '/finalized_10/config.json') as json_file:
+with open(TRAINED_MODEL + '/paccsit_original_20/config.json') as json_file:
     data = json.load(json_file)
-    print(data)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/quinta_elementare.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/paccsit_easse_ufficial.csv',
                              extend_dataframe=False)

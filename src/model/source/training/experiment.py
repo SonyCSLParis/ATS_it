@@ -1,4 +1,4 @@
-from transformers import (
+'''from transformers import (
     AutoTokenizer,
     EncoderDecoderModel, AutoModelForSeq2SeqLM)
 from functools import lru_cache
@@ -31,7 +31,7 @@ print(len('semplifica: 0.83 0.8 0.7 1.0 1.0'))
 
 
 
-'''def download_and_extract(url):
+def download_and_extract(url):
     tmp_dir = Path(tempfile.mkdtemp())
     compressed_filename = url.split('/')[-1]
     compressed_filepath = tmp_dir / compressed_filename
@@ -47,8 +47,7 @@ def lock_directory(dir_path):
     assert Path(dir_path).exists(), f'Directory does not exists: {dir_path}'
     lockfile_path = get_lockfile_path(dir_path)
     with open_with_lock(lockfile_path, 'w'):
-        yield'''
-
+        yield
 
 def prepare_fasttext_embeddings():
     FASTTEXT_EMBEDDINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -156,4 +155,19 @@ def get_dependency_tree_depth(sentence):
 
 
 
-print(get_dependency_tree_depth('Mia nonna è caduta dalle scale e mia mamma è andata ad aiutarla mentre si rialzava'))
+print(get_dependency_tree_depth('Mia nonna è caduta dalle scale e mia mamma è andata ad aiutarla mentre si rialzava'))'''
+
+import evaluate
+'''predictions = ["La mamma mangia il gelato"]
+references = [["Mummy eats the ice cream"]]
+
+bleu = evaluate.load("bleu")
+results = bleu.compute(predictions=predictions, references=references)
+print(results)'''
+
+bleu = evaluate.load("bleu")
+meteor = evaluate.load('meteor')
+predictions = ["La mamma mangia il gelato"]
+references = ["mia mamma mangia il gelato"]
+results = meteor.compute(predictions=predictions, references=references)
+print(results)

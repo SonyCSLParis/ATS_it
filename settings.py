@@ -10,7 +10,7 @@ TURKUS_TRANSLATED = path.join(TURKUS_DIR + '/translated')
 TURKUS_COS_SIM = path.join(TURKUS_DIR + '/similarity')
 WIKIPEDIA_DIR = path.join(ENGLISH_CORPUS + '/wikipedia')
 WIKIPEDIA_TRANSLATED = path.join(WIKIPEDIA_DIR + '/translated_training')
-
+ENRICHED_DATASET = path.join(DATA_DIR + '/enriched_dataset')
 SOURCE_DIR = path.join(SRC_ROOT_DIR + '/src') # path to the src script
 INTERMEDIATE_DIR = path.join(SRC_ROOT_DIR + '/intermediate')  # txt and others intermediate output
 INCOMPLETE_DATASET_DIR = path.join(INTERMEDIATE_DIR + '/incomplete_datasets') # primarily processed datasets
@@ -32,7 +32,7 @@ print(TRAINED_MODEL)
 CSV_EVAL_OUTPUT = path.join(MODEL_DIR_GENERAL + '/model_deep' + '/csv_output') #output csv after evaluation
 
 HTML_DIR = path.join(SRC_ROOT_DIR +'/html_output')  # plotly html save directory for final visualisations
-AUTHENTICATION_DEEPL = 'b95b8cb8-cb6b-c36a-e49e-d17dac11061d:fx'
+AUTHENTICATION_DEEPL = '76b5f019-5a5a-90de-b4ff-39b97f6347d1'
 FASTTEXT_EMBEDDINGS_PATH = '/Users/francesca/Desktop/Github/PROJECT_SONY/input/embedding/wiki.it.vec'
 
 nlp = spacy.load('it_core_news_sm')

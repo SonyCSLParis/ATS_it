@@ -102,9 +102,9 @@ class HuggingFaceDataset:
         from datasets import Dataset
         data = Dataset.from_pandas(df)
 
-        dataset1 = data.train_test_split(shuffle=True, test_size=0.1)
+        dataset1 = data.train_test_split(shuffle=True, test_size=0.08)
         train_ds = dataset1["train"].shuffle(seed=42)
-        test_valid = dataset1["test"].train_test_split(test_size = 0.2, shuffle = True)
+        test_valid = dataset1["test"].train_test_split(test_size = 0.1, shuffle = True)
         val_ds = test_valid['train']
         test_ds = test_valid['test']
 
@@ -174,12 +174,12 @@ for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit'), (
     colonna_semplice = [str(riga) for riga in list(df[0]['Simple'])]
 
     dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-    HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')
+    HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')'''
 
-file = pd.read_csv(CSV_FILES_PATH + '/paccsit_pure/pacssit.csv')
-colonna_complessa = [str(riga) for riga in list(file['Sentence_1'])]
-colonna_semplice = [str(riga) for riga in list(file['Sentence_2'])]
+file = pd.read_csv(CSV_FILES_PATH + '/enriched/enriched_final.csv')
+colonna_complessa = [str(riga) for riga in list(file['Normal'])]
+colonna_semplice = [str(riga) for riga in list(file['Simple'])]
 
 dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/paccsit_pure', '/paccsit_pure/train.csv', '/paccsit_pure/val.csv', '/paccsit_pure/test.csv')'''
+HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/enriched', '/enriched/train.csv', '/enriched/val.csv', '/enriched/test.csv')
 
