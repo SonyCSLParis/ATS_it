@@ -20,7 +20,7 @@
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/source/training/hf_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/hf_training.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
