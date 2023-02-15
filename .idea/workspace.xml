@@ -5,24 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d170ea3-b766-4bee-a613-d53550d2336c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/comparison.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/data_augmentation/translate_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_easse_report.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/paccsit_easse_ufficial.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_presentazione6.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_prova_adaptive.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_quinta.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/test_seconda.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_augmentation/translate_df.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_augmentation/translate_df.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_merging/join_datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data_processing/preprocess_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data_processing/preprocess_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/bert_score/score.py" afterDir="false" />
@@ -38,13 +20,7 @@
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tests/test_score_function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/bert_score/tune_layers/tune_layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_easse.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/model_deep/csv_output/augmented_easse.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/adaptive/metrics_calculation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/adaptive/metrics_calculation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/evaluator_adaptive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/evaluating/output_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/evaluating/output_metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/preprocessing/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/source/training/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/source/training/experiment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/transformers/.github/ISSUE_TEMPLATE/new-model-addition.yml" afterDir="false" />
@@ -1350,7 +1326,7 @@
       <recent name="$PROJECT_DIR$/src/data/data_processing/analysis/utils_charts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.metrics_calculation">
+  <component name="RunManager" selected="Python.dataset">
     <configuration name="PoS" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ARTIS_ATS" />
       <option name="INTERPRETER_OPTIONS" value="" />
