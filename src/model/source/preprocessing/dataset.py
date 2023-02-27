@@ -161,7 +161,7 @@ class HuggingFaceDataset:
 
 
 
-'''#with the code below I create the train and test split and I save it in the local folder
+#with the code below I create the train and test split and I save it in the local folder
 
 df1 = pd.read_csv(CSV_FILES_PATH + '/finalized_dataset/finalized_df.csv')
 df2 = pd.read_csv(CSV_FILES_PATH + '/augmented/augmented_dataset.csv')
@@ -175,11 +175,3 @@ for df in [(df1, '/finalized_dataset'),(df2, '/augmented'),(df3, '/paccssit'), (
 
     dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
     HuggingFaceDataset.get_train_test_csv(dataframe_prova, df[1], df[1] + '/train.csv', df[1] + '/val.csv', df[1] + '/test.csv')
-
-file = pd.read_csv(CSV_FILES_PATH + '/adap_enriched/enriched_adaptive.csv')
-colonna_complessa = [str(riga) for riga in list(file['Normal'])]
-colonna_semplice = [str(riga) for riga in list(file['Simple'])]
-
-dataframe_prova = pd.DataFrame({"Normal": colonna_complessa, "Simple": colonna_semplice})
-HuggingFaceDataset.get_train_test_csv(dataframe_prova, '/adap_enriched', '/adap_enriched/train.csv', '/adap_enriched/val.csv', '/adap_enriched/test.csv')'''
-

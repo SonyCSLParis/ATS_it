@@ -25,13 +25,13 @@ OBJECTS = {"dobj", "dative", "attr", "oprd"}
 # POS tags that will break adjoining items
 BREAKER_POS = {"CCONJ", "VERB"}
 # words that are negations
-NEGATIONS = {"no", "not", "n't", "never", "none"}
+NEGATIONS = {"no", "non", "nè", "mai", "nessuno"}
 
 
 # does dependency set contain any coordinating conjunctions?
 def contains_conj(depSet):
-    return "and" in depSet or "or" in depSet or "nor" in depSet or \
-           "but" in depSet or "yet" in depSet or "so" in depSet or "for" in depSet
+    return "e" in depSet or "o" in depSet or "nemmeno" in depSet or \
+           "ma" in depSet or "ancora" in depSet or "cosí" in depSet or "per" in depSet or "dunque" in depSet
 
 
 # get subs joined by conjunctions

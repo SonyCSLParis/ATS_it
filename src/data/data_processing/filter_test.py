@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 from settings import *
 import os
-
+'''
 def delete_tokens(dataset):
 
     colonna_complessa_train = [str(riga) for riga in list(dataset['Normal'])]
@@ -90,4 +90,35 @@ def filter_test(path):
     return
 
 
-filter_test(CSV_FILES_PATH)
+filter_test(CSV_FILES_PATH)'''
+
+joined = CSV_FILES_PATH + '/' + 'adap_enriched'
+
+for ele in ['/train.csv', '/test.csv', '/val.csv']:
+
+    joined_1 = joined + ele
+
+    if 'train' in joined_1:
+        df_train = pd.read_csv(joined_1)
+        colonna_complessa_train = [str(riga) for riga in list(df_train['Normal'])]
+
+    elif 'test' in joined_1:
+        df_test = pd.read_csv(joined_1)
+        colonna_complessa_test = [str(riga) for riga in list(df_test['Normal'])]
+        colonna_simple_test = [str(riga) for riga in list(df_test['Simple'])]
+
+    elif 'val' in joined_1:
+        df_val = pd.read_csv(joined_1)
+        colonna_complessa_val = [str(riga) for riga in list(df_val['Normal'])]
+
+    lista_test_complex = []
+    lista_test_simple = []
+
+for i in range(len(colonna_complessa_test)):
+    if colonna_complessa_test[i] not in colonna_complessa_train and colonna_complessa_test[i] not in colonna_complessa_val:
+        lista_test_complex.append(colonna_complessa_test[i])
+        lista_test_simple.append(colonna_simple_test[i])
+
+with open(joined + '/test_filtered.csv', 'w') as f:
+    writer = csv.writer(f)
+    writer.writerows(zip(lista_test_complex, lista_test_simple))

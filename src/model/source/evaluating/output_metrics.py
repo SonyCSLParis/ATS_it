@@ -41,7 +41,7 @@ def average_evaluation(input_csv):
     to_report_second = [(metrics[0],sari1/i), (metrics[1],round(meteor1/i, 3)), (metrics[2],round(rouge1/i,3)),(metrics[3],bleu1//i)]
     return to_report_first, to_report_second
 
-print(average_evaluation(CSV_EVAL_OUTPUT +'/adaptive_10_double_easse.csv'))
+
 
 
 #let the matrics be saved on a json file or a csv file
@@ -62,7 +62,6 @@ def average_evaluation2(input_csv):
         i = 0
         j = 0
         for row in reader:
-            print(row)
             i +=1
             j +=1
 
@@ -78,5 +77,5 @@ def average_evaluation2(input_csv):
     to_report_second = [(metrics[0],sari1/i), (metrics[1],bleu1/i)]
     return to_report_first, to_report_second
 
-
-#print(average_evaluation2(CSV_EVAL_OUTPUT + '/adaptive_10_double_easse.csv'))
+#print(average_evaluation(CSV_EVAL_OUTPUT +'/test1_finale.csv'))
+#print(average_evaluation(CSV_EVAL_OUTPUT + '/enriched_15epoche.csv'))
