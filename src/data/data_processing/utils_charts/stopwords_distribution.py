@@ -50,7 +50,7 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=63551, save = F
     :return: a Tuple containing as first argument the list of stopwords that were found and the average amount of stopwords for sentences
     '''
 
-
+    set_stopwords = nlp.Defaults.stop_words
 
     if filter:
         set_stopwords = nlp.Defaults.stop_words
@@ -66,8 +66,7 @@ def stopwords(type_sent, final_corpu, filter=None, corpus_length=63551, save = F
 
                     set_stopwords -= {word}
 
-    elif not filter:
-        set_stopwords = nlp.Defaults.stop_words
+
 
     count = 0
     which_stopwords = []

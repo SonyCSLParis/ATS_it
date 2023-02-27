@@ -5,8 +5,8 @@ from PoS import PoS_analysis, barplot_PoS
 def create_visualisation(final_corpus):
     dimension = len(final_corpus)
     # average amount of words per sentences
-    print('complex', amount_words(1, final_corpu=final_corpus, corpus_length=dimension))
-    print('simple', amount_words(2, final_corpu=final_corpus, corpus_length=dimension))
+    print('AVERAGE AMOUNT OF WORDS - complex ', amount_words(1, final_corpu=final_corpus, corpus_length=dimension))
+    print('AVERAGE AMOUNT OF WORDS - simple', amount_words(2, final_corpu=final_corpus, corpus_length=dimension))
 
     which_stop1, average_amount1 = stopwords(1, final_corpu=final_corpus ,filter=False,  corpus_length= dimension, save=True)
     which_stop11, average_amount11 = stopwords(1, final_corpu=final_corpus, filter=True, corpus_length= dimension, save=True)
@@ -24,7 +24,7 @@ def create_visualisation(final_corpus):
     key11, value11 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_final_2.txt')
     key2, value2 = PoS_analysis(INTERMEDIATE_DIR + '/ADV_no_stop_final_2.txt')
     key22, value22 = PoS_analysis(INTERMEDIATE_DIR + '/no_stop_final_2.txt')
-    print('done')
+    print('Done!! ')
 
     barplot_PoS(key1, value1, value2)
     barplot_PoS(key11, value11, value22)

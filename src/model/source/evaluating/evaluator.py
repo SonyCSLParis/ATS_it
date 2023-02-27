@@ -335,16 +335,16 @@ class HFEvaluator:
 
 
 # I instantiate the class, giving all the required arguments
-classe = HFEvaluator(eval_dataset_path = '/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/paccsit_pure/test_filtered.csv',
-                     model_path= TRAINED_MODEL + '/paccsit_original_20',
-                     tokenizer_path= TRAINED_MODEL + '/paccsit_original_20',
+classe = HFEvaluator(eval_dataset_path = CSV_FILES_PATH + '/paccsit_pure/test_madeup.csv',
+                     model_path= TRAINED_MODEL + '/enriched',
+                     tokenizer_path= TRAINED_MODEL + '/enriched',
                      log_level="WARNING")
 
 # I first open the configuration file and upload as a dictionary, but pay attention because you have to take care of selecting correctly the elements afterwards
-with open(TRAINED_MODEL + '/paccsit_original_20/config.json') as json_file:
+with open(TRAINED_MODEL + '/enriched/config.json') as json_file:
     data = json.load(json_file)
 
 # I ask to evaluate the generated data
 classe.evaluate_with_dataset(model_config=data,
-                             csv_output_path= CSV_EVAL_OUTPUT + '/paccsit_easse_ufficial.csv',
+                             csv_output_path= CSV_EVAL_OUTPUT + '/test1_finale.csv',
                              extend_dataframe=False)

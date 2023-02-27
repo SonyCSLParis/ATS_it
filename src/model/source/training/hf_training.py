@@ -134,7 +134,7 @@ class HuggingFaceTrainer:
             )
 
             os.environ["WANDB_API_KEY"] = wandb_config["api_key"]
-            os.environ["WANDB_DISABLED"] = "false"
+            os.environ["WANDB_DISABLED"] = "true"
             os.environ["WANDB_PROJECT"] = wandb_config["project"]
             os.environ["WANDB_ENTITY"] = wandb_config["entity"]
 
@@ -262,7 +262,7 @@ class HuggingFaceTrainer:
         report_to = HuggingFaceTrainer.setup_wandb(
             resume, training_config, wandb_config
         )
-        wandb.init(project= wandb_config['project'], entity= wandb_config['entity'], id = wandb_config['run_id'])
+        #wandb.init(project= wandb_config['project'], entity= wandb_config['entity'], id = wandb_config['run_id'])
 
         #loading of the two datasets
         train_ds, eval_ds = HuggingFaceTrainer.load_dataset(ds_path)
@@ -293,7 +293,7 @@ class HuggingFaceTrainer:
             per_device_train_batch_size=training_config["per_device_train_batch_size"],
             per_device_eval_batch_size=training_config["per_device_eval_batch_size"],
             fp16=training_config["fp16"] if torch.cuda.is_available() else False,
-            learning_rate = 3e-4, #potentially add weight decay 0.1 and notice the differences 
+            learning_rate = 3e-4, #potentially add weight decay 0.1 and notice the differences
             output_dir=training_output_path,
             overwrite_output_dir=False,
             logging_steps=training_config["logging_steps"],

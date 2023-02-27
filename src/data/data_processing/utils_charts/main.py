@@ -15,7 +15,7 @@ def main(only_PACSSIT = None, dataset_name = None):
 
 
 if __name__ == '__main__':
-    main(only_PACSSIT = False, dataset_name= '/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/paccsit_pure/pacssit.csv')
+    main(only_PACSSIT = False, dataset_name= '/Users/francesca/Desktop/Github/PROJECT_SONY/output/csv_files/augmented/augmented_dataset.csv')
 
 
 
