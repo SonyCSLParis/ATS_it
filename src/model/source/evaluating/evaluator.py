@@ -13,7 +13,6 @@ from src.model.source.evaluating.easse_sari.sari import corpus_sari
 
 
 '''Note: Parts of this code are lifted as is from those written by Christopher Lemcke.
-
 Copyright (c) 2022, Cristopher Lemcke <github: https://github.com/chrislemke/deep-martin
 '''
 
