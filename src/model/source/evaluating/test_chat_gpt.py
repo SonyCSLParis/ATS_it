@@ -34,7 +34,8 @@ try:
 
         i = 0
         for row in df.iterrows():
-            source = row[1][2]
+            source_1 = row[1][1]
+            source_2 = row[1][2]
             chat_simpl = row[1][3]
             reference = row[1][1]
             out_adaptive_model = row[1][4]
@@ -45,11 +46,11 @@ try:
             print('SIMPLIFICATION CHAT GPT:     ', chat_simpl)
             print('SIMPLIFICATION ADAPTIVE MODEL:     ', out_adaptive_model)'''
 
-            sari_easse_chat = corpus_sari(orig_sents=[source],
+            sari_easse_chat = corpus_sari(orig_sents=[source_2],
                                       sys_sents=[chat_simpl],
                                       refs_sents=[[reference]])
 
-            sari_easse_adap = corpus_sari(orig_sents=[source],
+            sari_easse_adap = corpus_sari(orig_sents=[source_1],
                                           sys_sents=[out_adaptive_model],
                                           refs_sents=[[reference]])
 
@@ -57,8 +58,8 @@ try:
             bleu_adap = eval_blue_score([out_adaptive_model], [[reference]])['score']
 
 
-            sari_hf_chat = eval_sari_score(sources=[source], predictions=[chat_simpl], references=[[reference]])['sari_score']
-            sari_hf_adap = eval_sari_score(sources=[source], predictions=[out_adaptive_model], references=[[reference]])['sari_score']
+            sari_hf_chat = eval_sari_score(sources=[source_2], predictions=[chat_simpl], references=[[reference]])['sari_score']
+            sari_hf_adap = eval_sari_score(sources=[source_1], predictions=[out_adaptive_model], references=[[reference]])['sari_score']
 
 
             sum_sari_easse_chat += sari_easse_chat
