@@ -8,8 +8,9 @@
       <excludeFolder url="file://$MODULE_DIR$/output" />
       <excludeFolder url="file://$MODULE_DIR$/intermediate" />
       <excludeFolder url="file://$MODULE_DIR$/html_output" />
+      <excludeFolder url="file://$MODULE_DIR$/venv_ats" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (PROJECT_SONY)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (ATS_it)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

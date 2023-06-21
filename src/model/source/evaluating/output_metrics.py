@@ -77,5 +77,5 @@ def average_evaluation2(input_csv):
     to_report_second = [(metrics[0],sari1/i), (metrics[1],bleu1/i)]
     return to_report_first, to_report_second
 
-#print(average_evaluation(CSV_EVAL_OUTPUT +'/test1_finale.csv'))
+print(average_evaluation(CSV_EVAL_OUTPUT +'/adaptive_10_double_easse.csv'))
 #print(average_evaluation(CSV_EVAL_OUTPUT + '/enriched_15epoche.csv'))
