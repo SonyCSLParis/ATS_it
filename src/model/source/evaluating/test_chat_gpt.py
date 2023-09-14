@@ -29,8 +29,9 @@ try:
     sum_bleu_chat = 0
     sum_bleu_adap = 0
 
-    with open('/Users/utente/Desktop/test_chat_gpt.csv', 'r', errors='ignore') as file:
+    with open('/Users/martina/Desktop/test_chat_gpt.csv', 'r', errors='ignore') as file:
         df = pd.read_csv(file, sep=';', error_bad_lines=False)
+        diff_list = []
 
         i = 0
         for row in df.iterrows():
@@ -71,6 +72,9 @@ try:
 
             i += 1
 
+            diff = abs(sari_hf_chat - sari_hf_adap)
+            diff_list.append((diff, source_2, chat_simpl, source_1, out_adaptive_model))
+
     #print('bleu_hf ',sum_blue//i)
     print('SARI (Easse package) for ChatGPT simplifications ', sum_sari_easse_chat/i)
     print('SARI (Easse package) for our Adaptive Model simplifications ', sum_sari_easse_adap / i)
@@ -78,6 +82,35 @@ try:
     print('SARI (Hugging Face) for our Adaptive Model simplifications ', sum_sari_hf_adap / i)
     print('BLEU (Hugging Face) for ChatGPT simplifications ', sum_bleu_chat / i)
     print('BLEU (Hugging Face) for our Adaptive Model simplifications ', sum_bleu_adap / i)
+
+    diff_list.sort(reverse=True)
+
+    top_10_highest_diff = pd.DataFrame(diff_list[:10],
+                                       columns=['Difference', 'Source 2', 'ChatGPT Simplification', 'Source 1',
+                                                'Adaptive Model Simplification'])
+
+    top_10_highest_diff.to_csv('/Users/martina/Desktop/top_10_highest_differences.csv', index=False)
+
+    for i, (diff, source_2, chat_simpl, source_1, out_adaptive_model) in enumerate(diff_list[:10]):
+        print(f'Difference {i + 1}: {diff}')
+        print(f'Source 2: {source_2}')
+        print(f'ChatGPT Simplification: {chat_simpl}')
+        print(f'Source 1: {source_1}')
+        print(f'Adaptive Model Simplification: {out_adaptive_model}')
+
+    diff_list.sort(reverse=False)
+
+    top_10_lowest_diff = pd.DataFrame(diff_list[:10],
+                                      columns=['Difference', 'Source 2', 'ChatGPT Simplification', 'Source 1',
+                                               'Adaptive Model Simplification'])
+    top_10_lowest_diff.to_csv('/Users/martina/Desktop/top_10_lowest_differences.csv', index=False)
+
+    for i, (diff, source_2, chat_simpl, source_1, out_adaptive_model) in enumerate(diff_list[:10]):
+        print(f'Difference {i + 1}: {diff}')
+        print(f'Source 2: {source_2}')
+        print(f'ChatGPT Simplification: {chat_simpl}')
+        print(f'Source 1: {source_1}')
+        print(f'Adaptive Model Simplification: {out_adaptive_model}')
 
 
 except pd.errors.ParserError as e:
